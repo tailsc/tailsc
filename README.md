@@ -1,9 +1,5 @@
 Hi 👋 My name is Danny <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
 ==================================
-
-Student
--------
-
 * 🌍  I'm based in Sweden
 * 🧠  I'm learning Blender, Godot
 * 🤝  I'm open to collaborating on Game Jams, Game Prototypes
