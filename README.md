@@ -19,12 +19,12 @@ Student
   <img src="https://github.com/tailsc/tailsc/blob/main/Godot.png?raw=true" alt="Skill Image" width="75">
 </a>
 
-<a href="DAVINCY LINK">
-  <img src="DAVINCY PNG" alt="Skill Image" width="75">
+<a href="https://www.blackmagicdesign.com/">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Davinci%20Resolve.png?raw=true" alt="Skill Image" width="75">
 </a>
 
-<a href="PIXLR LINK">
-  <img src="PIXLR PNG" alt="Skill Image" width="75">
+<a href="https://pixlr.com/">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Pixlr.png?raw=true" alt="Skill Image" width="75">
 </a>
 
 ## Socials
