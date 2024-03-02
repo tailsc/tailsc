@@ -19,7 +19,7 @@ Student
   <img src="https://github.com/tailsc/tailsc/blob/main/Godot.png?raw=true" alt="Skill Image" width="50">
 </a>
 
-<a href="https://www.blackmagicdesign.com/">
+<a href="https://www.blackmagicdesign.com/products/davinciresolve">
   <img src="https://github.com/tailsc/tailsc/blob/main/Davinci%20Resolve.png?raw=true" alt="Skill Image" width="50">
 </a>
 
