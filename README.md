@@ -11,9 +11,10 @@ Student
 
 ## Skills
 
-<a href="https://www.blender.org/">
-  <img src="https://github.com/tailsc/tailsc/raw/main/Blender.png" alt="Skill Image" width="50">
-</a>
+- [![Skill 1](https://github.com/tailsc/tailsc/raw/main/Blender.png)](https://www.blender.org/)
+- [![Skill 2](https://github.com/tailsc/tailsc/raw/main/AnotherSkill.png)](https://www.example.com/)
+- [![Skill 3](https://github.com/tailsc/tailsc/raw/main/YetAnotherSkill.png)](https://www.example.com/)
+
 
 
 
