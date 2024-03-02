@@ -10,7 +10,8 @@ Student
 * 🤝  I'm open to collaborating on Game Jams, Game Prototypes
 
 ## Skills
-[![blender]([path/to/image.png](https://github.com/tailsc/tailsc/assets/102230735/1413f418-6ddb-4b2e-bb8d-2e97bda58be6))]([link_to_be_clicked](https://www.blender.org/)){ width="50" height="50" }
+[![Blender]([images/your_image.png](https://github.com/tailsc/tailsc/assets/102230735/1413f418-6ddb-4b2e-bb8d-2e97bda58be6))](https://www.blender.org/){ width="50" height="50" }
+
 
 ![blender](https://github.com/tailsc/tailsc/assets/102230735/1413f418-6ddb-4b2e-bb8d-2e97bda58be6)
 
