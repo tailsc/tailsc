@@ -29,8 +29,8 @@ Student
 
 ## Socials
 
-<a href="DISCORD LINK">
-  <img src="DISCORD PNG" alt="Skill Image" width="75">
+<a href="https://discordapp.com/users/364076254812438538">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Discord.png?raw=true" alt="Skill Image" width="75">
 </a>
 
 <a href="YOUTUBE LINK">
