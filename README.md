@@ -19,20 +19,27 @@ Student
   <img src="https://github.com/tailsc/tailsc/blob/main/Godot.png?raw=true" alt="Skill Image" width="75">
 </a>
 
-<a href="[https://godotengine.org](https://www.blackmagicdesign.com/products/davinciresolve)">
-  <img src="https://github.com/tailsc/tailsc/blob/main/Davinci%20Resolve.png?raw=true" alt="Skill Image" width="75">
+<a href="DAVINCY LINK">
+  <img src="DAVINCY PNG" alt="Skill Image" width="75">
 </a>
 
-<a href="[https://godotengine.org](https://www.blackmagicdesign.com/products/davinciresolve)">
-  <img src="https://github.com/tailsc/tailsc/blob/main/Davinci%20Resolve.png?raw=true" alt="Skill Image" width="75">
+<a href="PIXLR LINK">
+  <img src="PIXLR PNG" alt="Skill Image" width="75">
 </a>
 
 ## Socials
 
-<a href="[https://discordapp.com/users/364076254812438538](https://pixlr.com/)">
-  <img src="https://github.com/tailsc/tailsc/blob/main/Pixlr.png?raw=true" alt="Skill Image" width="75">
+<a href="DISCORD LINK">
+  <img src="DISCORD PNG" alt="Skill Image" width="75">
 </a>
 
+<a href="YOUTUBE LINK">
+  <img src="YOUTUBE PNG" alt="Skill Image" width="75">
+</a>
+
+<a href="TWITCH LINK">
+  <img src="TWITCH PNG" alt="Skill Image" width="75">
+</a>
 
 <b>My GitHub Stats</b>
 
