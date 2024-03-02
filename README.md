@@ -12,33 +12,33 @@ Student
 ## Skills
 
 <a href="https://www.blender.org/">
-  <img src="https://github.com/tailsc/tailsc/raw/main/Blender.png" alt="Skill Image" width="75">
+  <img src="https://github.com/tailsc/tailsc/raw/main/Blender.png" alt="Skill Image" width="50">
 </a>
 
 <a href="https://godotengine.org">
-  <img src="https://github.com/tailsc/tailsc/blob/main/Godot.png?raw=true" alt="Skill Image" width="75">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Godot.png?raw=true" alt="Skill Image" width="50">
 </a>
 
 <a href="https://www.blackmagicdesign.com/">
-  <img src="https://github.com/tailsc/tailsc/blob/main/Davinci%20Resolve.png?raw=true" alt="Skill Image" width="75">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Davinci%20Resolve.png?raw=true" alt="Skill Image" width="50">
 </a>
 
 <a href="https://pixlr.com/">
-  <img src="https://github.com/tailsc/tailsc/blob/main/Pixlr.png?raw=true" alt="Skill Image" width="75">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Pixlr.png?raw=true" alt="Skill Image" width="50">
 </a>
 
 ## Socials
 
 <a href="https://discordapp.com/users/364076254812438538">
-  <img src="https://github.com/tailsc/tailsc/blob/main/Discord.png?raw=true" alt="Skill Image" width="75">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Discord.png?raw=true" alt="Skill Image" width="50">
 </a>
 
 <a href="https://www.youtube.com/@SuperCrow?sub_confirmation=1">
-  <img src="https://github.com/tailsc/tailsc/blob/main/Youtube.png?raw=true" alt="Skill Image" width="75">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Youtube.png?raw=true" alt="Skill Image" width="50">
 </a>
 
 <a href="https://www.twitch.tv/crowgames69">
-  <img src="https://github.com/tailsc/tailsc/blob/main/Twitch.png?raw=true" alt="Skill Image" width="75">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Twitch.png?raw=true" alt="Skill Image" width="50">
 </a>
 
 <b>My GitHub Stats</b>
