@@ -49,4 +49,4 @@ Hi 👋 My name is Danny <img align="right" src="https://visitor-badge.laobi.icu
 </a>
 
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A7JKG27)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/supercrow)
