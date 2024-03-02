@@ -22,13 +22,11 @@ Student
 
 <b>My GitHub Stats</b>
 
-<a href="http://www.github.com/tailsc"><img src="https://github-readme-stats.vercel.app/api?username=tailsc&show_icons=true&hide=&count_private=true&title_color=facc15&text_color=ffffff&icon_color=facc15&bg_color=181824&hide_border=true&show_icons=true" alt="tailsc's GitHub stats" /></a>
-
-<a href="http://www.github.com/tailsc"><img src="https://github-readme-streak-stats.herokuapp.com/?user=tailsc&stroke=ffffff&background=181824&ring=facc15&fire=facc15&currStreakNum=ffffff&currStreakLabel=facc15&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" /></a>
+<a href="http://www.github.com/tailsc"><img src="https://github-readme-streak-stats.herokuapp.com/?user=tailsc&stroke=ffffff&background=1e3a8a&ring=facc15&fire=facc15&currStreakNum=ffffff&currStreakLabel=facc15&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" /></a>
 
 <b>Top Repositories</b>
 
-<div width="100%" align="center"><a href="https://github.com/tailsc/tailsc" align="left"><img align="left" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=tailsc&repo=tailsc&title_color=facc15&text_color=ffffff&icon_color=facc15&bg_color=181824&hide_border=true&locale=en" /></a><a href="https://github.com/tailsc/tutorials" align="right"><img align="right" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=tailsc&repo=tutorials&title_color=facc15&text_color=ffffff&icon_color=facc15&bg_color=181824&hide_border=true&locale=en" /></a></div><br /><br /><br /><br /><br /><br /><br />
+<div width="100%" align="center"><a href="https://github.com/tailsc/tailsc" align="left"><img align="left" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=tailsc&repo=tailsc&title_color=facc15&text_color=ffffff&icon_color=facc15&bg_color=1e3a8a&hide_border=true&locale=en" /></a><a href="https://github.com/tailsc/tutorials" align="right"><img align="right" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=tailsc&repo=tutorials&title_color=facc15&text_color=ffffff&icon_color=facc15&bg_color=1e3a8a&hide_border=true&locale=en" /></a></div><br /><br /><br /><br /><br /><br /><br />
 
 ### Support Me
 
