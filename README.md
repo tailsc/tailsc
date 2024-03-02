@@ -9,12 +9,15 @@ Student
 * 🧠  I'm learning Blender, Godot
 * 🤝  I'm open to collaborating on Game Jams, Game Prototypes
 
-### Skills
+## Skills
 
-[![My Skills](https://skillicons.dev/icons?i=blender,godot,windows)](https://skillicons.dev)
-### Socials
+[![Discord](images/discord.png)](https://discord.com/@your_username) [![Blender](images/blender.png)](https://blender.org/) 
+[![Godot](images/godot.png)](https://godotengine.org/) [![Windows](images/windows.png)](https://www.microsoft.com/windows/)
 
-[![My Skills](https://skillicons.dev/icons?i=discord,gmail,github)](https://skillicons.dev)
+## Socials
+
+[![Discord](images/discord.png)](https://discord.com/@your_username) [![Gmail](images/gmail.png)](https://mail.google.com/) [![GitHub](images/github.png)](https://github.com/)
+
 
 <b>My GitHub Stats</b>
 
