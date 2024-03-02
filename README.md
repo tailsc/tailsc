@@ -13,9 +13,10 @@ Student
 
 <div style="max-width: 50px;">
   <a href="https://www.blender.org/">
-    <img src="https://github.com/tailsc/tailsc/blob/master/assets/102230735/aeab84f7-454b-4857-bdab-c3b23c7a6de7" alt="Skill Image" style="max-width: 100%;">
+    <img src="https://raw.githubusercontent.com/tailsc/tailsc/master/assets/102230735/aeab84f7-454b-4857-bdab-c3b23c7a6de7" alt="Skill Image" style="max-width: 100%;">
   </a>
 </div>
+
 
 
 
