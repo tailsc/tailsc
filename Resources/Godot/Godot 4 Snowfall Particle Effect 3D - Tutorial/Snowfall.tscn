@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://is7gwvsfesrf"]
+
+[sub_resource type="Curve" id="Curve_56cfi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.298701, 1), -0.207827, -0.207827, 0, 0, Vector2(0.668831, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_g1fr8"]
+curve = SubResource("Curve_56cfi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ua8we"]
+emission_shape = 3
+emission_box_extents = Vector3(5, 0, 5)
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, -1, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
+scale_min = 0.2
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_g1fr8")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_2w6ke"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8935, 0)
+cast_shadow = 0
+amount = 200
+lifetime = 5.0
+randomness = 0.5
+visibility_aabb = AABB(-8.98039, -8.90606, -4, 17.9608, 17.8121, 8)
+process_material = SubResource("ParticleProcessMaterial_ua8we")
+draw_pass_1 = SubResource("SphereMesh_2w6ke")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(19.4194, 1, 16.9359)
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496199, 0)
+size = Vector3(18.6698, 2, 19.9393)

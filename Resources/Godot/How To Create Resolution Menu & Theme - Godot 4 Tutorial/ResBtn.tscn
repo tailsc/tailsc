@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://ex43qusdw8cc"]
+
+[ext_resource type="Script" path="res://Options.gd" id="1_1posv"]
+[ext_resource type="FontFile" uid="uid://b30pxmolhsiec" path="res://Rubik-Bold.ttf" id="2_j5jne"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi3dd"]
+bg_color = Color(0.294118, 0.109804, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.4, 0.160784, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.443137, 0.180392, 0, 1)
+shadow_size = 5
+
+[sub_resource type="Theme" id="Theme_avv68"]
+Button/styles/focus = SubResource("StyleBoxFlat_fi3dd")
+Button/styles/hover = SubResource("StyleBoxFlat_fi3dd")
+Button/styles/normal = SubResource("StyleBoxFlat_fi3dd")
+Button/styles/pressed = SubResource("StyleBoxFlat_fi3dd")
+PopupMenu/fonts/font = ExtResource("2_j5jne")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_fi3dd")
+PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxFlat_fi3dd")
+PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxFlat_fi3dd")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_fi3dd")
+PopupMenu/styles/separator = SubResource("StyleBoxFlat_fi3dd")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1posv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -293.0
+offset_top = -30.0
+offset_right = 136.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_j5jne")
+theme_override_font_sizes/font_size = 50
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="Label"]
+layout_mode = 0
+offset_left = 285.0
+offset_right = 583.0
+offset_bottom = 47.0
+theme = SubResource("Theme_avv68")
+theme_override_fonts/font = ExtResource("2_j5jne")
+theme_override_font_sizes/font_size = 30
+alignment = 1
+item_count = 4
+selected = 1
+popup/item_0/text = "1280x720"
+popup/item_0/id = 0
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 1
+popup/item_2/text = "2560x1440"
+popup/item_2/id = 2
+popup/item_3/text = "3840x2160"
+popup/item_3/id = 3
+
+[connection signal="item_selected" from="Label/OptionButton" to="." method="_on_option_button_item_selected"]
