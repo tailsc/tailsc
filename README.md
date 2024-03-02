@@ -45,7 +45,7 @@ Student
   <img src="https://github.com/tailsc/tailsc/blob/main/Badges/Twitch.png?raw=true" alt="Skill Image" width="50">
 </a>
 
-<b>My GitHub Stats</b>
+## My GitHub Stats
 
 <a href="http://www.github.com/tailsc"><img src="https://github-readme-stats.vercel.app/api?username=tailsc&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=181824&hide_border=true&show_icons=true" alt="tailsc's GitHub stats" /></a>
 
