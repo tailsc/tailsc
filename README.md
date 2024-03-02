@@ -11,7 +11,7 @@ Student
 
 ### Skills
 
-[![My Skills](https://skillicons.dev/icons?i=blender,godot,windows)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=blender,godot,windows)]([https://skillicons.dev](https://www.blender.org/))
 ### Socials
 
 [![My Skills](https://skillicons.dev/icons?i=discord,gmail,github)](https://skillicons.dev)
