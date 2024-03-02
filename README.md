@@ -10,17 +10,10 @@ Student
 * 🤝  I'm open to collaborating on Game Jams, Game Prototypes
 
 ## Skills
-[![Blender]([images/your_image.png](https://github.com/tailsc/tailsc/assets/102230735/1413f418-6ddb-4b2e-bb8d-2e97bda58be6))](https://www.blender.org/){ width="50" height="50" }
+<div style="max-width: 50px;">
+  [![Blender](https://github.com/tailsc/tailsc/assets/102230735/1ca5ddc4-8c95-4be8-9229-4a5c8300eaa2)]([https://example.com/skill-website](https://www.blender.org/))
+</div>
 
-
-![blender](https://github.com/tailsc/tailsc/assets/102230735/1413f418-6ddb-4b2e-bb8d-2e97bda58be6)
-
-[![My !![blender](https://github.com/tailsc/tailsc/assets/102230735/a2ecbc39-6a04-4256-bd8f-d387205aae0c)
-[Uploading blender.png…]()
-Skills](https://skillicons.dev/icons?i=blender,godot,windows)](https://skillicons.dev)
-### Socials
-
-[![My Skills](https://skillicons.dev/icons?i=discord,gmail,github)](https://skillicons.dev)
 
 
 <b>My GitHub Stats</b>
