@@ -14,6 +14,7 @@ Student
 [![My Skills](https://skillicons.dev/icons?i=blender,discord,gmail,godot,windows)](https://skillicons.dev)
 ### Socials
 
+[![My Skills](https://skillicons.dev/icons?i=discord,gmail,github)](https://skillicons.dev)
 ### Badges
 
 <b>My GitHub Stats</b>
