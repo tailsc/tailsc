@@ -44,8 +44,8 @@ Hi 👋 My name is Danny <img align="right" src="https://visitor-badge.laobi.icu
 
 <div width="100%" align="center"><a href="https://github.com/tailsc/tailsc" align="left"><img align="left" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=tailsc&repo=tailsc&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=181824&hide_border=true&locale=en" /></a></div><br /><br /><br /><br /><br /><br /><br />
 
-<ul style="list-style-type: none; margin: 0;">
-
-<li style="display: inline-block; margin-right: 0.25rem;"><a href="https://www.ko-fi.com/supercrow"><img src="https://storage.ko-fi.com/cdn/kofi2.png?v=3" width="150"/></a></li>
-
+<ul style="list-style-type: none; margin: 0; padding: 0;"> <!-- Added padding: 0; to remove any default padding -->
+  <li style="display: inline-block; margin-right: 0.25rem;">
+    <a href="https://www.ko-fi.com/supercrow"><img src="https://storage.ko-fi.com/cdn/kofi2.png?v=3" width="150"/></a>
+  </li>
 </ul>
