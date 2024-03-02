@@ -1,6 +1,4 @@
-<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
-
-Hi 👋 My name is Danny
+Hi 👋 My name is Danny <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
 ==================================
 
 Student
