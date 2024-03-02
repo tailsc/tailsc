@@ -11,12 +11,12 @@ Student
 
 ### Skills
 
-[![My Skills](https://skillicons.dev/icons?i=blender,godot,windows)]([https://skillicons.dev](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=blender,godot,windows)](https://skillicons.dev)
 ### Socials
 
 [![My Skills](https://skillicons.dev/icons?i=discord,gmail,github)](https://skillicons.dev)
 
-<b>###My GitHub Stats</b>
+<b>My GitHub Stats</b>
 
 <a href="http://www.github.com/tailsc"><img src="https://github-readme-streak-stats.herokuapp.com/?user=tailsc&stroke=ffffff&background=1e3a8a&ring=facc15&fire=facc15&currStreakNum=ffffff&currStreakLabel=facc15&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" /></a>
 
