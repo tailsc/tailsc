@@ -11,7 +11,7 @@ Student
 
 ### Skills
 
-[![My Skills](https://skillicons.dev/icons?i=js,html,css,wasm)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=blender.cs,discord,gmail,godot,windows)](https://skillicons.dev)
 <p align="left">
 <a href="https://www.blender.org/" target="_blank" rel="noreferrer"><img src="[IMAGE](https://github.com/tandpfun/skill-icons/raw/main/icons/Blender-Dark.svg)" width="36" height="36" alt="Blender" /></a>
 </p>
