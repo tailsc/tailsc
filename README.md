@@ -1,4 +1,4 @@
-Hi 👋 My name is Danny
+Hi 👋 My name is Danny                                                                                  ![Visitor Count](https://profile-counter.glitch.me/{YOUR USER}/count.svg)
 ==================================
 
 Student
