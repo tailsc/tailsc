@@ -10,9 +10,11 @@ Student
 * 🤝  I'm open to collaborating on Game Jams, Game Prototypes
 
 ## Skills
+
 <div style="max-width: 50px;">
-  [![Blender](https://github.com/tailsc/tailsc/assets/102230735/1ca5ddc4-8c95-4be8-9229-4a5c8300eaa2)]([https://example.com/skill-website](https://www.blender.org/))
+  [![Blender](https://github.com/tailsc/tailsc/assets/102230735/1ca5ddc4-8c95-4be8-9229-4a5c8300eaa2)](https://www.blender.org/)
 </div>
+
 
 
 
