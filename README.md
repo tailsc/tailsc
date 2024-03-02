@@ -33,12 +33,12 @@ Student
   <img src="https://github.com/tailsc/tailsc/blob/main/Discord.png?raw=true" alt="Skill Image" width="75">
 </a>
 
-<a href="YOUTUBE LINK">
-  <img src="YOUTUBE PNG" alt="Skill Image" width="75">
+<a href="https://www.youtube.com/@SuperCrow?sub_confirmation=1">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Youtube.png?raw=true" alt="Skill Image" width="75">
 </a>
 
-<a href="TWITCH LINK">
-  <img src="TWITCH PNG" alt="Skill Image" width="75">
+<a href="https://www.twitch.tv/crowgames69">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Twitch.png?raw=true" alt="Skill Image" width="75">
 </a>
 
 <b>My GitHub Stats</b>
