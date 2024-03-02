@@ -11,12 +11,10 @@ Student
 
 ## Skills
 
-- [![Skill 1](https://github.com/tailsc/tailsc/raw/main/Blender.png)](https://www.blender.org/)
-  <img src="https://github.com/tailsc/tailsc/raw/main/Blender.png" alt="Skill 1" style="max-width:50px;">
-- [![Skill 2](https://github.com/tailsc/tailsc/raw/main/AnotherSkill.png)](https://www.example.com/)
-  <img src="https://github.com/tailsc/tailsc/raw/main/AnotherSkill.png" alt="Skill 2" style="max-width:50px;">
-- [![Skill 3](https://github.com/tailsc/tailsc/raw/main/YetAnotherSkill.png)](https://www.example.com/)
-  <img src="https://github.com/tailsc/tailsc/raw/main/YetAnotherSkill.png" alt="Skill 3" style="max-width:50px;">
+[![Skill 1](https://github.com/tailsc/tailsc/raw/main/Blender.png)](https://www.blender.org/) <img src="https://github.com/tailsc/tailsc/raw/main/Blender.png" alt="Skill 1" style="max-width:100px;"> &nbsp; 
+[![Skill 2](https://github.com/tailsc/tailsc/raw/main/AnotherSkill.png)](https://www.example.com/) <img src="https://github.com/tailsc/tailsc/raw/main/AnotherSkill.png" alt="Skill 2" style="max-width:100px;"> &nbsp; 
+[![Skill 3](https://github.com/tailsc/tailsc/raw/main/YetAnotherSkill.png)](https://www.example.com/) <img src="https://github.com/tailsc/tailsc/raw/main/YetAnotherSkill.png" alt="Skill 3" style="max-width:100px;">
+
 
 
 
