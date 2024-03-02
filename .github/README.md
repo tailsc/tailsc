@@ -6,8 +6,6 @@ Hi 👋 My name is Danny <img align="right" src="https://visitor-badge.laobi.icu
 
 ## Skills
 
-[![Blender](https://github.com/tailsc/tailsc/blob/main/.github/Badges/Blender.png?raw=true)](https://www.blender.org) width="50">
-
 <a href="https://www.blender.org/">
   <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Blender.png?raw=true" alt="Skill Image" width="50">
 </a>
