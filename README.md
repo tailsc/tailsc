@@ -38,7 +38,7 @@ Student
 </a>
 
 <a href="https://d-tails.itch.io/">
-  <img src="" alt="https://github.com/tailsc/tailsc/blob/main/Itch.png?raw=true" width="50">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Itch.png?raw=true" alt="Skill Image" width="50">
 </a>
 
 <a href="https://www.twitch.tv/crowgames69">
