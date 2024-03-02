@@ -5,7 +5,6 @@ Student
 -------
 
 * 🌍  I'm based in Sweden
-* ✉️  You can contact me at [ytdannykarlsson@gmail.com](mailto:ytdannykarlsson@gmail.com)
 * 🧠  I'm learning Blender, Godot
 * 🤝  I'm open to collaborating on Game Jams, Game Prototypes
 
