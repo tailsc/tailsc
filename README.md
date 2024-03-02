@@ -14,10 +14,16 @@ Student
 <a href="https://www.blender.org/">
   <img src="https://github.com/tailsc/tailsc/raw/main/Blender.png" alt="Skill Image" width="75">
 </a>
+
 <a href="https://godotengine.org">
   <img src="https://github.com/tailsc/tailsc/blob/main/Godot.png?raw=true" alt="Skill Image" width="75">
 </a>
 
+## Socials
+
+<a href="discordapp.com/users/364076254812438538">
+  <img src="https://github.com/tailsc/tailsc/blob/main/Discord.png?raw=true" alt="Skill Image" width="75">
+</a>
 
 
 <b>My GitHub Stats</b>
