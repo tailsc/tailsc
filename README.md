@@ -51,11 +51,11 @@ Student
 
 <a href="http://www.github.com/tailsc"><img src="https://github-readme-streak-stats.herokuapp.com/?user=tailsc&stroke=ffffff&background=181824&ring=3382ed&fire=3382ed&currStreakNum=ffffff&currStreakLabel=3382ed&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" /></a>
 
-<b>Top Repository</b>
+## Top Repository
 
 <div width="100%" align="center"><a href="https://github.com/tailsc/tailsc" align="left"><img align="left" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=tailsc&repo=tailsc&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=181824&hide_border=true&locale=en" /></a></div><br /><br /><br /><br /><br /><br /><br />
 
-### Support Me
+## Support Me
 
 <ul style="list-style-type: none; margin: 0;">
 
