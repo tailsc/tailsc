@@ -47,3 +47,6 @@ Hi 👋 My name is Danny <img align="right" src="https://visitor-badge.laobi.icu
 <a href="https://www.ko-fi.com/supercrow">
   <img src="https://storage.ko-fi.com/cdn/kofi2.png?v=3" width="150" style="border: none;"/> <!-- Add border: none; to the image -->
 </a>
+
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A7JKG27)
