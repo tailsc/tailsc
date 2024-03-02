@@ -12,7 +12,7 @@ Student
 ## Skills
 
 <a href="https://www.blender.org/">
-  <img src="https://github.com/tailsc/tailsc/raw/main/Blender.png" alt="Skill Image" width="100">
+  <img src="https://github.com/tailsc/tailsc/raw/main/Blender.png" alt="Skill Image" width="50">
 </a>
 
 
