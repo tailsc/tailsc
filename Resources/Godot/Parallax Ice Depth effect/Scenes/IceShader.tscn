@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://6c17ewaabnf7"]
+
+[ext_resource type="Shader" path="res://Shaders/Ice.gdshader" id="1_vl6ay"]
+[ext_resource type="Texture2D" uid="uid://ccnp0275fftp4" path="res://Textures/02/Ice003_1K-PNG_Color.png" id="2_j8yef"]
+[ext_resource type="Texture2D" uid="uid://bwg6icwvpunhi" path="res://Textures/02/Ice003_1K-PNG_NormalGL.png" id="3_vxalx"]
+[ext_resource type="Texture2D" uid="uid://cpr8j631gex48" path="res://Textures/02/Ice002_1K-PNG_Displacement.png" id="4_l72ww"]
+[ext_resource type="PackedScene" uid="uid://co0bqhcpqufdg" path="res://Blender/IceWaterfall.blend" id="5_cxses"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lskpp"]
+render_priority = 0
+shader = ExtResource("1_vl6ay")
+shader_parameter/top_color = Color(0, 0.705794, 0.812673, 1)
+shader_parameter/depth = 0.1
+shader_parameter/normal_depth = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic = 0.7
+shader_parameter/refractive_index = 0.1
+shader_parameter/over_texture = ExtResource("2_j8yef")
+shader_parameter/under_texture = ExtResource("4_l72ww")
+shader_parameter/surface_normalmap = ExtResource("3_vxalx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5kj8s"]
+size = Vector2(20, 20)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_lskpp")
+mesh = SubResource("PlaneMesh_5kj8s")
+
+[node name="IceWaterfall" parent="." instance=ExtResource("5_cxses")]
+transform = Transform3D(3.36311, 0, 0, 0, 3.36311, 0, 0, 0, 3.36311, 0, 0, 0)
+
+[node name="Cube" parent="IceWaterfall" index="0"]
+material_override = SubResource("ShaderMaterial_lskpp")
+
+[node name="Plane" parent="IceWaterfall" index="1"]
+material_override = SubResource("ShaderMaterial_lskpp")
+
+[editable path="IceWaterfall"]

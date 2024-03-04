@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1ffaam5q4ph"]
+
+[ext_resource type="Script" path="res://Scripts/Compass.gd" id="1_mw1jy"]
+[ext_resource type="PackedScene" uid="uid://cwgpq5tlg8mvn" path="res://Blender/Compass.blend" id="2_2hhqc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogfsl"]
+albedo_color = Color(0.0177324, 0.0177324, 0.0177324, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_e8tyb"]
+material = SubResource("StandardMaterial3D_ogfsl")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_mw1jy")
+
+[node name="Compass" parent="." instance=ExtResource("2_2hhqc")]
+transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Pointer" parent="Compass" index="0"]
+transform = Transform3D(2.57516e-07, -0.820335, 0.571882, 1, 3.13916e-07, 7.79347e-13, -1.79524e-07, 0.571882, 0.820335, 0.048581, 0.0531736, 0)
+
+[node name="Target" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.07665, 4.76837e-07, 4.9824)
+mesh = SubResource("SphereMesh_e8tyb")
+
+[editable path="Compass"]
