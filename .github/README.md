@@ -19,7 +19,7 @@
   <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Pixlr.png?raw=true" alt="Skill Image" width="50">
 </a>
 
-Socials
+## Socials
 <a href="https://discordapp.com/users/364076254812438538">
   <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Discord.png?raw=true" alt="Skill Image" width="50">
 </a>
