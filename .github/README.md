@@ -38,6 +38,17 @@ Hi 👋 My name is Danny <img align="right" src="https://visitor-badge.laobi.icu
   <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Twitch.png?raw=true" alt="Skill Image" width="50">
 </a>
 
+# GMAIL
+<a href="mailto:contactcrowgames@gmail.com">
+  <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Gmail.png?raw=true" alt="Skill Image" width="50">
+</a>
+
+# STEAM
+<a href="https://www.twitch.tv/crowgamesdev">
+  <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Twitch.png?raw=true" alt="Skill Image" width="50">
+</a>
+
+
 ## Top Repository
 
 <div width="100%" align="center"><a href="https://github.com/tailsc/tailsc" align="left"><img align="left" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=tailsc&repo=tailsc&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=181824&hide_border=true&locale=en" /></a></div><br /><br /><br /><br /><br /><br /><br />
