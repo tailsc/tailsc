@@ -1,8 +1,6 @@
 Hi 👋 My name is Danny <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
 ==================================
-* 🌍  I'm based in Sweden
-* 🧠  I'm learning Blender, Godot
-* 🤝  I'm open to collaborating on Game Jams, Game Prototypes
+* ✉️  You can contact me at [contactcrowgames@gmail.com](mailto:contactcrowgames@gmail.com)
 
 ## Skills
 
