@@ -1,7 +1,5 @@
 Hi 👋 My name is Danny <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
 ==================================
-* ✉️  You can contact me at [contactcrowgames@gmail.com](mailto:contactcrowgames@gmail.com)
-
 ## Skills
 
 <a href="https://www.blender.org/">
