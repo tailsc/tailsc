@@ -1,6 +1,5 @@
-[tailsc](https://github.com/tailsc/tailsc) > [Resources](https://github.com/tailsc/tailsc/tree/main/Resources) > Folder Name = Video Name 
+[tailsc](https://github.com/tailsc/tailsc) > [Resources](https://github.com/tailsc/tailsc/tree/main/Resources) > Folder Name = Video Name <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
 [Download Specific Folder](https://download-directory.github.io/)
-<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
 ==================================
 ## Skills
 <a href="https://www.blender.org/">
