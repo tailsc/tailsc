@@ -1,4 +1,4 @@
-[tailsc](https://github.com/tailsc/tailsc) > [Resources](https://github.com/tailsc/tailsc/tree/main/Resources) > Folder Name = Video Name [Download Specific Folder](https://download-directory.github.io/)
+[tailsc](https://github.com/tailsc/tailsc) > [Resources](https://github.com/tailsc/tailsc/tree/main/Resources) > **Folder Name = Video Name** [Download Specific Folder](https://download-directory.github.io/)
 <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
 ==================================
 ## Skills
