@@ -2,7 +2,6 @@
 <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
 ==================================
 ## Skills
-
 <a href="https://www.blender.org/">
   <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Blender.png?raw=true" alt="Skill Image" width="50">
 </a>
