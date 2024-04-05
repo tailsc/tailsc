@@ -1,6 +1,7 @@
 
 
-tailsc > Resources > Find Folder Same Name As Video GitHub Download Specific Folders - https://download-directory.github.io/ <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
+tailsc > Resources > Find Folder Same Name As Video Download Specific Folders - https://download-directory.github.io/ 
+<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
 ==================================
 ## Skills
 
