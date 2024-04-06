@@ -39,7 +39,7 @@
   <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Gmail.png?raw=true" alt="Skill Image" width="50">
 </a>
 
-<a href="https://store.steampowered.com/publisher/crowgames">
+<a href="https://store.steampowered.com/publisher/CrowGames">
   <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Steam.png?raw=true" alt="Skill Image" width="50">
 </a>
 
