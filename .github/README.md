@@ -1,23 +1,6 @@
 [tailsc](https://github.com/tailsc/tailsc) > [Resources](https://github.com/tailsc/tailsc/tree/main/Resources) > Folder Name = Video Name <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=tailsc.tailsc" />
 [Download Specific Folder](https://download-directory.github.io/)
 ==================================
-## Skills
-<a href="https://www.blender.org/">
-  <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Blender.png?raw=true" alt="Skill Image" width="50">
-</a>
-
-<a href="https://godotengine.org">
-  <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Godot.png?raw=true" alt="Skill Image" width="50">
-</a>
-
-<a href="https://www.blackmagicdesign.com/products/davinciresolve">
-  <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Davinci%20Resolve.png?raw=true" alt="Skill Image" width="50">
-</a>
-
-<a href="https://pixlr.com/">
-  <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Pixlr.png?raw=true" alt="Skill Image" width="50">
-</a>
-
 ## Socials
 <a href="https://discordapp.com/users/364076254812438538">
   <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Discord.png?raw=true" alt="Skill Image" width="50">
