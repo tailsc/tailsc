@@ -6,9 +6,6 @@
   <a href="https://github.com/tailsc/tailsc/tree/main/Resources">Resources</a> > Folder Name = Video Name > 
   <a href="https://download-directory.github.io/">Download Specific Folder</a>
 </p>
-<p align="center">
-  ‎ 
-</p>
 
 ## Socials
 
