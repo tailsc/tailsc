@@ -1,5 +1,7 @@
+## How to download
 [tailsc](https://github.com/tailsc/tailsc) > [Resources](https://github.com/tailsc/tailsc/tree/main/Resources) > Folder Name = Video Name > [Download Specific Folder](https://download-directory.github.io/)
 ==================================
+## Socials
 <a href="https://discordapp.com/users/364076254812438538">
   <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Discord.png?raw=true" alt="Skill Image" width="50">
 </a>
@@ -23,5 +25,7 @@
 <a href="https://store.steampowered.com/publisher/CrowGames">
   <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Steam.png?raw=true" alt="Skill Image" width="50">
 </a>
+
+## Support me
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/crowgames)
