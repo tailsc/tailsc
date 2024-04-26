@@ -19,5 +19,5 @@
 ## Support me
 
 <p align="center">
-  <a [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/crowgames)
+  <a href="https://ko-fi.com/crowgames">Ko-fi</a>
 </p>
