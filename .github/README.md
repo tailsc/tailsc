@@ -18,6 +18,6 @@
 
 ## Support me
 
-<div style="text-align: center">
+<div style="text-align: center!important">
   [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/crowgames)
 </div>
