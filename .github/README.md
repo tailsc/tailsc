@@ -5,8 +5,6 @@
   <a href="https://download-directory.github.io/">Download Specific Folder</a>
 </p>
 
-==================================
-
 ## Socials
 
 <p align="center">
