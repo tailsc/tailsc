@@ -22,7 +22,7 @@ Most resources are <a href="https://creativecommons.org/public-domain/cc0/">CC0<
   <a href="https://crowgamesdev.itch.io">Itch</a> |
   <a href="https://www.twitch.tv/crowgamesdev">Twitch</a> |
   <a href="https://store.steampowered.com/publisher/CrowGames">Steam</a>
-  <a href="contactcrowgames@gmail.com">Email</a>
+  <a href=contactcrowgames@gmail.com>Email</a>
 </p>
 
 ## ⭐ Support the Project
