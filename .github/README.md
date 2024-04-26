@@ -26,6 +26,16 @@
   <img src="https://github.com/tailsc/tailsc/blob/main/.github/Badges/Steam.png?raw=true" alt="Skill Image" width="50">
 </a>
 
+## Socials
+
+<p align="center">
+  <a href="https://discordapp.com/users/364076254812438538">Discord</a> | 
+  <a href="https://www.youtube.com/@CrowGamesDev?sub_confirmation=1">Youtube</a> |
+  <a href="https://crowgamesdev.itch.io">Itch</a> |
+  <a href="https://www.twitch.tv/crowgamesdev">Twitch</a>
+  <a href="https://store.steampowered.com/publisher/CrowGames">Twitch</a>
+</p>
+
 ## Support me
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/crowgames)
