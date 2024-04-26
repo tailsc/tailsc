@@ -18,5 +18,6 @@
 
 ## Support me
 
-| [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/crowgames) |
-|---|---|
+<p align="center">
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/crowgames)
+</p>
