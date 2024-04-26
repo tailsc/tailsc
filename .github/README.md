@@ -34,5 +34,5 @@ Most resources are <a href="https://creativecommons.org/public-domain/cc0/">CC0<
   <a href="https://ko-fi.com/crowgames">Ko-fi</a>
 </p>
 <p align="center">
-  To support the project directly, feel free to open issues for suggestions!
+  To support the project directly, feel free to open <a href="https://github.com/tailsc/tailsc/issues">issues</a> for suggestions!
 </p>
