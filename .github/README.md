@@ -21,7 +21,7 @@ Most resources are <a href="https://creativecommons.org/public-domain/cc0/">CC0<
   <a href="https://www.youtube.com/@CrowGamesDev?sub_confirmation=1">Youtube</a> |
   <a href="https://crowgamesdev.itch.io">Itch</a> |
   <a href="https://www.twitch.tv/crowgamesdev">Twitch</a> |
-  <a href="https://store.steampowered.com/publisher/CrowGames">Steam</a>
+  <a href="https://store.steampowered.com/publisher/CrowGames">Steam</a> |
   <a href="mailto:contactcrowgames@gmail.com">Email</a>
 </p>
 
