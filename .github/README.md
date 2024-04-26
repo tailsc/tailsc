@@ -25,7 +25,7 @@ Most resources are <a href="https://creativecommons.org/public-domain/cc0/">CC0<
   <a href="mailto:contactcrowgames@gmail.com">Email</a>
 </p>
 
-## ⭐ Support the Project
+## Support the Project
 
 <p align="center">
   If you want to support my work, buy me a coffee:
