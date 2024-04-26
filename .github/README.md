@@ -1,5 +1,10 @@
 # How To Download
-<a href="https://github.com/tailsc/tailsc">tailsc</a> |  > [Resources](https://github.com/tailsc/tailsc/tree/main/Resources) > Folder Name = Video Name > [Download Specific Folder](https://download-directory.github.io/)
+<p align="center">
+  <a href="https://github.com/tailsc/tailsc">tailsc</a> > 
+  <a href="https://github.com/tailsc/tailsc/tree/main/Resources">Resources</a> > 
+  <a href="https://download-directory.github.io/">Download Specific Folder</a>
+</p>
+[tailsc](https://github.com/tailsc/tailsc) > [Resources](https://github.com/tailsc/tailsc/tree/main/Resources) > Folder Name = Video Name > [Download Specific Folder](https://download-directory.github.io/)
 ==================================
 ## Socials
 <a href="https://discordapp.com/users/364076254812438538">
