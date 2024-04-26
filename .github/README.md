@@ -1,4 +1,4 @@
-# How to download
+# How To Download
 [tailsc](https://github.com/tailsc/tailsc) > [Resources](https://github.com/tailsc/tailsc/tree/main/Resources) > Folder Name = Video Name > [Download Specific Folder](https://download-directory.github.io/)
 ==================================
 ## Socials
