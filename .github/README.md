@@ -1,3 +1,4 @@
+![Untitled(1)](https://github.com/tailsc/tailsc/assets/102230735/bf4f86db-c4ae-4e5d-8160-529cfee92f01)
 # How To Download
 <p align="center">
   <a href="https://github.com/tailsc/tailsc">tailsc</a> > 
