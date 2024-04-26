@@ -7,12 +7,6 @@
   <a href="https://download-directory.github.io/">Download Specific Folder</a>
 </p>
 
-## License
-
-<p align="center">
-Most resources are <a href="https://creativecommons.org/public-domain/cc0/">CC0</a>, so feel free to use and modify them. External resources might have different licenses. For non-personal use check the video to see where they come from for their specific licensing info.
-</p>
-
 ## Socials
 
 <p align="center">
