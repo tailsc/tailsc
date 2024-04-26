@@ -7,7 +7,7 @@
 
 ## License
 
-Most resources are CC0, so feel free to use and modify them for your personal projects. However, some external resources (code, assets) might have different licenses. For non-personal use check my <a href="https://www.youtube.com/@CrowGamesDev?sub_confirmation=1">Youtube</a> to see where they come from for their specific licensing info.
+Most resources are CC0, so feel free to use and modify them for your projects. However, some external resources (code, assets) might have different licenses. For non-personal use check my <a href="https://www.youtube.com/@CrowGamesDev?sub_confirmation=1">Youtube</a> to see where they come from for their specific licensing info.
 
 ## Socials
 
