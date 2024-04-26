@@ -8,7 +8,7 @@
 ## License
 
 <p align="center">
-Most resources are <a href="https://creativecommons.org/public-domain/cc0/">CC0</a>, so feel free to use and modify them for your projects. However, some external resources (code, assets) might have different licenses. For non-personal use check my <a href="https://www.youtube.com/@CrowGamesDev?sub_confirmation=1">Youtube</a> to see where they come from for their specific licensing info.
+Most resources are <a href="https://creativecommons.org/public-domain/cc0/">CC0</a>, so feel free to use and modify them for your projects. However, some external resources (code, assets) might have different licenses. For non-personal use check the <a href="https://www.youtube.com/@CrowGamesDev?sub_confirmation=1">youtube</a> video to see where they come from for their specific licensing info.
 </p>
 
 ## Socials
