@@ -29,8 +29,6 @@ Most resources are <a href="https://creativecommons.org/public-domain/cc0/">CC0<
 
 <p align="center">
   If you want to support my work, buy me a coffee:
-</p>
-<p align="center">
   <a href="https://ko-fi.com/crowgames">Ko-fi</a>
 </p>
 <p align="center">
