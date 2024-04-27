@@ -1,0 +1,15 @@
+Camera3D
+Node
+Node3D
+Control
+CanvasLayer
+GridContainer
+MarginContainer
+PanelContainer
+Label
+TextureRect
+VBoxContainer
+Button
+HBoxContainer
+Label3D
+CollisionShape3D

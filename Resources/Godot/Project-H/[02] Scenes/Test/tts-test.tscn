@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://p3m66qeo0h6d"]
+
+[sub_resource type="GDScript" id="GDScript_emw7j"]
+script/source = "extends Node
+
+var voices = DisplayServer.tts_get_voices_for_language(\"en\")
+@onready var voice_id = voices[0]
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	DisplayServer.tts_speak(\"Hello, World!\", voice_id)
+	print(voices)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _on_button_pressed() -> void:
+	DisplayServer.tts_speak(\"you press button yesss, i'm your daddy\", voice_id)
+	#DisplayServer.tts_stop()
+"
+
+[node name="Node" type="Node"]
+script = SubResource("GDScript_emw7j")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 339.0
+offset_top = 219.0
+offset_right = 467.0
+offset_bottom = 333.0
+text = "dialog"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

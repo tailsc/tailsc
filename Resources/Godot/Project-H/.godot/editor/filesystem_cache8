@@ -1,0 +1,297 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1708807533
+::res://[01] Assets/::1708770280
+::res://[01] Assets/Audio/::1708769807
+::res://[01] Assets/Audio/Music/::1708769801
+::res://[01] Assets/Audio/Sfx/::1708769879
+423109__ogsoundfx__guns-explosions-album-flare-gun-5-2.wav::AudioStreamWAV::6596749319267033792::1708445739::1708769879::1::::<><>::
+::res://[01] Assets/Blender/::1708808179
+alpine-01.blend::PackedScene::3809340699069343548::1708168537::1708168537::1::::<><>::
+alpine-02.blend::PackedScene::9033167740906447976::1708168537::1708168537::1::::<><>::
+alpine-03.blend::PackedScene::8613646419707007760::1708168537::1708168537::1::::<><>::
+alpine-04.blend::PackedScene::5199238000240422021::1708168537::1708168537::1::::<><>::
+alpine-05.blend::PackedScene::8934955560298358729::1708168537::1708168537::1::::<><>::
+alpine-06.blend::PackedScene::6605505435734961761::1708168537::1708168537::1::::<><>::
+alpine-07.blend::PackedScene::2956199261303211276::1708168537::1708168537::1::::<><>::
+alpine-08.blend::PackedScene::5007749098416917869::1708168537::1708168537::1::::<><>::
+alpine-09.blend::PackedScene::4671391167239965595::1708168537::1708168537::1::::<><>::
+alpine-10.blend::PackedScene::3878554118849024318::1708168537::1708168537::1::::<><>::
+cliff-01.blend::PackedScene::5391146676407077073::1708168537::1708168537::1::::<><>::
+cliff-04.blend::PackedScene::6530316422621748238::1708168537::1708168537::1::::<><>::
+cliff-05.blend::PackedScene::6177168065869825182::1708168537::1708168537::1::::<><>::
+cliff-06.blend::PackedScene::6176208897560057678::1708168537::1708168537::1::::<><>::
+cliff-07.blend::PackedScene::4366485193509204655::1708168537::1708168537::1::::<><>::
+cliff-10.blend::PackedScene::385062052827583566::1708168538::1708168538::1::::<><>::
+cliff-11.blend::PackedScene::5043150925304614229::1708168538::1708168538::1::::<><>::
+compass.blend::PackedScene::2513144694683252603::1708194229::1708194234::1::::<><>::
+female-base.blend::PackedScene::4340357747857517668::1708538459::1708538464::1::::<><>::
+flare-gun.blend::PackedScene::1007331528551367178::1708445085::1708445088::1::::<><>::
+flashlight.blend::PackedScene::6732716830752035547::1708365152::1708365154::1::::<><>::
+tree-v3.blend::PackedScene::8993873762696655581::1708807944::1708808179::1::::<><>::uid://vlti6vm5reos::::res://[01] Assets/Blender/textures/pine_bark_diff_4k.jpg<>uid://bjuge3x3kc352::::res://[01] Assets/Blender/textures/TexturesCom_Branches0025_1_M.png<>uid://dqrdwj2mfc5f7::::res://[01] Assets/Blender/textures/TexturesCom_Branches0025_normal.png
+::res://[01] Assets/Blender/textures/::1708807605
+58b5b90e-ebba-4cf6-b391-24259d88.png::CompressedTexture2D::5017441695046140724::1708807543::1708807562::1::::<><>::
+colour_palette.png::CompressedTexture2D::8084669754948807658::1708191956::1708191961::1::::<><>::
+pine-trees-3d-pack-high-quality.png::CompressedTexture2D::8759944898444627439::1708807543::1708807561::1::::<><>::
+pine_bark_diff_4k.jpg::CompressedTexture2D::1497843442157875238::1708807512::1708807559::1::::<><>::
+pine_bark_disp_4k.png::CompressedTexture2D::261447855687566407::1708807516::1708807540::1::::<><>::
+pine_bark_nor_gl_4k.exr::::-1::0::0::0::::<><>::
+pine_bark_rough_4k.exr::::-1::0::0::0::::<><>::
+TexturesCom_Branches0025_1_M.png::CompressedTexture2D::3059780784118779255::1708807543::1708807605::1::::<><>::
+TexturesCom_Branches0025_normal.png::CompressedTexture2D::8317599924522935394::1708807543::1708807605::1::::<><>::
+::res://[01] Assets/env/::1708769635
+::res://[01] Assets/Resources/::1708807770
+compass.tres::Resource/Resource::3407942526572349516::1708770263::0::1::::<><>::res://[03] Scripts/item_data.gd<>uid://5e46yg4vclbo::::res://[01] Assets/textures/Compass.png
+FlareGun.tres::Resource/Resource::1892563130381582430::1708770263::0::1::::<><>::res://[03] Scripts/item_data.gd<>uid://c8ebgswylbbud::::res://[01] Assets/textures/FlareGun.png
+Flashlight.tres::Resource/ItemData::4805906233108232180::1708807770::0::1::::<><>::res://[03] Scripts/item_data.gd
+test_inv.tres::Resource/InventoryData::4967407011536975236::1708807770::0::1::::<><>::res://[03] Scripts/inventory_data.gd<>res://[03] Scripts/slot_data.gd<>uid://bos3kyywbo4ii::::res://[01] Assets/Resources/compass.tres<>uid://171idogwis27::::res://[01] Assets/Resources/FlareGun.tres<>uid://caqatq8e4gbfg::::res://[01] Assets/Resources/Flashlight.tres
+::res://[01] Assets/shaders/::1708807771
+viewmodel.gdshader::Shader::-1::1708807771::0::1::::<><>::
+::res://[01] Assets/textures/::1708770277
+Compass.png::CompressedTexture2D::2115740243733501532::1708628269::1708770264::1::::<><>::
+Epic_BlueSunset_EquiRect_flat.png::CompressedTexture2D::3707775824577565492::1708168536::1708769948::1::::<><>::
+FlareGun.png::CompressedTexture2D::7097403130724896487::1708628455::1708770264::1::::<><>::
+Flashlight.png::CompressedTexture2D::8062434488791959891::1708628460::1708770264::1::::<><>::
+gray_grid.tres::StandardMaterial3D::3125161711799563912::1708770263::0::1::::<><>::uid://0y3tgf6thlof::::res://[01] Assets/textures/UE4_1m x 1m (2).png
+icon.svg::CompressedTexture2D::662396467644899153::1708168538::1708770264::1::::<><>::
+snowball.png::CompressedTexture2D::152174897956220274::1708168538::1708770264::1::::<><>::
+UE4_1m x 1m (2).png::CompressedTexture2D::1806000487228198037::1708168536::1708770264::1::::<><>::
+white-circle.png::CompressedTexture2D::4772074544681261667::1708168538::1708770277::1::::<><>::
+::res://[01] Assets/textures/Particles/::1708769741
+::res://[01] Assets/textures/Particles/Kenny/::1708446098
+::res://[01] Assets/textures/Particles/Kenny/Particle Pack/::1708769771
+circle_01.png::CompressedTexture2D::868518284547290057::1707744146::1708769771::1::::<><>::
+circle_02.png::CompressedTexture2D::7824429265814636684::1707744146::1708769771::1::::<><>::
+circle_03.png::CompressedTexture2D::1643144111968152647::1707744146::1708769771::1::::<><>::
+circle_04.png::CompressedTexture2D::7464923849402592806::1707744146::1708769771::1::::<><>::
+circle_05.png::CompressedTexture2D::9101467144144143924::1707744146::1708769771::1::::<><>::
+dirt_01.png::CompressedTexture2D::9094526438455685290::1707744146::1708769771::1::::<><>::
+dirt_02.png::CompressedTexture2D::4520438778692790098::1707744146::1708769771::1::::<><>::
+dirt_03.png::CompressedTexture2D::4928269801674790486::1707744146::1708769771::1::::<><>::
+fire_01.png::CompressedTexture2D::3598106966255545883::1707744146::1708769771::1::::<><>::
+fire_02.png::CompressedTexture2D::3739502426138830565::1707744146::1708769771::1::::<><>::
+flame_01.png::CompressedTexture2D::4792683951642046624::1707744146::1708769771::1::::<><>::
+flame_02.png::CompressedTexture2D::8611232329861796457::1707744146::1708769771::1::::<><>::
+flame_03.png::CompressedTexture2D::6783015743532221600::1707744146::1708769771::1::::<><>::
+flame_04.png::CompressedTexture2D::431471497094159697::1707744146::1708769771::1::::<><>::
+flame_05.png::CompressedTexture2D::6955154306037006713::1707744146::1708769771::1::::<><>::
+flame_06.png::CompressedTexture2D::7060356771982044975::1707744146::1708769771::1::::<><>::
+flare_01.png::CompressedTexture2D::5079721991676445750::1707744146::1708769771::1::::<><>::
+light_01.png::CompressedTexture2D::966575444623020113::1707744146::1708769771::1::::<><>::
+light_02.png::CompressedTexture2D::1518910183706526523::1707744146::1708769771::1::::<><>::
+light_03.png::CompressedTexture2D::4413392908426352656::1707744146::1708769771::1::::<><>::
+magic_01.png::CompressedTexture2D::2388814617035702667::1707744146::1708769771::1::::<><>::
+magic_02.png::CompressedTexture2D::256280166876339625::1707744146::1708769771::1::::<><>::
+magic_03.png::CompressedTexture2D::3203407990152639021::1707744146::1708769771::1::::<><>::
+magic_04.png::CompressedTexture2D::2580363246887739828::1707744146::1708769771::1::::<><>::
+magic_05.png::CompressedTexture2D::6817577176975540402::1707744146::1708769771::1::::<><>::
+muzzle_01.png::CompressedTexture2D::6053155682906412417::1707744146::1708769771::1::::<><>::
+muzzle_02.png::CompressedTexture2D::2504205248124094566::1707744146::1708769771::1::::<><>::
+muzzle_03.png::CompressedTexture2D::1677354010331146159::1707744146::1708769771::1::::<><>::
+muzzle_04.png::CompressedTexture2D::8673877714235332046::1707744146::1708769771::1::::<><>::
+muzzle_05.png::CompressedTexture2D::6196119311216346269::1707744146::1708769771::1::::<><>::
+scorch_01.png::CompressedTexture2D::6279256972346861404::1707744146::1708769771::1::::<><>::
+scorch_02.png::CompressedTexture2D::3957041563786263708::1707744146::1708769771::1::::<><>::
+scorch_03.png::CompressedTexture2D::2071443135842017212::1707744146::1708769771::1::::<><>::
+scratch_01.png::CompressedTexture2D::1185525317653945471::1707744146::1708769771::1::::<><>::
+slash_01.png::CompressedTexture2D::3700693245188723988::1707744146::1708769771::1::::<><>::
+slash_02.png::CompressedTexture2D::3816494907052140393::1707744146::1708769771::1::::<><>::
+slash_03.png::CompressedTexture2D::907321910525688970::1707744146::1708769771::1::::<><>::
+slash_04.png::CompressedTexture2D::2727475603603970369::1707744146::1708769771::1::::<><>::
+smoke_01.png::CompressedTexture2D::4275265629674858000::1707744146::1708769771::1::::<><>::
+smoke_02.png::CompressedTexture2D::7896536060056683891::1707744146::1708769771::1::::<><>::
+smoke_03.png::CompressedTexture2D::3069350966983123610::1707744146::1708769771::1::::<><>::
+smoke_04.png::CompressedTexture2D::1789805860920661837::1707744146::1708769771::1::::<><>::
+smoke_05.png::CompressedTexture2D::1792006368184042933::1707744146::1708769771::1::::<><>::
+smoke_06.png::CompressedTexture2D::4120502978026027643::1707744146::1708769771::1::::<><>::
+smoke_07.png::CompressedTexture2D::4401979770628103176::1707744146::1708769771::1::::<><>::
+smoke_08.png::CompressedTexture2D::8628068504142488791::1707744146::1708769771::1::::<><>::
+smoke_09.png::CompressedTexture2D::6458081924391758090::1707744146::1708769771::1::::<><>::
+smoke_10.png::CompressedTexture2D::9041120479762393750::1707744146::1708769771::1::::<><>::
+spark_01.png::CompressedTexture2D::9084066716230186988::1707744146::1708769771::1::::<><>::
+spark_02.png::CompressedTexture2D::4921171997189404646::1707744146::1708769771::1::::<><>::
+spark_03.png::CompressedTexture2D::1480285446564515655::1707744146::1708769771::1::::<><>::
+spark_04.png::CompressedTexture2D::221961797310159515::1707744146::1708769771::1::::<><>::
+spark_05.png::CompressedTexture2D::4396822539703115459::1707744146::1708769771::1::::<><>::
+spark_06.png::CompressedTexture2D::7484610331216472531::1707744146::1708769771::1::::<><>::
+spark_07.png::CompressedTexture2D::9032452358192200933::1707744146::1708769771::1::::<><>::
+star_01.png::CompressedTexture2D::6434051126104092410::1707744146::1708769771::1::::<><>::
+star_02.png::CompressedTexture2D::4976533662404979144::1707744146::1708769771::1::::<><>::
+star_03.png::CompressedTexture2D::1654566020522591954::1707744146::1708769771::1::::<><>::
+star_04.png::CompressedTexture2D::5095334028390297961::1707744146::1708769771::1::::<><>::
+star_05.png::CompressedTexture2D::4151725100059726738::1707744146::1708769771::1::::<><>::
+star_06.png::CompressedTexture2D::9082506104538904005::1707744146::1708769771::1::::<><>::
+star_07.png::CompressedTexture2D::4270208325725384910::1707744146::1708769771::1::::<><>::
+star_08.png::CompressedTexture2D::8474943315529691928::1707744146::1708769771::1::::<><>::
+star_09.png::CompressedTexture2D::1897802761873691230::1707744146::1708769771::1::::<><>::
+symbol_01.png::CompressedTexture2D::4941874910958842926::1707744146::1708769771::1::::<><>::
+symbol_02.png::CompressedTexture2D::3773308898721495781::1707744146::1708769771::1::::<><>::
+trace_01.png::CompressedTexture2D::964218241647898512::1707744146::1708769771::1::::<><>::
+trace_02.png::CompressedTexture2D::6403288651931754246::1707744146::1708769771::1::::<><>::
+trace_03.png::CompressedTexture2D::3167251120549006941::1707744146::1708769771::1::::<><>::
+trace_04.png::CompressedTexture2D::7374693627369654426::1707744146::1708769771::1::::<><>::
+trace_05.png::CompressedTexture2D::5250904940420162460::1707744146::1708769771::1::::<><>::
+trace_06.png::CompressedTexture2D::2626032840747512362::1707744146::1708769770::1::::<><>::
+trace_07.png::CompressedTexture2D::5812592096241280314::1707744146::1708769770::1::::<><>::
+twirl_01.png::CompressedTexture2D::7645774520903728446::1707744146::1708769770::1::::<><>::
+twirl_02.png::CompressedTexture2D::80895401353006582::1707744146::1708769770::1::::<><>::
+twirl_03.png::CompressedTexture2D::3089233674115253009::1707744146::1708769770::1::::<><>::
+window_01.png::CompressedTexture2D::6017852470452056338::1707744146::1708769770::1::::<><>::
+window_02.png::CompressedTexture2D::4645011347923574657::1707744146::1708769770::1::::<><>::
+window_03.png::CompressedTexture2D::3850871778418201113::1707744146::1708769770::1::::<><>::
+window_04.png::CompressedTexture2D::2592099596498928977::1707744146::1708769770::1::::<><>::
+::res://[01] Assets/textures/Particles/Kenny/Particle Pack/Rotated/::1708769771
+flame_05_rotated.png::CompressedTexture2D::2408203753033725015::1707744146::1708769771::1::::<><>::
+flame_06_rotated.png::CompressedTexture2D::1492650927642099455::1707744146::1708769771::1::::<><>::
+muzzle_01_rotated.png::CompressedTexture2D::9206941660668021249::1707744146::1708769771::1::::<><>::
+muzzle_02_rotated.png::CompressedTexture2D::4893967101897321958::1707744146::1708769771::1::::<><>::
+muzzle_03_rotated.png::CompressedTexture2D::7360637188398906787::1707744146::1708769771::1::::<><>::
+muzzle_04_rotated.png::CompressedTexture2D::3401181632417113146::1707744146::1708769771::1::::<><>::
+muzzle_05_rotated.png::CompressedTexture2D::3703071353745156454::1707744146::1708769771::1::::<><>::
+spark_05_rotated.png::CompressedTexture2D::1940194615342047886::1707744146::1708769771::1::::<><>::
+spark_06_rotated.png::CompressedTexture2D::7653716076006095303::1707744146::1708769771::1::::<><>::
+trace_01_rotated.png::CompressedTexture2D::2414886874335035943::1707744146::1708769771::1::::<><>::
+trace_02_rotated.png::CompressedTexture2D::3806316027581340829::1707744146::1708769771::1::::<><>::
+trace_03_rotated.png::CompressedTexture2D::4273602312026200317::1707744146::1708769771::1::::<><>::
+trace_04_rotated.png::CompressedTexture2D::7302561492289626922::1707744146::1708769771::1::::<><>::
+trace_05_rotated.png::CompressedTexture2D::4448840442109201189::1707744146::1708769771::1::::<><>::
+trace_06_rotated.png::CompressedTexture2D::307318485929410805::1707744146::1708769771::1::::<><>::
+trace_07_rotated.png::CompressedTexture2D::8805983187392453764::1707744146::1708769771::1::::<><>::
+::res://[01] Assets/textures/Particles/Kenny/Smoke Particles/::1708446099
+::res://[01] Assets/textures/Particles/Kenny/Smoke Particles/Black smoke/::1708769770
+blackSmoke00.png::CompressedTexture2D::5680447302092980869::1707744146::1708769770::1::::<><>::
+blackSmoke01.png::CompressedTexture2D::3295799307987090149::1707744146::1708769770::1::::<><>::
+blackSmoke02.png::CompressedTexture2D::7810007972836502349::1707744146::1708769770::1::::<><>::
+blackSmoke03.png::CompressedTexture2D::1401168170093816193::1707744146::1708769770::1::::<><>::
+blackSmoke04.png::CompressedTexture2D::3226924598826920413::1707744146::1708769770::1::::<><>::
+blackSmoke05.png::CompressedTexture2D::959197557214214742::1707744146::1708769770::1::::<><>::
+blackSmoke06.png::CompressedTexture2D::3914728709466511576::1707744146::1708769770::1::::<><>::
+blackSmoke07.png::CompressedTexture2D::4146725291371871791::1707744146::1708769770::1::::<><>::
+blackSmoke08.png::CompressedTexture2D::8595827757586800754::1707744146::1708769770::1::::<><>::
+blackSmoke09.png::CompressedTexture2D::2502664029962129047::1707744146::1708769770::1::::<><>::
+blackSmoke10.png::CompressedTexture2D::2877314810780499260::1707744146::1708769770::1::::<><>::
+blackSmoke11.png::CompressedTexture2D::5587311960694166397::1707744146::1708769770::1::::<><>::
+blackSmoke12.png::CompressedTexture2D::4937702830301396929::1707744146::1708769770::1::::<><>::
+blackSmoke13.png::CompressedTexture2D::5989088781380127153::1707744146::1708769770::1::::<><>::
+blackSmoke14.png::CompressedTexture2D::3498196618293776552::1707744146::1708769770::1::::<><>::
+blackSmoke15.png::CompressedTexture2D::3923077974247561099::1707744146::1708769770::1::::<><>::
+blackSmoke16.png::CompressedTexture2D::4860906358940237985::1707744146::1708769770::1::::<><>::
+blackSmoke17.png::CompressedTexture2D::6826608706583108314::1707744146::1708769770::1::::<><>::
+blackSmoke18.png::CompressedTexture2D::358873741076871833::1707744146::1708769770::1::::<><>::
+blackSmoke19.png::CompressedTexture2D::6710645343936451145::1707744146::1708769770::1::::<><>::
+blackSmoke20.png::CompressedTexture2D::1002234119034605556::1707744146::1708769770::1::::<><>::
+blackSmoke21.png::CompressedTexture2D::3939961863165602349::1707744146::1708769770::1::::<><>::
+blackSmoke22.png::CompressedTexture2D::4340535840816986449::1707744146::1708769770::1::::<><>::
+blackSmoke23.png::CompressedTexture2D::4500192817977579148::1707744146::1708769770::1::::<><>::
+blackSmoke24.png::CompressedTexture2D::3989926791086355033::1707744146::1708769770::1::::<><>::
+::res://[01] Assets/textures/Particles/Kenny/Smoke Particles/Explosion/::1708769770
+explosion00.png::CompressedTexture2D::4070415683772613075::1707744146::1708769770::1::::<><>::
+explosion01.png::CompressedTexture2D::692514948980634344::1707744146::1708769770::1::::<><>::
+explosion02.png::CompressedTexture2D::7380238981667500443::1707744146::1708769770::1::::<><>::
+explosion03.png::CompressedTexture2D::1010262701496233617::1707744146::1708769770::1::::<><>::
+explosion04.png::CompressedTexture2D::7889363659305287690::1707744146::1708769770::1::::<><>::
+explosion05.png::CompressedTexture2D::4372263052559545419::1707744146::1708769770::1::::<><>::
+explosion06.png::CompressedTexture2D::5996896323188525130::1707744146::1708769770::1::::<><>::
+explosion07.png::CompressedTexture2D::5197940750094926634::1707744146::1708769770::1::::<><>::
+explosion08.png::CompressedTexture2D::5824155935546655752::1707744146::1708769770::1::::<><>::
+::res://[01] Assets/textures/Particles/Kenny/Smoke Particles/Fart/::1708769770
+fart00.png::CompressedTexture2D::4395767303067071599::1707744146::1708769770::1::::<><>::
+fart01.png::CompressedTexture2D::65758906601041754::1707744146::1708769770::1::::<><>::
+fart02.png::CompressedTexture2D::5900123691028331047::1707744146::1708769770::1::::<><>::
+fart03.png::CompressedTexture2D::4571172908448815668::1707744146::1708769770::1::::<><>::
+fart04.png::CompressedTexture2D::7918147389596468796::1707744146::1708769770::1::::<><>::
+fart05.png::CompressedTexture2D::8282682767631410472::1707744146::1708769770::1::::<><>::
+fart06.png::CompressedTexture2D::3998936720344361517::1707744146::1708769770::1::::<><>::
+fart07.png::CompressedTexture2D::4644830402335970151::1707744146::1708769770::1::::<><>::
+fart08.png::CompressedTexture2D::3095170373068419206::1707744146::1708769770::1::::<><>::
+::res://[01] Assets/textures/Particles/Kenny/Smoke Particles/Flash/::1708769771
+flash00.png::CompressedTexture2D::2740180058367729930::1707744146::1708769770::1::::<><>::
+flash01.png::CompressedTexture2D::5197870635735168309::1707744146::1708769770::1::::<><>::
+flash02.png::CompressedTexture2D::3771324173906903928::1707744146::1708769770::1::::<><>::
+flash03.png::CompressedTexture2D::143914851540734518::1707744146::1708769770::1::::<><>::
+flash04.png::CompressedTexture2D::876254820297598715::1707744146::1708769770::1::::<><>::
+flash05.png::CompressedTexture2D::4306471763955287105::1707744146::1708769771::1::::<><>::
+flash06.png::CompressedTexture2D::792495717561168801::1707744146::1708769770::1::::<><>::
+flash07.png::CompressedTexture2D::1220872905695959375::1707744146::1708769771::1::::<><>::
+flash08.png::CompressedTexture2D::486736759753170092::1707744146::1708769771::1::::<><>::
+::res://[01] Assets/textures/Particles/Kenny/Smoke Particles/White puff/::1708769771
+whitePuff00.png::CompressedTexture2D::938885115174880290::1707744146::1708769770::1::::<><>::
+whitePuff01.png::CompressedTexture2D::4750928697743719763::1707744146::1708769770::1::::<><>::
+whitePuff02.png::CompressedTexture2D::6605183238976846120::1707744146::1708769771::1::::<><>::
+whitePuff03.png::CompressedTexture2D::7175893600944125919::1707744146::1708769771::1::::<><>::
+whitePuff04.png::CompressedTexture2D::2706492266300228854::1707744146::1708769770::1::::<><>::
+whitePuff05.png::CompressedTexture2D::1310611755247823424::1707744146::1708769770::1::::<><>::
+whitePuff06.png::CompressedTexture2D::3395610234771663555::1707744146::1708769770::1::::<><>::
+whitePuff07.png::CompressedTexture2D::1309433683211865474::1707744146::1708769770::1::::<><>::
+whitePuff08.png::CompressedTexture2D::6034790315111866786::1707744146::1708769770::1::::<><>::
+whitePuff09.png::CompressedTexture2D::7316742895816394943::1707744146::1708769770::1::::<><>::
+whitePuff10.png::CompressedTexture2D::582210200242534495::1707744146::1708769770::1::::<><>::
+whitePuff11.png::CompressedTexture2D::1369894754550688295::1707744146::1708769770::1::::<><>::
+whitePuff12.png::CompressedTexture2D::2754598147039175885::1707744146::1708769770::1::::<><>::
+whitePuff13.png::CompressedTexture2D::4036912807626285404::1707744146::1708769770::1::::<><>::
+whitePuff14.png::CompressedTexture2D::6584470839663642914::1707744146::1708769770::1::::<><>::
+whitePuff15.png::CompressedTexture2D::7107450440328882585::1707744146::1708769770::1::::<><>::
+whitePuff16.png::CompressedTexture2D::6556949014740864143::1707744146::1708769770::1::::<><>::
+whitePuff17.png::CompressedTexture2D::8827747141489491816::1707744146::1708769770::1::::<><>::
+whitePuff18.png::CompressedTexture2D::5528447392583858344::1707744146::1708769770::1::::<><>::
+whitePuff19.png::CompressedTexture2D::4638529979597819092::1707744146::1708769770::1::::<><>::
+whitePuff20.png::CompressedTexture2D::6279719682368043100::1707744146::1708769770::1::::<><>::
+whitePuff21.png::CompressedTexture2D::3733344095207180060::1707744146::1708769770::1::::<><>::
+whitePuff22.png::CompressedTexture2D::7343472398709504689::1707744146::1708769770::1::::<><>::
+whitePuff23.png::CompressedTexture2D::2513592935442726403::1707744146::1708769770::1::::<><>::
+whitePuff24.png::CompressedTexture2D::5693181984042164726::1707744146::1708769770::1::::<><>::
+::res://[01] Assets/theme/::1708807770
+Foul Fiend.otf::FontFile::731571215516603458::1708168536::1708770005::1::::<><>::
+theme.tres::Theme::9015053318177069603::1708807770::0::1::::<><>::
+whysoserious.ttf::FontFile::5336697425924815745::1708168538::1708770280::1::::<><>::
+::res://[02] Scenes/::1708807770
+hotbar.tscn::PackedScene::4066726259399086166::1708807770::0::1::::<><>::res://[03] Scripts/hotbar.gd<>uid://5e46yg4vclbo::::res://[01] Assets/textures/Compass.png<>uid://c8ebgswylbbud::::res://[01] Assets/textures/FlareGun.png<>uid://dm4reartigjc2::::res://[01] Assets/textures/Flashlight.png
+inventory.tscn::PackedScene::8598887504213773590::1708807770::0::1::::<><>::res://[03] Scripts/inventory.gd
+PlayerInteractor.tscn::PackedScene::2790078506998325361::1708770569::0::1::::<><>::uid://dof76pac6fq4i::::res://[02] Scenes/Objects/Interactor.tscn<>res://[03] Scripts/Objects/PlayerInteractor.gd
+slot.tscn::PackedScene::5116482947572348730::1708770191::0::1::::<><>::res://[03] Scripts/slot.gd
+::res://[02] Scenes/Levels/::1708807771
+level.tscn::PackedScene::8193298850378177594::1708807771::0::1::::<><>::res://[03] Scripts/levels/level.gd<>uid://bs3cr5gsm2wpg::::res://[01] Assets/textures/Epic_BlueSunset_EquiRect_flat.png<>uid://dvqb5sm0so880::::res://[02] Scenes/Player/player.tscn<>uid://bkr37scej1cxs::::res://[01] Assets/textures/gray_grid.tres<>uid://d1xy7nt8hao0o::::res://[01] Assets/Blender/alpine-02.blend<>uid://duyrq604vlw6s::::res://[01] Assets/Blender/alpine-03.blend<>uid://cgcsxp6oj0ce4::::res://[01] Assets/Blender/alpine-04.blend<>uid://c1d0yeeh0t70h::::res://[01] Assets/Blender/alpine-06.blend<>uid://bieaf1o3keii3::::res://[01] Assets/Blender/alpine-07.blend<>uid://cdl15p106kmgr::::res://[01] Assets/Blender/alpine-08.blend<>uid://b7s4eokr7ug7d::::res://[01] Assets/Blender/alpine-09.blend<>uid://bvi2hp7by6osk::::res://[01] Assets/Blender/alpine-10.blend<>uid://b3hfmxnxne26v::::res://[01] Assets/Blender/cliff-07.blend<>uid://cd367urvujs6h::::res://[01] Assets/Blender/cliff-11.blend<>uid://fqr6euydlcyo::::res://[01] Assets/Blender/cliff-10.blend<>uid://dpaj2n7qy0ywl::::res://[02] Scenes/Npc/female_npc.tscn<>res://[03] Scripts/InventoryInterface.gd<>uid://durmokskyntis::::res://[02] Scenes/inventory.tscn<>uid://d1ex10umjasph::::res://[01] Assets/Blender/tree-v3.blend
+::res://[02] Scenes/Menues/::1708770496
+MainMenu.tscn::PackedScene::1432626581741423149::1708770496::0::1::::<><>::res://[01] Assets/Blender/menu.png<>uid://bs3cr5gsm2wpg::::res://[01] Assets/textures/Epic_BlueSunset_EquiRect_flat.png<>res://[03] Scripts/Menues/MainMenu.gd<>res://[01] Assets/Blender/Skärmbild 2024-02-16 103557.png<>uid://d1o7u1mdsi2dr::::res://[01] Assets/theme/theme.tres
+::res://[02] Scenes/Npc/::1708770581
+female_npc.tscn::PackedScene::8212690108017462431::1708770581::0::1::::<><>::res://[03] Scripts/npc/Npc.gd<>uid://b23rb8atokdu7::::res://[01] Assets/Blender/female-base.blend<>uid://cj88dokxkfi60::::res://[02] Scenes/Objects/Interactable.tscn
+::res://[02] Scenes/Objects/::1708807770
+flare-gun.tscn::PackedScene::3135538108567773649::1708770476::0::1::::<><>::uid://ol7urglja6a5::::res://[01] Assets/Blender/flare-gun.blend<>res://[03] Scripts/Objects/flare-gun.gd<>uid://c08rq6dnngege::::res://[01] Assets/Audio/Sfx/423109__ogsoundfx__guns-explosions-album-flare-gun-5-2.wav<>res://[01] Assets/shaders/viewmodel.gdshader<>uid://cujpgd3rxie66::::res://[01] Assets/textures/Particles/Kenny/Particle Pack/muzzle_05.png
+flashlight.tscn::PackedScene::2503699535452591947::1708770476::0::1::::<><>::res://[03] Scripts/Objects/flashlight.gd<>uid://c26m4ldjt22ah::::res://[01] Assets/Blender/flashlight.blend<>res://[01] Assets/shaders/viewmodel.gdshader
+Interactable.tscn::PackedScene::5474675195989005311::1708807770::0::1::::<><>::res://[03] Scripts/Objects/Interactable.gd
+Interactor.tscn::PackedScene::8154226842144399482::1708807770::0::1::::<><>::res://[03] Scripts/Objects/Interactor.gd
+::res://[02] Scenes/Player/::1708770513
+player.tscn::PackedScene::8666373067471337775::1708770513::0::1::::<><>::res://[03] Scripts/Player/player.gd<>uid://cc1ip5x1et07i::::res://[01] Assets/Resources/test_inv.tres<>uid://bbw2th1r62agx::::res://[02] Scenes/Objects/flashlight.tscn<>uid://bkw44b336b3on::::res://[02] Scenes/Objects/flare-gun.tscn<>uid://b88vmul1yxodn::::res://[01] Assets/textures/white-circle.png<>uid://bf0sgkj74xipl::::res://[02] Scenes/PlayerInteractor.tscn
+::res://[02] Scenes/Test/::1708807770
+AllAlpine.tscn::PackedScene::283891104525161968::1708771709::0::1::::<><>::uid://bujjjxgj0ust5::::res://[01] Assets/Blender/alpine-01.blend<>uid://d1xy7nt8hao0o::::res://[01] Assets/Blender/alpine-02.blend<>uid://duyrq604vlw6s::::res://[01] Assets/Blender/alpine-03.blend<>uid://cgcsxp6oj0ce4::::res://[01] Assets/Blender/alpine-04.blend<>uid://d0kfobbm11a54::::res://[01] Assets/Blender/alpine-05.blend<>uid://c1d0yeeh0t70h::::res://[01] Assets/Blender/alpine-06.blend<>uid://bieaf1o3keii3::::res://[01] Assets/Blender/alpine-07.blend<>uid://cdl15p106kmgr::::res://[01] Assets/Blender/alpine-08.blend<>uid://b7s4eokr7ug7d::::res://[01] Assets/Blender/alpine-09.blend<>uid://bvi2hp7by6osk::::res://[01] Assets/Blender/alpine-10.blend<>uid://bs3cr5gsm2wpg::::res://[01] Assets/textures/Epic_BlueSunset_EquiRect_flat.png
+AllCliff.tscn::PackedScene::2030751334275814413::1708775137::0::1::::<><>::uid://ci2rnshc00lj2::::res://[01] Assets/Blender/cliff-01.blend<>uid://cuajb5hktho83::::res://[01] Assets/Blender/cliff-05.blend<>uid://c0blmfe3lnn3k::::res://[01] Assets/Blender/cliff-04.blend<>uid://ct82i1p2ebt2e::::res://[01] Assets/Blender/cliff-06.blend<>uid://b3hfmxnxne26v::::res://[01] Assets/Blender/cliff-07.blend<>uid://bs3cr5gsm2wpg::::res://[01] Assets/textures/Epic_BlueSunset_EquiRect_flat.png<>uid://fqr6euydlcyo::::res://[01] Assets/Blender/cliff-10.blend<>uid://cd367urvujs6h::::res://[01] Assets/Blender/cliff-11.blend
+compass.tscn::PackedScene::7307321331599279672::1708770467::0::1::::<><>::res://[03] Scripts/test/compass.gd<>uid://bb2nejugx86yx::::res://[01] Assets/Blender/compass.blend<>uid://bkr37scej1cxs::::res://[01] Assets/textures/gray_grid.tres
+tts-test.tscn::PackedScene::1111420848350576101::1708807770::0::1::::<><>::
+::res://[03] Scripts/::1708770638
+hotbar.gd::GDScript::-1::1708692299::0::1::::<>Control<>::
+inventory.gd::GDScript::-1::1708770638::0::1::::<>PanelContainer<>::
+InventoryInterface.gd::GDScript::-1::1708706340::0::1::::<>Control<>::
+inventory_data.gd::GDScript::-1::1708703956::0::1::::InventoryData<>Resource<>::
+item_data.gd::GDScript::-1::1708703774::0::1::::ItemData<>Resource<>::
+slot.gd::GDScript::-1::1708705295::0::1::::<>PanelContainer<>::
+slot_data.gd::GDScript::-1::1708705470::0::1::::SlotData<>Resource<>::
+::res://[03] Scripts/Env/::1708769498
+::res://[03] Scripts/levels/::1708770506
+level.gd::GDScript::-1::1708707006::0::1::::<>Node3D<>::
+::res://[03] Scripts/Menues/::1708770620
+MainMenu.gd::GDScript::-1::1708770620::0::1::::<>Node3D<>::
+::res://[03] Scripts/npc/::1708770581
+Npc.gd::GDScript::-1::1708631074::0::1::::<>Node3D<>::
+::res://[03] Scripts/Objects/::1708770569
+flare-gun.gd::GDScript::-1::1708449384::0::1::::<>Node3D<>::
+flashlight.gd::GDScript::-1::1708367728::0::1::::<>Node3D<>::
+Interactable.gd::GDScript::-1::1708539661::0::1::::Interactable<>Area3D<>::
+Interactor.gd::GDScript::-1::1708539661::0::1::::Interactor<>Area3D<>::
+PlayerInteractor.gd::GDScript::-1::1708539661::0::1::::<>Interactor<>::
+::res://[03] Scripts/Player/::1708770513
+player.gd::GDScript::-1::1708706890::0::1::::<>CharacterBody3D<>::
+::res://[03] Scripts/test/::1708770467
+compass.gd::GDScript::-1::1708195159::0::1::::<>Node3D<>::
+::res://[04] Builds/::1708769458
+::res://[04] Builds/Windows/::1708769470
+::res://[04] Builds/Windows/game/::1708769470
+::res://[05] Docs/::1708769358

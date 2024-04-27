@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://36ygbrosbnqr"]
+
+[ext_resource type="PackedScene" uid="uid://ci2rnshc00lj2" path="res://[01] Assets/Blender/cliff-01.blend" id="1_w2boq"]
+[ext_resource type="PackedScene" uid="uid://cuajb5hktho83" path="res://[01] Assets/Blender/cliff-05.blend" id="4_6uc3c"]
+[ext_resource type="PackedScene" uid="uid://c0blmfe3lnn3k" path="res://[01] Assets/Blender/cliff-04.blend" id="5_bbrtr"]
+[ext_resource type="PackedScene" uid="uid://ct82i1p2ebt2e" path="res://[01] Assets/Blender/cliff-06.blend" id="6_cyn04"]
+[ext_resource type="PackedScene" uid="uid://b3hfmxnxne26v" path="res://[01] Assets/Blender/cliff-07.blend" id="7_jfxon"]
+[ext_resource type="Texture2D" uid="uid://bs3cr5gsm2wpg" path="res://[01] Assets/textures/Epic_BlueSunset_EquiRect_flat.png" id="8_hhcs8"]
+[ext_resource type="PackedScene" uid="uid://fqr6euydlcyo" path="res://[01] Assets/Blender/cliff-10.blend" id="10_psbht"]
+[ext_resource type="PackedScene" uid="uid://cd367urvujs6h" path="res://[01] Assets/Blender/cliff-11.blend" id="11_i7u3e"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_21bvi"]
+panorama = ExtResource("8_hhcs8")
+
+[sub_resource type="Sky" id="Sky_32iv2"]
+sky_material = SubResource("PanoramaSkyMaterial_21bvi")
+
+[sub_resource type="Environment" id="Environment_uf0ke"]
+background_mode = 2
+sky = SubResource("Sky_32iv2")
+tonemap_mode = 3
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+glow_normalized = true
+volumetric_fog_density = 0.03
+
+[node name="Node3D" type="Node3D"]
+
+[node name="cliff-01" parent="." instance=ExtResource("1_w2boq")]
+
+[node name="cliff-04" parent="." instance=ExtResource("5_bbrtr")]
+transform = Transform3D(3.89711, 0, -2.25, 0, 4.5, 0, 2.25, 0, 3.89711, 0, 0, -74.9983)
+
+[node name="cliff-05" parent="." instance=ExtResource("4_6uc3c")]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, 0, 7, -161.428)
+
+[node name="cliff-06" parent="." instance=ExtResource("6_cyn04")]
+transform = Transform3D(-7.32516e-07, 7.32516e-07, 16.758, -7.32516e-07, 16.758, -7.32516e-07, -16.758, -7.32516e-07, -7.32515e-07, 79.759, 6, -289.782)
+
+[node name="cliff-07" parent="." instance=ExtResource("7_jfxon")]
+transform = Transform3D(-6.46929e-07, 0, 14.8, 0, 14.8, 0, -14.8, 0, -6.46929e-07, 109, -2.7, 5.2)
+
+[node name="cliff-10" parent="." instance=ExtResource("10_psbht")]
+transform = Transform3D(-1.47744e-07, 0, 3.38, 0, 3.38, 0, -3.38, 0, -1.47744e-07, 109, -6.7, -75.3612)
+
+[node name="cliff-11" parent="." instance=ExtResource("11_i7u3e")]
+transform = Transform3D(5.05, 0, 8.74686, 0, 10.1, 0, -8.74686, 0, 5.05, 109, -12.2, -168.338)
+
+[node name="GlobalEnvironment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="GlobalEnvironment"]
+environment = SubResource("Environment_uf0ke")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="GlobalEnvironment"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.374607, -0.463592, 0.802965, 0, 0.866025, 0.5, -0.927184, -0.187303, 0.324419, 209.78, 76.97, -44.89)
