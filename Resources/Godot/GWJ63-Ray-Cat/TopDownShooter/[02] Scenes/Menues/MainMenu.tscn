@@ -64,7 +64,7 @@ billboard_keep_scale = true
 [sub_resource type="QuadMesh" id="QuadMesh_228qg"]
 material = SubResource("StandardMaterial3D_ayjo4")
 
-[sub_resource type="Resource" id="Resource_gxwer"]
+[sub_resource type="Resource" id="Resource_6e7bu"]
 script = ExtResource("8_vyssr")
 amount = 1000
 enabled = true
@@ -73,7 +73,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_bf1wm"]
+[sub_resource type="Resource" id="Resource_ol0t5"]
 script = ExtResource("9_cvbe4")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -84,7 +84,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_exboj"]
+[sub_resource type="Resource" id="Resource_ae3oa"]
 script = ExtResource("10_0m6sc")
 iterations = 3
 offset_step = 0.2
@@ -96,7 +96,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_fj6ko"]
+[sub_resource type="Resource" id="Resource_yh6v4"]
 script = ExtResource("11_w8176")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -112,9 +112,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_yurm6"]
+[sub_resource type="Resource" id="Resource_8gwl8"]
 script = ExtResource("7_jbrqm")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_gxwer"), SubResource("Resource_bf1wm"), SubResource("Resource_exboj"), SubResource("Resource_fj6ko")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_6e7bu"), SubResource("Resource_ol0t5"), SubResource("Resource_ae3oa"), SubResource("Resource_yh6v4")])
 
 [sub_resource type="Resource" id="Resource_at1xq"]
 script = ExtResource("14_2klpm")
@@ -390,14 +390,14 @@ transform = Transform3D(0.960294, -0.114365, 0.254473, 0, 0.91212, 0.409923, -0.
 
 [node name="ProtonScatter" type="Node3D" parent="3dBackground"]
 script = ExtResource("6_r11yq")
-modifier_stack = SubResource("Resource_yurm6")
+modifier_stack = SubResource("Resource_8gwl8")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
 [node name="ScatterItem" type="Node3D" parent="3dBackground/ProtonScatter"]
 script = ExtResource("12_53412")
 source_scale_multiplier = 0.2
-path = "res://StylizedGrass.tscn"
+path = "res://[02] Scenes/Assets/StylizedGrass.tscn"
 
 [node name="ScatterShape" type="Node3D" parent="3dBackground/ProtonScatter"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -2.95834, 0, -9.05314)

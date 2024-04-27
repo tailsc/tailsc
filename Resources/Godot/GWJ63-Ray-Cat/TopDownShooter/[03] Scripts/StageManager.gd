@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 
-const tutorial = ("res://tutorial.tscn")
-const mainmenu = ("res://MainMenu.tscn")
+const tutorial = ("res://[02] Scenes/Levels/tutorial.tscn")
+const mainmenu = ("res://[02] Scenes/Menues/MainMenu.tscn")
 
 func _ready():
 	get_node("ColorRect").hide()

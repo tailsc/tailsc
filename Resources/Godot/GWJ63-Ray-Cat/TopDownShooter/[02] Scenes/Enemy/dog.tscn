@@ -4104,8 +4104,8 @@ stream_4/weight = 1.0
 [sub_resource type="AudioStream" id="AudioStream_322oq"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_771cm"]
-streams_count = 5
 random_pitch = 1.15
+streams_count = 5
 stream_0/stream = ExtResource("16_5yq26")
 stream_0/weight = 1.0
 stream_1/stream = ExtResource("17_jdtnf")
@@ -4178,10 +4178,10 @@ shape = SubResource("BoxShape3D_va6sn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../NewDog-d8121eea1f5996e821725ad29d0f02f4")
-speed_scale = 4.0
 libraries = {
 "": SubResource("AnimationLibrary_upshc")
 }
+speed_scale = 4.0
 
 [node name="GPUParticles3D2" parent="." instance=ExtResource("4_0ebt6")]
 
