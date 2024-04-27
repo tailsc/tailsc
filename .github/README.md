@@ -7,7 +7,7 @@
   <a href="https://download-directory.github.io/">Download Specific Folder</a>
 </p>
 <p align="center">
-  ⚠️ Large Repository! Recommend <a href="https://download-directory.github.io/">Download Specific Folder</a>
+  ⚠️ Large Repository! Recommend To Only <a href="https://download-directory.github.io/">Download Specific Folders</a>
 </p>
 
 ## Socials
