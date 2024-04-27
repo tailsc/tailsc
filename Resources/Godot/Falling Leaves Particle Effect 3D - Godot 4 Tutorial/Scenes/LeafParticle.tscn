@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bpf24kvefl7el"]
 
-[ext_resource type="Texture2D" uid="uid://b6jl7l3rhyejd" path="res://Textures/Leaf (1).png" id="1_u7d1n"]
+[ext_resource type="Texture2D" uid="uid://ngmu63jbt5b4" path="res://Textures/StylizedLeaf.png" id="1_u7d1n"]
 [ext_resource type="PackedScene" uid="uid://2qrn5ekyhyc7" path="res://Scenes/tree.tscn" id="2_x7jps"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h51h0"]

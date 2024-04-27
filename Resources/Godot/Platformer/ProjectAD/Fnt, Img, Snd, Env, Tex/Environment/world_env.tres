@@ -1,6 +1,0 @@
-[gd_resource type="Environment" format=3 uid="uid://bk4eau1i4e1d4"]
-
-[resource]
-glow_bloom = 0.1
-volumetric_fog_enabled = true
-adjustment_enabled = true

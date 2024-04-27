@@ -1,0 +1,198 @@
+[gd_scene load_steps=17 format=3 uid="uid://b2j7n6cjsonm8"]
+
+[ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="1_n8lso"]
+[ext_resource type="Texture2D" uid="uid://b8pk8lrvtkqjx" path="res://Textures/Epic_BlueSunset_EquiRect_flat.png" id="2_mj6f4"]
+[ext_resource type="PackedScene" uid="uid://g8u3qttji23s" path="res://Blender/ElectricPole.blend" id="3_d21p8"]
+[ext_resource type="Material" uid="uid://do1d5ws0bbh5s" path="res://Textures/GrayGrid.tres" id="4_0orod"]
+[ext_resource type="Texture2D" uid="uid://blhvd00mjytyq" path="res://Textures/white-circle.png" id="5_g5cme"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2fu7c"]
+panorama = ExtResource("2_mj6f4")
+
+[sub_resource type="Sky" id="Sky_a2ctg"]
+sky_material = SubResource("PanoramaSkyMaterial_2fu7c")
+
+[sub_resource type="Environment" id="Environment_7pi14"]
+background_mode = 2
+sky = SubResource("Sky_a2ctg")
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
+glow_normalized = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.002
+
+[sub_resource type="Animation" id="Animation_1ktc0"]
+resource_name = "Cinematic"
+length = 20.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.1, 14.3, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(12.013, 14.395, -4.215), Vector3(9.813, 13.975, 5.055), Vector3(-4.238, 14.822, 8.345), Vector3(-7.197, 14.956, -7.874)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.1, 14.3, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.58294, 1.91114, 0), Vector3(-0.58294, 0.891863, 0), Vector3(-0.58294, -0.509636, 0), Vector3(-0.58294, -2.34747, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k6ggi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(12.013, 14.395, -4.215)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.58294, 1.91114, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t4w2b"]
+_data = {
+"Cinematic": SubResource("Animation_1ktc0"),
+"RESET": SubResource("Animation_k6ggi")
+}
+
+[sub_resource type="Curve" id="Curve_jl1fn"]
+_data = [Vector2(0, 0.055764), 0.0, 0.0, 0, 0, Vector2(0.194103, 0.171509), 0.0, 0.0, 0, 0, Vector2(0.402948, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mh7cn"]
+curve = SubResource("Curve_jl1fn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k6etg"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+initial_velocity_min = 0.5
+initial_velocity_max = 0.5
+gravity = Vector3(4.535, -7.88, 0)
+scale_curve = SubResource("CurveTexture_mh7cn")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.78
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqdd8"]
+transparency = 2
+alpha_scissor_threshold = 0.9
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("5_g5cme")
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 16.0
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_triq3"]
+material = SubResource("StandardMaterial3D_bqdd8")
+
+[node name="SparksParticleEffect" type="Node3D"]
+script = ExtResource("1_n8lso")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7pi14")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.0
+shadow_enabled = true
+
+[node name="ElectricPole" parent="WorldEnvironment" instance=ExtResource("3_d21p8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.110292, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment"]
+material_override = ExtResource("4_0orod")
+size = Vector3(31, 1, 31)
+material = ExtResource("4_0orod")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.333811, -0.518905, 0.786961, 0, 0.834848, 0.550481, -0.94264, 0.183757, -0.278681, 12.013, 14.395, -4.215)
+fov = 32.3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t4w2b")
+}
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.706292, 0, -0.707921, 0, 1, 0, 0.707921, 0, 0.706292, 0.943045, 9.74216, 0.226088)
+amount = 30
+lifetime = 5.41
+randomness = 0.5
+visibility_aabb = AABB(-4, -14.2897, -4, 8, 28.5795, 8)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_k6etg")
+draw_pass_1 = SubResource("QuadMesh_triq3")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="GPUParticles3D"]
+lifetime = 5.4
+explosiveness = 0.85
+randomness = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_k6etg")
+draw_pass_1 = SubResource("QuadMesh_triq3")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="GPUParticles3D"]
+transform = Transform3D(0.706292, 0, 0.707921, 0, 1, 0, -0.707921, 0, 0.706292, -10.7362, -10.6742, -8.67306)
+size = Vector3(21, 3, 47)
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.494614, -2.21681, -0.0900563)
+strength = 22.47
+radius = 1.39307
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="GPUParticles3D"]
+transform = Transform3D(0.0296311, 0, 0.999561, 0, 1, 0, -0.99956, 0, 0.0296318, -2.2096, 2.12924, -1.59828)
+amount = 30
+lifetime = 6.0
+randomness = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_k6etg")
+draw_pass_1 = SubResource("QuadMesh_triq3")
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="GPUParticles3D"]
+transform = Transform3D(0.0296311, 0, 0.999561, 0, 1, 0, -0.99956, 0, 0.0296318, -2.2096, 2.12924, -1.59828)
+lifetime = 6.0
+explosiveness = 0.85
+randomness = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_k6etg")
+draw_pass_1 = SubResource("QuadMesh_triq3")
+
+[node name="GPUParticlesAttractorSphere3D2" type="GPUParticlesAttractorSphere3D" parent="GPUParticles3D"]
+transform = Transform3D(0.0296311, 0, 0.99956, 0, 1, 0, -0.99956, 0, 0.0296311, -2.28496, -0.0875692, -2.09534)
+strength = 22.47
+radius = 1.39307

@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=3 uid="uid://2qrn5ekyhyc7"]
 
 [ext_resource type="PackedScene" uid="uid://r8pl8ycts6wc" path="res://Blender/Tree.blend" id="1_p85kq"]
-[ext_resource type="Texture2D" uid="uid://dhgsk4u7goshq" path="res://Textures/Leaf.png" id="2_qefgr"]
+[ext_resource type="Texture2D" uid="uid://ngmu63jbt5b4" path="res://Textures/StylizedLeaf.png" id="2_fbpke"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lkypo"]
 transparency = 2
 alpha_scissor_threshold = 0.9
 alpha_antialiasing_mode = 0
 albedo_color = Color(0, 1, 0.223529, 1)
-albedo_texture = ExtResource("2_qefgr")
+albedo_texture = ExtResource("2_fbpke")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubwuj"]
 

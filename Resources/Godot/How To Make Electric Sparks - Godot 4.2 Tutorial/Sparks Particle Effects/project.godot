@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Sparks Particle Effects"
-config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://Assets/icon.svg"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
 
 [display]
 
@@ -21,5 +21,5 @@ window/size/mode=3
 [file_customization]
 
 folder_colors={
-"res://Assets/": "red"
+"res://Blender/": "red"
 }
