@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwkqi7me7bgds"
+path="res://.godot/imported/Dog_Fts_4.wav-80a9af537838d7737996216a404ea595.sample"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Dog/Dog_Fts_4.wav"
+dest_files=["res://.godot/imported/Dog_Fts_4.wav-80a9af537838d7737996216a404ea595.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

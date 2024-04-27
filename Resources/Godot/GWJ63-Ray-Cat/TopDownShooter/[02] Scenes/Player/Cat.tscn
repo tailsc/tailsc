@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp7vbxjnttbbn"]
+
+[ext_resource type="PackedScene" uid="uid://du88ftx3ha2se" path="res://[01] Assets/Blender/CatAnim.blend" id="1_12sme"]
+[ext_resource type="PackedScene" uid="uid://bn87fqjgjoych" path="res://[01] Assets/Blender/Ray_gun.blend" id="2_bub2y"]
+
+[node name="Cat" instance=ExtResource("1_12sme")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(0.986722, -2.47854, -23.3939)
+bones/0/rotation = Quaternion(-0.186643, 0.627061, -0.733252, 0.185206)
+bones/1/rotation = Quaternion(-0.0901856, -0.0657611, -0.0538509, 0.992291)
+bones/2/rotation = Quaternion(-0.0162538, -0.0226923, -0.00450843, 0.9996)
+bones/3/rotation = Quaternion(-0.016587, -0.0237164, -0.00364099, 0.999574)
+bones/4/rotation = Quaternion(-0.111848, 0.125513, 0.0458931, 0.984698)
+bones/5/rotation = Quaternion(-0.150113, 0.0806435, -0.0490896, 0.984151)
+bones/6/position = Vector3(-9.53673e-07, 57.1235, -0.344552)
+bones/6/rotation = Quaternion(0, 1, 1.06581e-14, 7.54979e-08)
+bones/7/rotation = Quaternion(0.525929, -0.4278, 0.645199, 0.352284)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.180639, -0.346284, 0.286494, 0.874859)
+bones/9/position = Vector3(1.00367e-05, 12.1641, 2.0668e-06)
+bones/9/rotation = Quaternion(0.0157066, -0.000614589, 0.519691, 0.854209)
+bones/10/position = Vector3(5.65077e-07, 13.1116, 3.38025e-06)
+bones/10/rotation = Quaternion(-0.225359, -0.847721, -0.0202866, -0.479762)
+bones/11/position = Vector3(-1.60636e-06, 5.06769, 8.63989e-07)
+bones/11/rotation = Quaternion(0.292782, 0.948522, -0.120752, 0.00208036)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/position = Vector3(-4.85778e-06, 4.19429, -1.43051e-06)
+bones/12/rotation = Quaternion(0.213208, 0.0220766, 0.429921, 0.877053)
+bones/13/position = Vector3(-0.424787, 5.15048, -0.319681)
+bones/13/rotation = Quaternion(0.159844, 0.0407638, 0.261461, 0.951013)
+bones/14/position = Vector3(0.162991, 2.60869, -0.622443)
+bones/14/rotation = Quaternion(-5.3551e-09, -2.22353e-08, 5.58794e-09, 1)
+bones/15/rotation = Quaternion(0.557669, 0.411367, -0.610115, 0.384112)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/position = Vector3(-2.66887e-06, 24.4962, 1.04425e-06)
+bones/16/rotation = Quaternion(0.203457, -0.0577126, -0.557383, 0.802869)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(0.0241661, 0.000470363, -0.751704, 0.659058)
+bones/18/position = Vector3(-4.74737e-06, 13.1071, -1.80381e-06)
+bones/18/rotation = Quaternion(-0.302339, 0.85592, 0.151386, 0.391248)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/position = Vector3(-3.48101e-06, 3.46618, 3.73853e-06)
+bones/19/rotation = Quaternion(-0.107136, 0.993869, 0.0214956, 0.0168382)
+bones/20/rotation = Quaternion(-0.051885, 0.0154941, -0.22517, 0.972814)
+bones/21/rotation = Quaternion(0.079289, -0.00273611, -0.258717, 0.96269)
+bones/22/position = Vector3(0.393929, 3.3081, -0.190118)
+bones/23/rotation = Quaternion(0.398978, 0.414973, 0.73385, -0.360663)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/rotation = Quaternion(0.580902, 0.496002, -0.349031, 0.542874)
+bones/24/scale = Vector3(1, 1, 1)
+bones/25/rotation = Quaternion(0.481713, 0.482146, -0.430156, 0.591991)
+bones/26/position = Vector3(1.1568e-08, 5.92112, 1.07889e-06)
+bones/26/rotation = Quaternion(0.299669, 0.289614, -0.0202745, 0.908797)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/position = Vector3(9.83476e-07, 5.62745, -2.5481e-06)
+bones/28/rotation = Quaternion(0.113704, -0.352509, 0.817589, 0.440859)
+bones/28/scale = Vector3(1, 1, 1)
+bones/29/rotation = Quaternion(-0.13592, 0.454359, 0.693737, 0.542046)
+bones/30/rotation = Quaternion(0.205702, 0.60992, -0.509857, 0.570728)
+bones/31/rotation = Quaternion(0.502096, -0.0111513, -0.0582506, 0.862776)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.20184, -0.652472, 0.730438, 0.233008, 0.756364, 0.611244, -0.951298, 0.0468244, 0.304696, 11.0165, 41.508, -56.4177)
+bone_name = "mixamorig_LeftHand"
+bone_idx = 10
+
+[node name="Ray_gun-1a378929e3a860e034a5288202c380f8" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_bub2y")]
+transform = Transform3D(11.8333, 99.1283, -5.79314, 71.7065, -4.49496, 69.5555, 68.6888, -12.3848, -71.6133, -24.4367, 30.1972, 6.27776)

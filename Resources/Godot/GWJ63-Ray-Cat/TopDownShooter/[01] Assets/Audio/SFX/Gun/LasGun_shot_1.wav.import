@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmj78ua63yftk"
+path="res://.godot/imported/LasGun_shot_1.wav-fd9635c18cf7a3c0cf37150512839603.sample"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Gun/LasGun_shot_1.wav"
+dest_files=["res://.godot/imported/LasGun_shot_1.wav-fd9635c18cf7a3c0cf37150512839603.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

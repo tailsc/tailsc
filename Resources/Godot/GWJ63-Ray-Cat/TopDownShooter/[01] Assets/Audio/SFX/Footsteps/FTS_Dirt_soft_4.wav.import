@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddk0wc8c1gp0q"
+path="res://.godot/imported/FTS_Dirt_soft_4.wav-3b4fd9b59c67f35bb4afcfeca68d6fc6.sample"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Footsteps/FTS_Dirt_soft_4.wav"
+dest_files=["res://.godot/imported/FTS_Dirt_soft_4.wav-3b4fd9b59c67f35bb4afcfeca68d6fc6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

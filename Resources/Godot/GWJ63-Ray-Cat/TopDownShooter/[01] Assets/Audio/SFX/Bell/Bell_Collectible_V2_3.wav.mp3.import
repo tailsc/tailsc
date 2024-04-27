@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0qlekibsc1c5"
+path="res://.godot/imported/Bell_Collectible_V2_3.wav.mp3-5cf84c99ee9aa1c9e40c1e355821d914.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Bell/Bell_Collectible_V2_3.wav.mp3"
+dest_files=["res://.godot/imported/Bell_Collectible_V2_3.wav.mp3-5cf84c99ee9aa1c9e40c1e355821d914.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

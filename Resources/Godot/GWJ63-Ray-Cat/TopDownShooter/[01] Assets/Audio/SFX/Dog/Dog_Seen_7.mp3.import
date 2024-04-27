@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bm0nic37ikp5"
+path="res://.godot/imported/Dog_Seen_7.mp3-209cfafa1a0490ce24a64d8920808194.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Dog/Dog_Seen_7.mp3"
+dest_files=["res://.godot/imported/Dog_Seen_7.mp3-209cfafa1a0490ce24a64d8920808194.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

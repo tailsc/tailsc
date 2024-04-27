@@ -1,20 +1,22 @@
 [gd_resource type="ProjectCache" load_steps=18 format=3 uid="uid://ch07gdik3opse"]
 
-[ext_resource type="BankAsset" uid="uid://i6bk60tmchna" path="res://addons/FMOD/editor/resources/banks/{9ea497ad-d4bd-4ebb-b876-11853fbdad96}.tres" id="1_vwxxd"]
-[ext_resource type="BankAsset" uid="uid://dcr2qevi7ex3w" path="res://addons/FMOD/editor/resources/banks/{06b9b779-a5c6-02f9-3e3f-9b7bce4eab0e}.tres" id="2_mj5kj"]
-[ext_resource type="BusAsset" uid="uid://cco1p2vwjfsn8" path="res://addons/FMOD/editor/resources/busses/{701d16f5-8039-4f34-b8a8-d5065dad506c}.tres" id="3_lk0w5"]
-[ext_resource type="BusAsset" uid="uid://dskqydd8tj67l" path="res://addons/FMOD/editor/resources/busses/{adaf805b-0033-4288-90f1-93217d7b5817}.tres" id="4_hssse"]
-[ext_resource type="EventAsset" uid="uid://djs0utvxc4cn6" path="res://addons/FMOD/editor/resources/events/{8a2b523f-8650-4043-826d-5484c5d4846d}.tres" id="5_bmlid"]
-[ext_resource type="EventAsset" uid="uid://bc1bomrntop4y" path="res://addons/FMOD/editor/resources/events/{ff2938b3-7737-4b8f-891e-d416bda430e0}.tres" id="6_1gf7t"]
-[ext_resource type="EventAsset" uid="uid://q0wy7050pk62" path="res://addons/FMOD/editor/resources/events/{8d97cfcd-2467-4a01-88cc-40bb35ccb82c}.tres" id="7_mdblu"]
-[ext_resource type="EventAsset" uid="uid://d4ladfpya7sb8" path="res://addons/FMOD/editor/resources/events/{23d457c8-dbda-4992-a8c9-a455f975148f}.tres" id="8_qpq2n"]
-[ext_resource type="EventAsset" uid="uid://dgwd44ry5f0sv" path="res://addons/FMOD/editor/resources/events/{f4bd601b-3d35-488b-ba37-5be74fbacd77}.tres" id="9_fuhto"]
-[ext_resource type="EventAsset" uid="uid://jksvhrp5f0e3" path="res://addons/FMOD/editor/resources/events/{fdadd314-4688-413d-bcd9-6a64900e1cd8}.tres" id="10_u7x8n"]
-[ext_resource type="EventAsset" uid="uid://vgn2ytbc42ko" path="res://addons/FMOD/editor/resources/events/{36bef9ce-fc2d-438b-bca3-35b76fa56b5f}.tres" id="11_l5kha"]
-[ext_resource type="EventAsset" uid="uid://lwo1orj8qljq" path="res://addons/FMOD/editor/resources/events/{cb6889b4-f372-43f7-bcad-3a25ef854200}.tres" id="12_xclmq"]
-[ext_resource type="EventAsset" uid="uid://bujj00goj6bb0" path="res://addons/FMOD/editor/resources/events/{8f838bc0-0adb-48bc-8656-94b0d987a8d0}.tres" id="13_avdbj"]
+[ext_resource type="MissingResource" uid="uid://i6bk60tmchna" path="res://addons/FMOD/editor/resources/banks/{9ea497ad-d4bd-4ebb-b876-11853fbdad96}.tres" id="1_vwxxd"]
+[ext_resource type="MissingResource" uid="uid://dcr2qevi7ex3w" path="res://addons/FMOD/editor/resources/banks/{06b9b779-a5c6-02f9-3e3f-9b7bce4eab0e}.tres" id="2_mj5kj"]
+[ext_resource type="MissingResource" uid="uid://cco1p2vwjfsn8" path="res://addons/FMOD/editor/resources/busses/{701d16f5-8039-4f34-b8a8-d5065dad506c}.tres" id="3_lk0w5"]
+[ext_resource type="MissingResource" uid="uid://dskqydd8tj67l" path="res://addons/FMOD/editor/resources/busses/{adaf805b-0033-4288-90f1-93217d7b5817}.tres" id="4_hssse"]
+[ext_resource type="MissingResource" uid="uid://djs0utvxc4cn6" path="res://addons/FMOD/editor/resources/events/{8a2b523f-8650-4043-826d-5484c5d4846d}.tres" id="5_bmlid"]
+[ext_resource type="MissingResource" uid="uid://bc1bomrntop4y" path="res://addons/FMOD/editor/resources/events/{ff2938b3-7737-4b8f-891e-d416bda430e0}.tres" id="6_1gf7t"]
+[ext_resource type="MissingResource" uid="uid://q0wy7050pk62" path="res://addons/FMOD/editor/resources/events/{8d97cfcd-2467-4a01-88cc-40bb35ccb82c}.tres" id="7_mdblu"]
+[ext_resource type="MissingResource" uid="uid://d4ladfpya7sb8" path="res://addons/FMOD/editor/resources/events/{23d457c8-dbda-4992-a8c9-a455f975148f}.tres" id="8_qpq2n"]
+[ext_resource type="MissingResource" uid="uid://dgwd44ry5f0sv" path="res://addons/FMOD/editor/resources/events/{f4bd601b-3d35-488b-ba37-5be74fbacd77}.tres" id="9_fuhto"]
+[ext_resource type="MissingResource" uid="uid://jksvhrp5f0e3" path="res://addons/FMOD/editor/resources/events/{fdadd314-4688-413d-bcd9-6a64900e1cd8}.tres" id="10_u7x8n"]
+[ext_resource type="MissingResource" uid="uid://vgn2ytbc42ko" path="res://addons/FMOD/editor/resources/events/{36bef9ce-fc2d-438b-bca3-35b76fa56b5f}.tres" id="11_l5kha"]
+[ext_resource type="MissingResource" uid="uid://lwo1orj8qljq" path="res://addons/FMOD/editor/resources/events/{cb6889b4-f372-43f7-bcad-3a25ef854200}.tres" id="12_xclmq"]
+[ext_resource type="MissingResource" uid="uid://bujj00goj6bb0" path="res://addons/FMOD/editor/resources/events/{8f838bc0-0adb-48bc-8656-94b0d987a8d0}.tres" id="13_avdbj"]
 
 [sub_resource type="EventAsset" id="EventAsset_n8o3l"]
+resource_local_to_scene = false
+resource_name = ""
 is_oneshot = true
 min_distance = 1.0
 max_distance = 20.0
@@ -23,6 +25,8 @@ guid = "{cbf54648-86bd-4437-8ce6-d97082e817e1}"
 name = "LasGun_Grab"
 
 [sub_resource type="EventAsset" id="EventAsset_mu41k"]
+resource_local_to_scene = false
+resource_name = ""
 is_oneshot = true
 min_distance = 1.0
 max_distance = 20.0
@@ -31,6 +35,8 @@ guid = "{34b21e31-b8db-495e-afc6-bca89c1718f1}"
 name = "Player_Death"
 
 [sub_resource type="EventAsset" id="EventAsset_78d8b"]
+resource_local_to_scene = false
+resource_name = ""
 is_oneshot = true
 min_distance = 1.0
 max_distance = 20.0
@@ -39,6 +45,8 @@ guid = "{8ff53308-2966-4955-b56b-d0161ea7f75b}"
 name = "Player_Footsteps"
 
 [sub_resource type="EventAsset" id="EventAsset_e32hf"]
+resource_local_to_scene = false
+resource_name = ""
 is_oneshot = true
 min_distance = 1.0
 max_distance = 20.0

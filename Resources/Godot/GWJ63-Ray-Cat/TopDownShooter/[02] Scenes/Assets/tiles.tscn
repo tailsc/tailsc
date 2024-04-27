@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0gnkosbpbnjr"]
+
+[ext_resource type="PackedScene" uid="uid://dthuuqi3qker0" path="res://[01] Assets/Blender/Cat_Bell.blend" id="1_yexjy"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Cat_Bell-c1c206a7a03b36ac04cca7815b47c439" parent="." instance=ExtResource("1_yexjy")]

@@ -12,5 +12,5 @@ config_version=5
 
 config/name="Falling Leaves"
 config/tags=PackedStringArray("tutorial")
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"

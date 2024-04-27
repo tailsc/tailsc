@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw4wt6ogkbfql"]
+
+[ext_resource type="Texture2D" uid="uid://bestoketk4juh" path="res://[01] Assets/Blender/white-circle-frame-free-png.png" id="1_2uqht"]
+
+[sub_resource type="Curve" id="Curve_oq4re"]
+_data = [Vector2(0, 0.318907), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_p3134"]
+curve = SubResource("Curve_oq4re")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u0hek"]
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_p3134")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ayjo4"]
+transparency = 2
+alpha_scissor_threshold = 0.9
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.713726, 0, 0.156863, 1)
+albedo_texture = ExtResource("1_2uqht")
+emission_enabled = true
+emission = Color(0, 0.498039, 0.121569, 1)
+emission_energy_multiplier = 16.0
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_lvt6a"]
+material = SubResource("StandardMaterial3D_ayjo4")
+
+[node name="GPUParticles3D2" type="GPUParticles3D"]
+emitting = false
+amount = 20
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_u0hek")
+draw_pass_1 = SubResource("QuadMesh_lvt6a")

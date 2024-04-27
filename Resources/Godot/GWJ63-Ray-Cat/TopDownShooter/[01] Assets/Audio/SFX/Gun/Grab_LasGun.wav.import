@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwd0q78hbhtix"
+path="res://.godot/imported/Grab_LasGun.wav-fe6b11854d414310db33ddcf688b0750.sample"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Gun/Grab_LasGun.wav"
+dest_files=["res://.godot/imported/Grab_LasGun.wav-fe6b11854d414310db33ddcf688b0750.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
