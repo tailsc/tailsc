@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvwkud8fl6lrt"]
+
+[ext_resource type="PackedScene" uid="uid://dbfwpccits53g" path="res://Assets/Bush/Bush.blend" id="1_yncsa"]
+[ext_resource type="Shader" path="res://addons/proton_scatter/demos/assets/materials/grass.gdshader" id="2_uh3rx"]
+[ext_resource type="Texture2D" uid="uid://cuy24v4nhi85b" path="res://Fnt, Img, Snd, Env, Tex/Images/CowLeaf.png" id="3_d45w4"]
+
+[sub_resource type="Gradient" id="Gradient_pookg"]
+offsets = PackedFloat32Array(0, 0.984674)
+colors = PackedColorArray(0.193649, 0.957514, 1.15514e-06, 1, 0.655479, 0.995363, 7.70092e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_snuf0"]
+gradient = SubResource("Gradient_pookg")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t7o5y"]
+seed = 1
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4j0cw"]
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.65
+noise = SubResource("FastNoiseLite_t7o5y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k142m"]
+render_priority = 0
+shader = ExtResource("2_uh3rx")
+shader_parameter/alpha_scissor_threshold = 0.9
+shader_parameter/transmission = Color(1, 1, 1, 1)
+shader_parameter/secondary_color = Color(0, 0, 0, 1)
+shader_parameter/secondary_attenuation = 0.2
+shader_parameter/grass_height = 1.0
+shader_parameter/wind_direction = Vector2(1, -0.5)
+shader_parameter/wind_speed = 0.2
+shader_parameter/wind_strength = 0.2
+shader_parameter/noise_scale = 12.0
+shader_parameter/texture_albedo = ExtResource("3_d45w4")
+shader_parameter/texture_gradient = SubResource("GradientTexture1D_snuf0")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_4j0cw")
+
+[node name="Bush" instance=ExtResource("1_yncsa")]
+
+[node name="Bush" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_k142m")

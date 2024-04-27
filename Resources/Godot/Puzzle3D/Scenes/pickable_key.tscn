@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://pgd4uuw3pwv7"]
+
+[ext_resource type="Script" path="res://Scripts/pickable_key.gd" id="1_7pom8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_unqts"]
+
+[node name="pickable_key" type="RigidBody3D" groups=["pickable"]]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 3
+mass = 0.1
+script = ExtResource("1_7pom8")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_unqts")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

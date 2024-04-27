@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://ds3nc16tesr4t"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/LasGun/LasGun_Grab"
+guid = "{cbf54648-86bd-4437-8ce6-d97082e817e1}"
+name = "LasGun_Grab"

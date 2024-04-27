@@ -1,0 +1,1160 @@
+[gd_scene load_steps=5 format=3 uid="uid://owijehrx31h5"]
+
+[ext_resource type="Script" path="res://Scripts/Ui/options_menu.gd" id="1_31jm3"]
+[ext_resource type="Theme" uid="uid://cbwe0o5y2s7wn" path="res://Fnt, Img, Snd, Env, Tex/Themes/YellowBrownTheme.tres" id="2_uid4x"]
+[ext_resource type="PackedScene" uid="uid://cf5lrywet5k12" path="res://Scenes/Ui/volume_slider.tscn" id="3_ak176"]
+[ext_resource type="Texture2D" uid="uid://tpxba851skao" path="res://Fnt, Img, Snd, Env, Tex/Themes/image (2).png" id="4_ubhbj"]
+
+[node name="OPTIONS" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_31jm3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Panel" type="Panel" parent="ColorRect"]
+custom_minimum_size = Vector2(1750, 1750)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -875.0
+offset_top = -875.0
+offset_right = 875.0
+offset_bottom = 875.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/Panel"]
+custom_minimum_size = Vector2(1650, 1550)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -825.0
+offset_top = -826.0
+offset_right = 825.0
+offset_bottom = 724.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/Panel/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(1590, 2000)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="TabContainer" type="TabContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 73
+tab_alignment = 1
+
+[node name="Options‎" type="VBoxContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer11" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="DisplayLabel" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Display"
+
+[node name="WindowModePanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="WindowMode" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/WindowModePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.5
+offset_right = 744.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Window Mode"
+
+[node name="WindowMode" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/WindowModePanel/WindowMode"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -573.0
+offset_top = -36.0
+offset_right = -33.0
+offset_bottom = 34.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 2
+selected = 1
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ResolutionPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="Resolution" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/ResolutionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Resolution"
+
+[node name="Resolution" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/ResolutionPanel/Resolution"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -594.0
+offset_top = -36.5
+offset_right = -54.0
+offset_bottom = 33.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 4
+selected = 0
+popup/item_0/text = "1280x720"
+popup/item_0/id = 0
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 1
+popup/item_2/text = "2560x1440"
+popup/item_2/id = 2
+popup/item_3/text = "3840x2160"
+popup/item_3/id = 3
+
+[node name="MarginContainer17" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="FrameRateCapPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="FrameRateCap" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/FrameRateCapPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Frame Rate Cap"
+
+[node name="FrameRateCap" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/FrameRateCapPanel/FrameRateCap"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -594.0
+offset_top = -36.5
+offset_right = -54.0
+offset_bottom = 33.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 5
+selected = 4
+popup/item_0/text = "30 Fps"
+popup/item_0/id = 0
+popup/item_1/text = "60 Fps"
+popup/item_1/id = 1
+popup/item_2/text = "144 Fps"
+popup/item_2/id = 2
+popup/item_3/text = "240 Fps"
+popup/item_3/id = 3
+popup/item_4/text = "Uncapped"
+popup/item_4/id = 4
+
+[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Inputs_label" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Inputs
+"
+
+[node name="InputPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="SensLabel" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/InputPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 755.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Mouse sensivity"
+
+[node name="SensSlider" type="HSlider" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/InputPanel/SensLabel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 167.5
+offset_top = -31.5
+offset_right = 347.5
+offset_bottom = -15.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+min_value = 0.02
+max_value = 0.4
+step = 0.001
+value = 0.2
+
+[node name="MarginContainer4" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="AudioLabel" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Audio"
+
+[node name="MasterVolPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="MasterVolume" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/MasterVolPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Master Volume"
+
+[node name="Master" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/MasterVolPanel/MasterVolume" instance=ExtResource("3_ak176")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 160.5
+offset_top = -21.5
+offset_right = 340.5
+offset_bottom = -5.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+bus_name = "Master"
+
+[node name="MarginContainer9" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="MusicVolPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="MusicVolume" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/MusicVolPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -32.0
+offset_right = 755.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Music Volume"
+
+[node name="Music" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/MusicVolPanel/MusicVolume" instance=ExtResource("3_ak176")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 165.5
+offset_top = -31.5
+offset_right = 345.5
+offset_bottom = -15.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+bus_name = "Music"
+
+[node name="MarginContainer10" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SfxVolPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="SfxVolume" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SfxVolPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Sfx Volume"
+
+[node name="Sfx" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SfxVolPanel/SfxVolume" instance=ExtResource("3_ak176")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 160.5
+offset_top = -24.5
+offset_right = 340.5
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+bus_name = "Sfx"
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="AdvancedLabel" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Advanced"
+
+[node name="ShadowQualityPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="ShadowQuality" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/ShadowQualityPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Shadow Quality"
+
+[node name="ShadowBtn" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/ShadowQualityPanel/ShadowQuality"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -592.0
+offset_top = -38.5
+offset_right = -52.0
+offset_bottom = 31.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_uid4x")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 3
+selected = 0
+popup/item_0/text = "Low"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "High"
+popup/item_2/id = 2
+
+[node name="MarginContainer13" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="MsaaPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="Msaa" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/MsaaPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Msaa"
+
+[node name="Msaa" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/MsaaPanel/Msaa"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -592.0
+offset_top = -31.5
+offset_right = -52.0
+offset_bottom = 38.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_uid4x")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 4
+selected = 0
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Msaa 2x"
+popup/item_1/id = 1
+popup/item_2/text = "Msaa 4x"
+popup/item_2/id = 2
+popup/item_3/text = "Msaa 8x"
+popup/item_3/id = 3
+
+[node name="MarginContainer19" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ShadowsPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="Shadows" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/ShadowsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Shadows"
+
+[node name="Shadows" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/ShadowsPanel/Shadows"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -594.0
+offset_top = -31.5
+offset_right = -54.0
+offset_bottom = 38.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_uid4x")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 2
+selected = 1
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Enabled"
+popup/item_1/id = 1
+
+[node name="MarginContainer16" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="VsyncPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="Vsync" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/VsyncPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Vsync "
+
+[node name="Vsync" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/VsyncPanel/Vsync"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -592.0
+offset_top = -31.5
+offset_right = -52.0
+offset_bottom = 38.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_uid4x")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Enabled"
+popup/item_1/id = 1
+
+[node name="MarginContainer14" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="FxaaPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="Fxaa" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/FxaaPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Fxaa"
+
+[node name="Fxaa" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/FxaaPanel/Fxaa"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -594.0
+offset_top = -30.5
+offset_right = -54.0
+offset_bottom = 39.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_uid4x")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Enabled"
+popup/item_1/id = 1
+
+[node name="MarginContainer15" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="GlowPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="Glow" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/GlowPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Glow "
+
+[node name="Glow" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/GlowPanel/Glow"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -594.0
+offset_top = -31.5
+offset_right = -54.0
+offset_bottom = 38.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_uid4x")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Enabled"
+popup/item_1/id = 1
+
+[node name="MarginContainer12" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SsrPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="SSR" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SsrPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -34.0
+offset_right = 765.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Ssr"
+
+[node name="Glow3" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SsrPanel/SSR"]
+layout_mode = 2
+offset_left = 917.0
+offset_right = 1454.0
+offset_bottom = 70.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_uid4x")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Enabled"
+popup/item_1/id = 1
+
+[node name="MarginContainer6" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SsaoPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="SSAO" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SsaoPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Ssao"
+
+[node name="Ssao" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SsaoPanel/SSAO"]
+layout_mode = 2
+offset_left = 915.0
+offset_right = 1452.0
+offset_bottom = 70.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_uid4x")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Enabled"
+popup/item_1/id = 1
+
+[node name="MarginContainer7" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SsilPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="SSIL" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SsilPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Ssil"
+
+[node name="Ssil" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SsilPanel/SSIL"]
+layout_mode = 2
+offset_left = 917.0
+offset_right = 1454.0
+offset_bottom = 70.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_uid4x")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Enabled"
+popup/item_1/id = 1
+
+[node name="MarginContainer8" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SdfgiPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎"]
+custom_minimum_size = Vector2(64.595, 100)
+layout_mode = 2
+
+[node name="SDFGI" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SdfgiPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.0
+offset_top = -31.0
+offset_right = 765.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Sdfgi"
+
+[node name="Sdfgi" type="OptionButton" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SdfgiPanel/SDFGI"]
+layout_mode = 2
+offset_left = 917.0
+offset_right = 1454.0
+offset_bottom = 70.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_uid4x")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Enabled"
+popup/item_1/id = 1
+
+[node name="KeyBindings" type="VBoxContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ForwardPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(1500, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ForwardLabel" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/ForwardPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 55.0
+offset_top = -35.0
+offset_right = 265.0
+offset_bottom = 28.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Forward"
+horizontal_alignment = 2
+
+[node name="forward" type="Button" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/ForwardPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1080.0
+offset_top = -75.0
+offset_right = 1500.0
+offset_bottom = 75.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+
+[node name="MarginContainer11" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="BackwardPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(1500, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BackwardLabel" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/BackwardPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -695.0
+offset_top = -37.76
+offset_right = -447.0
+offset_bottom = 32.24
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Backward"
+horizontal_alignment = 2
+
+[node name="backward" type="Button" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/BackwardPanel"]
+layout_mode = 2
+offset_left = 1080.0
+offset_right = 1500.0
+offset_bottom = 150.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+
+[node name="MarginContainer12" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="LeftPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(1500, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="LeftLabel" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/LeftPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 55.0
+offset_top = -37.0
+offset_right = 162.0
+offset_bottom = 37.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Left
+"
+horizontal_alignment = 2
+
+[node name="left" type="Button" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/LeftPanel"]
+layout_mode = 2
+offset_left = 1080.0
+offset_top = 0.23999
+offset_right = 1500.0
+offset_bottom = 150.24
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+
+[node name="MarginContainer13" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RightPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(1500, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="RightLabel" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/RightPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 55.0
+offset_top = -35.0
+offset_right = 193.0
+offset_bottom = 35.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Right"
+horizontal_alignment = 2
+
+[node name="right" type="Button" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/RightPanel"]
+layout_mode = 2
+offset_left = 1080.0
+offset_top = 2.23999
+offset_right = 1500.0
+offset_bottom = 152.24
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+
+[node name="MarginContainer14" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="JumpPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(1500, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="JumpLabel" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/JumpPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -697.0
+offset_top = -34.0
+offset_right = -552.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Jump"
+horizontal_alignment = 2
+
+[node name="jump" type="Button" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/JumpPanel"]
+layout_mode = 2
+offset_left = 1080.0
+offset_top = 0.23999
+offset_right = 1500.0
+offset_bottom = 150.24
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+
+[node name="MarginContainer15" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="SprintPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(1500, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="SprintLabel" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/SprintPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -697.0
+offset_top = -34.0
+offset_right = -537.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Sprint"
+horizontal_alignment = 2
+
+[node name="sprint" type="Button" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/SprintPanel"]
+layout_mode = 2
+offset_left = 1080.0
+offset_top = -3.76001
+offset_right = 1497.0
+offset_bottom = 150.24
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+
+[node name="MarginContainer16" type="MarginContainer" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="CrouchPanel" type="Panel" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings"]
+custom_minimum_size = Vector2(1500, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="CrouchLabel" type="Label" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/CrouchPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -708.0
+offset_top = -34.0
+offset_right = -525.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Crouch"
+horizontal_alignment = 2
+
+[node name="crouch" type="Button" parent="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/KeyBindings/CrouchPanel"]
+layout_mode = 2
+offset_left = 1080.0
+offset_top = 0.23999
+offset_right = 1497.0
+offset_bottom = 154.24
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+
+[node name="SaveAndApply" type="Button" parent="ColorRect/Panel"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -747.0
+offset_top = -123.0
+offset_right = -397.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Save And Apply"
+
+[node name="ResetToDefault" type="Button" parent="ColorRect/Panel"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 397.0
+offset_top = -123.0
+offset_right = 747.0
+offset_bottom = -23.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Reset To Default"
+
+[node name="Image(2)" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1922, 1075.75)
+scale = Vector2(3.56506, 3.5843)
+texture = ExtResource("4_ubhbj")
+
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/WindowModePanel/WindowMode/WindowMode" to="." method="_on_window_mode_item_selected"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/ResolutionPanel/Resolution/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/FrameRateCapPanel/FrameRateCap/FrameRateCap" to="." method="_on_frame_rate_cap_item_selected"]
+[connection signal="value_changed" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/InputPanel/SensLabel/SensSlider" to="." method="_on_sens_slider_value_changed"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/ShadowQualityPanel/ShadowQuality/ShadowBtn" to="." method="_on_shadow_btn_item_selected"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/MsaaPanel/Msaa/Msaa" to="." method="_on_msaa_item_selected"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/ShadowsPanel/Shadows/Shadows" to="." method="_on_shadows_item_selected"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/VsyncPanel/Vsync/Vsync" to="." method="_on_vsync_item_selected"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/FxaaPanel/Fxaa/Fxaa" to="." method="_on_fxaa_item_selected"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/GlowPanel/Glow/Glow" to="." method="_on_glow_item_selected"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SsrPanel/SSR/Glow3" to="." method="_on_glow_3_item_selected"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SsaoPanel/SSAO/Ssao" to="." method="_on_ssao_item_selected"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SsilPanel/SSIL/Ssil" to="." method="_on_ssil_item_selected"]
+[connection signal="item_selected" from="ColorRect/Panel/ScrollContainer/PanelContainer/MarginContainer/TabContainer/Options‎/SdfgiPanel/SDFGI/Sdfgi" to="." method="_on_sdfgi_item_selected"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvl5cjtr3esgh"]
+
+[ext_resource type="PackedScene" uid="uid://b1woqh5d0wuwu" path="res://Assets/Blender/Castle/Fountain.blend" id="1_3royx"]
+[ext_resource type="Shader" path="res://Scenes/Water.gdshader" id="2_3arrk"]
+[ext_resource type="Texture2D" uid="uid://dthho5dwpc42c" path="res://Assets/Blender/Dungeon/displacement.png" id="3_u7qer"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_144yi"]
+particle_flag_rotate_y = true
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 3.5
+initial_velocity_max = 3.5
+scale_min = 0.5
+scale_max = 0.5
+color = Color(0.160784, 0.545098, 0.729412, 1)
+collision_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5vb6"]
+albedo_color = Color(0.164706, 0.556863, 0.701961, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_n5cfh"]
+material = SubResource("StandardMaterial3D_v5vb6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ypsbh"]
+render_priority = 0
+shader = ExtResource("2_3arrk")
+shader_parameter/main_color = Color(0.211765, 0.6, 0.807843, 1)
+shader_parameter/intersection_color = Color(1, 1, 1, 1)
+shader_parameter/intersection_max_threshold = 0.25
+shader_parameter/displ_amount = 0.1
+shader_parameter/near = 0.15
+shader_parameter/far = 300.0
+shader_parameter/displ_tex = ExtResource("3_u7qer")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.92579, 0)
+amount = 200
+lifetime = 2.0
+randomness = 0.5
+visibility_aabb = AABB(-20.8328, -13.7217, -16.7111, 41.6656, 27.4435, 33.4223)
+process_material = SubResource("ParticleProcessMaterial_144yi")
+draw_pass_1 = SubResource("SphereMesh_n5cfh")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.183372, 0)
+size = Vector3(25.5274, 2, 23.397)
+
+[node name="Fountain" parent="." instance=ExtResource("1_3royx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27216, 0)
+radius = 4.69946
+height = 0.002
+material = SubResource("ShaderMaterial_ypsbh")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.29861, 0)
+radius = 2.25838
+height = 0.002
+material = SubResource("ShaderMaterial_ypsbh")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.49483, 0)
+radius = 1.3954
+height = 0.002
+material = SubResource("ShaderMaterial_ypsbh")

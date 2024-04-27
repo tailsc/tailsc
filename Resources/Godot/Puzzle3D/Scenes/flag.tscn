@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv8f47low4nm3"]
+
+[ext_resource type="Shader" path="res://Shaders, Particle Effects/flag.gdshader" id="1_wch5s"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x5qva"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_seupg"]
+in_3d_space = true
+generate_mipmaps = false
+seamless = true
+seamless_blend_skirt = 0.125
+normalize = false
+noise = SubResource("FastNoiseLite_x5qva")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgmf0"]
+render_priority = 0
+shader = ExtResource("1_wch5s")
+shader_parameter/uv_offset_scale = Vector2(-0.2, -0.1)
+shader_parameter/time_scale = Vector2(0.3, 0)
+shader_parameter/face_distortion = 0.5
+shader_parameter/uv_offset_texture = SubResource("NoiseTexture2D_seupg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2us7v"]
+material = SubResource("ShaderMaterial_rgmf0")
+size = Vector2(3, 2)
+subdivide_width = 32
+subdivide_depth = 32
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999839, 0.0179585, 0, -0.0179585, 0.999839, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2us7v")

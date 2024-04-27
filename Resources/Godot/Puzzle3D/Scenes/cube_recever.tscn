@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0012kdmexfer"]
+
+[ext_resource type="Script" path="res://Scripts/cube_recever.gd" id="1_3bnbr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkpvg"]
+albedo_color = Color(0.427451, 0.427451, 0.427451, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cnm1v"]
+material = SubResource("StandardMaterial3D_bkpvg")
+size = Vector3(2, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10fmc"]
+size = Vector3(0.805737, 0.342703, 0.999699)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y38hf"]
+size = Vector3(2.38484, 0.968938, 1.96985)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e17xm"]
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0koo6"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_e17xm")
+
+[node name="cube_recever" type="StaticBody3D" groups=["pressable"]]
+collision_layer = 4
+script = ExtResource("1_3bnbr")
+text1 = "UNLOCKED!"
+text2 = "PLACE!"
+activation_var = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_cnm1v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_10fmc")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25067, 0)
+shape = SubResource("BoxShape3D_y38hf")
+
+[node name="block" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2408, 0)
+visible = false
+mesh = SubResource("BoxMesh_0koo6")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

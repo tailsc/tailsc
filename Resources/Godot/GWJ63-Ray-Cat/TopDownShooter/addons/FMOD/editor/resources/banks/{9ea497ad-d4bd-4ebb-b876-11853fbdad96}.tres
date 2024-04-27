@@ -1,0 +1,8 @@
+[gd_resource type="BankAsset" format=3 uid="uid://i6bk60tmchna"]
+
+[resource]
+file_path = "res://fmod_banks/Desktop/Master.bank"
+modified_time = 1700386417
+path = "bank:/Master"
+guid = "{9ea497ad-d4bd-4ebb-b876-11853fbdad96}"
+name = "Master"

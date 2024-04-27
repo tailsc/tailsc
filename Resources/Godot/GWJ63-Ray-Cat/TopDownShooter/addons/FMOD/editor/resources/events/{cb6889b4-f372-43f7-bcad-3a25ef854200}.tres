@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://lwo1orj8qljq"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Dog/DogSeen"
+guid = "{cb6889b4-f372-43f7-bcad-3a25ef854200}"
+name = "DogSeen"

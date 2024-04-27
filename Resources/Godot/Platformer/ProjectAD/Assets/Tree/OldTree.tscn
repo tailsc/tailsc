@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bax8v4rfdhgtp"]
+
+[ext_resource type="PackedScene" uid="uid://bn88up1f3uq6t" path="res://Assets/Tree/Tree.blend" id="1_y51y7"]
+[ext_resource type="PackedScene" uid="uid://b7dqdn6i47nc6" path="res://Assets/Bush/StylizedTreeBush.tscn" id="2_4mgpb"]
+
+[node name="Tree" instance=ExtResource("1_y51y7")]
+
+[node name="Cylinder" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+cast_shadow = 2
+
+[node name="Bush-50" parent="." index="1" instance=ExtResource("2_4mgpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.103, 2.999, -0.715)
+
+[node name="Bush-51" parent="." index="2" instance=ExtResource("2_4mgpb")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.115135, 2.57387, 1.32551)
+
+[node name="Bush-52" parent="." index="3" instance=ExtResource("2_4mgpb")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -0.115135, 3.22259, -0.339096)
+
+[node name="Bush-53" parent="." index="4" instance=ExtResource("2_4mgpb")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.08871, 3.15282, -0.781342)
+
+[node name="Bush-54" parent="." index="5" instance=ExtResource("2_4mgpb")]
+transform = Transform3D(1.272, 0, 0, 0, 1.272, 0, 0, 0, 1.272, 0.485128, 3.15282, -1.59996)

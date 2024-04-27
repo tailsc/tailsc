@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdt00s6s6oa4p"]
+
+[ext_resource type="Script" path="res://Scripts/testunit.gd" id="1_a6ote"]
+[ext_resource type="PackedScene" uid="uid://dqm7c1xy5w602" path="res://blender/test_unit.glb" id="2_fsie3"]
+[ext_resource type="Texture2D" uid="uid://d4lqau1bb35nk" path="res://image/DragBox.png" id="2_uu06t"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d4nvj"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 10
+script = ExtResource("1_a6ote")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.534528, 0)
+shape = SubResource("SphereShape3D_d4nvj")
+
+[node name="unit_graphic" parent="." instance=ExtResource("2_fsie3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.055, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="unit_graphic"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36567, 0.323504)
+size = Vector3(0.713044, 0.339679, 0.404967)
+
+[node name="selected" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+pixel_size = 0.1
+axis = 1
+texture = ExtResource("2_uu06t")
+region_rect = Rect2(4, 4, 4, 4)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.25
+avoidance_enabled = true
+radius = 0.6
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.1
+autostart = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, -3, 0)
+collision_mask = 2

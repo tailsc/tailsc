@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://cpg67dxgr360g"
+path="res://.godot/imported/compute_relax.glsl-585f5e127a46985c1f9ffae8ad8bf5c9.res"
+
+[deps]
+
+source_file="res://Addons/proton_scatter/src/modifiers/compute_shaders/compute_relax.glsl"
+dest_files=["res://.godot/imported/compute_relax.glsl-585f5e127a46985c1f9ffae8ad8bf5c9.res"]
+
+[params]
+

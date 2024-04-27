@@ -1,0 +1,130 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2r2yhidvpdpa"]
+
+[ext_resource type="Environment" uid="uid://jv8m6qpsm8hm" path="res://Scenes/Menus/WorldEnv.tres" id="1_dcd0k"]
+[ext_resource type="Script" path="res://Scenes/Worlds/WorldEnvironment.gd" id="2_crsrl"]
+[ext_resource type="Script" path="res://Scenes/Worlds/DirectionalLight3D.gd" id="3_1vsf1"]
+[ext_resource type="PackedScene" uid="uid://6bs661c4qeoo" path="res://Scenes/Character/Player.tscn" id="4_36skl"]
+[ext_resource type="PackedScene" uid="uid://b2or2avn8wq2v" path="res://Assets/blend Meshes/Gifts.blend" id="5_kuuay"]
+[ext_resource type="PackedScene" uid="uid://bngmnxp6a3aiq" path="res://Assets/blend Meshes/SnowFence.blend" id="6_288e7"]
+[ext_resource type="PackedScene" uid="uid://c8p3x7etikthh" path="res://Assets/blend Meshes/CandyCane.blend" id="7_bmuqn"]
+
+[sub_resource type="Curve" id="Curve_ran4k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.219178, 1), 0.0, 0.0, 0, 0, Vector2(0.359589, 0), -7.68421, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_w3qi1"]
+curve = SubResource("Curve_ran4k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sa02f"]
+emission_shape = 3
+emission_box_extents = Vector3(5, 0, 5)
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, -1, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_w3qi1")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_ulqru"]
+
+[node name="SnowTest" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_dcd0k")
+script = ExtResource("2_crsrl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.271384, -0.829521, 0.488104, 0.470325, 0.328166, 0.819208, -0.839729, 0.451888, 0.301085, 9.864, 2.27957, 0)
+light_energy = 2.0
+shadow_enabled = true
+script = ExtResource("3_1vsf1")
+
+[node name="Player" parent="." instance=ExtResource("4_36skl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26454, -4.51488, 2.73908)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.59089, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.845, -29.5509)
+size = Vector3(78.0532, 1, 98.0101)
+
+[node name="Assets" type="Node3D" parent="."]
+
+[node name="Gifts" parent="Assets" instance=ExtResource("5_kuuay")]
+transform = Transform3D(0.253668, 0, -0.269356, 0, 0.37, 0, 0.269356, 0, 0.253668, 1.33274, -4.70506, 0.250926)
+
+[node name="Gifts2" parent="Assets" instance=ExtResource("5_kuuay")]
+transform = Transform3D(0.31609, -0.00021258, 0.192321, 0.0123799, -0.36921, -0.0207552, 0.191922, 0.024166, -0.315407, -2.58089, -4.83109, 0.693268)
+
+[node name="Gifts3" parent="Assets" instance=ExtResource("5_kuuay")]
+transform = Transform3D(5.63652e-16, 1.28949e-08, -0.295, 0.295, -1.28949e-08, 0, -1.28949e-08, -0.295, -1.28949e-08, 2.2693, -5.38771, 1.67912)
+
+[node name="SnowFence" parent="Assets" instance=ExtResource("6_288e7")]
+transform = Transform3D(0.91427, 0, 0.440834, 0, 1.015, 0, -0.440834, 0, 0.91427, 2.89477, -4.93589, 1.17824)
+
+[node name="SnowFence2" parent="Assets" instance=ExtResource("6_288e7")]
+transform = Transform3D(0.684, 0, 0.729482, 0, 1, 0, -0.729482, 0, 0.684, 1.43714, -4.93589, -0.870561)
+
+[node name="SnowFence3" parent="Assets" instance=ExtResource("6_288e7")]
+transform = Transform3D(0.206718, 0, -0.911862, 0, 0.935, 0, 0.911862, 0, 0.206718, -0.759472, -4.93589, -1.45369)
+
+[node name="SnowFence4" parent="Assets" instance=ExtResource("6_288e7")]
+transform = Transform3D(-0.607455, 0, 0.736901, 0, 0.955, 0, -0.736901, 0, -0.607455, -3.01477, -4.93589, -0.276833)
+
+[node name="CandyCane" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(0.879937, 0, -0.0105206, 0, 0.88, 0, 0.0105206, 0, 0.879937, 2.8744, -3.12117, -1.96608)
+
+[node name="CandyCane4" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(0.811992, 0, -0.583669, 0, 1, 0, 0.583669, 0, 0.811992, 4.31806, -2.67939, -0.178693)
+
+[node name="CandyCane9" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(-0.827407, 0, 0.776932, 0, 1.135, 0, -0.776932, 0, -0.827407, 0.266958, -2.67939, -8.41259)
+
+[node name="CandyCane10" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(-0.996297, 0, 0.0859733, 0, 1, 0, -0.0859733, 0, -0.996297, -3.91055, -2.67939, -7.59927)
+
+[node name="CandyCane11" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(-0.747334, 0, 0.664448, 0, 1, 0, -0.664448, 0, -0.747334, -6.44134, -2.67939, -4.49568)
+
+[node name="CandyCane13" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(-0.902901, 0, -0.429849, 0, 1, 0, 0.429849, 0, -0.902901, 4.13662, -2.67939, -7.01877)
+
+[node name="CandyCane12" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(-0.72043, 0, -0.693528, 0, 1, 0, 0.693528, 0, -0.72043, -0.674298, -2.67939, -4.30662)
+
+[node name="CandyCane5" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(0.968438, 0, 0.286754, 0, 1.01, 0, -0.286754, 0, 0.968438, 1.61397, -3.15293, -5.62833)
+
+[node name="CandyCane6" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(0.0392673, 0, -0.924166, 0, 0.925, 0, 0.924166, 0, 0.0392673, 5.57142, -2.67939, -2.71909)
+
+[node name="CandyCane7" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(0.811992, 0, -0.583669, 0, 1, 0, 0.583669, 0, 0.811992, -3.69205, -2.85467, -3.5956)
+
+[node name="CandyCane8" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(0.811992, 0, -0.583669, 0, 1, 0, 0.583669, 0, 0.811992, 3.66373, -2.67939, -4.19712)
+
+[node name="CandyCane2" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(-0.0590973, 0, 0.807841, 0, 0.81, 0, -0.807841, 0, -0.0590973, -1.88623, -3.04148, -2.68791)
+
+[node name="CandyCane3" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(0.36014, 0, -0.769935, 0, 0.85, 0, 0.769935, 0, 0.36014, -4.2064, -3.01992, -1.00364)
+
+[node name="CandyCane14" parent="Assets" instance=ExtResource("7_bmuqn")]
+transform = Transform3D(-0.83128, 0, -0.177407, 0, 0.85, 0, 0.177407, 0, -0.83128, 6.40576, -3.01992, 0.639207)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.13947, 0)
+cast_shadow = 0
+amount = 800
+lifetime = 10.0
+randomness = 0.5
+visibility_aabb = AABB(-16.537, -12.3921, -13.7434, 33.074, 24.7841, 27.4868)
+process_material = SubResource("ParticleProcessMaterial_sa02f")
+draw_pass_1 = SubResource("SphereMesh_ulqru")

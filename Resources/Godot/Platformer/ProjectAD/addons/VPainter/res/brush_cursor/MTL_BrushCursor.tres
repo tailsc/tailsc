@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cai48oics0s5f"]
+
+[resource]
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 0.196078, 1, 0.866667)
+disable_receive_shadows = true

@@ -1,0 +1,140 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgawrh0c72yf1"]
+
+[ext_resource type="PackedScene" uid="uid://bn8h4qxoe4fqo" path="res://Assets/ElectricRoom.blend" id="1_0pafp"]
+[ext_resource type="Script" path="res://Scripts/Env/DirectionalLight3D.gd" id="1_8ckyb"]
+[ext_resource type="Script" path="res://Scripts/Env/WorldEnvironment.gd" id="2_ge6r8"]
+[ext_resource type="PackedScene" uid="uid://c17stdy67dlj3" path="res://Scenes/player.tscn" id="2_kmw6p"]
+
+[sub_resource type="Environment" id="Environment_ak4u6"]
+tonemap_mode = 3
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+adjustment_enabled = true
+adjustment_brightness = 0.73
+adjustment_contrast = 0.85
+adjustment_saturation = 1.04
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l7vbe"]
+emission_shape = 3
+emission_box_extents = Vector3(0.2, 0.2, 0.2)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = 1.0
+angular_velocity_max = 1.0
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+radial_accel_min = 1.0
+radial_accel_max = 1.0
+collision_mode = 1
+collision_friction = 0.56
+collision_bounce = 0.09
+
+[sub_resource type="Curve" id="Curve_dm5nm"]
+_data = [Vector2(0.385246, 0), 0.0, 0.0, 0, 0, Vector2(0.454918, 0.517647), 15.5012, 15.5012, 0, 0, Vector2(0.512295, 1), 0.0, 0.0, 0, 0, Vector2(0.614754, 0.529412), -7.50769, -7.50769, 0, 0, Vector2(0.668033, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8bts"]
+cull_mode = 2
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(0.407843, 0.415686, 0.0745098, 1)
+emission_energy_multiplier = 16.0
+rim_enabled = true
+billboard_keep_scale = true
+grow_amount = -1.024
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_6c0lk"]
+material = SubResource("StandardMaterial3D_t8bts")
+size = 0.1
+curve = SubResource("Curve_dm5nm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pruay"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 16.0
+rim_enabled = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m7xqs"]
+material = SubResource("StandardMaterial3D_pruay")
+radius = 0.02
+height = 0.1
+
+[node name="Sparks" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+script = ExtResource("1_8ckyb")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ak4u6")
+script = ExtResource("2_ge6r8")
+
+[node name="Stuff" type="Node3D" parent="."]
+
+[node name="ElectricRoom" parent="Stuff" instance=ExtResource("1_0pafp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72667, 0, -2.51195)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Stuff"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Stuff/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.521347, -3.39866)
+size = Vector3(14.3795, 1, 12.3688)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Stuff"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.64038, 5.49409, -5.27397)
+light_energy = 16.0
+light_indirect_energy = 2.321
+spot_range = 7.12281
+spot_angle = 70.3125
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89098, 4.54259, -5.26692)
+light_energy = 1.68
+light_indirect_energy = 12.17
+light_volumetric_fog_energy = 4.849
+
+[node name="Camera3D" type="Camera3D" parent="Stuff"]
+transform = Transform3D(0.872922, -0.061145, 0.484013, 0, 0.992115, 0.125333, -0.48786, -0.109406, 0.866039, 0.685, 2.975, -1.87)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.0682764, -0.0948628, -0.993146, 0.66133, 0.749639, -0.026139, 0.746982, -0.655012, 0.113918, -0.0911299, 2.25739, -7.3833)
+amount = 10
+explosiveness = 0.04
+randomness = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_l7vbe")
+draw_pass_1 = SubResource("RibbonTrailMesh_6c0lk")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.0682764, -0.0948629, -0.993146, 0.0578927, 0.994168, -0.0909805, 0.995985, -0.051284, 0.0733701, -3.37769, 4.53033, -5.53322)
+amount = 10
+lifetime = 2.0
+explosiveness = 0.09
+randomness = 0.5
+visibility_aabb = AABB(-4, -6.13147, -4, 8, 12.2629, 8)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_l7vbe")
+draw_pass_1 = SubResource("CapsuleMesh_m7xqs")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.0682764, -0.0948629, -0.993146, 0.27708, 0.95811, -0.0724678, 0.958418, -0.270233, 0.0917009, -2.92193, 0.404981, -6.4045)
+amount = 5
+lifetime = 1.5
+randomness = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_l7vbe")
+draw_pass_1 = SubResource("CapsuleMesh_m7xqs")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.98636, -4.00572)
+size = Vector3(14.2049, 2, 9.3539)
+
+[node name="Player" parent="." instance=ExtResource("2_kmw6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64347, 0.630637, -0.14372)

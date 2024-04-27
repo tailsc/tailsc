@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://o2o5o4oiself"]
+
+[ext_resource type="Material" uid="uid://cai48oics0s5f" path="res://addons/VPainter/res/brush_cursor/MTL_BrushCursor.tres" id="1_k0as4"]
+
+[sub_resource type="SphereMesh" id="2"]
+material = ExtResource( "1_k0as4" )
+radial_segments = 16
+rings = 8
+
+[node name="Spatial" type="MeshInstance3D"]
+mesh = SubResource( "2" )

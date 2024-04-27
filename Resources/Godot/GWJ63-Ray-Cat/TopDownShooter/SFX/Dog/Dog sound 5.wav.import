@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://o50a8y4568ws"
+path="res://.godot/imported/Dog sound 5.wav-8b22a8b06530ea2c8aae94ee56893822.sample"
+
+[deps]
+
+source_file="res://SFX/Dog/Dog sound 5.wav"
+dest_files=["res://.godot/imported/Dog sound 5.wav-8b22a8b06530ea2c8aae94ee56893822.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

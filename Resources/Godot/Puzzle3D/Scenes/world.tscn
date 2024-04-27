@@ -1,0 +1,138 @@
+[gd_scene load_steps=16 format=3 uid="uid://nby8ymdmd136"]
+
+[ext_resource type="PackedScene" uid="uid://v6dclh4t3ecn" path="res://scenes/doors.tscn" id="2_ls6jy"]
+[ext_resource type="Texture2D" uid="uid://c6clh6qlqge5e" path="res://Fnt, Img, Snd, Env, Tex/Images/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_qh8vh"]
+[ext_resource type="PackedScene" uid="uid://bnp86h41rla03" path="res://scenes/button.tscn" id="2_qik4f"]
+[ext_resource type="PackedScene" uid="uid://pgd4uuw3pwv7" path="res://scenes/pickable_key.tscn" id="3_anga2"]
+[ext_resource type="PackedScene" uid="uid://d0012kdmexfer" path="res://scenes/cube_recever.tscn" id="5_5aw0w"]
+[ext_resource type="PackedScene" uid="uid://md33cllt6lwq" path="res://scenes/movingplatform.tscn" id="8_8ip0d"]
+[ext_resource type="PackedScene" uid="uid://c17stdy67dlj3" path="res://scenes/player.tscn" id="9_dy675"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1u4n"]
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocl1f"]
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrt61"]
+transparency = 1
+albedo_color = Color(0, 0.0156863, 1, 0.172549)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v5ju3"]
+material = SubResource("StandardMaterial3D_rrt61")
+size = Vector3(20, 1, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bw1x0"]
+data = PackedVector3Array(-5, 0.5, 10, 5, 0.5, 10, -5, -0.5, 10, 5, 0.5, 10, 5, -0.5, 10, -5, -0.5, 10, 5, 0.5, -10, -5, 0.5, -10, 5, -0.5, -10, -5, 0.5, -10, -5, -0.5, -10, 5, -0.5, -10, 5, 0.5, 10, 5, 0.5, -10, 5, -0.5, 10, 5, 0.5, -10, 5, -0.5, -10, 5, -0.5, 10, -5, 0.5, -10, -5, 0.5, 10, -5, -0.5, -10, -5, 0.5, 10, -5, -0.5, 10, -5, -0.5, -10, 5, 0.5, 10, -5, 0.5, 10, 5, 0.5, -10, -5, 0.5, 10, -5, 0.5, -10, 5, 0.5, -10, -5, -0.5, 10, 5, -0.5, 10, -5, -0.5, -10, 5, -0.5, 10, 5, -0.5, -10, -5, -0.5, -10)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mije1"]
+panorama = ExtResource("2_qh8vh")
+
+[sub_resource type="Sky" id="Sky_8wd88"]
+sky_material = SubResource("PanoramaSkyMaterial_mije1")
+
+[sub_resource type="Environment" id="Environment_o4nr0"]
+background_mode = 2
+sky = SubResource("Sky_8wd88")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="world" type="Node3D"]
+
+[node name="stage" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -0.5, 0)
+use_collision = true
+size = Vector3(44, 1, 20)
+material = SubResource("StandardMaterial3D_o1u4n")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53134, 8.5, 0)
+use_collision = true
+size = Vector3(38, 1, 20)
+material = SubResource("StandardMaterial3D_o1u4n")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.13662, 0)
+use_collision = true
+size = Vector3(5, 1, 20)
+material = SubResource("StandardMaterial3D_o1u4n")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.34597, 0.51753, 0)
+use_collision = true
+size = Vector3(5, 2, 20)
+material = SubResource("StandardMaterial3D_o1u4n")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="stage"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -10.346, 3.51753, 0)
+use_collision = true
+size = Vector3(10, 2, 20)
+material = SubResource("StandardMaterial3D_ocl1f")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 9.65403, 8.51753, 9)
+use_collision = true
+size = Vector3(20, 2, 42)
+material = SubResource("StandardMaterial3D_ocl1f")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 9.65403, 8.51753, -9)
+use_collision = true
+size = Vector3(20, 2, 42)
+material = SubResource("StandardMaterial3D_ocl1f")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, -3.51729, 0.51753, -7.45551)
+use_collision = true
+size = Vector3(5, 2, 6.46279)
+material = SubResource("StandardMaterial3D_o1u4n")
+
+[node name="button" parent="stage" instance=ExtResource("2_qik4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23651, 2.65457, -3)
+text2 = "PRESS"
+activation_var = true
+
+[node name="doors" parent="stage/button" instance=ExtResource("2_ls6jy")]
+transform = Transform3D(1, 0, 0, 0, 4.13547, 0, 0, 0, 4.13547, 7.49722, -0.65457, 3)
+
+[node name="pickable_key" parent="stage" instance=ExtResource("3_anga2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 3.8016, -1.62276)
+mass = 0.01
+
+[node name="magic-wall" type="MeshInstance3D" parent="stage"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 28.9317, 9, 0)
+mesh = SubResource("BoxMesh_v5ju3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/magic-wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/magic-wall/StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_bw1x0")
+
+[node name="cube_recever" parent="stage" instance=ExtResource("5_5aw0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 6)
+text1 = "UNLOCKED"
+text2 = "PLACE"
+
+[node name="button2" parent="stage" instance=ExtResource("2_qik4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7553, 0, -6.69655)
+activation_node = "Movingplatform"
+text2 = "Use elevator"
+activation_var = true
+
+[node name="Movingplatform" parent="stage/button2" instance=ExtResource("8_8ip0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+Target_loc = Vector3(0, 9, 0)
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_o4nr0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("9_dy675")]

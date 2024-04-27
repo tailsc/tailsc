@@ -1,0 +1,156 @@
+[gd_scene load_steps=24 format=3 uid="uid://dq1amlb00qbwu"]
+
+[ext_resource type="PackedScene" uid="uid://c17stdy67dlj3" path="res://Scenes/player.tscn" id="1_xcscf"]
+[ext_resource type="PackedScene" uid="uid://pgd4uuw3pwv7" path="res://Scenes/pickable_key.tscn" id="3_np416"]
+[ext_resource type="Texture2D" uid="uid://c6clh6qlqge5e" path="res://Fnt, Img, Snd, Env, Tex/Images/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="4_w4qpg"]
+[ext_resource type="PackedScene" uid="uid://w4yqkkrgmps3" path="res://Scenes/keyshape.tscn" id="10_iyoh6"]
+[ext_resource type="PackedScene" uid="uid://crehvfta64wei" path="res://Scenes/removable_hedge.tscn" id="10_loowp"]
+[ext_resource type="Script" path="res://Scripts/Env/WorldEnvironment.gd" id="11_reejs"]
+[ext_resource type="Script" path="res://Scripts/Env/DirectionalLight3D.gd" id="12_ga51b"]
+[ext_resource type="PackedScene" uid="uid://dm58nqq1ljjtf" path="res://Scenes/outside_basement.tscn" id="13_bf2ge"]
+[ext_resource type="PackedScene" uid="uid://cpyknmbyi6hrt" path="res://Scenes/lock.tscn" id="13_bhce0"]
+[ext_resource type="PackedScene" uid="uid://b06tfe8bmpv1h" path="res://Assets/Blender/Castle/CastleWalls.blend" id="15_7e646"]
+[ext_resource type="PackedScene" uid="uid://dcgxvt17qdid8" path="res://Scenes/StylizedBush.tscn" id="16_ogekt"]
+[ext_resource type="PackedScene" uid="uid://hv82uj47qrv2" path="res://Assets/Blender/Castle/Shed.blend" id="16_w6iro"]
+[ext_resource type="PackedScene" uid="uid://bv8f47low4nm3" path="res://Scenes/flag.tscn" id="17_reqps"]
+[ext_resource type="PackedScene" uid="uid://c7emd2e16wy35" path="res://Assets/Blender/Castle/GoldLock.blend" id="18_ilbc2"]
+[ext_resource type="AudioStream" uid="uid://c1eq4xs5wd43h" path="res://Fnt, Img, Snd, Env, Tex/Audio/Music/mysteriouswinds.mp3" id="19_50ac7"]
+[ext_resource type="PackedScene" uid="uid://b1woqh5d0wuwu" path="res://Assets/Blender/Castle/Fountain.blend" id="19_x4huq"]
+[ext_resource type="PackedScene" uid="uid://bldkjlxhx8sra" path="res://Assets/Blender/Castle/Ground.blend" id="20_ddohn"]
+[ext_resource type="PackedScene" uid="uid://6724xwnd7g6n" path="res://Scenes/Hedges.tscn" id="22_ui4pa"]
+[ext_resource type="PackedScene" uid="uid://dkxqmspwni0kx" path="res://Assets/Blender/Castle/Castle.blend" id="23_oi4ek"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cycyy"]
+panorama = ExtResource("4_w4qpg")
+
+[sub_resource type="Sky" id="Sky_qt4gn"]
+sky_material = SubResource("PanoramaSkyMaterial_cycyy")
+
+[sub_resource type="Environment" id="Environment_noyg2"]
+background_mode = 2
+background_color = Color(0, 0.741176, 0.803922, 1)
+sky = SubResource("Sky_qt4gn")
+tonemap_mode = 3
+ssil_radius = 2.0
+ssil_intensity = 5.0
+ssil_sharpness = 0.8
+ssil_normal_rejection = 0.5
+sdfgi_bounce_feedback = 1.5
+sdfgi_energy = 1.5
+glow_levels/1 = 1.0
+glow_levels/2 = 1.0
+glow_levels/4 = 1.0
+glow_levels/6 = 1.0
+glow_levels/7 = 1.0
+glow_strength = 0.79
+glow_blend_mode = 1
+volumetric_fog_density = 0.01
+volumetric_fog_emission = Color(0.592157, 0.854902, 0.933333, 1)
+volumetric_fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_saturation = 1.3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pxix3"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 4.0
+
+[node name="CastleDemo" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_noyg2")
+script = ExtResource("11_reejs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.914614, -0.099659, -0.391854, 0.377225, 0.559179, 0.738255, 0.145543, -0.823035, 0.549027, 0, 10, 0)
+shadow_enabled = true
+script = ExtResource("12_ga51b")
+
+[node name="Player" parent="." instance=ExtResource("1_xcscf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.531631, 1, 20.4207)
+
+[node name="Interactables" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, -0.35684, 2.6, -8.50628)
+
+[node name="pickable_key1" parent="Interactables" instance=ExtResource("3_np416")]
+transform = Transform3D(1, 0, 0, 0, -1, -1.39091e-08, 0, 1.39091e-08, -1, 0.301452, 13.5075, -2.28537)
+Name = "key"
+
+[node name="CollisionShape3D" parent="Interactables/pickable_key1" instance=ExtResource("10_iyoh6")]
+
+[node name="positioner" type="Node3D" parent="Interactables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.0917, -1, 1.6)
+
+[node name="hedge" parent="Interactables/positioner" instance=ExtResource("10_loowp")]
+collision_layer = 5
+collision_mask = 7
+activation_node = "self"
+
+[node name="cube_recever3" parent="Interactables" instance=ExtResource("13_bhce0")]
+transform = Transform3D(-4.37114e-08, 0.423346, 0.905968, -1, 8.49489e-09, -5.22178e-08, -2.98023e-08, -0.905968, 0.423346, 28.8521, -13.6464, 2.52465)
+activation_node = "outsideBasement"
+
+[node name="outsideBasement" parent="Interactables/cube_recever3" instance=ExtResource("13_bf2ge")]
+transform = Transform3D(-4.37114e-08, 7.35137e-08, -1, 0.423346, 0.905968, 4.8096e-08, 0.905968, -0.423346, -7.07229e-08, 0.0019002, -1.45291, -2.12272)
+
+[node name="Assets" type="Node3D" parent="."]
+
+[node name="Foliage" type="Node3D" parent="Assets"]
+
+[node name="Bush" parent="Assets/Foliage" instance=ExtResource("16_ogekt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0934, -0.5, -0.216473)
+
+[node name="Bush2" parent="Assets/Foliage" instance=ExtResource("16_ogekt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1445, -0.5, -0.216473)
+
+[node name="Bush3" parent="Assets/Foliage" instance=ExtResource("16_ogekt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8172, -0.5, -4.55034)
+
+[node name="Bush4" parent="Assets/Foliage" instance=ExtResource("16_ogekt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4108, -0.5, -4.55034)
+
+[node name="Bush5" parent="Assets/Foliage" instance=ExtResource("16_ogekt")]
+transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, -31.842, 0.510581, -40.0811)
+
+[node name="Hedges" parent="Assets/Foliage" instance=ExtResource("22_ui4pa")]
+
+[node name="Buildings" type="Node3D" parent="Assets"]
+
+[node name="Fountain" parent="Assets/Buildings" instance=ExtResource("19_x4huq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Shed2" parent="Assets/Buildings" instance=ExtResource("16_w6iro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4587, -0.499996, -36.7579)
+
+[node name="CastleWalls" parent="Assets/Buildings" instance=ExtResource("15_7e646")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0838346, -0.500004, -0.921843)
+
+[node name="Castle" parent="Assets/Buildings" instance=ExtResource("23_oi4ek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268335, -0.434265, 0.245511)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Assets/Buildings"]
+transform = Transform3D(-5.96047e-08, -3.47199e-08, 1, 2.38419e-07, 1, -3.09086e-08, -1, -2.98023e-08, 1.91069e-15, 48.8848, 18.8592, 29.1152)
+mesh = SubResource("CylinderMesh_pxix3")
+skeleton = NodePath("Node3D")
+
+[node name="Node3D" parent="Assets/Buildings/MeshInstance3D3" instance=ExtResource("17_reqps")]
+transform = Transform3D(0.707107, 0.707107, 1.1063e-09, -1.46732e-07, -2.34154e-07, 1, 0.707107, -0.707107, 3.81131e-09, 1.11521, 1.03538, 1.11522)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Assets/Buildings"]
+transform = Transform3D(0.234413, 4.07386e-08, -0.972137, 2.38419e-07, 1, -3.09086e-08, 0.972137, 2.08332e-08, 0.234413, -48.7956, 18.8592, 29.0822)
+mesh = SubResource("CylinderMesh_pxix3")
+skeleton = NodePath("Node3D2")
+
+[node name="Node3D2" parent="Assets/Buildings/MeshInstance3D2" instance=ExtResource("17_reqps")]
+transform = Transform3D(-0.741812, 0.670608, -4.29049e-08, 9.85604e-08, 1.22649e-07, -1, -0.670608, -0.741812, 1.14108e-07, -1.02608, 1.03538, -1.04114)
+
+[node name="GoldLock" parent="." instance=ExtResource("18_ilbc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.734, 0.292871, -21.5802)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_50ac7")
+autoplay = true
+bus = &"Music"
+
+[node name="Ground" parent="." instance=ExtResource("20_ddohn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.370453, -1.1182, 39.3519)

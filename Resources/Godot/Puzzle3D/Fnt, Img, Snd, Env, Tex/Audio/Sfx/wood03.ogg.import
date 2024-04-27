@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://6fbm3qbig7xs"
+path="res://.godot/imported/wood03.ogg-758ef339635d49c297ac473d79b73bbd.oggvorbisstr"
+
+[deps]
+
+source_file="res://Fnt, Img, Snd, Env, Tex/Audio/Sfx/wood03.ogg"
+dest_files=["res://.godot/imported/wood03.ogg-758ef339635d49c297ac473d79b73bbd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

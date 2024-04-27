@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpyknmbyi6hrt"]
+
+[ext_resource type="Script" path="res://Scripts/cube_recever.gd" id="1_3rgbg"]
+[ext_resource type="PackedScene" uid="uid://ddushxc57gdwq" path="res://Assets/Blender/Castle/Lock.blend" id="2_dqads"]
+[ext_resource type="PackedScene" uid="uid://c8glefj0ysjet" path="res://Assets/Blender/Castle/Key.blend" id="3_3b465"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10fmc"]
+size = Vector3(0.805737, 0.342703, 0.999699)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y38hf"]
+size = Vector3(2.38484, 0.968938, 1.96985)
+
+[node name="lock" type="StaticBody3D" groups=["pressable"]]
+collision_layer = 4
+script = ExtResource("1_3rgbg")
+text1 = "UNLOCKED!"
+text2 = "PLACE!"
+activation_var = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.114939)
+shape = SubResource("BoxShape3D_10fmc")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.952656, 0)
+shape = SubResource("BoxShape3D_y38hf")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="block" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 1.56319e-13, 0, -1.06581e-14, 1.71363, 0, 0, -0.620173)
+
+[node name="Key" parent="block" instance=ExtResource("3_3b465")]
+transform = Transform3D(4.37114e-08, -3.82137e-15, -1, 1, -4.37114e-08, 4.37114e-08, -2.5508e-08, -0.583555, 1.11499e-15, 0.000383377, 0.0933286, 0.402813)
+
+[node name="Lock" parent="." instance=ExtResource("2_dqads")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1.71363, 0, -1, -7.49053e-08, 0, 0, 0)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered" flags=18]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout" flags=18]

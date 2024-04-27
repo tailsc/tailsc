@@ -1,0 +1,8 @@
+[gd_resource type="EventAsset" format=3 uid="uid://bc1bomrntop4y"]
+
+[resource]
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Amb&Mus/Main_Music"
+guid = "{ff2938b3-7737-4b8f-891e-d416bda430e0}"
+name = "Main_Music"

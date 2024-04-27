@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://bykp4p8lmx5rs"]
+
+[ext_resource type="Script" path="res://Scripts/OldSettings.gd" id="2"]
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(920, 590)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = -295.0
+offset_right = 460.0
+offset_bottom = 295.0
+color = Color(0, 0, 0, 0.705882)
+
+[node name="FullScreenContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -30.0
+offset_right = 146.0
+offset_bottom = 30.0
+
+[node name="Label" type="Label" parent="FullScreenContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("1")
+text = "Fullscreen"
+
+[node name="FullscreenToggle" type="CheckBox" parent="FullScreenContainer"]
+layout_mode = 2
+
+[node name="WindowModeToggle" type="OptionButton" parent="FullScreenContainer"]
+layout_mode = 2
+
+[node name="ResolutionsContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = 30.0
+offset_right = 157.0
+offset_bottom = 90.0
+
+[node name="Label" type="Label" parent="ResolutionsContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("2")
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="ResolutionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Options" type="HBoxContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -10.0
+offset_right = 35.0
+offset_bottom = 10.0
+
+[connection signal="toggled" from="FullScreenContainer/FullscreenToggle" to="." method="_on_FullscreenToggle_toggled"]
+[connection signal="item_selected" from="ResolutionsContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]

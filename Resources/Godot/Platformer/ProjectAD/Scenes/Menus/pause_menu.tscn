@@ -1,0 +1,584 @@
+[gd_scene load_steps=12 format=3 uid="uid://crnk3tyf36aqj"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="1_e1io5"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="2_6s5pn"]
+[ext_resource type="Script" path="res://Scenes/Menus/Graphics_settings.gd" id="3_ffk6p"]
+[ext_resource type="PackedScene" uid="uid://cymb87r5gtdty" path="res://Scenes/Menus/volume_slider.tscn" id="4_d4i0l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6fr2f"]
+shader = ExtResource("1_e1io5")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
+
+[sub_resource type="InputEventAction" id="InputEventAction_e7yig"]
+action = &"ui_cancel"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_ddryy"]
+events = [SubResource("InputEventAction_e7yig")]
+
+[sub_resource type="Animation" id="Animation_klo7b"]
+resource_name = "Pause"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, 2.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/brightness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1.07177, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_c3q1q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/brightness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jbgbk"]
+resource_name = "Unpause"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/brightness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mch14"]
+_data = {
+"Pause": SubResource("Animation_klo7b"),
+"RESET": SubResource("Animation_c3q1q"),
+"Unpause": SubResource("Animation_jbgbk")
+}
+
+[node name="PauseMenu" type="ColorRect"]
+process_mode = 3
+material = SubResource("ShaderMaterial_6fr2f")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_6s5pn")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ContineBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+shortcut = SubResource("Shortcut_ddryy")
+text = "Contine"
+
+[node name="OptionsBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="ExitBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[node name="Options" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_ffk6p")
+
+[node name="PanelContainer" type="PanelContainer" parent="Options"]
+custom_minimum_size = Vector2(271.32, 339.46)
+layout_direction = 3
+layout_mode = 2
+offset_left = 376.0
+offset_top = 160.0
+offset_right = 1440.0
+offset_bottom = 864.0
+
+[node name="VideoContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+offset_left = 552.0
+offset_top = 208.0
+offset_right = 678.0
+offset_bottom = 354.0
+
+[node name="Label" type="Label" parent="Options/VideoContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 8
+text = "VIDEO SETTINGS"
+
+[node name="Resolution" type="Label" parent="Options/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resolution
+"
+
+[node name="ResolutionBtn" type="OptionButton" parent="Options/VideoContainer/Resolution"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 95.0
+offset_right = 138.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+item_count = 5
+selected = 2
+popup/item_0/text = "640×480"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+popup/item_3/text = "2560x1440"
+popup/item_3/id = 3
+popup/item_4/text = "3840x2160"
+popup/item_4/id = 4
+
+[node name="FrameRateCap" type="Label" parent="Options/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Frame Rate Cap"
+
+[node name="FrameRateBtn" type="OptionButton" parent="Options/VideoContainer/FrameRateCap"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 7.345
+offset_top = -15.5
+offset_right = 129.345
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+item_count = 5
+selected = 4
+popup/item_0/text = "30 FPS"
+popup/item_0/id = 0
+popup/item_1/text = "60 FPS"
+popup/item_1/id = 1
+popup/item_2/text = "144 FPS"
+popup/item_2/id = 2
+popup/item_3/text = "240 FPS"
+popup/item_3/id = 3
+popup/item_4/text = "Uncapped"
+popup/item_4/id = 4
+
+[node name="WindowMode" type="Label" parent="Options/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Window Mode"
+
+[node name="WindowBtn" type="OptionButton" parent="Options/VideoContainer/WindowMode"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 7.345
+offset_top = -15.5
+offset_right = 129.345
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Full Screen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless"
+popup/item_2/id = 2
+
+[node name="ShadowQuality" type="Label" parent="Options/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Shadow Quality
+"
+
+[node name="ShadowBtn" type="OptionButton" parent="Options/VideoContainer/ShadowQuality"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 7.345
+offset_top = -15.5
+offset_right = 129.345
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Low"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "High"
+popup/item_2/id = 2
+
+[node name="AudioContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+offset_left = 1080.0
+offset_top = 208.0
+offset_right = 1210.0
+offset_bottom = 324.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="Options/AudioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "AUDIO SETTINGS
+"
+
+[node name="MasterLabel" type="Label" parent="Options/AudioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Master Volume"
+
+[node name="Master" parent="Options/AudioContainer/MasterLabel" instance=ExtResource("4_d4i0l")]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 2.0
+offset_right = 328.0
+offset_bottom = 18.0
+bus_name = "Master"
+
+[node name="MusicLabel" type="Label" parent="Options/AudioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music Volume"
+
+[node name="music" parent="Options/AudioContainer/MusicLabel" instance=ExtResource("4_d4i0l")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 4.0
+offset_right = 324.0
+offset_bottom = 20.0
+bus_name = "Music"
+
+[node name="SfxLabel" type="Label" parent="Options/AudioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sfx Volume"
+
+[node name="sfx" parent="Options/AudioContainer/SfxLabel" instance=ExtResource("4_d4i0l")]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 6.0
+offset_right = 313.0
+offset_bottom = 22.0
+bus_name = "Sfx"
+
+[node name="AdvancedContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+offset_left = 856.0
+offset_top = 376.0
+offset_right = 1127.0
+offset_bottom = 715.0
+
+[node name="Label" type="Label" parent="Options/AdvancedContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ADVANCED SETTINGS
+"
+
+[node name="ssr" type="CheckBox" parent="Options/AdvancedContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SSR"
+
+[node name="ssao" type="CheckBox" parent="Options/AdvancedContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "SSAO"
+
+[node name="ssil" type="CheckBox" parent="Options/AdvancedContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SSIL"
+
+[node name="sdfgi" type="CheckBox" parent="Options/AdvancedContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "SDFGI"
+
+[node name="shadows" type="CheckBox" parent="Options/AdvancedContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+button_pressed = true
+text = "SHADOWS"
+
+[node name="vsync" type="CheckBox" parent="Options/AdvancedContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "VSYNC/NOT WORKING"
+
+[node name="glow" type="CheckBox" parent="Options/AdvancedContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "GLOW
+"
+
+[node name="DebugContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+offset_left = 704.0
+offset_top = 688.0
+offset_right = 967.0
+offset_bottom = 809.0
+
+[node name="Label3" type="Label" parent="Options/DebugContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "DEBUG SETTINGS / NOT WORKING
+"
+
+[node name="Label" type="Label" parent="Options/DebugContainer"]
+layout_mode = 2
+text = "RUN SPEED
+"
+
+[node name="HSlider" type="HSlider" parent="Options/DebugContainer/Label"]
+layout_mode = 0
+offset_left = 111.73
+offset_right = 453.73
+offset_bottom = 16.0
+
+[node name="Reset" type="Button" parent="Options/DebugContainer/Label"]
+layout_mode = 0
+offset_left = 483.92
+offset_right = 537.92
+offset_bottom = 31.0
+text = "RESET
+"
+
+[node name="Label2" type="Label" parent="Options/DebugContainer"]
+layout_mode = 2
+text = "JUMP HEIGHT"
+
+[node name="HSlider" type="HSlider" parent="Options/DebugContainer/Label2"]
+layout_mode = 0
+offset_left = 111.73
+offset_right = 453.73
+offset_bottom = 16.0
+
+[node name="Reset" type="Button" parent="Options/DebugContainer/Label2"]
+layout_mode = 0
+offset_left = 483.92
+offset_right = 537.92
+offset_bottom = 31.0
+text = "RESET
+"
+
+[node name="Button" type="Button" parent="Options/DebugContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "NOCLIP"
+
+[node name="BackBtn" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.440104
+anchor_top = 0.854676
+anchor_right = 0.542568
+anchor_bottom = 0.907611
+offset_left = 26.9999
+offset_top = 4.94995
+offset_right = 59.4994
+offset_bottom = 34.5736
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Unpause"
+libraries = {
+"": SubResource("AnimationLibrary_mch14")
+}
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="item_selected" from="Options/VideoContainer/Resolution/ResolutionBtn" to="Options" method="_on_resolution_btn_item_selected"]
+[connection signal="item_selected" from="Options/VideoContainer/FrameRateCap/FrameRateBtn" to="Options" method="_on_frame_rate_btn_item_selected"]
+[connection signal="item_selected" from="Options/VideoContainer/WindowMode/WindowBtn" to="Options" method="_on_window_btn_item_selected"]
+[connection signal="item_selected" from="Options/VideoContainer/ShadowQuality/ShadowBtn" to="Options" method="_on_shadow_btn_item_selected"]
+[connection signal="toggled" from="Options/AdvancedContainer/ssr" to="Options" method="_on_ssr_toggled"]
+[connection signal="toggled" from="Options/AdvancedContainer/ssao" to="Options" method="_on_ssao_toggled"]
+[connection signal="toggled" from="Options/AdvancedContainer/ssil" to="Options" method="_on_ssil_toggled"]
+[connection signal="toggled" from="Options/AdvancedContainer/sdfgi" to="Options" method="_on_sdfgi_toggled"]
+[connection signal="toggled" from="Options/AdvancedContainer/shadows" to="Options" method="_on_shadows_toggled"]
+[connection signal="toggled" from="Options/AdvancedContainer/vsync" to="Options" method="_on_vsync_toggled"]
+[connection signal="toggled" from="Options/AdvancedContainer/glow" to="Options" method="_on_glow_toggled"]
+[connection signal="pressed" from="Options/BackBtn" to="." method="_on_back_btn_pressed"]

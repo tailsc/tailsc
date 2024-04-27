@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://du24jm7lbhysk"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Player/Player_Death"
+guid = "{34b21e31-b8db-495e-afc6-bca89c1718f1}"
+name = "Player_Death"

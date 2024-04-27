@@ -1,0 +1,240 @@
+[gd_scene load_steps=16 format=3 uid="uid://bmirfdl1xqcg5"]
+
+[ext_resource type="Script" path="res://Scripts/Ui/MainMenu.gd" id="1_ebr71"]
+[ext_resource type="Material" uid="uid://do1d5ws0bbh5s" path="res://Fnt, Img, Snd, Env, Tex/Textures/GrayGrid.tres" id="1_t3w21"]
+[ext_resource type="Material" uid="uid://cbjkhwbykvwd6" path="res://Fnt, Img, Snd, Env, Tex/Textures/OrangeGrid.tres" id="2_lqf44"]
+[ext_resource type="Script" path="res://Scripts/Env/WorldEnvironment.gd" id="2_sfvj2"]
+[ext_resource type="Script" path="res://Scripts/Env/DirectionalLight3D.gd" id="3_8t5tg"]
+[ext_resource type="Texture2D" uid="uid://oxuycfl8bi7h" path="res://Fnt, Img, Snd, Env, Tex/Images/Youtube.png" id="6_l88g3"]
+[ext_resource type="Texture2D" uid="uid://bpqy7gy7xn85u" path="res://Fnt, Img, Snd, Env, Tex/Images/Kofi.png" id="7_hdbkr"]
+[ext_resource type="PackedScene" uid="uid://owijehrx31h5" path="res://Scenes/Ui/options_menu.tscn" id="7_jde6i"]
+[ext_resource type="Texture2D" uid="uid://bx4xrlunjyic1" path="res://Fnt, Img, Snd, Env, Tex/Images/Discord.png" id="8_3pkdv"]
+[ext_resource type="AudioStream" uid="uid://berts103jcu58" path="res://Fnt, Img, Snd, Env, Tex/Audio/Music/a_small_fire_will_do.wav" id="11_2ep4o"]
+[ext_resource type="Texture2D" uid="uid://diedlt2cm7br" path="res://Fnt, Img, Snd, Env, Tex/Images/Roadmap.png" id="11_qor5n"]
+[ext_resource type="PackedScene" uid="uid://dcgxvt17qdid8" path="res://Scenes/StylizedBush.tscn" id="12_uu6s4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0cuh7"]
+sky_top_color = Color(0, 0.356863, 0.658824, 1)
+sky_horizon_color = Color(0.396078, 0.784314, 1, 1)
+ground_bottom_color = Color(0, 0.356863, 0.658824, 1)
+ground_horizon_color = Color(0.396078, 0.784314, 1, 1)
+
+[sub_resource type="Sky" id="Sky_ve4pc"]
+sky_material = SubResource("ProceduralSkyMaterial_0cuh7")
+
+[sub_resource type="Environment" id="Environment_fxnc4"]
+background_mode = 2
+sky = SubResource("Sky_ve4pc")
+ambient_light_color = Color(0.478431, 0.478431, 0.478431, 1)
+ambient_light_sky_contribution = 0.25
+ambient_light_energy = 5.0
+tonemap_mode = 2
+tonemap_white = 1.5
+ssao_radius = 1.37
+ssao_intensity = 2.4
+ssao_light_affect = 1.0
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.5
+glow_strength = 0.5
+glow_bloom = 0.5
+glow_blend_mode = 0
+volumetric_fog_density = 0.0001
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_ebr71")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fxnc4")
+script = ExtResource("2_sfvj2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.390811, 0.920471, 0, -0.920471, -0.390811, 0, 10, 0)
+light_energy = 2.0
+shadow_enabled = true
+script = ExtResource("3_8t5tg")
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Background"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Background/CSGCombiner3D"]
+size = Vector3(76, 1, 10.5911)
+material = ExtResource("1_t3w21")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Background/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.92344, -4.28066)
+size = Vector3(48, 7.56335, 1.36844)
+material = ExtResource("2_lqf44")
+
+[node name="Node3D" type="Node3D" parent="Background"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Background"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1920.0
+offset_top = -1080.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Background/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(3840, 2160)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Background/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.857167, 0.515038, 0, -0.515038, 0.857167, 0, 3.825, 6.425)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameTitle" type="Label" parent="UI"]
+layout_mode = 2
+offset_left = 80.0
+offset_top = 117.0
+offset_right = 792.0
+offset_bottom = 299.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 150
+text = "Puzzle3D"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -279.5
+offset_right = 808.0
+offset_bottom = 279.5
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 575
+
+[node name="DemoBtn" type="Button" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "START CASTLE"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 45
+
+[node name="DungeonBtn" type="Button" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "START DUNGEON"
+
+[node name="MarginContainer4" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 45
+
+[node name="OptionsBtn" type="Button" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "OPTIONS"
+
+[node name="MarginContainer3" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 45
+
+[node name="QuitBtn" type="Button" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "QUIT"
+
+[node name="TextureBtnYoutube" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_left = 3456.0
+offset_top = 1750.0
+offset_right = 3968.0
+offset_bottom = 2262.0
+scale = Vector2(0.62, 0.62)
+texture_normal = ExtResource("6_l88g3")
+
+[node name="TextureBtnKofi" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_left = 3072.0
+offset_top = 1750.0
+offset_right = 3584.0
+offset_bottom = 2262.0
+scale = Vector2(0.62, 0.62)
+texture_normal = ExtResource("7_hdbkr")
+
+[node name="TextureBtnDiscord" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_left = 2685.0
+offset_top = 1750.0
+offset_right = 3197.0
+offset_bottom = 2262.0
+scale = Vector2(0.625, 0.625)
+texture_normal = ExtResource("8_3pkdv")
+
+[node name="Roadmap" type="Sprite2D" parent="UI"]
+position = Vector2(2928, 544)
+scale = Vector2(0.44213, 0.44213)
+texture = ExtResource("11_qor5n")
+
+[node name="OPTIONS" parent="." instance=ExtResource("7_jde6i")]
+
+[node name="BackBtn" type="Button" parent="OPTIONS"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = 752.0
+offset_right = 478.0
+offset_bottom = 852.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_2ep4o")
+autoplay = true
+bus = &"Music"
+
+[node name="Bush" parent="." instance=ExtResource("12_uu6s4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/DemoBtn" to="." method="_on_demo_btn_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/DungeonBtn" to="." method="_on_dungeon_btn_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="UI/TextureBtnYoutube" to="." method="_on_texture_btn_youtube_pressed"]
+[connection signal="pressed" from="UI/TextureBtnKofi" to="." method="_on_texture_btn_kofi_pressed"]
+[connection signal="pressed" from="UI/TextureBtnDiscord" to="." method="_on_texture_btn_discord_pressed"]
+[connection signal="pressed" from="OPTIONS/BackBtn" to="." method="_on_back_btn_pressed"]

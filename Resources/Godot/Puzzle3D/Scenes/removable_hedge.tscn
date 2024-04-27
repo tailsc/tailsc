@@ -1,0 +1,231 @@
+[gd_scene load_steps=22 format=3 uid="uid://crehvfta64wei"]
+
+[ext_resource type="Script" path="res://Scripts/cube_recever.gd" id="1_brvfc"]
+[ext_resource type="Material" uid="uid://8bj8v8fa0s24" path="res://Fnt, Img, Snd, Env, Tex/Textures/RedGrid.tres" id="2_jh5gp"]
+[ext_resource type="Shader" path="res://Addons/proton_scatter/demos/assets/materials/grass.gdshader" id="3_6kbqm"]
+[ext_resource type="Texture2D" uid="uid://dhqo75pnphkae" path="res://Addons/proton_scatter/demos/assets/Leaf.png" id="4_fooe3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y38hf"]
+size = Vector3(4, 2, 3.94315)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e17xm"]
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0koo6"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_e17xm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y0ogk"]
+size = Vector3(4, 2, 4)
+
+[sub_resource type="Animation" id="Animation_eiwxf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGBox3D:material:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.956863, 0, 0.129412, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3ya6v"]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D:material:albedo_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.956863, 0, 0.129412, 1), Color(0.956863, 0, 0.129412, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o6luy"]
+resource_name = "lowerwall"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7bq81"]
+_data = {
+"RESET": SubResource("Animation_eiwxf"),
+"disappear": SubResource("Animation_3ya6v"),
+"lowerwall": SubResource("Animation_o6luy")
+}
+
+[sub_resource type="Curve" id="Curve_2nox5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.250804, 1), 0.0, 0.0, 0, 0, Vector2(0.324759, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_haoda"]
+curve = SubResource("Curve_2nox5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y5eog"]
+emission_shape = 3
+emission_box_extents = Vector3(2, 2, 1)
+particle_flag_align_y = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(-5, 0, 0)
+scale_curve = SubResource("CurveTexture_haoda")
+turbulence_enabled = true
+turbulence_noise_scale = 2.0
+
+[sub_resource type="Gradient" id="Gradient_bipch"]
+colors = PackedColorArray(4.21144e-08, 0.31188, 0.0195672, 1, 1.09497e-06, 0.390736, 0.0312222, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n0g8i"]
+gradient = SubResource("Gradient_bipch")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t7o5y"]
+seed = 1
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s1jat"]
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.65
+noise = SubResource("FastNoiseLite_t7o5y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6adhw"]
+render_priority = 0
+shader = ExtResource("3_6kbqm")
+shader_parameter/alpha_scissor_threshold = 0.7
+shader_parameter/transmission = null
+shader_parameter/secondary_color = null
+shader_parameter/secondary_attenuation = 0.2
+shader_parameter/grass_height = 1.0
+shader_parameter/wind_direction = Vector2(1, -0.5)
+shader_parameter/wind_speed = 0.2
+shader_parameter/wind_strength = 0.2
+shader_parameter/noise_scale = 12.0
+shader_parameter/texture_albedo = ExtResource("4_fooe3")
+shader_parameter/texture_gradient = SubResource("GradientTexture1D_n0g8i")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_s1jat")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ughfs"]
+material = SubResource("ShaderMaterial_6adhw")
+
+[node name="hedge" type="StaticBody3D" groups=["pressable"]]
+collision_layer = 4
+script = ExtResource("1_brvfc")
+text1 = "UNLOCKED!"
+text2 = "PLACE!"
+activation_var = true
+object_name = "shear"
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75067, 0)
+shape = SubResource("BoxShape3D_y38hf")
+
+[node name="block" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2408, 0)
+visible = false
+mesh = SubResource("BoxMesh_0koo6")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.393499, 0)
+use_collision = true
+size = Vector3(4, 2, 4)
+material = ExtResource("2_jh5gp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+shape = SubResource("BoxShape3D_y0ogk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7bq81")
+}
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.147269, -2)
+emitting = false
+amount = 200
+lifetime = 4.0
+one_shot = true
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_y5eog")
+draw_pass_1 = SubResource("PlaneMesh_ughfs")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

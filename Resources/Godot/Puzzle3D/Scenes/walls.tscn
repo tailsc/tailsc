@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq1b7p62bidg6"]
+
+[ext_resource type="Material" uid="uid://do1d5ws0bbh5s" path="res://Fnt, Img, Snd, Env, Tex/Textures/GrayGrid.tres" id="1_smjip"]
+[ext_resource type="Material" uid="uid://cbjkhwbykvwd6" path="res://Fnt, Img, Snd, Env, Tex/Textures/OrangeGrid.tres" id="2_fa360"]
+
+[node name="Walls" type="CSGCombiner3D"]
+
+[node name="walls" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 4, -49)
+size = Vector3(2, 8, 100)
+material = ExtResource("1_smjip")
+
+[node name="walls2" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 49, 4, -10)
+size = Vector3(2, 8, 80)
+material = ExtResource("1_smjip")
+
+[node name="walls3" type="CSGBox3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 4, 30)
+size = Vector3(2, 8, 100)
+material = ExtResource("1_smjip")
+
+[node name="walls5" type="CSGBox3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 8, 4, 30)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_smjip")
+
+[node name="walls11" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 9, 4, 35)
+size = Vector3(8, 8, 2)
+material = ExtResource("2_fa360")
+
+[node name="walls12" type="CSGBox3D" parent="."]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -9, 4, 35)
+size = Vector3(8, 8, 2)
+material = ExtResource("2_fa360")
+
+[node name="walls6" type="CSGBox3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -8, 4, 30)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_smjip")
+
+[node name="walls7" type="CSGBox3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -49, 4, 30)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_smjip")
+
+[node name="walls8" type="CSGBox3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 49, 4, 30)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_smjip")
+
+[node name="walls9" type="CSGBox3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 49, 4, -49)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_smjip")
+
+[node name="walls10" type="CSGBox3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -49, 4, -49)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_smjip")
+
+[node name="walls4" type="CSGBox3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 5, 30)
+operation = 2
+size = Vector3(4, 10, 12)
+material = ExtResource("1_smjip")
+
+[node name="Walls" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 4, -9)
+size = Vector3(2, 8, 78)
+material = ExtResource("1_smjip")

@@ -1,0 +1,609 @@
+[gd_scene load_steps=21 format=3 uid="uid://dq1amlb00qbwu"]
+
+[ext_resource type="Material" uid="uid://do1d5ws0bbh5s" path="res://Fnt, Img, Snd, Env, Tex/Textures/GrayGrid.tres" id="1_73ogg"]
+[ext_resource type="Material" uid="uid://cbjkhwbykvwd6" path="res://Fnt, Img, Snd, Env, Tex/Textures/OrangeGrid.tres" id="1_mom3i"]
+[ext_resource type="PackedScene" uid="uid://c17stdy67dlj3" path="res://Scenes/player.tscn" id="1_xcscf"]
+[ext_resource type="PackedScene" uid="uid://pgd4uuw3pwv7" path="res://Scenes/pickable_key.tscn" id="3_np416"]
+[ext_resource type="Texture2D" uid="uid://c6clh6qlqge5e" path="res://Fnt, Img, Snd, Env, Tex/Images/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="4_w4qpg"]
+[ext_resource type="Material" uid="uid://cd07xk1nnt4cy" path="res://Fnt, Img, Snd, Env, Tex/Textures/GreenGrid.tres" id="4_yaspt"]
+[ext_resource type="PackedScene" uid="uid://c8glefj0ysjet" path="res://Assets/Blender/Key.blend" id="9_7fn1h"]
+[ext_resource type="PackedScene" uid="uid://crehvfta64wei" path="res://Scenes/removable_hedge.tscn" id="10_loowp"]
+[ext_resource type="Script" path="res://Scripts/Env/WorldEnvironment.gd" id="11_reejs"]
+[ext_resource type="Script" path="res://Scripts/Env/DirectionalLight3D.gd" id="12_ga51b"]
+[ext_resource type="PackedScene" uid="uid://cpyknmbyi6hrt" path="res://Scenes/lock.tscn" id="13_bhce0"]
+[ext_resource type="PackedScene" uid="uid://cl3qnlngrr8bs" path="res://Assets/Blender/Shears.blend" id="13_hur4h"]
+[ext_resource type="PackedScene" uid="uid://dbhgv62bmhdre" path="res://Scenes/Hedge.tscn" id="14_y46bx"]
+[ext_resource type="PackedScene" uid="uid://b06tfe8bmpv1h" path="res://Assets/Blender/CastleWalls.blend" id="15_7e646"]
+[ext_resource type="PackedScene" uid="uid://dcgxvt17qdid8" path="res://Scenes/StylizedBush.tscn" id="16_ogekt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hkgwm"]
+albedo_color = Color(0.447059, 0, 0.054902, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3y4vr"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cycyy"]
+panorama = ExtResource("4_w4qpg")
+
+[sub_resource type="Sky" id="Sky_qt4gn"]
+sky_material = SubResource("PanoramaSkyMaterial_cycyy")
+
+[sub_resource type="Environment" id="Environment_noyg2"]
+background_mode = 2
+background_color = Color(0, 0.741176, 0.803922, 1)
+sky = SubResource("Sky_qt4gn")
+tonemap_mode = 3
+
+[node name="Demo" type="Node3D"]
+
+[node name="Prototype" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="Buildings" type="CSGCombiner3D" parent="Prototype"]
+use_collision = true
+
+[node name="Ground" type="CSGBox3D" parent="Prototype/Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+size = Vector3(100, 1, 80)
+material = ExtResource("1_73ogg")
+
+[node name="Ground2" type="CSGBox3D" parent="Prototype/Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 41)
+size = Vector3(42, 1, 22)
+material = ExtResource("1_73ogg")
+
+[node name="GardenSheed" type="CSGBox3D" parent="Prototype/Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, -34, 2, -39.4739)
+size = Vector3(6, 2, 10.9992)
+material = ExtResource("1_mom3i")
+
+[node name="Castle" type="CSGCombiner3D" parent="Prototype/Buildings"]
+
+[node name="Castle" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -28)
+size = Vector3(50, 8, 40)
+material = ExtResource("1_mom3i")
+
+[node name="Castle12" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, -28)
+size = Vector3(38, 8, 28)
+material = ExtResource("1_mom3i")
+
+[node name="Castle13" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, -18, 16, -28)
+operation = 2
+size = Vector3(6, 8, 30)
+material = ExtResource("1_mom3i")
+
+[node name="Castle14" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(-0.5, -0.866025, -8.74228e-08, -0.866025, 0.5, 0, 4.37114e-08, 7.57103e-08, -1, 17, 16, -28)
+operation = 2
+size = Vector3(6, 8, 34)
+material = ExtResource("1_mom3i")
+
+[node name="Castle15" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(-2.18557e-08, -3.78552e-08, 1, -0.866025, 0.5, 3.55271e-15, -0.5, -0.866025, -4.37114e-08, 0, 16, -16)
+operation = 2
+size = Vector3(6, 8, 40)
+material = ExtResource("1_mom3i")
+
+[node name="Castle16" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(6.55671e-08, 1.13566e-07, -1, -0.866025, 0.5, 5.32907e-15, 0.5, 0.866025, 1.31134e-07, 0, 16, -40)
+operation = 2
+size = Vector3(6, 8, 40)
+material = ExtResource("1_mom3i")
+
+[node name="Castle11" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2, -33)
+size = Vector3(2, 4, 4)
+material = ExtResource("1_mom3i")
+
+[node name="Castle7" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -8)
+size = Vector3(12, 6, 2)
+material = ExtResource("1_mom3i")
+
+[node name="Castle9" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -8)
+operation = 2
+size = Vector3(10, 6, 2)
+material = ExtResource("1_mom3i")
+
+[node name="Castle8" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, -5.96046e-08, 1, 0, -1, -5.96046e-08, 0, 0, -8)
+size = Vector3(12, 2, 2)
+material = ExtResource("1_mom3i")
+
+[node name="Castle10" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, 0.397869, 0.917442, 0, -0.917442, 0.397869, 0, -0.327997, -6.47718)
+size = Vector3(12, 2, 2)
+material = ExtResource("1_mom3i")
+
+[node name="Castle2" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 4, -10)
+size = Vector3(6, 10, 6)
+material = ExtResource("1_mom3i")
+
+[node name="Castle3" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 4, -10)
+size = Vector3(6, 10, 6)
+material = ExtResource("1_mom3i")
+
+[node name="Castle5" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 4, -46)
+size = Vector3(6, 10, 6)
+material = ExtResource("1_mom3i")
+
+[node name="Castle6" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 4, -46)
+size = Vector3(6, 10, 6)
+material = ExtResource("1_mom3i")
+
+[node name="Castle4" type="CSGBox3D" parent="Prototype/Buildings/Castle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 4, -10)
+size = Vector3(6, 10, 6)
+material = ExtResource("1_mom3i")
+
+[node name="Walls" type="CSGCombiner3D" parent="Prototype/Buildings"]
+
+[node name="walls" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 4, -49)
+size = Vector3(2, 8, 100)
+material = ExtResource("1_73ogg")
+
+[node name="walls2" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 49, 4, -10)
+size = Vector3(2, 8, 80)
+material = ExtResource("1_73ogg")
+
+[node name="walls3" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 4, 30)
+size = Vector3(2, 8, 100)
+material = ExtResource("1_73ogg")
+
+[node name="walls5" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 8, 4, 30)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_73ogg")
+
+[node name="walls11" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 9, 4, 35)
+size = Vector3(8, 8, 2)
+material = ExtResource("1_mom3i")
+
+[node name="walls12" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -9, 4, 35)
+size = Vector3(8, 8, 2)
+material = ExtResource("1_mom3i")
+
+[node name="walls6" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -8, 4, 30)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_73ogg")
+
+[node name="walls7" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -49, 4, 30)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_73ogg")
+
+[node name="walls8" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 49, 4, 30)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_73ogg")
+
+[node name="walls9" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 49, 4, -49)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_73ogg")
+
+[node name="walls10" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -49, 4, -49)
+size = Vector3(4, 10, 4)
+material = ExtResource("1_73ogg")
+
+[node name="walls4" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 5, 30)
+operation = 2
+size = Vector3(4, 10, 12)
+material = ExtResource("1_73ogg")
+
+[node name="Walls" type="CSGBox3D" parent="Prototype/Buildings/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 4, -9)
+size = Vector3(2, 8, 78)
+material = ExtResource("1_73ogg")
+
+[node name="Hedges" type="CSGCombiner3D" parent="Prototype"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 2, -10)
+size = Vector3(2, 4, 78)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, 2, -9)
+size = Vector3(2, 4, 78)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -35, 2, -47)
+size = Vector3(2, 4, 28)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35, 2, -47)
+size = Vector3(2, 4, 28)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 44, 2, -40)
+size = Vector3(2, 4, 6)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -33, 2, 16)
+size = Vector3(2, 4, 26)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28, 2, 10)
+size = Vector3(2, 4, 16)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -25, 2, 4)
+size = Vector3(2, 4, 10)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -24, 2, -4)
+size = Vector3(2, 4, 8)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -29, 2, -22)
+size = Vector3(2, 4, 50)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -35, 2, -19)
+size = Vector3(2, 4, 16)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -38, 2, -32)
+size = Vector3(2, 4, 16)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -44, 2, -32)
+operation = 2
+size = Vector3(4, 6, 4)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -41, 2, -16)
+size = Vector3(2, 4, 10)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -41, 2, -26)
+size = Vector3(2, 4, 10)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -41, 2, 2)
+size = Vector3(2, 4, 6)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -38, 2, -10)
+size = Vector3(16, 4, 2)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -44, 2, -10)
+operation = 2
+size = Vector3(4, 6, 4)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -32, 2, -10)
+operation = 2
+size = Vector3(4, 6, 4)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -35, 2, 0)
+size = Vector3(2, 4, 10)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -41, 2, 13)
+size = Vector3(2, 4, 4)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -35, 2, 7)
+size = Vector3(2, 4, 4)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -39, 2, 6)
+size = Vector3(2, 4, 6)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 2, 19)
+size = Vector3(8, 4, 2)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -26, 2, 22)
+size = Vector3(8, 4, 2)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -35, 2, 20)
+size = Vector3(6, 4, 2)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -39, 2, 22)
+size = Vector3(6, 4, 2)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29, 2, 28)
+size = Vector3(2, 4, 38)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 27, 2, 28)
+size = Vector3(2, 4, 38)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 21)
+size = Vector3(2, 4, 18)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35, 2, -10)
+size = Vector3(2, 4, 14)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33, 2, -16)
+size = Vector3(2, 4, 16)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 41, 2, -28)
+size = Vector3(2, 4, 26)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 41, 2, -28)
+operation = 2
+size = Vector3(4, 6, 4)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 29, 2, -13)
+size = Vector3(2, 4, 4)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33, 2, -40)
+size = Vector3(2, 4, 16)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-4.2222e-08, 0.258819, -0.965926, 1.13133e-08, 0.965926, 0.258819, 1, 1.77636e-15, -4.37114e-08, 27, 1, -24)
+size = Vector3(6, 2, 4)
+material = ExtResource("1_mom3i")
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(2.6332e-15, 1, -1.15101e-22, 4.37114e-08, 6.09585e-30, 1, 1, 2.69587e-15, -4.37114e-08, 29, 0.485897, -24)
+size = Vector3(6, 2, 2)
+material = ExtResource("1_mom3i")
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 29, 2, -6)
+size = Vector3(2, 4, 6)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 41, 2, 7)
+size = Vector3(2, 4, 32)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 28, 2, 4)
+size = Vector3(2, 4, 16)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 29, 2, 0)
+size = Vector3(2, 4, 6)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 38, 2, -2)
+size = Vector3(2, 4, 6)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 30, 2, 10)
+size = Vector3(2, 4, 20)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 25, 2, 22)
+size = Vector3(2, 4, 10)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 27, 2, 16)
+size = Vector3(2, 4, 14)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, 21, 2, 19)
+size = Vector3(2, 4, 4)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, 35, 2, 21)
+size = Vector3(2, 4, 12)
+material = ExtResource("4_yaspt")
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="Prototype/Hedges"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 24, 2, -4)
+size = Vector3(2, 4, 8)
+material = ExtResource("4_yaspt")
+
+[node name="Enemies" type="CSGCombiner3D" parent="Prototype"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Prototype/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -8)
+material_override = SubResource("StandardMaterial3D_hkgwm")
+mesh = SubResource("CapsuleMesh_3y4vr")
+skeleton = NodePath("../..")
+
+[node name="objects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, -0.35684, 2.6, -8.50628)
+
+[node name="pickable_key1" parent="objects" instance=ExtResource("3_np416")]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, -22.9851, 27.2199, 1.7)
+Name = "key"
+
+[node name="Key" parent="objects/pickable_key1" instance=ExtResource("9_7fn1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
+[node name="pickable_key2" parent="objects" instance=ExtResource("3_np416")]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, -36.9851, 27.2199, 1.7)
+Name = "key"
+
+[node name="Key" parent="objects/pickable_key2" instance=ExtResource("9_7fn1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
+[node name="pickable_key3" parent="objects" instance=ExtResource("3_np416")]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, -36.9851, 11.2199, 1.7)
+Name = "key"
+
+[node name="Key" parent="objects/pickable_key3" instance=ExtResource("9_7fn1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
+[node name="pickable_key7" parent="objects" instance=ExtResource("3_np416")]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, -3.65042, 23.1176, 1.7)
+Name = "key"
+
+[node name="Key" parent="objects/pickable_key7" instance=ExtResource("9_7fn1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
+[node name="pickable_key4" parent="objects" instance=ExtResource("3_np416")]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, -36.9851, -4.78012, 1.7)
+Name = "key"
+
+[node name="Key" parent="objects/pickable_key4" instance=ExtResource("9_7fn1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
+[node name="pickable_key5" parent="objects" instance=ExtResource("3_np416")]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 25.0149, 27.2199, 1.7)
+Name = "key"
+
+[node name="Key" parent="objects/pickable_key5" instance=ExtResource("9_7fn1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
+[node name="pickable_key6" parent="objects" instance=ExtResource("3_np416")]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 38.0149, 3.21988, 1.7)
+Name = "key"
+
+[node name="Key" parent="objects/pickable_key6" instance=ExtResource("9_7fn1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
+[node name="pickable_key9" parent="objects" instance=ExtResource("3_np416")]
+transform = Transform3D(-4.37114e-08, 0, -1, 1, 2.98023e-08, -4.37114e-08, 2.98023e-08, -1, -1.3027e-15, -38.0904, -33.7413, 1.80842)
+
+[node name="Shears" parent="objects/pickable_key9" instance=ExtResource("13_hur4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 2.02302e-37, 0, 0, 1, 0, 0, 0.599998)
+
+[node name="pickable_key10" parent="objects" instance=ExtResource("3_np416")]
+transform = Transform3D(-4.37114e-08, 0, -1, 1, 2.98023e-08, -4.37114e-08, 2.98023e-08, -1, -1.3027e-15, -0.145593, 23.7015, 1.80842)
+
+[node name="Shears" parent="objects/pickable_key10" instance=ExtResource("13_hur4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 2.02302e-37, 0, 0, 1, 0, 0, 0.6)
+
+[node name="cube_recever2" parent="objects" instance=ExtResource("13_bhce0")]
+
+[node name="cube_recever3" parent="objects" instance=ExtResource("13_bhce0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58428, 23.6715, 1.2336)
+
+[node name="positioner" type="Node3D" parent="objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.35, -1, 1.6)
+
+[node name="hedge" parent="objects/positioner" instance=ExtResource("10_loowp")]
+collision_layer = 5
+collision_mask = 7
+activation_node = "self"
+
+[node name="positioner2" type="Node3D" parent="objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.193079, 20.4895, 1.6)
+
+[node name="hedge" parent="objects/positioner2" instance=ExtResource("10_loowp")]
+collision_layer = 5
+collision_mask = 7
+activation_node = "self"
+
+[node name="Player" parent="." instance=ExtResource("1_xcscf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 18.0595)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_noyg2")
+script = ExtResource("11_reejs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 10, 0)
+shadow_enabled = true
+script = ExtResource("12_ga51b")
+
+[node name="Label3D3" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 28, 17, -25)
+text = "Unlock basement with keys"
+font_size = 542
+outline_size = 127
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -38, 17, -39)
+text = "Sheed unlock lock with keys,
+Steal Hedge Shears "
+font_size = 542
+outline_size = 127
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 44, 17, -10)
+text = "Cut hedge with hedge shears"
+font_size = 542
+outline_size = 127
+
+[node name="Hedge" parent="." instance=ExtResource("14_y46bx")]
+transform = Transform3D(-3.54062e-08, 0, 0.81, 0, 0.81, 0, -0.81, 0, -3.54062e-08, -8.92991, 0.939629, 17.1144)
+
+[node name="Hedge2" parent="." instance=ExtResource("14_y46bx")]
+transform = Transform3D(-3.54062e-08, 0, 0.81, 0, 0.81, 0, -0.81, 0, -3.54062e-08, -8.92991, 0.939629, 23.2685)
+
+[node name="Bush" parent="." instance=ExtResource("16_ogekt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0934, -0.5, -0.216473)
+
+[node name="Bush2" parent="." instance=ExtResource("16_ogekt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1445, -0.5, -0.216473)
+
+[node name="Bush3" parent="." instance=ExtResource("16_ogekt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8172, -0.5, -4.55034)
+
+[node name="Bush4" parent="." instance=ExtResource("16_ogekt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4108, -0.5, -4.55034)
+
+[node name="CastleWalls" parent="." instance=ExtResource("15_7e646")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0838346, -0.500004, -0.921843)

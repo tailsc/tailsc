@@ -1,0 +1,8 @@
+[gd_resource type="EventAsset" format=3 uid="uid://djs0utvxc4cn6"]
+
+[resource]
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Amb&Mus/Ambiance"
+guid = "{8a2b523f-8650-4043-826d-5484c5d4846d}"
+name = "Ambiance"

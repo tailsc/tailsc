@@ -1,0 +1,207 @@
+[gd_resource type="ProjectCache" load_steps=18 format=3 uid="uid://ch07gdik3opse"]
+
+[ext_resource type="BankAsset" uid="uid://i6bk60tmchna" path="res://addons/FMOD/editor/resources/banks/{9ea497ad-d4bd-4ebb-b876-11853fbdad96}.tres" id="1_vwxxd"]
+[ext_resource type="BankAsset" uid="uid://dcr2qevi7ex3w" path="res://addons/FMOD/editor/resources/banks/{06b9b779-a5c6-02f9-3e3f-9b7bce4eab0e}.tres" id="2_mj5kj"]
+[ext_resource type="BusAsset" uid="uid://cco1p2vwjfsn8" path="res://addons/FMOD/editor/resources/busses/{701d16f5-8039-4f34-b8a8-d5065dad506c}.tres" id="3_lk0w5"]
+[ext_resource type="BusAsset" uid="uid://dskqydd8tj67l" path="res://addons/FMOD/editor/resources/busses/{adaf805b-0033-4288-90f1-93217d7b5817}.tres" id="4_hssse"]
+[ext_resource type="EventAsset" uid="uid://djs0utvxc4cn6" path="res://addons/FMOD/editor/resources/events/{8a2b523f-8650-4043-826d-5484c5d4846d}.tres" id="5_bmlid"]
+[ext_resource type="EventAsset" uid="uid://bc1bomrntop4y" path="res://addons/FMOD/editor/resources/events/{ff2938b3-7737-4b8f-891e-d416bda430e0}.tres" id="6_1gf7t"]
+[ext_resource type="EventAsset" uid="uid://q0wy7050pk62" path="res://addons/FMOD/editor/resources/events/{8d97cfcd-2467-4a01-88cc-40bb35ccb82c}.tres" id="7_mdblu"]
+[ext_resource type="EventAsset" uid="uid://d4ladfpya7sb8" path="res://addons/FMOD/editor/resources/events/{23d457c8-dbda-4992-a8c9-a455f975148f}.tres" id="8_qpq2n"]
+[ext_resource type="EventAsset" uid="uid://dgwd44ry5f0sv" path="res://addons/FMOD/editor/resources/events/{f4bd601b-3d35-488b-ba37-5be74fbacd77}.tres" id="9_fuhto"]
+[ext_resource type="EventAsset" uid="uid://jksvhrp5f0e3" path="res://addons/FMOD/editor/resources/events/{fdadd314-4688-413d-bcd9-6a64900e1cd8}.tres" id="10_u7x8n"]
+[ext_resource type="EventAsset" uid="uid://vgn2ytbc42ko" path="res://addons/FMOD/editor/resources/events/{36bef9ce-fc2d-438b-bca3-35b76fa56b5f}.tres" id="11_l5kha"]
+[ext_resource type="EventAsset" uid="uid://lwo1orj8qljq" path="res://addons/FMOD/editor/resources/events/{cb6889b4-f372-43f7-bcad-3a25ef854200}.tres" id="12_xclmq"]
+[ext_resource type="EventAsset" uid="uid://bujj00goj6bb0" path="res://addons/FMOD/editor/resources/events/{8f838bc0-0adb-48bc-8656-94b0d987a8d0}.tres" id="13_avdbj"]
+
+[sub_resource type="EventAsset" id="EventAsset_n8o3l"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/LasGun/LasGun_Grab"
+guid = "{cbf54648-86bd-4437-8ce6-d97082e817e1}"
+name = "LasGun_Grab"
+
+[sub_resource type="EventAsset" id="EventAsset_mu41k"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Player/Player_Death"
+guid = "{34b21e31-b8db-495e-afc6-bca89c1718f1}"
+name = "Player_Death"
+
+[sub_resource type="EventAsset" id="EventAsset_78d8b"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Player/Player_Footsteps"
+guid = "{8ff53308-2966-4955-b56b-d0161ea7f75b}"
+name = "Player_Footsteps"
+
+[sub_resource type="EventAsset" id="EventAsset_e32hf"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Player/Player_Hurt"
+guid = "{e7d584fe-71e1-42ab-a134-2a891e22361d}"
+name = "Player_Hurt"
+
+[resource]
+banks = {
+"{06b9b779-a5c6-02f9-3e3f-9b7bce4eab0e}": ExtResource("2_mj5kj"),
+"{9ea497ad-d4bd-4ebb-b876-11853fbdad96}": ExtResource("1_vwxxd")
+}
+events = {
+"{23d457c8-dbda-4992-a8c9-a455f975148f}": ExtResource("8_qpq2n"),
+"{34b21e31-b8db-495e-afc6-bca89c1718f1}": SubResource("EventAsset_mu41k"),
+"{36bef9ce-fc2d-438b-bca3-35b76fa56b5f}": ExtResource("11_l5kha"),
+"{8a2b523f-8650-4043-826d-5484c5d4846d}": ExtResource("5_bmlid"),
+"{8d97cfcd-2467-4a01-88cc-40bb35ccb82c}": ExtResource("7_mdblu"),
+"{8f838bc0-0adb-48bc-8656-94b0d987a8d0}": ExtResource("13_avdbj"),
+"{8ff53308-2966-4955-b56b-d0161ea7f75b}": SubResource("EventAsset_78d8b"),
+"{cb6889b4-f372-43f7-bcad-3a25ef854200}": ExtResource("12_xclmq"),
+"{cbf54648-86bd-4437-8ce6-d97082e817e1}": SubResource("EventAsset_n8o3l"),
+"{e7d584fe-71e1-42ab-a134-2a891e22361d}": SubResource("EventAsset_e32hf"),
+"{f4bd601b-3d35-488b-ba37-5be74fbacd77}": ExtResource("9_fuhto"),
+"{fdadd314-4688-413d-bcd9-6a64900e1cd8}": ExtResource("10_u7x8n"),
+"{ff2938b3-7737-4b8f-891e-d416bda430e0}": ExtResource("6_1gf7t")
+}
+busses = {
+"{701d16f5-8039-4f34-b8a8-d5065dad506c}": ExtResource("3_lk0w5"),
+"{adaf805b-0033-4288-90f1-93217d7b5817}": ExtResource("4_hssse")
+}
+bank_tree = [{
+"children": [],
+"item_type": 3,
+"node_name": "Master",
+"path": "bank:/Master",
+"resource": ExtResource("1_vwxxd")
+}, {
+"children": [],
+"item_type": 3,
+"node_name": "Master.strings",
+"path": "bank:/Master.strings",
+"resource": ExtResource("2_mj5kj")
+}]
+event_tree = [{
+"children": [{
+"children": [],
+"item_type": 1,
+"node_name": "Ambiance",
+"path": "event:/Amb&Mus/Ambiance",
+"resource": ExtResource("5_bmlid")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "Main_Music",
+"path": "event:/Amb&Mus/Main_Music",
+"resource": ExtResource("6_1gf7t")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "Menu_Music",
+"path": "event:/Amb&Mus/Menu_Music",
+"resource": ExtResource("7_mdblu")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "Win_Music",
+"path": "event:/Amb&Mus/Win_Music",
+"resource": ExtResource("8_qpq2n")
+}],
+"item_type": 7,
+"node_name": "Amb&Mus",
+"path": "",
+"resource": null
+}, {
+"children": [{
+"children": [],
+"item_type": 1,
+"node_name": "Bell_Collect",
+"path": "event:/Bell/Bell_Collect",
+"resource": ExtResource("9_fuhto")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "Bell_Finale",
+"path": "event:/Bell/Bell_Finale",
+"resource": ExtResource("10_u7x8n")
+}],
+"item_type": 7,
+"node_name": "Bell",
+"path": "",
+"resource": null
+}, {
+"children": [{
+"children": [],
+"item_type": 1,
+"node_name": "DogDeath",
+"path": "event:/Dog/DogDeath",
+"resource": ExtResource("11_l5kha")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "DogSeen",
+"path": "event:/Dog/DogSeen",
+"resource": ExtResource("12_xclmq")
+}],
+"item_type": 7,
+"node_name": "Dog",
+"path": "",
+"resource": null
+}, {
+"children": [{
+"children": [],
+"item_type": 1,
+"node_name": "LasGun_Grab",
+"path": "event:/LasGun/LasGun_Grab",
+"resource": SubResource("EventAsset_n8o3l")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "LasGun_Shot",
+"path": "event:/LasGun/LasGun_Shot",
+"resource": ExtResource("13_avdbj")
+}],
+"item_type": 7,
+"node_name": "LasGun",
+"path": "",
+"resource": null
+}, {
+"children": [{
+"children": [],
+"item_type": 1,
+"node_name": "Player_Death",
+"path": "event:/Player/Player_Death",
+"resource": SubResource("EventAsset_mu41k")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "Player_Footsteps",
+"path": "event:/Player/Player_Footsteps",
+"resource": SubResource("EventAsset_78d8b")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "Player_Hurt",
+"path": "event:/Player/Player_Hurt",
+"resource": SubResource("EventAsset_e32hf")
+}],
+"item_type": 7,
+"node_name": "Player",
+"path": "",
+"resource": null
+}]
+bus_tree = [{
+"children": [{
+"children": [],
+"item_type": 4,
+"node_name": "Reverb",
+"path": "bus:/Reverb",
+"resource": ExtResource("4_hssse")
+}],
+"item_type": 4,
+"node_name": "bus:",
+"path": "bus:/",
+"resource": ExtResource("3_lk0w5")
+}]

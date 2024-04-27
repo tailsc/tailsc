@@ -1,0 +1,414 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3mrost0yiaev"]
+
+[ext_resource type="PackedScene" uid="uid://6bs661c4qeoo" path="res://Scenes/Character/Player.tscn" id="1_br40c"]
+[ext_resource type="Material" uid="uid://dfokgd1khhckl" path="res://Fnt, Img, Snd, Env, Tex/Textures/GrayGrid.tres" id="2_jqg3o"]
+[ext_resource type="Environment" uid="uid://jv8m6qpsm8hm" path="res://Scenes/Menus/WorldEnv.tres" id="2_q46fv"]
+[ext_resource type="Material" uid="uid://dl1jg8bfvr7kj" path="res://Fnt, Img, Snd, Env, Tex/Textures/OrangeGrid.tres" id="3_ufmfy"]
+[ext_resource type="Script" path="res://Scenes/Worlds/WorldEnvironment.gd" id="3_xjino"]
+[ext_resource type="Script" path="res://Scenes/Worlds/DirectionalLight3D.gd" id="4_tcglj"]
+[ext_resource type="Material" uid="uid://d11p8drbs5bo8" path="res://Fnt, Img, Snd, Env, Tex/Textures/GreenGrid.tres" id="7_xwr4v"]
+[ext_resource type="AudioStream" uid="uid://c7tybtrh0dlw3" path="res://Fnt, Img, Snd, Env, Tex/Sound/MainMenuTheme.ogg" id="8_l2m8m"]
+[ext_resource type="PackedScene" uid="uid://dvibslf2bnerb" path="res://Assets/tree.tscn" id="9_sl2ql"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_8j05w"]
+density = 0.008
+
+[node name="Graveyard" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_q46fv")
+script = ExtResource("3_xjino")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.977464, -0.152427, -0.146047, -0.139226, -0.0545619, 0.988756, -0.158682, 0.986807, 0.0321105, 9.864, 11.946, 0)
+light_energy = 2.0
+shadow_enabled = true
+script = ExtResource("4_tcglj")
+
+[node name="Player" parent="." instance=ExtResource("1_br40c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74494, 1, -0.270091)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+use_collision = true
+
+[node name="Ground" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.571, -0.0716324, -55.3937)
+size = Vector3(271.552, 1, 275.054)
+material = ExtResource("2_jqg3o")
+
+[node name="CurchArea" type="CSGCombiner3D" parent="CSGCombiner3D"]
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, 8)
+size = Vector3(10, 6, 12)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.046, 9.60935, -40.1505)
+size = Vector3(43.9487, 18.4337, 39.0986)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.046, 6.60935, -40.1505)
+size = Vector3(6, 12, 10)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4516, 2.29225, -21.1505)
+size = Vector3(18, 4, 10)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(0.938022, -0.346575, 0, 0.346575, 0.938022, 0, 0, 0, 1, -63.046, 5.60935, -17.7656)
+operation = 2
+size = Vector3(16, 6, 5.8022)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.046, 27.6094, -40.1505)
+size = Vector3(43.9487, 18.4337, 14)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -58.046, 36.6094, -31.1505)
+operation = 2
+size = Vector3(43.9487, 18.4337, 14)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, -58.046, 36.6094, -48.1505)
+operation = 2
+size = Vector3(44, 18.4337, 14)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -58.046, 22.6094, -21.915)
+operation = 2
+size = Vector3(44, 18, 16)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, -58.046, 20.6094, -58.915)
+operation = 2
+size = Vector3(46, 18, 16)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 8, 8)
+size = Vector3(10, 4, 12)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 17.9799, 9.08128, 7.99762)
+operation = 2
+size = Vector3(10, 4, 16)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 10, 9, 8)
+operation = 2
+size = Vector3(10, 4, 12)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 0.954454, 0.298358, 0, -0.298358, 0.954454, 14, 0, 1)
+size = Vector3(4, 2, 4)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, 8)
+operation = 2
+size = Vector3(4, 4, 14)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, 8)
+operation = 2
+size = Vector3(8, 4, 10)
+material = ExtResource("3_ufmfy")
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.0825, 2, -51.074)
+size = Vector3(2, 4, 18)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.0825, 2, -64.074)
+size = Vector3(2, 4, 10)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.0825, 2, -64.074)
+size = Vector3(2, 4, 10)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.9175, 2, -51.074)
+size = Vector3(2, 4, 28)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.9175, 2, -88.074)
+size = Vector3(2, 4, 28)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.9175, 2, -117.18)
+size = Vector3(2, 4, 28)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08254, 2, -102.074)
+size = Vector3(2, 4, 28)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08254, 2.85463, -102.074)
+operation = 2
+size = Vector3(4, 4, 8)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.9175, 2, -103.074)
+size = Vector3(8, 6, 8)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.91746, 4, -23.074)
+size = Vector3(4, 6, 4)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.08254, 4, -30.074)
+size = Vector3(2, 6, 2)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.91746, 1, -23.074)
+size = Vector3(6, 2, 6)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.9175, 6, -103.074)
+size = Vector3(10, 2, 10)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.9175, 2, -30.074)
+size = Vector3(2, 4, 28)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.08254, 2, -2.07399)
+size = Vector3(2, 4, 54)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.08254, 2, -9.07399)
+operation = 2
+size = Vector3(4, 4, 8)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.0825, 2, -30.074)
+size = Vector3(2, 4, 18)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42.6437, 2, 24)
+size = Vector3(2, 4, 144.88)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 1.34361, -48)
+size = Vector3(0.788735, 4, 2)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.34361, -34)
+size = Vector3(0.788735, 4, 2)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 1.34361, -34)
+size = Vector3(0.788735, 4, 2)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.34361, -34)
+size = Vector3(0.788735, 4, 2)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.34361, -41)
+size = Vector3(10, 4, 6)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0.485921, -41)
+size = Vector3(10.8161, 0.699821, 7.00139)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 16, 4.34361, -39)
+operation = 2
+size = Vector3(12, 2, 6)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 16, 4.34361, -43)
+operation = 2
+size = Vector3(12, 2, 4)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1.34361, -48)
+size = Vector3(0.788735, 4, 2)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.34361, -48)
+size = Vector3(0.788735, 4, 2)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(0.395722, 0, -0.91837, 0, 1, 0, 0.91837, 0, 0.395722, -46.6961, 2.27265, 6.47041)
+size = Vector3(0.788735, 2.69341, 1.96375)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-0.798152, 0, -0.602456, 0, 1, 0, 0.602456, 0, -0.798152, -41.7052, 2.27265, 8.67534)
+size = Vector3(0.788735, 2.69341, 1.96375)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(-0.921308, 0, 0.388834, 0, 1, 0, -0.388834, 0, -0.921308, -41.7052, 2.27265, 13.6753)
+size = Vector3(0.788735, 2.69341, 1.96375)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.2097, 0, 10.5477)
+radius = 11.1587
+height = 4.04957
+sides = 33
+material = ExtResource("2_jqg3o")
+
+[node name="Tree" parent="CSGCombiner3D/CurchArea" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -44.86, 2.02479, 11.6576)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/CurchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, -56.074)
+size = Vector3(2, 4, 162.643)
+material = ExtResource("2_jqg3o")
+
+[node name="GraveArea" type="CSGCombiner3D" parent="CSGCombiner3D"]
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="CSGCombiner3D/GraveArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0196, 1.43451, 125.527)
+size = Vector3(146.844, 3.71647, 98.3621)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D57" type="CSGBox3D" parent="CSGCombiner3D/GraveArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8518, 2.68797, 91.8973)
+size = Vector3(9.37204, 3.71647, 10.8234)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D58" type="CSGBox3D" parent="CSGCombiner3D/GraveArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8518, 6.44264, 91.8973)
+size = Vector3(6.69118, 6.79252, 8.98892)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D52" type="CSGBox3D" parent="CSGCombiner3D/GraveArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0196, 3.91084, 147.294)
+size = Vector3(146.844, 3.71647, 98.3621)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D53" type="CSGBox3D" parent="CSGCombiner3D/GraveArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0196, 5.70772, 170.812)
+size = Vector3(146.844, 3.71647, 98.3621)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D54" type="CSGBox3D" parent="CSGCombiner3D/GraveArea"]
+transform = Transform3D(1, 0, 0, 0, 0.943686, 0.330844, 0, -0.330844, 0.943686, -42.0196, 8.99707, 124.057)
+operation = 2
+size = Vector3(12.2341, 4.72791, 6.89271)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D55" type="CSGBox3D" parent="CSGCombiner3D/GraveArea"]
+transform = Transform3D(1, 0, 0, 0, 0.916935, 0.399037, 0, -0.399037, 0.916935, -42.0196, 6.70379, 100.216)
+operation = 2
+size = Vector3(12.2341, 4.72791, 6.89271)
+material = ExtResource("2_jqg3o")
+
+[node name="CSGBox3D56" type="CSGBox3D" parent="CSGCombiner3D/GraveArea"]
+transform = Transform3D(1, 0, 0, 0, 0.883553, 0.468331, 0, -0.468331, 0.883553, -42.0196, 3.92321, 78.2129)
+operation = 2
+size = Vector3(12.2341, 4.72791, 6.89271)
+material = ExtResource("2_jqg3o")
+
+[node name="BushMaze" type="CSGCombiner3D" parent="CSGCombiner3D"]
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="CSGCombiner3D/BushMaze"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.796, 3, -148.682)
+size = Vector3(60.4809, 6, 125.044)
+material = ExtResource("7_xwr4v")
+
+[node name="Graveyard2" type="CSGCombiner3D" parent="CSGCombiner3D"]
+
+[node name="Tree2" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -155.693, 0.681335, 1.05147)
+
+[node name="Tree3" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -145.529, 0.681335, -30.1039)
+
+[node name="Tree4" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -161.438, 0.681335, -60.5964)
+
+[node name="Tree5" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -189.942, 0.681335, -40.71)
+
+[node name="Tree6" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -174.696, 0.681335, -22.3703)
+
+[node name="Tree7" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -194.582, 0.681335, 11.6576)
+
+[node name="Tree8" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -147.959, 0.681335, 30.4392)
+
+[node name="Tree9" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -186.959, 0.681335, -71.5608)
+
+[node name="Tree10" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -152.49, 0.681335, -94.9826)
+
+[node name="Tree11" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -220.103, 0.681335, -89.4586)
+
+[node name="Tree12" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -218.778, 0.681335, -57.4194)
+
+[node name="Tree13" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -212.149, 0.681335, -15.4369)
+
+[node name="Tree14" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -221.429, 0.681335, 31.4066)
+
+[node name="Tree15" parent="CSGCombiner3D/Graveyard2" instance=ExtResource("9_sl2ql")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -185.429, 0.681335, 36.4066)
+
+[node name="CSGBox3D59" type="CSGBox3D" parent="CSGCombiner3D/Graveyard2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -187.514, -1.26423, -33.5153)
+size = Vector3(106.428, 3.71647, 154.798)
+material = ExtResource("7_xwr4v")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.0363, 0, -45.0289)
+size = Vector3(218.291, 74, 248.701)
+material = SubResource("FogMaterial_8j05w")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_l2m8m")
+autoplay = true
+bus = &"Music"

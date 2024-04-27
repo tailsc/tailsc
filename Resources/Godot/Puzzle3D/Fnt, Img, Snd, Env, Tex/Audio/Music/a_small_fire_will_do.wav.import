@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://berts103jcu58"
+path="res://.godot/imported/a_small_fire_will_do.wav-adabd4cc7c0fd8f90fee19691f2c8548.sample"
+
+[deps]
+
+source_file="res://Fnt, Img, Snd, Env, Tex/Audio/Music/a_small_fire_will_do.wav"
+dest_files=["res://.godot/imported/a_small_fire_will_do.wav-adabd4cc7c0fd8f90fee19691f2c8548.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

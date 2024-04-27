@@ -1,0 +1,23 @@
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://cmkqa4lff4tpd"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8ifo1"]
+output_port_for_preview = 0
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_3dydp"]
+output_port_for_preview = 0
+input_name = "time"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_always, cull_disabled, diffuse_lambert, specular_schlick_ggx;
+
+
+
+"
+modes/depth_draw = 1
+modes/cull = 2
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_8ifo1")
+nodes/fragment/2/position = Vector2(-520, -80)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_3dydp")
+nodes/fragment/3/position = Vector2(-500, 260)

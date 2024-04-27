@@ -1,0 +1,5 @@
+[gd_resource type="CompressedTexture2D" format=3 uid="uid://xtlarbmhwk1s"]
+
+[resource]
+resource_name = "_albedo"
+load_path = "res://.godot/imported/1m x 1m_ (16).png-bee099e53c37f9b9acc2f01ca675904d.s3tc.ctex"

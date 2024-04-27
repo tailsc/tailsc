@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://l3qg37t43iyp"
+path="res://.godot/imported/GraveCat - Ambiance.wav-fd79e99e42d47e3621c942aa49b6634b.sample"
+
+[deps]
+
+source_file="res://SFX/Music/GraveCat - Ambiance.wav"
+dest_files=["res://.godot/imported/GraveCat - Ambiance.wav-fd79e99e42d47e3621c942aa49b6634b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

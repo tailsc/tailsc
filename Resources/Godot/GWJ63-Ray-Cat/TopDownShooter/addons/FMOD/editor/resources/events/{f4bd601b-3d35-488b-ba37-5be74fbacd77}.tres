@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://dgwd44ry5f0sv"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Bell/Bell_Collect"
+guid = "{f4bd601b-3d35-488b-ba37-5be74fbacd77}"
+name = "Bell_Collect"

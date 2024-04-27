@@ -1,0 +1,514 @@
+[gd_scene load_steps=15 format=3 uid="uid://buq2dtqeu0nm1"]
+
+[sub_resource type="FontFile" id="2"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="1"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="3"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="9"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="10"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="4"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="5"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="11"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="6"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="8"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="12"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="13"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="14"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="15"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([null, null])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="SettingsMenu" type="Popup"]
+size = Vector2i(1420, 835)
+visible = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -245.0
+offset_right = 500.0
+offset_bottom = 245.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(920, 590)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = -295.0
+offset_right = 460.0
+offset_bottom = 295.0
+color = Color(0, 0, 0, 0.705882)
+
+[node name="Video" type="TabBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Video"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -840.0
+offset_bottom = -474.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VideoSettings" type="GridContainer" parent="Video/MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 4.48
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="DisplayModeLabel" type="Label" parent="Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("2")
+text = "Window Mode"
+
+[node name="DisplayOptionBtn" type="OptionButton" parent="Video/MarginContainer/VideoSettings"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = SubResource("1")
+
+[node name="VsyncLabel" type="Label" parent="Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("3")
+text = "Vsync"
+
+[node name="VsyncButton" type="CheckBox" parent="Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = SubResource("9")
+
+[node name="DisplayFpsLabel" type="Label" parent="Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("3")
+text = "Display FPS"
+
+[node name="DisplayFpsBtn" type="CheckBox" parent="Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = SubResource("10")
+
+[node name="MaxFpsLabel" type="Label" parent="Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("4")
+text = "Frame Rate Cap"
+
+[node name="MaxFpsOptionBtn" type="OptionButton" parent="Video/MarginContainer/VideoSettings"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = SubResource("5")
+
+[node name="BloomLabel" type="Label" parent="Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("3")
+text = "Bloom"
+
+[node name="BloomBtn" type="CheckBox" parent="Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = SubResource("11")
+
+[node name="BrightnessLabel" type="Label" parent="Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("6")
+text = "Brightness"
+
+[node name="BrightnessSlider" type="HSlider" parent="Video/MarginContainer/VideoSettings"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="ResolutionLabel" type="Label" parent="Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("8")
+text = "Resolution"
+
+[node name="ResolutionBtn" type="OptionButton" parent="Video/MarginContainer/VideoSettings"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = SubResource("12")
+
+[node name="Audio" type="TabBar" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1420.0
+offset_bottom = -835.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Audio"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="AudioSettings" type="GridContainer" parent="Audio/MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 4.48
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="MasterVolLabel" type="Label" parent="Audio/MarginContainer/AudioSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("6")
+text = "Master Volume"
+
+[node name="MasterVolSlider" type="HSlider" parent="Audio/MarginContainer/AudioSettings"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -10.0
+
+[node name="MusicVolLabel" type="Label" parent="Audio/MarginContainer/AudioSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("6")
+text = "Music Volume"
+
+[node name="MusicVolSlider" type="HSlider" parent="Audio/MarginContainer/AudioSettings"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -10.0
+
+[node name="SfxVolLabel" type="Label" parent="Audio/MarginContainer/AudioSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("6")
+text = "Sfx Volume"
+
+[node name="SfxVolSlider" type="HSlider" parent="Audio/MarginContainer/AudioSettings"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -10.0
+
+[node name="BackgroundSoundLabel" type="Label" parent="Audio/MarginContainer/AudioSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("3")
+text = "Sound In Background \"Mute atm\""
+
+[node name="Backsoundbtn" type="CheckBox" parent="Audio/MarginContainer/AudioSettings"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = SubResource("13")
+
+[node name="Gameplay" type="TabBar" parent="."]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Gameplay"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="GameSettings" type="GridContainer" parent="Gameplay/MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 4.48
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="FovLabel" type="Label" parent="Gameplay/MarginContainer/GameSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("6")
+text = "Fov"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gameplay/MarginContainer/GameSettings"]
+layout_mode = 2
+
+[node name="FovVal" type="Label" parent="Gameplay/MarginContainer/GameSettings/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("14")
+text = "70"
+
+[node name="FovSlider" type="HSlider" parent="Gameplay/MarginContainer/GameSettings/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+min_value = 30.0
+value = 70.0
+
+[node name="MouseSensLabel" type="Label" parent="Gameplay/MarginContainer/GameSettings"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("6")
+text = "Mouse Sensitivity"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Gameplay/MarginContainer/GameSettings"]
+layout_mode = 2
+
+[node name="MouseSensVal" type="Label" parent="Gameplay/MarginContainer/GameSettings/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("15")
+text = ".1"
+
+[node name="MouseSensSlider" type="HSlider" parent="Gameplay/MarginContainer/GameSettings/HBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+min_value = 0.05
+max_value = 3.0
+step = 0.01
+value = 0.1
+
+[node name="SettingTabs" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="UI_Hover" type="AudioStreamPlayer" parent="."]
+volume_db = 15.0
+
+[node name="UI_Click" type="AudioStreamPlayer" parent="."]
+volume_db = 2.5
+
+[connection signal="item_selected" from="Video/MarginContainer/VideoSettings/DisplayOptionBtn" to="." method="_on_DisplayOptionBtn_item_selected"]
+[connection signal="mouse_entered" from="Video/MarginContainer/VideoSettings/DisplayOptionBtn" to="." method="_on_DisplayOptionBtn_mouse_entered"]
+[connection signal="mouse_entered" from="Video/MarginContainer/VideoSettings/VsyncButton" to="." method="_on_VsyncButton_mouse_entered"]
+[connection signal="toggled" from="Video/MarginContainer/VideoSettings/VsyncButton" to="." method="_on_VsyncButton_toggled"]
+[connection signal="mouse_entered" from="Video/MarginContainer/VideoSettings/DisplayFpsBtn" to="." method="_on_DisplayFpsBtn_mouse_entered"]
+[connection signal="toggled" from="Video/MarginContainer/VideoSettings/DisplayFpsBtn" to="." method="_on_DisplayFpsBtn_toggled"]
+[connection signal="item_selected" from="Video/MarginContainer/VideoSettings/MaxFpsOptionBtn" to="." method="_on_MaxFpsOptionBtn_item_selected"]
+[connection signal="mouse_entered" from="Video/MarginContainer/VideoSettings/MaxFpsOptionBtn" to="." method="_on_MaxFpsOptionBtn_mouse_entered"]
+[connection signal="mouse_entered" from="Video/MarginContainer/VideoSettings/BloomBtn" to="." method="_on_BloomBtn_mouse_entered"]
+[connection signal="toggled" from="Video/MarginContainer/VideoSettings/BloomBtn" to="." method="_on_BloomBtn_toggled"]
+[connection signal="mouse_entered" from="Video/MarginContainer/VideoSettings/BrightnessSlider" to="." method="_on_BrightnessSlider_mouse_entered"]
+[connection signal="value_changed" from="Video/MarginContainer/VideoSettings/BrightnessSlider" to="." method="_on_BrightnessSlider_value_changed"]
+[connection signal="item_selected" from="Video/MarginContainer/VideoSettings/ResolutionBtn" to="." method="_on_ResolutionBtn_item_selected"]
+[connection signal="mouse_entered" from="Video/MarginContainer/VideoSettings/ResolutionBtn" to="." method="_on_ResolutionBtn_mouse_entered"]
+[connection signal="mouse_entered" from="Audio/MarginContainer/AudioSettings/MasterVolSlider" to="." method="_on_MasterVolSlider_mouse_entered"]
+[connection signal="value_changed" from="Audio/MarginContainer/AudioSettings/MasterVolSlider" to="." method="_on_MasterVolSlider_value_changed"]
+[connection signal="mouse_entered" from="Audio/MarginContainer/AudioSettings/MusicVolSlider" to="." method="_on_MusicVolSlider_mouse_entered"]
+[connection signal="value_changed" from="Audio/MarginContainer/AudioSettings/MusicVolSlider" to="." method="_on_MusicVolSlider_value_changed"]
+[connection signal="mouse_entered" from="Audio/MarginContainer/AudioSettings/SfxVolSlider" to="." method="_on_SfxVolSlider_mouse_entered"]
+[connection signal="value_changed" from="Audio/MarginContainer/AudioSettings/SfxVolSlider" to="." method="_on_SfxVolSlider_value_changed"]
+[connection signal="mouse_entered" from="Audio/MarginContainer/AudioSettings/Backsoundbtn" to="." method="_on_Backsoundbtn_mouse_entered"]
+[connection signal="toggled" from="Audio/MarginContainer/AudioSettings/Backsoundbtn" to="." method="_on_Backsoundbtn_toggled"]
+[connection signal="value_changed" from="Gameplay/MarginContainer/GameSettings/HBoxContainer/FovSlider" to="." method="_on_FovSlider_value_changed"]
+[connection signal="value_changed" from="Gameplay/MarginContainer/GameSettings/HBoxContainer2/MouseSensSlider" to="." method="_on_MouseSensSlider_value_changed"]

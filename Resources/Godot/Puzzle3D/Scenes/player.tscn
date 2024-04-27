@@ -1,0 +1,256 @@
+[gd_scene load_steps=13 format=3 uid="uid://c17stdy67dlj3"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_adpyv"]
+[ext_resource type="FontFile" uid="uid://cl0c3v8f6vw0m" path="res://Fnt, Img, Snd, Env, Tex/Fonts/Rubik-Bold.ttf" id="2_06yoy"]
+[ext_resource type="Texture2D" uid="uid://byy6xctsw5dah" path="res://Fnt, Img, Snd, Env, Tex/Images/Circle.png" id="2_rgdw3"]
+[ext_resource type="Texture2D" uid="uid://dexkx6f06nroh" path="res://Fnt, Img, Snd, Env, Tex/Images/CircleFill.png" id="3_nqjcs"]
+[ext_resource type="PackedScene" uid="uid://burl5xrjt5esm" path="res://Scenes/Ui/pause_menu.tscn" id="4_j0j6h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hwk34"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7vx0c"]
+height = 1.4
+
+[sub_resource type="Animation" id="Animation_p3gcx"]
+resource_name = "INTERACTION"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CircleFill:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(0.08, 0.08)]
+}
+
+[sub_resource type="Animation" id="Animation_hsgor"]
+resource_name = "NOTHING"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CircleFill:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="Animation" id="Animation_q7xkl"]
+resource_name = "NOTHING_INTERACTING"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CircleFill:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.08, 0.08)]
+}
+
+[sub_resource type="Animation" id="Animation_e1bse"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CircleFill:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.08, 0.08), Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgp4p"]
+_data = {
+"INTERACTION": SubResource("Animation_p3gcx"),
+"NOTHING": SubResource("Animation_hsgor"),
+"NOTHING_INTERACTING": SubResource("Animation_q7xkl"),
+"RESET": SubResource("Animation_e1bse")
+}
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_adpyv")
+
+[node name="standing_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_hwk34")
+
+[node name="crouching_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.599574, 0)
+shape = SubResource("CapsuleShape3D_7vx0c")
+disabled = true
+
+[node name="nek" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="head" type="Node3D" parent="nek"]
+
+[node name="eyes" type="Node3D" parent="nek/head"]
+
+[node name="Camera3D" type="Camera3D" parent="nek/head/eyes"]
+current = true
+
+[node name="Interaction_ray" type="RayCast3D" parent="nek/head/eyes/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1.31134e-07, 1, 0, -1, 1.31134e-07, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+collision_mask = 4
+
+[node name="holdpos" type="Node3D" parent="nek/head/eyes/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36194, -0.380849, -1.5521)
+
+[node name="pickup" type="RayCast3D" parent="nek/head/eyes/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 8.74228e-08, 1, 0, -1, 8.74228e-08, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+collision_mask = 2
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 2, 0)
+
+[node name="Fps counter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="Center" type="Node2D" parent="Fps counter"]
+position = Vector2(-238, 12)
+
+[node name="Label" type="Label" parent="Fps counter/Center"]
+offset_right = 40.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("2_06yoy")
+theme_override_font_sizes/font_size = 40
+text = "wds"
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 138.0
+offset_right = 20.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 40
+text = "
+
+"
+
+[node name="Crosshair" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="Node2D" parent="UI/Crosshair"]
+
+[node name="Circle" type="Sprite2D" parent="UI/Crosshair/Center"]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_rgdw3")
+
+[node name="CircleFill" type="Sprite2D" parent="UI/Crosshair/Center"]
+visible = false
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_nqjcs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Crosshair/Center"]
+libraries = {
+"": SubResource("AnimationLibrary_wgp4p")
+}
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_j0j6h")]
+
+[node name="PlayerAudio" type="Node3D" parent="."]
+
+[node name="Footstep" type="AudioStreamPlayer3D" parent="PlayerAudio"]
+
+[node name="RayCast3D" type="RayCast3D" parent="PlayerAudio"]

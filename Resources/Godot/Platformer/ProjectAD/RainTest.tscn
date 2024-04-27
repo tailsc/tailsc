@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://cyemk8yrdkgkj"]
+
+[ext_resource type="Environment" uid="uid://jv8m6qpsm8hm" path="res://Scenes/Menus/WorldEnv.tres" id="1_wrrx7"]
+[ext_resource type="Script" path="res://Scenes/Worlds/WorldEnvironment.gd" id="2_xefo2"]
+[ext_resource type="Script" path="res://Scenes/Worlds/DirectionalLight3D.gd" id="3_b3eu3"]
+[ext_resource type="PackedScene" uid="uid://6bs661c4qeoo" path="res://Scenes/Character/Player.tscn" id="4_7hstr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wa6pc"]
+albedo_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bcg34"]
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 5)
+direction = Vector3(0, -1, 0)
+spread = 5.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Curve" id="Curve_1tu1j"]
+max_value = 0.1
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.1), 0.2289, 0.2289, 0, 0, Vector2(0.455128, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iq1m"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.105882, 0.623529, 0.529412, 1)
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_oos62"]
+material = SubResource("StandardMaterial3D_2iq1m")
+curve = SubResource("Curve_1tu1j")
+
+[node name="Rain" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_wrrx7")
+script = ExtResource("2_xefo2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.271384, -0.829521, 0.488105, 0.470325, 0.328166, 0.819208, -0.839729, 0.451888, 0.301085, 9.864, 2.27957, 0)
+light_energy = 2.0
+shadow_enabled = true
+script = ExtResource("3_b3eu3")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.27949, 0)
+size = Vector3(33.718, 1, 21.8769)
+material = SubResource("StandardMaterial3D_wa6pc")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66741, 7.1687, 0)
+amount = 800
+lifetime = 5.0
+randomness = 0.5
+visibility_aabb = AABB(-10, -10, -10, 20, 20, 20)
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_bcg34")
+draw_pass_1 = SubResource("RibbonTrailMesh_oos62")
+
+[node name="Player" parent="." instance=ExtResource("4_7hstr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61396, -3.77949, -2.07677)
