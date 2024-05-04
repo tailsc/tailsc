@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1ywlyvp6ox5x"
+path="res://.godot/imported/Turret_Cannon_Fire.mp3-7b240d4fc2e0b561bf2942e6efd5ee6a.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Turrets/Turret_Cannon_Fire.mp3"
+dest_files=["res://.godot/imported/Turret_Cannon_Fire.mp3-7b240d4fc2e0b561bf2942e6efd5ee6a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

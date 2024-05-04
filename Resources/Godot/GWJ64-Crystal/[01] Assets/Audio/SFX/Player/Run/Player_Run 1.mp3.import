@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dl68gjcxenfhv"
+path="res://.godot/imported/Player_Run 1.mp3-d4518ae2df064e545e7f878de63a31c2.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Player/Run/Player_Run 1.mp3"
+dest_files=["res://.godot/imported/Player_Run 1.mp3-d4518ae2df064e545e7f878de63a31c2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=30.0
+beat_count=0
+bar_beats=4

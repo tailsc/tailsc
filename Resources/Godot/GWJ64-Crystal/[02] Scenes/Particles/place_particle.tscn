@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu1hhifd2iq5a"]
+
+[ext_resource type="Texture2D" uid="uid://c5hlxxgqo7klx" path="res://[01] Assets/Textures/white-circle.png" id="1_g2s8q"]
+
+[sub_resource type="Curve" id="Curve_nxdv7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.308123, 0.907852), -0.843512, -0.843512, 0, 0, Vector2(0.582633, 0), -6.48855, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_igcic"]
+curve = SubResource("Curve_nxdv7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4p1y1"]
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, -3, 0)
+scale_curve = SubResource("CurveTexture_igcic")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_camxv"]
+transparency = 1
+albedo_texture = ExtResource("1_g2s8q")
+emission = Color(1, 1, 1, 1)
+rim_enabled = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_gv21m"]
+material = SubResource("StandardMaterial3D_camxv")
+
+[node name="PlaceParticle" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.946074, 0)
+emitting = false
+amount = 10
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4p1y1")
+draw_pass_1 = SubResource("QuadMesh_gv21m")

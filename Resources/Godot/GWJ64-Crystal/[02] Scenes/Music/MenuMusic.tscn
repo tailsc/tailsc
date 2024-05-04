@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfdn24pb1eqy8"]
+
+[ext_resource type="Script" path="res://[03] Scripts/Audio/MenuMusic.gd" id="1_t65rc"]
+[ext_resource type="AudioStream" uid="uid://wmif8xwhyn8c" path="res://[01] Assets/Audio/Music/Menu/MenuMusic.mp3" id="2_7pnnb"]
+[ext_resource type="AudioStream" uid="uid://w4iaknj31pim" path="res://[01] Assets/Audio/Music/Menu/MenuMusic2.mp3" id="3_iolko"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wm02l"]
+streams_count = 2
+stream_0/stream = ExtResource("2_7pnnb")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_iolko")
+stream_1/weight = 1.0
+
+[node name="MenuMusic" type="AudioStreamPlayer"]
+max_polyphony = 2
+script = ExtResource("1_t65rc")
+
+[node name="Timer to A" type="Timer" parent="."]
+
+[node name="MenuLoopA" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_wm02l")
+max_polyphony = 2
+bus = &"MenuMusic"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="timeout" from="Timer to A" to="." method="_on_timer_to_a_timeout"]

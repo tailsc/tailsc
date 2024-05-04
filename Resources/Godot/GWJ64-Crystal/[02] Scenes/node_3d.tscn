@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxlk00p7oud62"]
+
+[ext_resource type="PackedScene" uid="uid://bm57fcjakxr3k" path="res://[01] Assets/Blender/Entrance.blend" id="1_u8dqv"]
+[ext_resource type="PackedScene" uid="uid://cpsxlgoqavvlc" path="res://[01] Assets/Blender/Drill.blend" id="2_3s2xm"]
+[ext_resource type="PackedScene" uid="uid://c3w4tav8r3upg" path="res://[01] Assets/Blender/Goblin.blend" id="3_5n5ni"]
+[ext_resource type="PackedScene" uid="uid://1rmwsh5aup7q" path="res://[01] Assets/Blender/Hammer.blend" id="4_wfab2"]
+[ext_resource type="PackedScene" uid="uid://bm0a67tnodepf" path="res://[01] Assets/Blender/Tree.blend" id="5_van8m"]
+[ext_resource type="PackedScene" uid="uid://bwgn7cultg210" path="res://[01] Assets/Blender/Rifle.blend" id="6_0rupu"]
+[ext_resource type="PackedScene" uid="uid://div8si44usgos" path="res://[01] Assets/Blender/Gift.blend" id="7_1iugk"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Entrance" parent="." instance=ExtResource("1_u8dqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584018, 0, -0.736506)
+
+[node name="Drill2" parent="." instance=ExtResource("2_3s2xm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01551, 0, 1.64366)
+
+[node name="Goblin2" parent="." instance=ExtResource("3_5n5ni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75086, 0, -0.413913)
+
+[node name="Hammer2" parent="." instance=ExtResource("4_wfab2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89824, 0, 2.19833)
+
+[node name="Tree2" parent="." instance=ExtResource("5_van8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97133, 0, 4.52885)
+
+[node name="Rifle2" parent="." instance=ExtResource("6_0rupu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29278, 0, 3.71437)
+
+[node name="Gift2" parent="." instance=ExtResource("7_1iugk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.72475, 0, 3.5534)
+
+[node name="Drill3" parent="." instance=ExtResource("2_3s2xm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.74701, 0, -5.81926)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]

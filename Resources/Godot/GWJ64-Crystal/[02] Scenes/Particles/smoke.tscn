@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://6nxr0cmhv6oi"]
+
+[ext_resource type="Texture2D" uid="uid://c5hlxxgqo7klx" path="res://[01] Assets/Textures/white-circle.png" id="1_iiyr4"]
+
+[sub_resource type="Curve" id="Curve_hhwpx"]
+_data = [Vector2(0, 0), 0.0, 2.85884, 0, 0, Vector2(0.522968, 0.523022), 0.0540155, 0.0540155, 0, 0, Vector2(1, 0), -1.45326, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_m7lq7"]
+curve = SubResource("Curve_hhwpx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q7epr"]
+gravity = Vector3(0, 2.47, 0)
+damping_min = 1.0
+damping_max = 1.0
+scale_curve = SubResource("CurveTexture_m7lq7")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1ql2"]
+transparency = 1
+albedo_color = Color(0.290196, 0.290196, 0.290196, 1)
+albedo_texture = ExtResource("1_iiyr4")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_lbdlc"]
+material = SubResource("StandardMaterial3D_v1ql2")
+
+[node name="Smoke" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.924013, 0.7482, -0.109242)
+lifetime = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_q7epr")
+draw_pass_1 = SubResource("QuadMesh_lbdlc")

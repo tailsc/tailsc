@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ypmx5x4jn4hr"
+path="res://.godot/imported/Nulls Violin 1.mp3-f46e88c93c93d7518fc6d9f5910f8a71.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/Music/Tutorial/1 Violin/Nulls Violin 1.mp3"
+dest_files=["res://.godot/imported/Nulls Violin 1.mp3-f46e88c93c93d7518fc6d9f5910f8a71.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

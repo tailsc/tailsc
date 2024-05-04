@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwv42x5lxg0af"
+path="res://.godot/imported/Segments 1 Timpani.mp3-18bb85d3845cae6464d94c1e3e8dcc81.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/Music/Tutorial/6 Timpani/Segments 1 Timpani.mp3"
+dest_files=["res://.godot/imported/Segments 1 Timpani.mp3-18bb85d3845cae6464d94c1e3e8dcc81.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

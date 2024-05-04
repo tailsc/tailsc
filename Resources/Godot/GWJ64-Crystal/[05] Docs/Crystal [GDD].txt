@@ -1,0 +1,34 @@
+Crystal Game
+	
+
+	Executive Pitch
+Crystal Game is a tower defense online multiplayer game where you play as a dwarf in a fantasy setting. Your goal is to survive a certain number of waves to complete each map. What makes it unique is the ability to upgrade both the player's gear and the defended structure, offering more strategy.
+	Platforms
+- PC (Windows, MacOS, Linux)
+Price
+- 17.99€ / 19.99$
+Playtime
+- 5-10Hrs
+Age Rating
+- Everyone
+Planned Release
+- Q4 2024
+	Mechanics
+- Build & Upgrade 
+- Resource Management 
+- Wave-based Gameplay 
+- First-Person Shooting 
+- Progression System
+	Story
+As a dwarf defender, you find orcs invading from the underworld. Your mission: kick them out from the surface and dig deep to crush them for good
+	USPs (Unique Selling Points)
+- FPS Tower Defense 
+- Diverse Maps, Endless Strategies
+- Advanced Upgrading System 
+- Cooperative Multiplayer  
+	Objectives
+Goblins disrupt the peaceful realm, crawling up from the underworld. As a dwarf defender, clear maps, collect special items, and access the final level to eliminate the underworld and restore peace.
+	  
+  
+
+All rights reserved. ©Nintendo

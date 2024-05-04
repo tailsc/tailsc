@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cetegay82xowl"
+path="res://.godot/imported/Player_Death.mp3-ea94ef489d7556bb78cc9b594df1fd05.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Player/Player_Death.mp3"
+dest_files=["res://.godot/imported/Player_Death.mp3-ea94ef489d7556bb78cc9b594df1fd05.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

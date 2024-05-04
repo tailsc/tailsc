@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d3w5ru4h2q8cu"]
+
+[ext_resource type="FontFile" uid="uid://bgm2wyn6824sl" path="res://[01] Assets/Textures/Rubik-Bold.ttf" id="1_xl20u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sv55x"]
+bg_color = Color(0.0627451, 0.0941176, 0.12549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oldmq"]
+bg_color = Color(0.0627451, 0.0941176, 0.12549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwfqa"]
+bg_color = Color(0.0627451, 0.0941176, 0.12549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdxia"]
+bg_color = Color(0.0627451, 0.0941176, 0.12549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[resource]
+Button/colors/font_color = Color(0.996078, 0.905882, 0.0823529, 1)
+Button/fonts/font = ExtResource("1_xl20u")
+Button/styles/focus = SubResource("StyleBoxFlat_sv55x")
+Button/styles/hover = SubResource("StyleBoxFlat_oldmq")
+Button/styles/normal = SubResource("StyleBoxFlat_dwfqa")
+Button/styles/pressed = SubResource("StyleBoxFlat_rdxia")

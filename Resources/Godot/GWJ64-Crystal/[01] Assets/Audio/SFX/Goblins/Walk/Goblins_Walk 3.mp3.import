@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drtupjufnv4t2"
+path="res://.godot/imported/Goblins_Walk 3.mp3-f6677d9a1153a3582b3d16f4bb86954f.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Goblins/Walk/Goblins_Walk 3.mp3"
+dest_files=["res://.godot/imported/Goblins_Walk 3.mp3-f6677d9a1153a3582b3d16f4bb86954f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

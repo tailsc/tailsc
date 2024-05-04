@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcosc0pikvmc"]
+
+[ext_resource type="PackedScene" uid="uid://6c4e6ysdua6b" path="res://[01] Assets/Blender/Box.blend" id="1_jx3dk"]
+[ext_resource type="Texture2D" uid="uid://c5hlxxgqo7klx" path="res://[01] Assets/Textures/white-circle.png" id="2_vf7in"]
+
+[sub_resource type="Curve" id="Curve_g3ej4"]
+_data = [Vector2(0, 0.120879), 0.0, 0.0, 0, 0, Vector2(0.57971, 0.120879), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t6c2f"]
+curve = SubResource("Curve_g3ej4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xxoqm"]
+emission_shape = 1
+emission_sphere_radius = 3.0
+gravity = Vector3(0, 4, 0)
+scale_curve = SubResource("CurveTexture_t6c2f")
+turbulence_enabled = true
+turbulence_noise_scale = 1.135
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdyv4"]
+transparency = 1
+albedo_texture = ExtResource("2_vf7in")
+emission_enabled = true
+emission = Color(0, 0.341176, 0.788235, 1)
+emission_energy_multiplier = 16.0
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_q64ug"]
+material = SubResource("StandardMaterial3D_vdyv4")
+
+[node name="Crystal" type="Node3D"]
+
+[node name="Box2" parent="." instance=ExtResource("1_jx3dk")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 15
+lifetime = 2.5
+process_material = SubResource("ParticleProcessMaterial_xxoqm")
+draw_pass_1 = SubResource("QuadMesh_q64ug")

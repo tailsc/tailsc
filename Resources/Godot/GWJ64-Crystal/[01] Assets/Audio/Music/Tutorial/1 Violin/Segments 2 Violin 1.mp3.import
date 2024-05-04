@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbfhhqwpnc1d5"
+path="res://.godot/imported/Segments 2 Violin 1.mp3-637ba6f24896f805e43b9a1f3fedf633.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/Music/Tutorial/1 Violin/Segments 2 Violin 1.mp3"
+dest_files=["res://.godot/imported/Segments 2 Violin 1.mp3-637ba6f24896f805e43b9a1f3fedf633.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rva68gu51ogg"
+path="res://.godot/imported/Segments 4 Violin 1.mp3-fbefb4300100798af9aa80d411bb6373.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/Music/Tutorial/1 Violin/Segments 4 Violin 1.mp3"
+dest_files=["res://.godot/imported/Segments 4 Violin 1.mp3-fbefb4300100798af9aa80d411bb6373.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

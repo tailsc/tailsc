@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fim1kse56xkw"
+path="res://.godot/imported/Segments 2 Bass.mp3-75ab3a671e5ca540faf1501a507490d3.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/Music/Tutorial/5 Bass/Segments 2 Bass.mp3"
+dest_files=["res://.godot/imported/Segments 2 Bass.mp3-75ab3a671e5ca540faf1501a507490d3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

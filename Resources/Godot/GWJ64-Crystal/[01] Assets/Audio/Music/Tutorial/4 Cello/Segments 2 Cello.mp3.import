@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fhu4js6gh0xu"
+path="res://.godot/imported/Segments 2 Cello.mp3-218eb5e0414eef21d82d0577958cb233.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/Music/Tutorial/4 Cello/Segments 2 Cello.mp3"
+dest_files=["res://.godot/imported/Segments 2 Cello.mp3-218eb5e0414eef21d82d0577958cb233.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

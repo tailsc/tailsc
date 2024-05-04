@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bo2h6pbbhcj46"
+path="res://.godot/imported/Turret_Explode.mp3-55a4ba6018fb35cb7f90bb98752a270e.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Turrets/Explosion/Turret_Explode.mp3"
+dest_files=["res://.godot/imported/Turret_Explode.mp3-55a4ba6018fb35cb7f90bb98752a270e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

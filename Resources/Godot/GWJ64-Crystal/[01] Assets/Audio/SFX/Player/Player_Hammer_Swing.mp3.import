@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlaba11y04302"
+path="res://.godot/imported/Player_Hammer_Swing.mp3-27dd84b2d2513713c8f308d4eb8d95e0.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Player/Player_Hammer_Swing.mp3"
+dest_files=["res://.godot/imported/Player_Hammer_Swing.mp3-27dd84b2d2513713c8f308d4eb8d95e0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

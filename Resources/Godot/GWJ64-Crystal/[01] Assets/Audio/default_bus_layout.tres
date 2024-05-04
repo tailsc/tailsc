@@ -1,0 +1,105 @@
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://d4bqxoahmcvtd"]
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_0grxl"]
+resource_name = "Compressor"
+threshold = -10.0
+release_ms = 150.0
+sidechain = &"SFX"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_0fyxk"]
+resource_name = "Reverb"
+room_size = 0.5
+damping = 0.31
+hipass = 0.2
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_m2s83"]
+resource_name = "Reverb"
+room_size = 0.33
+damping = 0.0
+wet = 0.33
+
+[resource]
+bus/1/name = &"Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -11.9576
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectCompressor_0grxl")
+bus/1/effect/0/enabled = true
+bus/2/name = &"SFX"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_0fyxk")
+bus/2/effect/0/enabled = true
+bus/3/name = &"Goblins"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"SFX"
+bus/4/name = &"Mining Machine"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -5.04538
+bus/4/send = &"SFX"
+bus/5/name = &"Player"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"Master"
+bus/5/effect/0/effect = SubResource("AudioEffectReverb_m2s83")
+bus/5/effect/0/enabled = true
+bus/6/name = &"Turrets"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = &"SFX"
+bus/7/name = &"MenuMusic"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = &"Music"
+bus/8/name = &"Vln 1"
+bus/8/solo = false
+bus/8/mute = false
+bus/8/bypass_fx = false
+bus/8/volume_db = 0.0
+bus/8/send = &"Music"
+bus/9/name = &"Vln 2"
+bus/9/solo = false
+bus/9/mute = false
+bus/9/bypass_fx = false
+bus/9/volume_db = 0.0
+bus/9/send = &"Music"
+bus/10/name = &"Vla"
+bus/10/solo = false
+bus/10/mute = false
+bus/10/bypass_fx = false
+bus/10/volume_db = 0.0
+bus/10/send = &"Music"
+bus/11/name = &"Clo"
+bus/11/solo = false
+bus/11/mute = false
+bus/11/bypass_fx = false
+bus/11/volume_db = 0.0
+bus/11/send = &"Music"
+bus/12/name = &"Bass"
+bus/12/solo = false
+bus/12/mute = false
+bus/12/bypass_fx = false
+bus/12/volume_db = 0.0
+bus/12/send = &"Music"
+bus/13/name = &"Timp"
+bus/13/solo = false
+bus/13/mute = false
+bus/13/bypass_fx = false
+bus/13/volume_db = 0.0
+bus/13/send = &"Music"

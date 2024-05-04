@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dy6b2pi1vs4j5"
+path="res://.godot/imported/Segments 2 Viola.mp3-c3fab92297a743e688cf4ed752477da7.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/Music/Tutorial/3 Viola/Segments 2 Viola.mp3"
+dest_files=["res://.godot/imported/Segments 2 Viola.mp3-c3fab92297a743e688cf4ed752477da7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

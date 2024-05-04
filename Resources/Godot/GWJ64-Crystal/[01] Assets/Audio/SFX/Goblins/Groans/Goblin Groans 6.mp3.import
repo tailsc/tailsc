@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cng47wrdpq7lf"
+path="res://.godot/imported/Goblin Groans 6.mp3-fc1689151c2c0757544713de90fa7c0d.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Goblins/Groans/Goblin Groans 6.mp3"
+dest_files=["res://.godot/imported/Goblin Groans 6.mp3-fc1689151c2c0757544713de90fa7c0d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

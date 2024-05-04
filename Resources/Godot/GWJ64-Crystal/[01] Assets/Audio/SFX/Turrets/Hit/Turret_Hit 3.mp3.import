@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://csfdo8b65503h"
+path="res://.godot/imported/Turret_Hit 3.mp3-256e5cc0955720c90206204079437237.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Turrets/Hit/Turret_Hit 3.mp3"
+dest_files=["res://.godot/imported/Turret_Hit 3.mp3-256e5cc0955720c90206204079437237.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

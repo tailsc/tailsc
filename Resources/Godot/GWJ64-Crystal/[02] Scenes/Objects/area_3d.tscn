@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://xi8k4k6urbts"]
+
+[ext_resource type="Script" path="res://[03] Scripts/area_3d.gd" id="1_agtx7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7wtt0"]
+
+[node name="Area3D" type="Area3D"]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_agtx7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7wtt0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

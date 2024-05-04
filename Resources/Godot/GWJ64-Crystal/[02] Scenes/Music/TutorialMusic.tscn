@@ -1,0 +1,174 @@
+[gd_scene load_steps=37 format=3 uid="uid://k8yl33ilnkm1"]
+
+[ext_resource type="Script" path="res://[03] Scripts/Audio/TutorialMusic.gd" id="1_ftww0"]
+[ext_resource type="AudioStream" uid="uid://cgkhhr1u5fjil" path="res://[01] Assets/Audio/Music/Tutorial/1 Violin/Segments 1 Violin 1.mp3" id="1_lgqep"]
+[ext_resource type="AudioStream" uid="uid://bbfhhqwpnc1d5" path="res://[01] Assets/Audio/Music/Tutorial/1 Violin/Segments 2 Violin 1.mp3" id="2_bqgga"]
+[ext_resource type="AudioStream" uid="uid://ypmx5x4jn4hr" path="res://[01] Assets/Audio/Music/Tutorial/1 Violin/Nulls Violin 1.mp3" id="3_saysv"]
+[ext_resource type="AudioStream" uid="uid://4obx6gyg4jv8" path="res://[01] Assets/Audio/Music/Tutorial/2 Violin/Segments 1 Violin 2.mp3" id="4_f3en7"]
+[ext_resource type="AudioStream" uid="uid://2rmkumaex5of" path="res://[01] Assets/Audio/Music/Tutorial/2 Violin/Segments 2 Violin 2.mp3" id="5_eouc4"]
+[ext_resource type="AudioStream" uid="uid://cb3a7m4thrqsm" path="res://[01] Assets/Audio/Music/Tutorial/2 Violin/Nulls Violin 2.mp3" id="6_eyk3i"]
+[ext_resource type="AudioStream" uid="uid://od7q7o8013m1" path="res://[01] Assets/Audio/Music/Tutorial/3 Viola/Segments 1 Viola.mp3" id="7_h3wfe"]
+[ext_resource type="AudioStream" uid="uid://dy6b2pi1vs4j5" path="res://[01] Assets/Audio/Music/Tutorial/3 Viola/Segments 2 Viola.mp3" id="8_l6b84"]
+[ext_resource type="AudioStream" uid="uid://d0300ejfoaygu" path="res://[01] Assets/Audio/Music/Tutorial/3 Viola/Nulls Viola.mp3" id="9_x54da"]
+[ext_resource type="AudioStream" uid="uid://c7exa6wg2tfhw" path="res://[01] Assets/Audio/Music/Tutorial/4 Cello/Segments 1 Cello.mp3" id="10_pl7gq"]
+[ext_resource type="AudioStream" uid="uid://fhu4js6gh0xu" path="res://[01] Assets/Audio/Music/Tutorial/4 Cello/Segments 2 Cello.mp3" id="11_cef6c"]
+[ext_resource type="AudioStream" uid="uid://e4edycfcumls" path="res://[01] Assets/Audio/Music/Tutorial/4 Cello/Nulls Cello.mp3" id="12_l0leh"]
+[ext_resource type="AudioStream" uid="uid://bpnwf53nkfkng" path="res://[01] Assets/Audio/Music/Tutorial/5 Bass/Segments 1 Bass.mp3" id="13_g5oce"]
+[ext_resource type="AudioStream" uid="uid://fim1kse56xkw" path="res://[01] Assets/Audio/Music/Tutorial/5 Bass/Segments 2 Bass.mp3" id="14_4huk5"]
+[ext_resource type="AudioStream" uid="uid://bwv42x5lxg0af" path="res://[01] Assets/Audio/Music/Tutorial/6 Timpani/Segments 1 Timpani.mp3" id="16_0px56"]
+[ext_resource type="AudioStream" uid="uid://ctmsgk7p3xlnu" path="res://[01] Assets/Audio/Music/Tutorial/6 Timpani/Segments 2 Timpani.mp3" id="17_biky3"]
+[ext_resource type="AudioStream" uid="uid://cr7r6krcane2j" path="res://[01] Assets/Audio/Music/Tutorial/1 Violin/Segments 3 Violin 1.mp3" id="19_tt5om"]
+[ext_resource type="AudioStream" uid="uid://rva68gu51ogg" path="res://[01] Assets/Audio/Music/Tutorial/1 Violin/Segments 4 Violin 1.mp3" id="20_f1pbt"]
+[ext_resource type="AudioStream" uid="uid://di2d6ucwh4sol" path="res://[01] Assets/Audio/Music/Tutorial/2 Violin/Segments 3 Violin 2.mp3" id="21_joknq"]
+[ext_resource type="AudioStream" uid="uid://40yhi31y3n8l" path="res://[01] Assets/Audio/Music/Tutorial/2 Violin/Segments 4 Violin 2.mp3" id="22_avirr"]
+[ext_resource type="AudioStream" uid="uid://bh205myq4rsy3" path="res://[01] Assets/Audio/Music/Tutorial/3 Viola/Segments 3 Viola.mp3" id="23_tsax5"]
+[ext_resource type="AudioStream" uid="uid://b454ey0lltnev" path="res://[01] Assets/Audio/Music/Tutorial/3 Viola/Segments 4 Viola.mp3" id="24_euwd5"]
+[ext_resource type="AudioStream" uid="uid://bgvdeyc716rvg" path="res://[01] Assets/Audio/Music/Tutorial/4 Cello/Segments 3 Cello.mp3" id="25_78juh"]
+[ext_resource type="AudioStream" uid="uid://crnnxo7o7oxpf" path="res://[01] Assets/Audio/Music/Tutorial/4 Cello/Segments 4 Cello.mp3" id="26_gda3a"]
+[ext_resource type="AudioStream" uid="uid://dcahoqjx5yo7b" path="res://[01] Assets/Audio/Music/Tutorial/5 Bass/Segments 3 Bass.mp3" id="27_y5e43"]
+[ext_resource type="AudioStream" uid="uid://cc6gwoh860biv" path="res://[01] Assets/Audio/Music/Tutorial/5 Bass/Segments 4 Bass.mp3" id="28_k1hsu"]
+[ext_resource type="AudioStream" uid="uid://cp2ps5jgnxgu4" path="res://[01] Assets/Audio/Music/Tutorial/6 Timpani/Segments 3 Timpani.mp3" id="29_h16lp"]
+[ext_resource type="AudioStream" uid="uid://7nw18j385ffb" path="res://[01] Assets/Audio/Music/Tutorial/6 Timpani/Segments 4 Timpani.mp3" id="30_ee37q"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_0mqeh"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ml5ui"]
+streams_count = 5
+stream_0/stream = ExtResource("1_lgqep")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_bqgga")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("19_tt5om")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("20_f1pbt")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("3_saysv")
+stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pciuf"]
+streams_count = 5
+stream_0/stream = ExtResource("4_f3en7")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_eouc4")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("21_joknq")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("22_avirr")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("6_eyk3i")
+stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dokq6"]
+streams_count = 5
+stream_0/stream = ExtResource("7_h3wfe")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("8_l6b84")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("23_tsax5")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("24_euwd5")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("9_x54da")
+stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_btrt5"]
+streams_count = 5
+stream_0/stream = ExtResource("10_pl7gq")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("11_cef6c")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("25_78juh")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("26_gda3a")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("12_l0leh")
+stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sm5sl"]
+streams_count = 4
+stream_0/stream = ExtResource("13_g5oce")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("14_4huk5")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("27_y5e43")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("28_k1hsu")
+stream_3/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oh3gd"]
+streams_count = 4
+stream_0/stream = ExtResource("16_0px56")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("17_biky3")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("29_h16lp")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("30_ee37q")
+stream_3/weight = 1.0
+
+[node name="TutorialMusic" type="AudioStreamPlayer"]
+script = ExtResource("1_ftww0")
+
+[node name="LoopTimer" type="Timer" parent="."]
+
+[node name="StartingMusic" type="AudioStreamPlayer" parent="."]
+
+[node name="1 Violin" type="AudioStreamPlayer" parent="StartingMusic" groups=["StartingMusic"]]
+stream = ExtResource("19_tt5om")
+bus = &"Vln 1"
+
+[node name="2 Violin" type="AudioStreamPlayer" parent="StartingMusic" groups=["StartingMusic"]]
+stream = ExtResource("21_joknq")
+bus = &"Vln 2"
+
+[node name="Viola" type="AudioStreamPlayer" parent="StartingMusic" groups=["StartingMusic"]]
+stream = ExtResource("23_tsax5")
+bus = &"Vla"
+
+[node name="Cello" type="AudioStreamPlayer" parent="StartingMusic" groups=["StartingMusic"]]
+stream = ExtResource("25_78juh")
+bus = &"Clo"
+
+[node name="Bass" type="AudioStreamPlayer" parent="StartingMusic" groups=["StartingMusic"]]
+stream = ExtResource("27_y5e43")
+bus = &"Bass"
+
+[node name="Timpani" type="AudioStreamPlayer" parent="StartingMusic" groups=["StartingMusic"]]
+stream = ExtResource("29_h16lp")
+bus = &"Timp"
+
+[node name="Battle" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPolyphonic_0mqeh")
+
+[node name="1 Violin" type="AudioStreamPlayer" parent="Battle" groups=["Battle"]]
+stream = SubResource("AudioStreamRandomizer_ml5ui")
+max_polyphony = 2
+bus = &"Vln 1"
+
+[node name="2 Violin" type="AudioStreamPlayer" parent="Battle" groups=["Battle"]]
+stream = SubResource("AudioStreamRandomizer_pciuf")
+max_polyphony = 2
+bus = &"Vln 2"
+
+[node name="Viola" type="AudioStreamPlayer" parent="Battle" groups=["Battle"]]
+stream = SubResource("AudioStreamRandomizer_dokq6")
+max_polyphony = 2
+bus = &"Vla"
+
+[node name="Cello" type="AudioStreamPlayer" parent="Battle" groups=["Battle"]]
+stream = SubResource("AudioStreamRandomizer_btrt5")
+max_polyphony = 2
+bus = &"Clo"
+
+[node name="Bass" type="AudioStreamPlayer" parent="Battle" groups=["Battle"]]
+stream = SubResource("AudioStreamRandomizer_sm5sl")
+max_polyphony = 2
+bus = &"Bass"
+
+[node name="Timpani" type="AudioStreamPlayer" parent="Battle" groups=["Battle"]]
+stream = SubResource("AudioStreamRandomizer_oh3gd")
+max_polyphony = 2
+bus = &"Timp"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="timeout" from="LoopTimer" to="." method="_on_loop_timer_timeout"]

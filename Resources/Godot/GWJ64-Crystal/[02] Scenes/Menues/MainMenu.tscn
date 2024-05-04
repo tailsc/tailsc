@@ -1,0 +1,231 @@
+[gd_scene load_steps=21 format=3 uid="uid://c3xcgc53ytkha"]
+
+[ext_resource type="Script" path="res://[03] Scripts/Ui/MainMenu.gd" id="1_c07gs"]
+[ext_resource type="Script" path="res://[03] Scripts/Env/DirectionalLight3D.gd" id="2_uk0xg"]
+[ext_resource type="PackedScene" uid="uid://e08ys0kpuber" path="res://[02] Scenes/Menues/options_menu.tscn" id="3_1fcbc"]
+[ext_resource type="Script" path="res://[03] Scripts/Env/WorldEnvironment.gd" id="3_apji1"]
+[ext_resource type="Texture2D" uid="uid://c5hlxxgqo7klx" path="res://[01] Assets/Textures/white-circle.png" id="5_feyl8"]
+[ext_resource type="Theme" uid="uid://d3w5ru4h2q8cu" path="res://[01] Assets/Textures/Theme.tres" id="5_xwxtl"]
+[ext_resource type="FontFile" uid="uid://bgm2wyn6824sl" path="res://[01] Assets/Textures/Rubik-Bold.ttf" id="6_74uja"]
+[ext_resource type="PackedScene" uid="uid://dtrtaww81xrql" path="res://[01] Assets/Blender/SnowDrill.blend" id="6_wiava"]
+[ext_resource type="AudioStream" uid="uid://cwa5xx3ptdjy3" path="res://[01] Assets/Audio/SFX/Goblins/Hit/Goblin_Hit 2.mp3" id="8_lxcdh"]
+[ext_resource type="AudioStream" uid="uid://cieuqhtrpwmpf" path="res://[01] Assets/Audio/SFX/Goblins/Hit/Goblin_Hit 3.mp3" id="9_3ntl5"]
+[ext_resource type="PackedScene" uid="uid://bfdn24pb1eqy8" path="res://[02] Scenes/Music/MenuMusic.tscn" id="10_aon0o"]
+
+[sub_resource type="Environment" id="Environment_tkeyh"]
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.03
+volumetric_fog_emission = Color(1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_pa7g2"]
+_data = [Vector2(1e-05, 0.261877), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2al7q"]
+curve = SubResource("Curve_pa7g2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3ibbh"]
+emission_shape = 1
+emission_sphere_radius = 20.0
+scale_curve = SubResource("CurveTexture_2al7q")
+turbulence_enabled = true
+turbulence_noise_scale = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uoftj"]
+transparency = 1
+albedo_texture = ExtResource("5_feyl8")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_1vypn"]
+material = SubResource("StandardMaterial3D_uoftj")
+
+[sub_resource type="Animation" id="Animation_51nvt"]
+resource_name = "OptionsFade"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OPTIONS:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o4aej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OPTIONS:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ee7x"]
+_data = {
+"OptionsFade": SubResource("Animation_51nvt"),
+"RESET": SubResource("Animation_o4aej")
+}
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_c07gs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.642787, 0.663414, 0.383023, 0, -0.5, 0.866026, 0.766044, 0.55667, 0.321394, 0, 0, 0)
+script = ExtResource("2_uk0xg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tkeyh")
+script = ExtResource("3_apji1")
+
+[node name="3dBackground" type="Node3D" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="3dBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="3dBackground/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="3dBackground/SubViewportContainer/SubViewport"]
+transform = Transform3D(0.999391, -0.0221988, 0.0269293, 0, 0.771625, 0.636078, -0.0348995, -0.635691, 0.771154, -1.735, 7.245, -1.475)
+
+[node name="Assets" type="Node3D" parent="3dBackground"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="3dBackground/Assets"]
+transform = Transform3D(-4.37114e-08, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -4.37114e-08, -0.967588, 10.442, -6.71581)
+amount = 300
+lifetime = 5.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_3ibbh")
+draw_pass_1 = SubResource("QuadMesh_1vypn")
+
+[node name="SnowDrill" parent="3dBackground/Assets" instance=ExtResource("6_wiava")]
+transform = Transform3D(0.941471, 0, 0.337095, 0, 1, 0, -0.337095, 0, 0.941471, -0.697, 0, -7.35)
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameTitle" type="Label" parent="Ui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.0
+offset_top = 17.0
+offset_right = 198.0
+offset_bottom = 136.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.996078, 0.905882, 0.0823529, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.0941176, 0.12549, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("6_74uja")
+theme_override_font_sizes/font_size = 100
+text = "Gwj 64"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui/MarginContainer"]
+layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="Ui/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_xwxtl")
+theme_override_fonts/font = ExtResource("6_74uja")
+theme_override_font_sizes/font_size = 50
+text = "START"
+
+[node name="OptionsBtn" type="Button" parent="Ui/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "OPTIONS"
+
+[node name="QuitBtn" type="Button" parent="Ui/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[node name="OPTIONS" parent="." instance=ExtResource("3_1fcbc")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BackBtn" type="Button" parent="OPTIONS"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -98.0
+offset_right = 174.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ee7x")
+}
+
+[node name="MenuButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lxcdh")
+
+[node name="MenuButtonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_3ntl5")
+
+[node name="MenuMusic" parent="." instance=ExtResource("10_aon0o")]
+
+[connection signal="mouse_entered" from="Ui/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_mouse_entered"]
+[connection signal="pressed" from="Ui/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="mouse_entered" from="Ui/MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_mouse_entered"]
+[connection signal="pressed" from="Ui/MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="mouse_entered" from="Ui/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_mouse_entered"]
+[connection signal="pressed" from="Ui/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="mouse_entered" from="OPTIONS/BackBtn" to="." method="_on_back_btn_mouse_entered"]
+[connection signal="pressed" from="OPTIONS/BackBtn" to="." method="_on_back_btn_pressed"]

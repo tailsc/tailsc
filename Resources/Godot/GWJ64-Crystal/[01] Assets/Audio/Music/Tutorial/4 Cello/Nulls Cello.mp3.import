@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://e4edycfcumls"
+path="res://.godot/imported/Nulls Cello.mp3-ac1963dcc983a4a28779bb97a2cfc46d.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/Music/Tutorial/4 Cello/Nulls Cello.mp3"
+dest_files=["res://.godot/imported/Nulls Cello.mp3-ac1963dcc983a4a28779bb97a2cfc46d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

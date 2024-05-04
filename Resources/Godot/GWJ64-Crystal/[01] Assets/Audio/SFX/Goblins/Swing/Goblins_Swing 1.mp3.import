@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dciqm5fwxmx6q"
+path="res://.godot/imported/Goblins_Swing 1.mp3-bf9034f9e6ebb78ad23b8e0744b0ab5a.mp3str"
+
+[deps]
+
+source_file="res://[01] Assets/Audio/SFX/Goblins/Swing/Goblins_Swing 1.mp3"
+dest_files=["res://.godot/imported/Goblins_Swing 1.mp3-bf9034f9e6ebb78ad23b8e0744b0ab5a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

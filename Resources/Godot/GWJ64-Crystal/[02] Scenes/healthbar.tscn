@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://45k40gm6dby8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6abc1"]
+viewport_path = NodePath("Healthbar/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnqmn"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_6abc1")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_7trpw"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_nnqmn")
+size = Vector2(10, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbyf8"]
+bg_color = Color(0.309804, 0.309804, 0.309804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naykw"]
+bg_color = Color(0.129412, 0, 0, 1)
+
+[node name="Healthbar" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2937, 5.96671, 0)
+mesh = SubResource("QuadMesh_7trpw")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(300, 30)
+
+[node name="Healthbar" type="ProgressBar" parent="SubViewport"]
+offset_right = 300.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.392157, 0.392157, 0.392157, 1)
+theme_override_constants/outline_size = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_pbyf8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_naykw")
+value = 50.0

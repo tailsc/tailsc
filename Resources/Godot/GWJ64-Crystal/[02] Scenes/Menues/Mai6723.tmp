@@ -1,0 +1,204 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3xcgc53ytkha"]
+
+[ext_resource type="Script" path="res://[03] Scripts/Ui/MainMenu.gd" id="1_c07gs"]
+[ext_resource type="Script" path="res://[03] Scripts/Env/DirectionalLight3D.gd" id="2_uk0xg"]
+[ext_resource type="PackedScene" uid="uid://e08ys0kpuber" path="res://[02] Scenes/Menues/options_menu.tscn" id="3_1fcbc"]
+[ext_resource type="Script" path="res://[03] Scripts/Env/WorldEnvironment.gd" id="3_apji1"]
+[ext_resource type="Material" uid="uid://4xhu2xq0ivtl" path="res://[01] Assets/Textures/OrangeGrid.tres" id="4_rsoqc"]
+[ext_resource type="Theme" uid="uid://d3w5ru4h2q8cu" path="res://[01] Assets/Textures/Theme.tres" id="5_xwxtl"]
+[ext_resource type="FontFile" uid="uid://bgm2wyn6824sl" path="res://[01] Assets/Textures/Rubik-Bold.ttf" id="6_74uja"]
+
+[sub_resource type="Environment" id="Environment_tkeyh"]
+volumetric_fog_density = 0.1
+volumetric_fog_albedo = Color(0.203922, 1, 0.505882, 1)
+volumetric_fog_emission = Color(0, 0.392157, 0.168627, 1)
+
+[sub_resource type="Animation" id="Animation_51nvt"]
+resource_name = "OptionsFade"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OPTIONS:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o4aej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OPTIONS:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ee7x"]
+_data = {
+"OptionsFade": SubResource("Animation_51nvt"),
+"RESET": SubResource("Animation_o4aej")
+}
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_c07gs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("2_uk0xg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tkeyh")
+script = ExtResource("3_apji1")
+
+[node name="3dBackground" type="Node3D" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="3dBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="3dBackground/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="3dBackground/SubViewportContainer/SubViewport"]
+transform = Transform3D(0.960294, -0.114365, 0.254473, 0, 0.91212, 0.409923, -0.278991, -0.393647, 0.875903, -0.39, 2.18, 0.5)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="3dBackground"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="3dBackground/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5)
+size = Vector3(15, 1, 8)
+material = ExtResource("4_rsoqc")
+
+[node name="Ui" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameTitle" type="Label" parent="Ui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.0
+offset_top = 129.0
+offset_right = 198.0
+offset_bottom = 226.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "RAY CAT"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui/MarginContainer"]
+layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="Ui/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_xwxtl")
+theme_override_colors/font_pressed_color = Color(0.203922, 1, 0.505882, 1)
+theme_override_colors/font_hover_color = Color(0.203922, 1, 0.505882, 1)
+theme_override_fonts/font = ExtResource("6_74uja")
+theme_override_font_sizes/font_size = 50
+text = "START"
+
+[node name="OptionsBtn" type="Button" parent="Ui/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(347.63, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_pressed_color = Color(0.203922, 1, 0.505882, 1)
+theme_override_colors/font_hover_color = Color(0.203922, 1, 0.505882, 1)
+theme_override_font_sizes/font_size = 50
+text = "OPTIONS"
+
+[node name="QuitBtn" type="Button" parent="Ui/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.203922, 1, 0.505882, 1)
+theme_override_colors/font_hover_color = Color(0.203922, 1, 0.505882, 1)
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[node name="Credits" type="Control" parent="Ui"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Ui/Credits"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 752.0
+offset_right = 364.0
+offset_bottom = 1029.0
+theme_override_font_sizes/font_size = 30
+text = "Code > @kormisch
+
+Music > @sucellos
+
+Sfx > @leonardpeanut
+
+Art, Ui, Level Design > @tailsc"
+
+[node name="OPTIONS" parent="." instance=ExtResource("3_1fcbc")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BackBtn" type="Button" parent="OPTIONS"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -112.0
+offset_right = 128.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ee7x")
+}
+
+[connection signal="pressed" from="Ui/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Ui/MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="Ui/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="OPTIONS/BackBtn" to="." method="_on_back_btn_pressed"]

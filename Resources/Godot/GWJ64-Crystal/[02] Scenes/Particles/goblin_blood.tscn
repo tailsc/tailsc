@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://daxwsskay822o"]
+
+[ext_resource type="Texture2D" uid="uid://c5hlxxgqo7klx" path="res://[01] Assets/Textures/white-circle.png" id="1_lnhyf"]
+[ext_resource type="Script" path="res://[03] Scripts/goblin_blood.gd" id="1_o520q"]
+
+[sub_resource type="Curve" id="Curve_j56yx"]
+_data = [Vector2(0, 0.412514), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vof7m"]
+curve = SubResource("Curve_j56yx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nu4jb"]
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_vof7m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_327hd"]
+transparency = 1
+albedo_color = Color(0.309804, 0.54902, 0.145098, 1)
+albedo_texture = ExtResource("1_lnhyf")
+emission_enabled = true
+emission = Color(0.290196, 0.486275, 0.14902, 1)
+emission_energy_multiplier = 16.0
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_jajfd"]
+material = SubResource("StandardMaterial3D_327hd")
+
+[node name="GoblinBlood" type="Node3D"]
+script = ExtResource("1_o520q")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 20
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_nu4jb")
+draw_pass_1 = SubResource("QuadMesh_jajfd")
+
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]
