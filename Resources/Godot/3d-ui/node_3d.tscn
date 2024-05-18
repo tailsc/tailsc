@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdva1r21gdoyk"]
+
+[ext_resource type="Script" path="res://node_3d.gd" id="1_7rs3n"]
+[ext_resource type="PackedScene" uid="uid://bwerrjjmvpkcf" path="res://Suzanne.blend" id="2_awdf3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u24bd"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_cshvp"]
+sky_material = SubResource("ProceduralSkyMaterial_u24bd")
+
+[sub_resource type="Environment" id="Environment_tp8ex"]
+background_mode = 2
+sky = SubResource("Sky_cshvp")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pvkbu"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bftkv"]
+viewport_path = NodePath("Sprite3D2/SubViewport")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_7rs3n")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tp8ex")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 2
+no_depth_test = true
+texture = SubResource("ViewportTexture_pvkbu")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="ProgressBar" type="ProgressBar" parent="Sprite3D/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -50.0
+offset_right = 500.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1000.0
+step = 1.0
+value = 1000.0
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+billboard = 2
+no_depth_test = true
+texture = SubResource("ViewportTexture_bftkv")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D2"]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Panel" type="Panel" parent="Sprite3D2/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -168.115
+offset_right = 500.0
+offset_bottom = -68.1145
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Sprite3D2/SubViewport/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "Suzanne"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999976, -0.00231074, 0.00654191, 0, 0.942907, 0.333055, -0.00693802, -0.333047, 0.942885, 0.110334, 1.80267, 6.1705)
+
+[node name="Suzanne2" parent="." instance=ExtResource("2_awdf3")]
+transform = Transform3D(1.23625, 0, 0, 0, 1.23625, 0, 0, 0, 1.23625, 0, 0, 0)

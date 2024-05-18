@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvuoe3586iq4c"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_p3t8a"]
+[ext_resource type="AudioStream" uid="uid://d1sp8plo5y28r" path="res://UI_Click.ogg" id="2_kk344"]
+[ext_resource type="AudioStream" uid="uid://t87p8gwo1oie" path="res://UI_Hover.ogg" id="3_6quia"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p3t8a")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -70.0
+offset_right = 200.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Button"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kk344")
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6quia")
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

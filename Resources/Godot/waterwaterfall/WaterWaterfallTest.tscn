@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://ft07m6jb36wn"]
+
+[ext_resource type="Shader" uid="uid://bbo1abph4arco" path="res://WaterShader.tres" id="1_cl0wd"]
+[ext_resource type="PackedScene" uid="uid://do1wqelxp66l0" path="res://Waterfall.blend" id="2_ly8sl"]
+[ext_resource type="Shader" uid="uid://dkboalmk3igsx" path="res://WaterfallShader.tres" id="3_yp8su"]
+[ext_resource type="PackedScene" uid="uid://c13gceqqbsscu" path="res://Foam.tscn" id="4_1kwib"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjr7n"]
+render_priority = 0
+shader = ExtResource("1_cl0wd")
+shader_parameter/ColorParameter = Color(0, 0.266667, 0.533333, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a47q7"]
+material = SubResource("ShaderMaterial_hjr7n")
+size = Vector2(20, 20)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmy72"]
+render_priority = 1
+shader = ExtResource("3_yp8su")
+shader_parameter/ColorParameter = Color(0.07451, 0.533333, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_a47q7")
+
+[node name="Waterfall" parent="." instance=ExtResource("2_ly8sl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19021, 0)
+
+[node name="Cube" parent="Waterfall" index="0"]
+material_override = SubResource("ShaderMaterial_gmy72")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="Node3D" parent="." instance=ExtResource("4_1kwib")]
+
+[editable path="Waterfall"]

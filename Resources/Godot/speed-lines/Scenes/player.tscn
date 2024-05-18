@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvqb5sm0so880"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_bc28k"]
+[ext_resource type="Shader" path="res://Assets/SpeedLines.gdshader" id="2_gkkwf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7r16m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_klddx"]
+height = 1.5
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qyfgj"]
+noise_type = 5
+frequency = 0.2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ny8q3"]
+noise = SubResource("FastNoiseLite_qyfgj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jeu47"]
+shader = ExtResource("2_gkkwf")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_count = 2.0
+shader_parameter/line_density = 1.0
+shader_parameter/line_faloff = 1.0
+shader_parameter/mask_size = 0.0
+shader_parameter/mask_edge = 1.0
+shader_parameter/animation_speed = 20.0
+shader_parameter/noise = SubResource("NoiseTexture2D_ny8q3")
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_bc28k")
+
+[node name="standing_collision_shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_7r16m")
+
+[node name="crouching_collision_shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_klddx")
+disabled = true
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+fov = 70.0
+
+[node name="OverheadRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, 2, 0)
+
+[node name="Speedlines" type="ColorRect" parent="."]
+auto_translate_mode = 1
+material = SubResource("ShaderMaterial_jeu47")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

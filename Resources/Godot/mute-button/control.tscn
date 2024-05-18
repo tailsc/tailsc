@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://olixmiowtk2y"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_licct"]
+[ext_resource type="AudioStream" uid="uid://by8lbxhrab1g4" path="res://085 Heartbound OST Omnibound.mp3" id="2_6teys"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_licct")
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Master"
+
+[node name="CheckBox2" type="CheckBox" parent="."]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = 23.0
+offset_right = 42.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Music"
+
+[node name="CheckBox3" type="CheckBox" parent="."]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = 58.0
+offset_right = 42.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SFX"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6teys")
+autoplay = true
+
+[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="CheckBox2" to="." method="_on_check_box_2_toggled"]
+[connection signal="toggled" from="CheckBox3" to="." method="_on_check_box_3_toggled"]

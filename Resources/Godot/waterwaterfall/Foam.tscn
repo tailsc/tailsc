@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://c13gceqqbsscu"]
+
+[ext_resource type="Texture2D" uid="uid://ci4gfrluflac3" path="res://smoke_07.png" id="1_h47d6"]
+[ext_resource type="AudioStream" uid="uid://bl7lv6a7ghb7c" path="res://Waterfall.wav" id="2_j0erj"]
+
+[sub_resource type="Gradient" id="Gradient_l8sc0"]
+offsets = PackedFloat32Array(0, 0.791489, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.85098, 0.85098, 0.85098, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c5u5v"]
+gradient = SubResource("Gradient_l8sc0")
+
+[sub_resource type="Curve" id="Curve_8qx6f"]
+max_value = 3.0
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), -9.14633, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bbg2o"]
+curve = SubResource("Curve_8qx6f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m28dv"]
+emission_shape_scale = Vector3(1, 0, 2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 3, 0)
+scale_curve = SubResource("CurveTexture_bbg2o")
+color_ramp = SubResource("GradientTexture1D_c5u5v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpy8j"]
+render_priority = 2
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_h47d6")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_enabled = true
+proximity_fade_distance = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_2ytlg"]
+material = SubResource("StandardMaterial3D_lpy8j")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_65cj1"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("2_j0erj")
+stream_0/weight = 1.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.160302, -0.328146, 0)
+amount = 75
+speed_scale = 1.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_m28dv")
+draw_pass_1 = SubResource("QuadMesh_2ytlg")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="GPUParticles3D"]
+stream = SubResource("AudioStreamRandomizer_65cj1")
+volume_db = -10.0
+autoplay = true
+max_distance = 20.0
