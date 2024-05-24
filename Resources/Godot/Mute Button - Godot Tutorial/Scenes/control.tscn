@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://olixmiowtk2y"]
 
-[ext_resource type="Script" path="res://control.gd" id="1_licct"]
-[ext_resource type="AudioStream" uid="uid://by8lbxhrab1g4" path="res://085 Heartbound OST Omnibound.mp3" id="2_6teys"]
+[ext_resource type="Script" path="res://Scripts/control.gd" id="1_licct"]
+[ext_resource type="AudioStream" uid="uid://by8lbxhrab1g4" path="res://Assets/085 Heartbound OST Omnibound.mp3" id="2_6teys"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -62,6 +62,7 @@ text = "SFX"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_6teys")
 autoplay = true
+bus = &"Music"
 
 [connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="toggled" from="CheckBox2" to="." method="_on_check_box_2_toggled"]

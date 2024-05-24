@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ccnlia4tj3ci7"]
 
-[ext_resource type="PackedScene" uid="uid://uteod4o0xoix" path="res://install_sounds.tscn" id="1_b5joq"]
+[ext_resource type="PackedScene" uid="uid://uteod4o0xoix" path="res://Scenes/install_sounds.tscn" id="1_b5joq"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

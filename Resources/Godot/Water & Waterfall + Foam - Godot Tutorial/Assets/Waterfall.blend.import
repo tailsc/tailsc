@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bwerrjjmvpkcf"
-path="res://.godot/imported/Suzanne.blend-ab907acd4245cf463cc1b92940bd637d.scn"
+uid="uid://do1wqelxp66l0"
+path="res://.godot/imported/Waterfall.blend-2f215b9f7d32cf3be7366eb26c99590e.scn"
 
 [deps]
 
-source_file="res://Suzanne.blend"
-dest_files=["res://.godot/imported/Suzanne.blend-ab907acd4245cf463cc1b92940bd637d.scn"]
+source_file="res://Assets/Waterfall.blend"
+dest_files=["res://.godot/imported/Waterfall.blend-2f215b9f7d32cf3be7366eb26c99590e.scn"]
 
 [params]
 
@@ -29,6 +29,7 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
 fbx/importer=0

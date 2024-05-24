@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvuoe3586iq4c"]
 
-[ext_resource type="Script" path="res://control.gd" id="1_p3t8a"]
-[ext_resource type="AudioStream" uid="uid://d1sp8plo5y28r" path="res://UI_Click.ogg" id="2_kk344"]
-[ext_resource type="AudioStream" uid="uid://t87p8gwo1oie" path="res://UI_Hover.ogg" id="3_6quia"]
+[ext_resource type="Script" path="res://Scripts/control.gd" id="1_p3t8a"]
+[ext_resource type="AudioStream" uid="uid://d1sp8plo5y28r" path="res://Assets/UI_Click.ogg" id="2_kk344"]
+[ext_resource type="AudioStream" uid="uid://t87p8gwo1oie" path="res://Assets/UI_Hover.ogg" id="3_6quia"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

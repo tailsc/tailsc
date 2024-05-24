@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bdva1r21gdoyk"]
 
-[ext_resource type="Script" path="res://node_3d.gd" id="1_7rs3n"]
-[ext_resource type="PackedScene" uid="uid://bwerrjjmvpkcf" path="res://Suzanne.blend" id="2_awdf3"]
+[ext_resource type="Script" path="res://Scripts/node_3d.gd" id="1_7rs3n"]
+[ext_resource type="PackedScene" uid="uid://bwerrjjmvpkcf" path="res://Assets/Suzanne.blend" id="2_awdf3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u24bd"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

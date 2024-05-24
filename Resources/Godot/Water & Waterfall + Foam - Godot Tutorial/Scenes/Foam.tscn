@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c13gceqqbsscu"]
 
-[ext_resource type="Texture2D" uid="uid://ci4gfrluflac3" path="res://smoke_07.png" id="1_h47d6"]
-[ext_resource type="AudioStream" uid="uid://bl7lv6a7ghb7c" path="res://Waterfall.wav" id="2_j0erj"]
+[ext_resource type="Texture2D" uid="uid://ci4gfrluflac3" path="res://Assets/smoke_07.png" id="1_h47d6"]
+[ext_resource type="AudioStream" uid="uid://bl7lv6a7ghb7c" path="res://Assets/Waterfall.wav" id="2_j0erj"]
 
 [sub_resource type="Gradient" id="Gradient_l8sc0"]
 offsets = PackedFloat32Array(0, 0.791489, 1)
@@ -48,7 +48,6 @@ material = SubResource("StandardMaterial3D_lpy8j")
 random_pitch = 1.2
 streams_count = 1
 stream_0/stream = ExtResource("2_j0erj")
-stream_0/weight = 1.0
 
 [node name="Node3D" type="Node3D"]
 

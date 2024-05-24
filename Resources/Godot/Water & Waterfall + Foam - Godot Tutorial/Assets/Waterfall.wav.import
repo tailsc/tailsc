@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bl7lv6a7ghb7c"
-path="res://.godot/imported/Waterfall.wav-2676d4b8b29fdd8adf5937a2e5c3288e.sample"
+path="res://.godot/imported/Waterfall.wav-f66042cb32cf1e030d88efbb7a096a58.sample"
 
 [deps]
 
-source_file="res://Waterfall.wav"
-dest_files=["res://.godot/imported/Waterfall.wav-2676d4b8b29fdd8adf5937a2e5c3288e.sample"]
+source_file="res://Assets/Waterfall.wav"
+dest_files=["res://.godot/imported/Waterfall.wav-f66042cb32cf1e030d88efbb7a096a58.sample"]
 
 [params]
 

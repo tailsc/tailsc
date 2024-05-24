@@ -13,7 +13,7 @@ func _ready() -> void:
 
 	# set up audio stream players and load sound files
 	for i in sounds.keys():
-		sounds[i].stream = load("res://" + str(i) + ".ogg")
+		sounds[i].stream = load("res://Assets/" + str(i) + ".ogg")
 		# assign output mixer bus
 		sounds[i].bus = &"Sfx"
 		# add them to the scene tree

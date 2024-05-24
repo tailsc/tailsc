@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://ft07m6jb36wn"]
 
-[ext_resource type="Shader" uid="uid://bbo1abph4arco" path="res://WaterShader.tres" id="1_cl0wd"]
-[ext_resource type="PackedScene" uid="uid://do1wqelxp66l0" path="res://Waterfall.blend" id="2_ly8sl"]
-[ext_resource type="Shader" uid="uid://dkboalmk3igsx" path="res://WaterfallShader.tres" id="3_yp8su"]
-[ext_resource type="PackedScene" uid="uid://c13gceqqbsscu" path="res://Foam.tscn" id="4_1kwib"]
+[ext_resource type="Shader" uid="uid://bbo1abph4arco" path="res://Shaders/WaterShader.tres" id="1_cl0wd"]
+[ext_resource type="PackedScene" uid="uid://do1wqelxp66l0" path="res://Assets/Waterfall.blend" id="2_ly8sl"]
+[ext_resource type="Shader" uid="uid://dkboalmk3igsx" path="res://Shaders/WaterfallShader.tres" id="3_yp8su"]
+[ext_resource type="PackedScene" uid="uid://c13gceqqbsscu" path="res://Scenes/Foam.tscn" id="4_1kwib"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hjr7n"]
 render_priority = 0
