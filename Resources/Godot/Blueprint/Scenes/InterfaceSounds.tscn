@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvf7eihdbvepd"]
+
+[ext_resource type="Script" path="res://Scripts/InterfaceSounds.gd" id="1_p3vyu"]
+
+[node name="InterfaceSounds" type="Node"]
+script = ExtResource("1_p3vyu")

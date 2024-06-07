@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bukg0yse1cps0"]
+
+[ext_resource type="Script" path="res://Scripts/Fps.gd" id="1_cc57q"]
+
+[node name="FpsCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_cc57q")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 19.0
+text = "FPS: 134"

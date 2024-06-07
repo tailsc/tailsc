@@ -11,33 +11,28 @@ config_version=5
 [application]
 
 config/name="Blueprint"
-run/main_scene="res://[02] Scenes/Menues/MainMenu.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
-boot_splash/image="res://[01] Assets/Textures/Blueprint.png"
-boot_splash/fullsize=false
-config/icon="res://[01] Assets/Textures/Blueprint.png"
+boot_splash/bg_color=Color(0.0509804, 0.0666667, 0.0901961, 1)
+boot_splash/show_image=false
 
 [autoload]
 
-Global="*res://[03] Scripts/Menues/global.gd"
-ChangeScene="*res://[02] Scenes/Menues/ChangeScene.tscn"
+Global="*res://Scripts/global.gd"
+ChangeScene="*res://Scenes/ChangeScene.tscn"
+ConfigFileHandler="*res://Scripts/ConfigFileHandler.gd"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [file_customization]
 
 folder_colors={
-"res://[01] Assets/": "red",
-"res://[01] Assets/Audio/": "red",
+"res://Assets/Audio/": "red",
 "res://[01] Assets/Blender/": "orange",
 "res://[01] Assets/Shaders/": "yellow",
-"res://[01] Assets/Textures/": "green",
 "res://[02] Scenes/": "orange",
-"res://[02] Scenes/Levels/": "red",
 "res://[02] Scenes/Menues/": "orange",
 "res://[02] Scenes/Player/": "yellow",
 "res://[03] Scripts/": "yellow",
@@ -55,7 +50,7 @@ folder_colors={
 [gui]
 
 theme/custom="res://Theme.tres"
-theme/custom_font="res://Rubik-Bold.ttf"
+theme/custom_font="res://Assets/Arlon-Bold.ttf"
 
 [input]
 
@@ -67,32 +62,32 @@ ui_accept={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
-MoveForward={
+move_forward={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":87,"physical_keycode":0,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
 ]
 }
-MoveLeft={
+move_left={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":65,"physical_keycode":0,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
 ]
 }
-MoveBackward={
+move_backward={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":83,"physical_keycode":0,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 ]
 }
-MoveRight={
+move_right={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":68,"physical_keycode":0,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
 ]
 }
-Jump={
+jump={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
-Sprint={
+sprint={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194325,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]

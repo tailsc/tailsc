@@ -1,0 +1,276 @@
+[gd_scene load_steps=15 format=3 uid="uid://c3xcgc53ytkha"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_ujvne"]
+[ext_resource type="Script" path="res://DirectionalLight3D.gd" id="2_5enua"]
+[ext_resource type="PackedScene" uid="uid://dvf7eihdbvepd" path="res://InterfaceSounds.tscn" id="4_phsnb"]
+[ext_resource type="PackedScene" uid="uid://c8isg1fxjj84g" path="res://Options.tscn" id="6_cpma0"]
+[ext_resource type="PackedScene" uid="uid://bukg0yse1cps0" path="res://Fps.tscn" id="12_o12ir"]
+[ext_resource type="Script" path="res://WorldEnvironment.gd" id="13_6u1vu"]
+
+[sub_resource type="Gradient" id="Gradient_ue7fw"]
+offsets = PackedFloat32Array(0, 0.17551, 0.820408, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.162065, 0.162066, 0.162065, 1, 0.674814, 0.674815, 0.674814, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5sb7l"]
+gradient = SubResource("Gradient_ue7fw")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_630wo"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_jsjpe"]
+sky_material = SubResource("ProceduralSkyMaterial_630wo")
+
+[sub_resource type="Environment" id="Environment_rg7ss"]
+background_mode = 2
+sky = SubResource("Sky_jsjpe")
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/2 = 1.0
+glow_levels/4 = 1.0
+glow_levels/6 = 1.0
+glow_levels/7 = 1.0
+glow_blend_mode = 0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.09
+volumetric_fog_albedo = Color(0.233148, 0.457125, 1, 1)
+volumetric_fog_emission = Color(0.615835, 0.615835, 5.77569e-07, 1)
+volumetric_fog_emission_energy = 0.5
+volumetric_fog_ambient_inject = 2.0
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.2
+adjustment_saturation = 2.2
+adjustment_color_correction = SubResource("GradientTexture1D_5sb7l")
+
+[sub_resource type="Animation" id="Animation_51nvt"]
+resource_name = "Main_Menu_Fade_Out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/MainMenu:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Options:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o4aej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/MainMenu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Options:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ee7x"]
+_data = {
+"Main_Menu_Fade_Out": SubResource("Animation_51nvt"),
+"RESET": SubResource("Animation_o4aej")
+}
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_ujvne")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rg7ss")
+script = ExtResource("13_6u1vu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("2_5enua")
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Background/SubViewportContainer"]
+handle_input_locally = false
+scaling_3d_mode = 2
+scaling_3d_scale = 2.0
+fsr_sharpness = 2.0
+size = Vector2i(1152, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Background/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -0.173648, 0.984808, 0, -0.984808, -0.173648, 0, 2, -0.5)
+fov = 70.0
+
+[node name="3D" type="Node3D" parent="Background"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameTitle" type="Button" parent="UI/MainMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_top = -260.0
+offset_right = -259.0
+offset_bottom = -183.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Blueprint"
+alignment = 0
+
+[node name="MenuBtn" type="MarginContainer" parent="UI/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -108.0
+offset_right = -252.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainMenu/MenuBtn"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="PlayBtn" type="Button" parent="UI/MainMenu/MenuBtn/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitBtn")
+theme_override_font_sizes/font_size = 35
+text = "PLAY"
+alignment = 0
+
+[node name="OptionsBtn" type="Button" parent="UI/MainMenu/MenuBtn/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "OPTIONS"
+alignment = 0
+
+[node name="QuitBtn" type="Button" parent="UI/MainMenu/MenuBtn/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../PlayBtn")
+theme_override_font_sizes/font_size = 26
+text = "QUIT"
+alignment = 0
+
+[node name="FpsCounter" parent="UI/MainMenu" instance=ExtResource("12_o12ir")]
+layout_mode = 1
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+
+[node name="TextureBtn" type="Control" parent="UI/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1104.0
+offset_top = 452.0
+offset_right = -1104.0
+offset_bottom = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Button" parent="UI/MainMenu/TextureBtn"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = -211.0
+offset_right = 700.0
+offset_bottom = -179.0
+theme_override_font_sizes/font_size = 13
+text = "JOIN THE DISCORD!"
+
+[node name="Options" parent="UI" instance=ExtResource("6_cpma0")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+
+[node name="BackBtn" type="Button" parent="UI/Options"]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 552.0
+offset_right = 980.0
+offset_bottom = 584.0
+theme_override_font_sizes/font_size = 20
+text = "BACK"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ee7x")
+}
+
+[node name="InterfaceSounds" parent="." instance=ExtResource("4_phsnb")]
+root_path = NodePath("..")
+
+[connection signal="pressed" from="UI/MainMenu/MenuBtn/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="UI/MainMenu/MenuBtn/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="UI/MainMenu/MenuBtn/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="UI/MainMenu/TextureBtn/Label" to="." method="_on_discord_btn_pressed"]
+[connection signal="pressed" from="UI/Options/BackBtn" to="." method="_on_back_btn_pressed"]
