@@ -1,10 +1,8 @@
 <p align="center"><img align="center" width="100" src="https://github.com/tailsc/tailsc/assets/102230735/bf4f86db-c4ae-4e5d-8160-529cfee92f01"/></p>
 
 <h1 align="center">
-  center aligned text
+  How To Download
 </h1>
-
-# How To Download
 <p align="center">
   <a href="https://github.com/tailsc/tailsc">tailsc</a> > 
   <a href="https://github.com/tailsc/tailsc/tree/main/Resources">Resources</a> > Folder Name = Video Name > 
@@ -14,8 +12,9 @@
   Large Repository, Recommend To Only <a href="https://download-directory.github.io/">Download Specific Folders</a>
 </p>
 
-## Socials
-
+<h1 align="center">
+  Socials
+</h1>
 <p align="center">
   <a href="https://discord.com/invite/bQTPTc5Qrt">Discord Server</a> | 
   <a href="https://discordapp.com/users/364076254812438538">Discord</a> | 
@@ -27,8 +26,9 @@
   <a href="mailto:contactcrowgames@gmail.com">Email</a>
 </p>
 
-## Support the Project
-
+<h1 align="center">
+  Support the Project
+</h1>
 <p align="center">
   If you want to support this repository, buy us a coffee:
   <a href="https://ko-fi.com/crowgames">Ko-fi</a>
