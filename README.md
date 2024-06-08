@@ -51,13 +51,3 @@
 Name | Text
 ---- | ----
 [W3Schools](https://www.w3schools.com) | Free with some Paid content
-[MDN (Mozilla Developer Network)](https://developer.mozilla.org) | Free
-[freeCodeCamp](https://www.freecodecamp.org) | Free
-[JavaScript.info](https://javascript.info) | Free
-[DevDocs.io](https://devdocs.io) | Free
-[Devhints](https://devhints.io) | Free
-[The Odin Project](https://www.theodinproject.com) | Free
-[LinkedIn Learning](https://www.linkedin.com/learning) | Paid, but Free with some public library and university library memberships
-[Codecademy](https://www.codecademy.com) | Free and Paid content
-[Udacity](https://www.udacity.com) | Free and Paid content
-[Sololearn](https://www.sololearn.com) | Free with Paid features
