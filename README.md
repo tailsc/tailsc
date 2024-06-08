@@ -8,11 +8,11 @@
   <a href="https://github.com/tailsc/tailsc/tree/main/Resources">Resources</a> > Folder Name = Video Name > 
   <a href="https://download-directory.github.io/">Download Specific Folder</a>
 </p>
+```
 <p align="center">
-  ```
   Large Repository, Recommend To Only <a href="https://download-directory.github.io/">Download Specific Folders</a>
-  ```
 </p>
+```
 
 <h1 align="center">
   Socials
