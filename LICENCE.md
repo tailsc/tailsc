@@ -33,6 +33,3 @@ For non-personal use check the video to see where they come from for their speci
 <p align="center">
   To support the repository directly, feel free to open <a href="https://github.com/tailsc/tailsc/issues">issues</a> for suggestions!
 </p>
-
-  To support the project directly, feel free to open <a href="https://github.com/tailsc/tailsc/issues">issues</a> for suggestions!
-</p>
