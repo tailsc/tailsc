@@ -17,7 +17,6 @@
 </h1>
 <p align="center">
   <a href="https://discord.com/invite/bQTPTc5Qrt">Discord Server</a> | 
-  <a href="https://discordapp.com/users/364076254812438538">Discord</a> | 
   <a href="https://www.youtube.com/@CrowGamesDev?sub_confirmation=1">Youtube</a> |
   <a href="https://crowgamesdev.itch.io">Itch</a> |
   <a href="https://www.twitch.tv/crowgamesdev">Twitch</a> |
