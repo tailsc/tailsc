@@ -48,7 +48,7 @@
 
 
 ### Tutorials and Docs
-Name |
+Name | Text
 ---- | ----
 [W3Schools](https://www.w3schools.com) | Free with some Paid content
 [MDN (Mozilla Developer Network)](https://developer.mozilla.org) | Free
