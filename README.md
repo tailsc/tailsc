@@ -1,4 +1,4 @@
-<p align="center"><img align="center" width="100" src="https://github.com/tailsc/tailsc/assets/102230735/bf4f86db-c4ae-4e5d-8160-529cfee92f01"/></p>
+<p align="center"><img align="center" width="100" src="![Nl0XeW](https://github.com/tailsc/tailsc/assets/102230735/b28ec0ba-0081-45f7-ac22-04ee6f032bcc)"/></p>
 
 <h1 align="center">
   How To Download
