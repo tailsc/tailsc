@@ -36,22 +36,3 @@
 <p align="center">
   To support the repository directly, feel free to open <a href="https://github.com/tailsc/tailsc/issues">issues</a> for suggestions!
 </p>
-
-
-
-
-
-
-
-
-
-
-<div style="text-align: center;">
-  <a href="https://github.com/tailsc/tailsc">tailsc</a> > 
-  <a href="https://github.com/tailsc/tailsc/tree/main/Resources">Resources</a> > 
-  Folder Name = Video Name > 
-  <a href="https://download-directory.github.io/">Download Specific Folder</a> | 
-  ---- | 
-  Large Repository, Recommend To Only 
-  <a href="https://download-directory.github.io/">Download Specific Folders</a> | 
-</div>
