@@ -47,5 +47,5 @@
 
 
 
-
+---- | ----
 [W3Schools](https://www.w3schools.com) | Free with some Paid content
