@@ -49,3 +49,4 @@
 Name | Cost
 ---- | ----
 [W3Schools](https://www.w3schools.com) | Free with some Paid content
+[W3Schools](https://www.w3schools.com) | Free with some Paid content
