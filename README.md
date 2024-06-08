@@ -1,3 +1,5 @@
+<p align="center"><img align="center" width="100" src="https://github.com/tailsc/tailsc/assets/102230735/bf4f86db-c4ae-4e5d-8160-529cfee92f01"/></p>
+
 <h1 align="center">
   How To Download
 </h1>
