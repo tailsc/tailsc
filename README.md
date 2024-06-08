@@ -1,6 +1,6 @@
 <p align="center"><img align="center" width="200" src="https://github.com/tailsc/tailsc/assets/102230735/7e24c93a-31fc-4dec-9b61-1b15489514c6"/></p>
 
-<h1 align="center">
+<h1>
   How To Download
 </h1>
 <p align="center">
