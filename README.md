@@ -26,9 +26,9 @@
 ## Support the Project
 
 <p align="center">
-  If you want to support my work, buy me a coffee:
+  If you want to support this repository, buy us a coffee:
   <a href="https://ko-fi.com/crowgames">Ko-fi</a>
 </p>
 <p align="center">
-  To support the project directly, feel free to open <a href="https://github.com/tailsc/tailsc/issues">issues</a> for suggestions!
+  To support the repository directly, feel free to open <a href="https://github.com/tailsc/tailsc/issues">issues</a> for suggestions!
 </p>
