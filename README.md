@@ -3,9 +3,6 @@
 <h1 align="center">
   center aligned text
 </h1>
-<h2 align="center">
-  center aligned text
-</h2>
 
 # How To Download
 <p align="center">
