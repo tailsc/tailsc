@@ -4,7 +4,7 @@
   Licence
 </h1>
 <p align="center">
-Most resources are <a href="https://creativecommons.org/public-domain/cc0/">CC0</a>, so you can freely use and modify them, except for redistribution. External resources may have different licenses.
+You can freely use all resources and modify them, except for redistributing them. External resources may have different licenses.
 </p>
 <p align="center">
 For non-personal use check the video to see where they come from for their specific licensing info.
