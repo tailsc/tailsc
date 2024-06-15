@@ -4,7 +4,7 @@
   Licence
 </h1>
 <p align="center">
-You can freely use and modify all resources, except for redistribution.. External resources may have different licenses.
+You can freely use and modify all resources, except for redistribution. External resources may have different licenses.
 </p>
 <p align="center">
 For non-personal use check the video to see where they come from for their specific licensing info.
