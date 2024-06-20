@@ -1,0 +1,235 @@
+[gd_scene load_steps=8 format=3 uid="uid://6xvarlmj2wkk"]
+
+[ext_resource type="Script" path="res://addons/VPainter/vpainter_ui.gd" id="1_epro4"]
+[ext_resource type="Texture2D" uid="uid://duanqmgnxdcv4" path="res://addons/VPainter/res/icons/icon_fill.svg" id="2"]
+[ext_resource type="Texture2D" uid="uid://cfmd6uoamd8f7" path="res://addons/VPainter/res/icons/icon_blur.svg" id="3"]
+[ext_resource type="Texture2D" uid="uid://xoorvy12mjeq" path="res://addons/VPainter/res/icons/icon_brush.svg" id="4"]
+[ext_resource type="Texture2D" uid="uid://bcv33tjiro5ae" path="res://addons/VPainter/res/icons/icon_pick.svg" id="5"]
+[ext_resource type="Texture2D" uid="uid://bdghfff4yr7ov" path="res://addons/VPainter/res/icons/icon_displace.svg" id="6"]
+[ext_resource type="Texture2D" uid="uid://c5sdq0sls61ji" path="res://addons/VPainter/res/icons/icon_duplicate.svg" id="10"]
+
+[node name="ui" type="Control"]
+minimum_size = Vector2(192, 0)
+anchor_bottom = 1.0
+offset_right = 1024.0
+script = ExtResource( "1_epro4" )
+local_copy_button_path = NodePath("DuplicateButton")
+color_picker_dir = NodePath("MainArea/ColorSwatches/ColorPickerButton")
+background_picker_dir = NodePath("MainArea/ColorSwatches/ColorPickerButton2")
+pen_pressure_settings_dir = NodePath("MainArea/PenPressureSettings")
+button_opacity_pressure_dir = NodePath("MainArea/PenPressureSettings/BtnOpacityPressure")
+button_size_pressure_dir = NodePath("MainArea/PenPressureSettings/BtnSizePressure")
+button_paint_dir = NodePath("MainArea/Tools_1/BtnBrush")
+button_sample_dir = NodePath("MainArea/Tools_1/BtnSample")
+button_blur_dir = NodePath("MainArea/Tools_1/BtnBlur")
+button_displace_dir = NodePath("MainArea/Tools_2/BtnDisplace")
+button_fill_dir = NodePath("MainArea/Tools_2/BtnFill")
+brush_size_slider_dir = NodePath("MainArea/Sliders/Size")
+brush_opacity_slider_dir = NodePath("MainArea/Sliders/Opacity")
+brush_hardness_slider_dir = NodePath("MainArea/Sliders/Hardness")
+brush_spacing_slider_dir = NodePath("MainArea/Sliders/Spacing")
+blend_modes_path = NodePath("MainArea/BlendModes")
+
+[node name="MainArea" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Tools_1" type="HBoxContainer" parent="MainArea"]
+offset_right = 1024.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="BtnBrush" type="Button" parent="MainArea/Tools_1"]
+offset_left = 448.0
+offset_right = 488.0
+offset_bottom = 40.0
+hint_tooltip = "[1] Brush Tool.
+Paint vertex color by left clicking on the mesh."
+toggle_mode = true
+button_pressed = true
+icon = ExtResource( "4" )
+
+[node name="BtnSample" type="Button" parent="MainArea/Tools_1"]
+offset_left = 492.0
+offset_right = 532.0
+offset_bottom = 40.0
+hint_tooltip = "[2] Sample Tool.
+Sample the vertex color under the mouse cursor when left clicked."
+toggle_mode = true
+icon = ExtResource( "5" )
+
+[node name="BtnBlur" type="Button" parent="MainArea/Tools_1"]
+offset_left = 536.0
+offset_right = 576.0
+offset_bottom = 40.0
+toggle_mode = true
+icon = ExtResource( "3" )
+
+[node name="Tools_2" type="HBoxContainer" parent="MainArea"]
+offset_top = 44.0
+offset_right = 1024.0
+offset_bottom = 84.0
+alignment = 1
+
+[node name="BtnDisplace" type="Button" parent="MainArea/Tools_2"]
+offset_left = 470.0
+offset_right = 510.0
+offset_bottom = 40.0
+toggle_mode = true
+icon = ExtResource( "6" )
+
+[node name="BtnFill" type="Button" parent="MainArea/Tools_2"]
+offset_left = 514.0
+offset_right = 554.0
+offset_bottom = 40.0
+hint_tooltip = "[4] Fill Tool.
+Fills the object with the currently selected color.
+Affected by blend modes and opacity."
+toggle_mode = true
+icon = ExtResource( "2" )
+
+[node name="PenPressureSettings" type="VBoxContainer" parent="MainArea"]
+offset_top = 88.0
+offset_right = 1024.0
+offset_bottom = 154.0
+alignment = 2
+
+[node name="BtnSizePressure" type="CheckBox" parent="MainArea/PenPressureSettings"]
+offset_left = 449.0
+offset_right = 575.0
+offset_bottom = 31.0
+size_flags_horizontal = 4
+text = "SizePressure"
+
+[node name="BtnOpacityPressure" type="CheckBox" parent="MainArea/PenPressureSettings"]
+offset_left = 434.0
+offset_top = 35.0
+offset_right = 589.0
+offset_bottom = 66.0
+size_flags_horizontal = 4
+text = "OpacityPressure"
+
+[node name="ColorSwatches" type="HBoxContainer" parent="MainArea"]
+offset_top = 158.0
+offset_right = 1024.0
+offset_bottom = 190.0
+alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="MainArea/ColorSwatches"]
+minimum_size = Vector2(32, 32)
+offset_left = 478.0
+offset_right = 510.0
+offset_bottom = 32.0
+size_flags_vertical = 4
+flat = true
+
+[node name="ColorPickerButton2" type="ColorPickerButton" parent="MainArea/ColorSwatches"]
+minimum_size = Vector2(32, 32)
+offset_left = 514.0
+offset_right = 546.0
+offset_bottom = 32.0
+size_flags_vertical = 4
+flat = true
+color = Color(1, 1, 1, 1)
+
+[node name="BlendModes" type="OptionButton" parent="MainArea"]
+offset_left = 475.0
+offset_top = 194.0
+offset_right = 548.0
+offset_bottom = 225.0
+size_flags_horizontal = 4
+hint_tooltip = "Blend mode for painting colors."
+item_count = 5
+selected = 0
+popup/item_0/text = "MIX"
+popup/item_0/id = 0
+popup/item_1/text = "ADD"
+popup/item_1/id = 1
+popup/item_2/text = "SUBTRACT"
+popup/item_2/id = 2
+popup/item_3/text = "MULTIPLY"
+popup/item_3/id = 3
+popup/item_4/text = "DIVIDE"
+popup/item_4/id = 4
+
+[node name="Sliders" type="VBoxContainer" parent="MainArea"]
+offset_left = 474.0
+offset_top = 229.0
+offset_right = 550.0
+offset_bottom = 425.0
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="LSize" type="Label" parent="MainArea/Sliders"]
+offset_right = 76.0
+offset_bottom = 26.0
+text = "size:"
+
+[node name="Size" type="HSlider" parent="MainArea/Sliders"]
+offset_top = 30.0
+offset_right = 76.0
+offset_bottom = 46.0
+size_flags_horizontal = 3
+min_value = 0.001
+max_value = 10.0
+step = 0.001
+value = 1.0
+
+[node name="LOpacity" type="Label" parent="MainArea/Sliders"]
+offset_top = 50.0
+offset_right = 76.0
+offset_bottom = 76.0
+text = "opacity:"
+
+[node name="Opacity" type="HSlider" parent="MainArea/Sliders"]
+offset_top = 80.0
+offset_right = 76.0
+offset_bottom = 96.0
+size_flags_horizontal = 3
+min_value = 0.001
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="LHardness" type="Label" parent="MainArea/Sliders"]
+offset_top = 100.0
+offset_right = 76.0
+offset_bottom = 126.0
+text = "hardness:"
+
+[node name="Hardness" type="HSlider" parent="MainArea/Sliders"]
+offset_top = 130.0
+offset_right = 76.0
+offset_bottom = 146.0
+size_flags_horizontal = 3
+min_value = 0.001
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="LSpacing" type="Label" parent="MainArea/Sliders"]
+offset_top = 150.0
+offset_right = 76.0
+offset_bottom = 176.0
+text = "spacing:"
+
+[node name="Spacing" type="HSlider" parent="MainArea/Sliders"]
+offset_top = 180.0
+offset_right = 76.0
+offset_bottom = 196.0
+size_flags_horizontal = 3
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 0.1
+
+[node name="DuplicateButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+hint_tooltip = "Make local copy:
+Duplicates the original mesh and allows you to make changes without affecting the orginal mesh."
+icon = ExtResource( "10" )
+metadata/_edit_layout_mode = 1

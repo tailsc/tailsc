@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjqln7evnl3oi"]
+
+[sub_resource type="Curve" id="Curve_4gw4x"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.164794, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.154545), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8c8lb"]
+curve = SubResource("Curve_4gw4x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1o3n8"]
+emission_shape = 1
+emission_sphere_radius = 0.4
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 5.0
+angular_velocity_min = 1.0
+angular_velocity_max = 40.0
+angle_max = 360.0
+scale_min = 0.8
+scale_curve = SubResource("CurveTexture_8c8lb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihxnj"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_06v6h"]
+material = SubResource("StandardMaterial3D_ihxnj")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+lifetime = 0.5
+speed_scale = 0.0
+randomness = 1.0
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_1o3n8")
+draw_pass_1 = SubResource("QuadMesh_06v6h")

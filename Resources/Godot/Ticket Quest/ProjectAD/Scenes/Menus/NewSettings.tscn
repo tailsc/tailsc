@@ -1,0 +1,253 @@
+[gd_scene load_steps=4 format=3 uid="uid://csfadmptipp3f"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="1_qwemc"]
+[ext_resource type="PackedScene" uid="uid://ggfpgsa2fuda" path="res://Scenes/Menus/fps_label.tscn" id="2_g0sob"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6fr2f"]
+shader = ExtResource("1_qwemc")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
+
+[node name="PauseMenu" type="ColorRect"]
+process_mode = 3
+material = SubResource("ShaderMaterial_6fr2f")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 350
+
+[node name="VBoxVideo" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VideoLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Video
+"
+
+[node name="WindowLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Window Mode
+"
+
+[node name="WindowOptions" type="OptionButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo/WindowLabel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -19.0
+offset_right = 66.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+item_count = 3
+popup/item_0/text = "1280x720"
+popup/item_0/id = 0
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 1
+popup/item_2/text = "2560x1440"
+popup/item_2/id = 2
+
+[node name="ResLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Resolution"
+
+[node name="ResOptions" type="OptionButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo/ResLabel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -19.0
+offset_right = 66.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless"
+popup/item_2/id = 2
+
+[node name="BrightnessLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Brightness"
+
+[node name="BrightnesSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo/BrightnessLabel"]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 12.0
+offset_right = 372.0
+offset_bottom = 28.0
+
+[node name="AdvancedLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Advanced Video"
+
+[node name="SsaoLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "SSAO"
+
+[node name="SsaoBox" type="CheckBox" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo/SsaoLabel"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 7.0
+offset_right = 97.0
+offset_bottom = 31.0
+
+[node name="SsilLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "SSIL"
+
+[node name="SsilBox" type="CheckBox" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo/SsilLabel"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 6.0
+offset_right = 97.0
+offset_bottom = 30.0
+
+[node name="SdfgiLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "SDFGI"
+
+[node name="SdfgiBox" type="CheckBox" parent="CenterContainer/PanelContainer/MarginContainer/VBoxVideo/SdfgiLabel"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 7.0
+offset_right = 97.0
+offset_bottom = 31.0
+
+[node name="VboxAudio" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="AudioLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Audio
+"
+
+[node name="MasterLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio/MasterLabel"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 10.0
+offset_right = 422.0
+offset_bottom = 26.0
+
+[node name="MasterBox" type="CheckBox" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio/MasterLabel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 422.0
+offset_top = -14.0
+offset_right = 446.0
+offset_bottom = 10.0
+grow_vertical = 2
+
+[node name="MusicLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio/MusicLabel"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 13.0
+offset_right = 422.0
+offset_bottom = 29.0
+
+[node name="MusicBox" type="CheckBox" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio/MusicLabel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 422.0
+offset_top = -10.0
+offset_right = 446.0
+offset_bottom = 14.0
+grow_vertical = 2
+
+[node name="SfxLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Sfx Volume"
+
+[node name="SfxSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio/SfxLabel"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 12.0
+offset_right = 422.0
+offset_bottom = 28.0
+
+[node name="SfxBox" type="CheckBox" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio/SfxLabel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 422.0
+offset_top = -11.0
+offset_right = 446.0
+offset_bottom = 13.0
+grow_vertical = 2
+
+[node name="DisableSoundLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Disable All Sound"
+
+[node name="DisableSoundBox" type="CheckBox" parent="CenterContainer/PanelContainer/MarginContainer/VboxAudio/DisableSoundLabel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_right = 24.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+
+[node name="FpsLabel" parent="." instance=ExtResource("2_g0sob")]
+layout_mode = 0

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ggfpgsa2fuda"]
+
+[ext_resource type="FontFile" uid="uid://bt0htiehpoxc6" path="res://Fnt, Img, Snd, Env, Tex/Fonts/Rubik-Bold.ttf" id="1_wy76p"]
+[ext_resource type="Script" path="res://Scripts/fps_label.gd" id="2"]
+
+[node name="FpsLabel" type="Label"]
+process_mode = 3
+offset_right = 40.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("1_wy76p")
+text = "FPS: 60"
+script = ExtResource("2")

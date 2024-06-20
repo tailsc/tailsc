@@ -1,0 +1,143 @@
+[gd_scene load_steps=11 format=3 uid="uid://j6cam0kxxw4v"]
+
+[ext_resource type="Material" uid="uid://dfokgd1khhckl" path="res://Fnt, Img, Snd, Env, Tex/Textures/GrayGrid.tres" id="1_ljj5u"]
+[ext_resource type="Material" uid="uid://dai0kxtkp3bpw" path="res://Assets/Particals/Waterfall/lava.tres" id="2_568od"]
+[ext_resource type="Material" uid="uid://va5g2kswa3xq" path="res://Assets/Particals/Waterfall/lavafall.tres" id="3_a03ja"]
+[ext_resource type="PackedScene" uid="uid://6bs661c4qeoo" path="res://Scenes/Character/Player.tscn" id="4_fsiks"]
+[ext_resource type="Environment" uid="uid://cd45y4ty17y3g" path="res://Fnt, Img, Snd, Env, Tex/Environment/volcano.tres" id="5_ils5n"]
+[ext_resource type="Script" path="res://Scenes/Worlds/WorldEnvironment.gd" id="6_45v71"]
+[ext_resource type="Script" path="res://Scenes/Worlds/DirectionalLight3D.gd" id="7_kpaen"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vi6eu"]
+emission_shape = 3
+emission_box_extents = Vector3(38.425, 5, 35.935)
+direction = Vector3(0, -1, 0)
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+scale_min = 0.1
+scale_max = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rd33k"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.890625, 0.0820313, 0.128906, 1)
+metallic_specular = 1.0
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_a2hc4"]
+material = SubResource("StandardMaterial3D_rd33k")
+
+[node name="Volcano" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0304379, 0.325505, 0.0233316)
+size = Vector3(6.5457, 1, 5.60021)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.07239, 0.325505, 7.12981)
+size = Vector3(6.5457, 1, 5.60021)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6802, 0.674654, 4.62753)
+size = Vector3(6.5457, 1, 5.60021)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2854, 0.595191, 11.1335)
+size = Vector3(6.5457, 2.81542, 5.60021)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6921, 0.192202, 4.281)
+size = Vector3(6.5457, 4.9582, 5.60021)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5984, 0.39765, 10.633)
+size = Vector3(6.5457, 5.35913, 5.60021)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.3, 0.714196, 23.8038)
+size = Vector3(6.5457, 4.08618, 15.9025)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 23.4712, 6.06034, 23.8038)
+size = Vector3(21.5097, 1.85127, 4.27117)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.68576, 6.10029, 29.7486)
+size = Vector3(11.8939, 12.2733, 25.8358)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7802, 10.318, 24.273)
+operation = 2
+size = Vector3(3.95554, 2.96234, 15.9025)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.9974, 9.01123, 0.0233316)
+size = Vector3(6.5457, 23.6623, 107.478)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.1831, 9.01123, 0.0233316)
+size = Vector3(6.5457, 23.6623, 107.478)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.09935, 9.01123, -44.7641)
+size = Vector3(6.5457, 23.6623, 107.478)
+material = ExtResource("1_ljj5u")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.09935, 9.01123, 43.9564)
+size = Vector3(6.5457, 23.6623, 107.478)
+material = ExtResource("1_ljj5u")
+
+[node name="LavaFall" type="CSGCombiner3D" parent="."]
+
+[node name="Lava2" type="CSGBox3D" parent="LavaFall"]
+size = Vector3(93.9532, 1, 89.6894)
+material = ExtResource("2_568od")
+
+[node name="LavaGround" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="LavaGround"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 8.82107, 5.29981, 16.8908)
+radius = 2.31554
+height = 10.0447
+material = ExtResource("3_a03ja")
+
+[node name="Player" parent="." instance=ExtResource("4_fsiks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667451, 1.39159, -0.423144)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_ils5n")
+script = ExtResource("6_45v71")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.977464, -0.152427, -0.146047, -0.153665, 0.0393915, 0.987337, -0.144744, 0.987529, -0.0619266, 9.864, 11.946, 0)
+light_energy = 2.0
+shadow_enabled = true
+script = ExtResource("7_kpaen")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.62266, 0)
+cast_shadow = 0
+amount = 1000
+lifetime = 10.0
+visibility_aabb = AABB(-38.8663, -4, -22.5432, 77.7326, 8, 45.0864)
+process_material = SubResource("ParticleProcessMaterial_vi6eu")
+draw_pass_1 = SubResource("SphereMesh_a2hc4")
