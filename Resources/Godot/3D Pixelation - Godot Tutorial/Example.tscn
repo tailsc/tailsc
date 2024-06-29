@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://by0u7feylj6bo"]
+
+[ext_resource type="Shader" path="res://Outline.gdshader" id="1_35joa"]
+[ext_resource type="Shader" path="res://WaterShader.tres" id="2_p2gfj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_addp0"]
+render_priority = 0
+shader = ExtResource("1_35joa")
+shader_parameter/depth_threshold = 0.05
+shader_parameter/reverse_depth_threshold = 0.25
+shader_parameter/normal_threshold = 0.6
+shader_parameter/darken_amount = 0.3
+shader_parameter/lighten_amount = 1.5
+shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
+shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_x1csh"]
+material = SubResource("ShaderMaterial_addp0")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e76vg"]
+render_priority = 1
+shader = ExtResource("2_p2gfj")
+shader_parameter/ColorParameter = Color(0, 0.486275, 0.937255, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_337dq"]
+render_priority = 1
+no_depth_test = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+size = Vector2i(288, 162)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/CharacterBody3D/Camera3D"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_x1csh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.933013, 0.25, -0.258819, -0.258819, 0.965926, 0, 0.25, 0.0669873, 0.965926, 0, -0.590713, -4.68354)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.933013, 0.25, -0.258819, -0.258819, 0.965926, 0, 0.25, 0.0669873, 0.965926, 0, -2.27356, -4.68354)
+material = SubResource("ShaderMaterial_e76vg")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.933013, 0.25, -0.258819, -0.258819, 0.965926, 0, 0.25, 0.0669873, 0.965926, 0, 1.22429, -4.68354)
+material = SubResource("StandardMaterial3D_337dq")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Text"

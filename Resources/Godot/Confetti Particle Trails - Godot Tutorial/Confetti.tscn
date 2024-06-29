@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://tv06bwyng617"]
+
+[ext_resource type="PackedScene" uid="uid://b8ky2qrnlp5l7" path="res://Cone.blend" id="1_njolo"]
+
+[sub_resource type="Gradient" id="Gradient_moufp"]
+offsets = PackedFloat32Array(0, 0.528369, 0.762411, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.528369, 0.528369, 0.528369, 1, 0.762411, 0.762411, 0.762411, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_82fe4"]
+gradient = SubResource("Gradient_moufp")
+
+[sub_resource type="Curve" id="Curve_peibf"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nq4m3"]
+curve = SubResource("Curve_peibf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ejksf"]
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 5.0
+gravity = Vector3(0, 5, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = 5.0
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 5.0
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_82fe4")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("CurveTexture_nq4m3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dlcj"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_timd2"]
+material = SubResource("StandardMaterial3D_8dlcj")
+shape = 0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 15
+lifetime = 2.0
+explosiveness = 1.0
+trail_enabled = true
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_ejksf")
+draw_pass_1 = SubResource("RibbonTrailMesh_timd2")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+amount = 5
+lifetime = 2.0
+explosiveness = 1.0
+trail_enabled = true
+trail_lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_ejksf")
+draw_pass_1 = SubResource("RibbonTrailMesh_timd2")
+
+[node name="Cone2" parent="." instance=ExtResource("1_njolo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.74432, 0)

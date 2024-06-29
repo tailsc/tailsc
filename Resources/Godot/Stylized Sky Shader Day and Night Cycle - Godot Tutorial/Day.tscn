@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcshmafu5xqq4"]
+
+[ext_resource type="Material" uid="uid://dwybad5tyg8qi" path="res://Day2.tres" id="1_l542e"]
+
+[sub_resource type="Sky" id="Sky_j2u17"]
+sky_material = ExtResource("1_l542e")
+
+[sub_resource type="Environment" id="Environment_m12sm"]
+background_mode = 2
+sky = SubResource("Sky_j2u17")
+tonemap_mode = 2
+glow_enabled = true
+adjustment_enabled = true
+adjustment_saturation = 1.5
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m12sm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true

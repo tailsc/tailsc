@@ -1,0 +1,74 @@
+[gd_scene load_steps=13 format=3 uid="uid://bbrjs6uwtijdt"]
+
+[ext_resource type="Shader" path="res://Distortion bubble.gdshader" id="1_nv0lh"]
+[ext_resource type="PackedScene" uid="uid://c1ux0x8m8rsqr" path="res://Coral.blend" id="2_tvedc"]
+[ext_resource type="AudioStream" uid="uid://ctclv2jh1sqi4" path="res://bubbles.wav" id="3_gtsxm"]
+
+[sub_resource type="Curve" id="Curve_5lr5b"]
+max_value = 0.1
+_data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vrn84"]
+curve = SubResource("Curve_5lr5b")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0xw18"]
+emission_shape = 3
+emission_box_extents = Vector3(1.3, 1.3, 1.3)
+gravity = Vector3(0, 2, 0)
+scale_curve = SubResource("CurveTexture_vrn84")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_itmfp"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rmr3v"]
+seamless = true
+noise = SubResource("FastNoiseLite_itmfp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_riurh"]
+render_priority = 1
+shader = ExtResource("1_nv0lh")
+shader_parameter/distortionView = 0.095
+shader_parameter/speedView = 0.48
+shader_parameter/tintColor = Color(0.115088, 0.351775, 0.999997, 1)
+shader_parameter/fesnelAmount = 1.0
+shader_parameter/distortionVertex = 0.055
+shader_parameter/speedVertex = 0.115
+shader_parameter/noiseViewX = SubResource("NoiseTexture2D_rmr3v")
+shader_parameter/noiseViewY = SubResource("NoiseTexture2D_rmr3v")
+shader_parameter/noiseVertex = SubResource("NoiseTexture2D_rmr3v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qud0"]
+next_pass = SubResource("ShaderMaterial_riurh")
+transparency = 1
+albedo_color = Color(0.196078, 0.678431, 0.870588, 0.172549)
+emission_enabled = true
+emission = Color(0.196078, 0.678431, 0.870588, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_ktwjy"]
+material = SubResource("StandardMaterial3D_7qud0")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wcf1q"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("3_gtsxm")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10601, 0)
+amount = 10
+lifetime = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_0xw18")
+draw_pass_1 = SubResource("SphereMesh_ktwjy")
+
+[node name="Coral" parent="." instance=ExtResource("2_tvedc")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.966998, 0)
+stream = SubResource("AudioStreamRandomizer_wcf1q")
+volume_db = 80.0
+max_db = 6.0
+autoplay = true
+attenuation_filter_db = 0.0

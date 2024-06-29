@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8hitf14qo1d1"]
+
+[ext_resource type="PackedScene" uid="uid://dvqb5sm0so880" path="res://player.tscn" id="1_kjv5o"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4sky8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_afvkf"]
+sky_material = SubResource("ProceduralSkyMaterial_4sky8")
+
+[sub_resource type="Environment" id="Environment_h3jvn"]
+background_mode = 2
+sky = SubResource("Sky_afvkf")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bveu5"]
+albedo_color = Color(0.0464706, 0.313861, 1.92523e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yur2"]
+albedo_color = Color(0.518541, 0.0642508, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_euvod"]
+albedo_color = Color(0, 0.415686, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h3jvn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_bveu5")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34819, -3.86288)
+material = SubResource("StandardMaterial3D_6yur2")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66364, 0)
+radius = 1.0
+material = SubResource("StandardMaterial3D_euvod")
+
+[node name="player" parent="." instance=ExtResource("1_kjv5o")]
