@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d2eakbmaefnt6"]
+
+[ext_resource type="FontFile" uid="uid://d4kabkagmfeq" path="res://addons/silent_wolf/assets/fonts/Comfortaa-Bold.ttf" id="1_noq36"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vpgq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fq0jv"]
+bg_color = Color(0.827451, 0.203922, 0.219608, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fslg"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_237x8"]
+bg_color = Color(1, 1, 1, 1)
+
+[resource]
+resource_name = "SW_THEME"
+default_font = ExtResource("1_noq36")
+default_font_size = 36
+BackButton/base_type = &"Button"
+BackButton/styles/normal = SubResource("StyleBoxFlat_3vpgq")
+Button/colors/font_color = Color(0.827451, 0.203922, 0.219608, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0.827451, 0.203922, 0.219608, 1)
+Button/colors/font_pressed_color = Color(0.827451, 0.203922, 0.219608, 1)
+Button/colors/icon_pressed_color = Color(0.827451, 0.203922, 0.219608, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_fq0jv")
+Button/styles/normal = SubResource("StyleBoxFlat_0fslg")
+Button/styles/pressed = SubResource("StyleBoxFlat_237x8")

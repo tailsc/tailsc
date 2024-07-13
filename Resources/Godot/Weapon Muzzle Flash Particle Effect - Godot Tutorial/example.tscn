@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://ue1esbeciaes"]
+
+[ext_resource type="PackedScene" uid="uid://cdwgye5emtw0d" path="res://Assets/Rifle.blend" id="1_kav4t"]
+
+[sub_resource type="Gradient" id="Gradient_6mrtb"]
+offsets = PackedFloat32Array(0, 0.525526, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.525526, 0.525526, 0.525526, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g1djq"]
+gradient = SubResource("Gradient_6mrtb")
+
+[sub_resource type="Curve" id="Curve_u3eaj"]
+max_value = 25.0
+_data = [Vector2(0, 25), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_b1k6l"]
+curve = SubResource("Curve_u3eaj")
+
+[sub_resource type="Curve" id="Curve_nsg31"]
+max_value = 0.4
+_data = [Vector2(0, 0.4), 0.0, 0.0, 0, 0, Vector2(1, 0.4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_obsml"]
+curve = SubResource("Curve_nsg31")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iy4m8"]
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_obsml")
+color = Color(1, 0.141176, 0, 1)
+color_ramp = SubResource("GradientTexture1D_g1djq")
+emission_curve = SubResource("CurveTexture_b1k6l")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pd0yt"]
+load_path = "res://.godot/imported/muzzle_06.png-26969beef6d9bbc865a13b3ddee63f7a.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2plfh"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 0, 1)
+albedo_texture = SubResource("CompressedTexture2D_pd0yt")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_enabled = true
+proximity_fade_distance = 0.1
+
+[sub_resource type="QuadMesh" id="QuadMesh_vo46e"]
+material = SubResource("StandardMaterial3D_2plfh")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Rifle2" parent="." instance=ExtResource("1_kav4t")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Rifle2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.177472, -0.669499)
+emitting = false
+amount = 1
+lifetime = 0.1
+one_shot = true
+randomness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_iy4m8")
+draw_passes = 2
+draw_pass_1 = SubResource("QuadMesh_vo46e")
+draw_pass_2 = null

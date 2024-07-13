@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://bhfontsnq2fyy"]
+
+[ext_resource type="Script" path="res://fire.gd" id="1_yxn6d"]
+[ext_resource type="PackedScene" uid="uid://le5ygg6grpsg" path="res://Blender/Flamethrower.blend" id="2_2rwdh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w1buf"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_iyved"]
+sky_material = SubResource("ProceduralSkyMaterial_w1buf")
+
+[sub_resource type="Environment" id="Environment_mpvhy"]
+background_mode = 2
+sky = SubResource("Sky_iyved")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Curve" id="Curve_c6k0q"]
+max_value = 100.0
+_data = [Vector2(0, 100), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_1pv0s"]
+curve = SubResource("Curve_c6k0q")
+
+[sub_resource type="Curve" id="Curve_rjfgg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.755376, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -10.9966, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5oiek"]
+curve = SubResource("Curve_rjfgg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_klgwh"]
+spread = 180.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_5oiek")
+color = Color(1, 0, 0, 1)
+emission_curve = SubResource("CurveTexture_1pv0s")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ismf4"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_2sogv"]
+material = SubResource("StandardMaterial3D_ismf4")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_yxn6d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mpvhy")
+
+[node name="Flamethrower" parent="." instance=ExtResource("2_2rwdh")]
+transform = Transform3D(-6.0091e-09, 0, -0.137472, 0, 0.137472, 0, 0.137472, 0, -6.0091e-09, -19.977, 0, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.311, 0)
+emitting = false
+amount = 100
+lifetime = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_klgwh")
+draw_pass_1 = SubResource("SphereMesh_2sogv")
+
+[node name="RayCast3D" type="RayCast3D" parent="GPUParticles3D"]
+target_position = Vector3(20, 0, 0)
+debug_shape_custom_color = Color(1, 1, 0, 1)
+debug_shape_thickness = 5
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999229, -0.00849734, 0.0383291, 0, 0.976296, 0.216439, -0.0392597, -0.216272, 0.975543, 1.14374, 9.36405, 39.2977)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

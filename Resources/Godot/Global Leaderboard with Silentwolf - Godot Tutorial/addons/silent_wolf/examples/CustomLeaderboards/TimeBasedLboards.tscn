@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsxtktsci8a4t"]
+
+[ext_resource type="Theme" uid="uid://d2eakbmaefnt6" path="res://addons/silent_wolf/assets/themes/sw_theme.tres" id="2_xs0b2"]
+[ext_resource type="PackedScene" uid="uid://clllbf6am8qdf" path="res://addons/silent_wolf/common/SWButton.tscn" id="4"]
+[ext_resource type="Script" path="res://addons/silent_wolf/examples/CustomLeaderboards/TimeBasedLboards.gd" id="5"]
+
+[sub_resource type="Theme" id="3"]
+
+[node name="TimeBasedLBoards" type="Node2D"]
+script = ExtResource("5")
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+offset_left = 412.0
+offset_top = 95.0
+offset_right = 1516.0
+offset_bottom = 734.0
+theme = ExtResource("2_xs0b2")
+theme_override_constants/separation = 128
+
+[node name="TitleContainer" type="CenterContainer" parent="MainContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MainContainer/TitleContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "Leaderboard"
+
+[node name="Boards" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 192
+alignment = 1
+
+[node name="Weekly" type="VBoxContainer" parent="MainContainer/Boards"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleContainer" type="CenterContainer" parent="MainContainer/Boards/Weekly"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/Boards/Weekly/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+text = "This week"
+
+[node name="HighScores" type="CenterContainer" parent="MainContainer/Boards/Weekly"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("3")
+
+[node name="ScoreItemContainer" type="VBoxContainer" parent="MainContainer/Boards/Weekly/HighScores"]
+layout_mode = 2
+
+[node name="Monthly" type="VBoxContainer" parent="MainContainer/Boards"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleContainer" type="CenterContainer" parent="MainContainer/Boards/Monthly"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/Boards/Monthly/TitleContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "This month"
+
+[node name="HighScores" type="CenterContainer" parent="MainContainer/Boards/Monthly"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("3")
+
+[node name="ScoreItemContainer" type="VBoxContainer" parent="MainContainer/Boards/Monthly/HighScores"]
+layout_mode = 2
+
+[node name="main" type="VBoxContainer" parent="MainContainer/Boards"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleContainer" type="CenterContainer" parent="MainContainer/Boards/main"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/Boards/main/TitleContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "All time"
+
+[node name="HighScores" type="CenterContainer" parent="MainContainer/Boards/main"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("3")
+
+[node name="ScoreItemContainer" type="VBoxContainer" parent="MainContainer/Boards/main/HighScores"]
+layout_mode = 2
+
+[node name="MessageContainer" type="CenterContainer" parent="MainContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TextMessage" type="Label" parent="MainContainer/MessageContainer"]
+layout_mode = 2
+text = "Loading scores..."
+
+[node name="CenterContainer" type="CenterContainer" parent="MainContainer"]
+layout_mode = 2
+
+[node name="CloseButtonContainer" type="CenterContainer" parent="MainContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="CloseButton" parent="MainContainer/CenterContainer/CloseButtonContainer" instance=ExtResource("4")]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Close Leaderboard"
+
+[connection signal="pressed" from="MainContainer/CenterContainer/CloseButtonContainer/CloseButton" to="." method="_on_CloseButton_pressed"]

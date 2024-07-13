@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqv70cuvl5eel"]
+
+[ext_resource type="PackedScene" uid="uid://2wy4d8d5av0l" path="res://addons/silent_wolf/Scores/ScoreItem.tscn" id="1"]
+
+[node name="ScoreItem" instance=ExtResource("1")]
