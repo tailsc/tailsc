@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://caqatq8e4gbfg"]
+
+[ext_resource type="Script" path="res://[03] Scripts/item_data.gd" id="1_awvat"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j7g65"]
+load_path = "res://.godot/imported/Flashlight.png-fc902d243b7cecf7937673f5910bd7d6.ctex"
+
+[resource]
+script = ExtResource("1_awvat")
+name = "Flashlight"
+description = "Is very bright yes "
+stackable = false
+texture = SubResource("CompressedTexture2D_j7g65")

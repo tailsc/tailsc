@@ -1,0 +1,136 @@
+[gd_scene load_steps=15 format=3 uid="uid://dvqb5sm0so880"]
+
+[ext_resource type="Script" path="res://[03] Scripts/Player/Player.gd" id="1_bc28k"]
+[ext_resource type="Script" path="res://[02] Scenes/Player/RootPlayer.gd" id="1_tv02w"]
+[ext_resource type="PackedScene" uid="uid://cndi5nxj6hjlr" path="res://[02] Scenes/Menues/FpsCounter.tscn" id="2_b82vw"]
+[ext_resource type="Shader" path="res://[02] Scenes/Player/outline.gdshader" id="3_lb8t8"]
+[ext_resource type="PackedScene" uid="uid://bf0sgkj74xipl" path="res://[02] Scenes/PlayerInteractor.tscn" id="4_ui11o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfgof"]
+render_priority = 0
+shader = ExtResource("3_lb8t8")
+shader_parameter/depth_threshold = 0.05
+shader_parameter/reverse_depth_threshold = 0.25
+shader_parameter/normal_threshold = 0.6
+shader_parameter/darken_amount = 0.3
+shader_parameter/lighten_amount = 1.5
+shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
+shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_njcg6"]
+material = SubResource("ShaderMaterial_wfgof")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ikn47"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_k63oe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jbphy"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wawnm"]
+viewport_path = NodePath("SubViewportContainer/SubViewport/CharacterBody3D/Sprite3D/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hg0u3"]
+bg_color = Color(0, 0, 0, 0.784314)
+border_color = Color(0.239216, 0.239216, 0.239216, 0.784314)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+anti_aliasing_size = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2fxr"]
+bg_color = Color(0.0156863, 0.945098, 0.25098, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+anti_aliasing_size = 2.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2qcta"]
+radius = 3.0
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_tv02w")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+auto_translate_mode = 1
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(384, 216)
+render_target_update_mode = 4
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="SubViewportContainer/SubViewport"]
+script = ExtResource("1_bc28k")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CharacterBody3D"]
+unique_name_in_owner = true
+transform = Transform3D(0.707107, -0.612372, 0.353554, 0, 0.5, 0.866025, -0.707107, -0.612372, 0.353554, 4, 10, 4)
+
+[node name="outline" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/CharacterBody3D/Camera3D"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_njcg6")
+
+[node name="standing_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/CharacterBody3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ikn47")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/CharacterBody3D/standing_collision_shape"]
+mesh = SubResource("CapsuleMesh_k63oe")
+skeleton = NodePath("../../../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/CharacterBody3D/standing_collision_shape/MeshInstance3D"]
+transform = Transform3D(0.740615, 0, 0, 0, 0.475335, 0, 0, 0, 0.72614, 0, 0.577817, 0.32143)
+mesh = SubResource("BoxMesh_jbphy")
+
+[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport/CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.09474, 0)
+billboard = 1
+render_priority = 1
+texture = SubResource("ViewportTexture_wawnm")
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer/SubViewport/CharacterBody3D/Sprite3D"]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="HealthBar" type="ProgressBar" parent="SubViewportContainer/SubViewport/CharacterBody3D/Sprite3D/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -15.0
+offset_right = 87.5005
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_styles/background = SubResource("StyleBoxFlat_hg0u3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y2fxr")
+step = 1.0
+value = 100.0
+
+[node name="PlayerInteractor" parent="SubViewportContainer/SubViewport/CharacterBody3D" instance=ExtResource("4_ui11o")]
+
+[node name="CollisionShape3D" parent="SubViewportContainer/SubViewport/CharacterBody3D/PlayerInteractor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_2qcta")
+
+[node name="FpsCounter" parent="." instance=ExtResource("2_b82vw")]
+auto_translate_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[editable path="SubViewportContainer/SubViewport/CharacterBody3D/PlayerInteractor"]

@@ -1,0 +1,132 @@
+[gd_scene load_steps=15 format=3 uid="uid://dvqb5sm0so880"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_bc28k"]
+[ext_resource type="PackedScene" uid="uid://cvb3uocxvde1x" path="res://pause_menu.tscn" id="2_uvcoj"]
+[ext_resource type="PackedScene" uid="uid://cp6kud7bj8fnf" path="res://Fish.blend" id="2_vjnah"]
+[ext_resource type="PackedScene" uid="uid://b2h8ok8yfc7wb" path="res://addons/silent_wolf/Scores/Leaderboard.tscn" id="3_p6ywm"]
+[ext_resource type="Shader" path="res://addons/GPUTrail-main/shaders/trail.gdshader" id="3_xgri2"]
+[ext_resource type="Shader" path="res://addons/GPUTrail-main/shaders/trail_draw_pass.gdshader" id="4_jnetc"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrail-main/defaults/texture.tres" id="5_1mjfe"]
+[ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://addons/GPUTrail-main/defaults/curve.tres" id="6_2t4d5"]
+[ext_resource type="Script" path="res://addons/GPUTrail-main/GPUTrail3D.gd" id="7_oknn8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fjtqm"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_afo4s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btim0"]
+shader = ExtResource("3_xgri2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4muo"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_jnetc")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 44
+shader_parameter/color_ramp = ExtResource("5_1mjfe")
+shader_parameter/curve = ExtResource("6_2t4d5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vuskx"]
+material = SubResource("ShaderMaterial_w4muo")
+
+[node name="player" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_bc28k")
+
+[node name="standing_collision_shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_fjtqm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="standing_collision_shape"]
+visible = false
+mesh = SubResource("SphereMesh_afo4s")
+
+[node name="Fish" parent="standing_collision_shape" instance=ExtResource("2_vjnah")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.5, 0)
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="standing_collision_shape/Fish"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.471292, 0)
+amount = 25
+lifetime = 25.0
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ShaderMaterial_btim0")
+draw_pass_1 = SubResource("QuadMesh_vuskx")
+script = ExtResource("7_oknn8")
+length = 25
+color_ramp = ExtResource("5_1mjfe")
+curve = ExtResource("6_2t4d5")
+billboard = true
+_defaults_have_been_set = true
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.43952, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+fov = 70.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 121.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SCORE METER"
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_uvcoj")]
+visible = false
+
+[node name="LineEdit" type="LineEdit" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 407.0
+offset_top = -120.0
+offset_right = 474.063
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 339.0
+offset_top = -29.0
+offset_right = 531.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Leaderboard" parent="." instance=ExtResource("3_p6ywm")]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Leaderboard"]

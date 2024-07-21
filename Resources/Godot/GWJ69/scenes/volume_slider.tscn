@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf5lrywet5k12"]
+
+[ext_resource type="Script" path="res://scripts/VolumeSlider.gd" id="1_27yq7"]
+[ext_resource type="PackedScene" uid="uid://rlldm4r6aig6" path="res://scenes/InterfaceSounds.tscn" id="2_yjaf2"]
+
+[node name="VolumeSlider" type="HSlider"]
+offset_left = 60.0
+offset_right = 258.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+ticks_on_borders = true
+script = ExtResource("1_27yq7")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -68.0
+offset_right = 8.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 15
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InterfaceSounds" parent="." instance=ExtResource("2_yjaf2")]
+root_path = NodePath("..")

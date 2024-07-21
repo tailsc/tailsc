@@ -1,0 +1,286 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvb3uocxvde1x"]
+
+[ext_resource type="PackedScene" uid="uid://c8isg1fxjj84g" path="res://Options.tscn" id="2_ejmia"]
+
+[sub_resource type="GDScript" id="GDScript_7t538"]
+script/source = "extends ColorRect
+
+@onready var animator: AnimationPlayer = $AnimationPlayer
+@onready var pause_menu: Control = $PauseMenu
+@onready var pausemenu: Control = $PauseMenu
+@onready var options = $Options
+#@onready var unstuck_timer: Timer = $UnstuckTimer
+
+func show_and_hide(first, second):
+	first.show()
+	second.hide()
+
+func _ready() -> void:
+	$Options.hide()
+
+func unpause():
+	animator.play_backwards(\"fade\")
+	get_tree().paused = false
+	%ContinueBtn.disabled = true
+func pause():
+	animator.play(\"fade\")
+	get_tree().paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	%ContinueBtn.disabled = false
+
+
+func _on_continue_btn_pressed():
+	unpause()
+	#get_parent().get_parent().get_node(\"Player\").refresh_options()
+
+func _on_exit_level_btn_pressed():
+	unpause()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	ChangeScene.changeScene(ChangeScene.mainmenu)
+
+func _on_back_btn_pressed():
+	animator.play_backwards(\"Options_Fade\")
+	await animator.animation_finished
+	show_and_hide(pausemenu, options)
+
+
+func _on_option_btn_pressed() -> void:
+	animator.play(\"Options_Fade\")
+	show_and_hide(options, pausemenu)
+
+func _on_unstuck_btn_pressed() -> void:
+	get_parent().translate(Vector3(0, 10, 0))
+"
+
+[sub_resource type="Animation" id="Animation_gsvw3"]
+resource_name = "Options_Fade"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Options:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bi726"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.666667)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Options:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_37ogg"]
+resource_name = "fade"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.666667)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ge0k"]
+_data = {
+"Options_Fade": SubResource("Animation_gsvw3"),
+"RESET": SubResource("Animation_bi726"),
+"fade": SubResource("Animation_37ogg")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ttfqg"]
+streams_count = 1
+
+[node name="PauseMenu" type="ColorRect"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.666667)
+script = SubResource("GDScript_7t538")
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu/MarginContainer"]
+modulate = Color(0.136826, 0.136826, 0.136826, 1)
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "PAUSED"
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(103.005, 19.675)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ContinueBtn" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "CONTINUE"
+
+[node name="MarginContainer2" type="MarginContainer" parent="PauseMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(103.005, 19.675)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="OptionBtn" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "OPTIONS"
+
+[node name="MarginContainer3" type="MarginContainer" parent="PauseMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(103.005, 19.675)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ExitLevelBtn" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "EXIT LEVEL"
+
+[node name="UnstuckBtn" type="Button" parent="PauseMenu"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -308.0
+offset_right = -493.0
+offset_bottom = -291.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 16
+text = "UNSTUCK"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6ge0k")
+}
+
+[node name="Options" parent="." instance=ExtResource("2_ejmia")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+
+[node name="BackBtn" type="Button" parent="Options"]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 552.0
+offset_right = 980.0
+offset_bottom = 584.0
+theme_override_font_sizes/font_size = 20
+text = "BACK"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 2
+stream = SubResource("AudioStreamRandomizer_ttfqg")
+volume_db = -5.0
+autoplay = true
+
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/OptionBtn" to="." method="_on_option_btn_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ExitLevelBtn" to="." method="_on_exit_level_btn_pressed"]
+[connection signal="pressed" from="PauseMenu/UnstuckBtn" to="." method="_on_unstuck_btn_pressed"]
+[connection signal="pressed" from="Options/BackBtn" to="." method="_on_back_btn_pressed"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqobfotydrpim"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_31sow"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dcxht"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tfukf"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hlfeq"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egx4m"]
+bg_color = Color(0, 0, 0, 0.784314)
+border_color = Color(0.239216, 0.239216, 0.239216, 0.784314)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+anti_aliasing_size = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5c288"]
+bg_color = Color(1, 0, 0.129412, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+anti_aliasing_size = 2.0
+
+[node name="Enemy" type="CharacterBody3D" groups=["enemies"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_31sow")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_dcxht")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_tfukf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+avoidance_enabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+billboard = 1
+render_priority = 1
+texture = SubResource("ViewportTexture_hlfeq")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="ProgressBar" type="ProgressBar" parent="Sprite3D/SubViewport"]
+auto_translate_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -15.0
+offset_right = 87.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_styles/background = SubResource("StyleBoxFlat_egx4m")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5c288")
+max_value = 10.0
+step = 1.0
+value = 6.0
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

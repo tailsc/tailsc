@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi3dhx6gtdygk"]
+
+[ext_resource type="PackedScene" uid="uid://cj88dokxkfi60" path="res://[02] Scenes/Interactable.tscn" id="1_8ofuj"]
+[ext_resource type="Script" path="res://Town_Hall.gd" id="1_vilx0"]
+[ext_resource type="PackedScene" uid="uid://ckd36qwk04oe4" path="res://[01] Assets/Blender/Town_Hall.blend" id="3_qpqq5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ikvfi"]
+radius = 4.0
+
+[node name="Town_Hall" type="Node3D"]
+script = ExtResource("1_vilx0")
+
+[node name="Interactable" parent="." instance=ExtResource("1_8ofuj")]
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_ikvfi")
+
+[node name="Level_1" type="Node3D" parent="."]
+
+[node name="Label3D" type="Label3D" parent="Level_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.09854, 2.35147)
+billboard = 1
+render_priority = 1
+text = "TOWN HALL LEVEL 1"
+font_size = 64
+
+[node name="Town_Hall" parent="Level_1" instance=ExtResource("3_qpqq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00084, -2.15329, 0.335477)
+
+[node name="Level_2" type="Node3D" parent="."]
+visible = false
+
+[node name="Label3D" type="Label3D" parent="Level_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.09854, 2.35147)
+billboard = 1
+render_priority = 1
+text = "TOWN HALL LEVEL 2"
+font_size = 64
+
+[node name="Level_3" type="Node3D" parent="."]
+visible = false
+
+[node name="Label3D" type="Label3D" parent="Level_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.09854, 2.35147)
+billboard = 1
+render_priority = 1
+text = "TOWN HALL LEVEL 3"
+font_size = 64
+
+[node name="Level_4" type="Node3D" parent="."]
+visible = false
+
+[node name="Label3D" type="Label3D" parent="Level_4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.09854, 2.35147)
+billboard = 1
+render_priority = 1
+text = "TOWN HALL LEVEL 4"
+font_size = 64
+
+[node name="Level_5" type="Node3D" parent="."]
+visible = false
+
+[node name="Label3D" type="Label3D" parent="Level_5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.09854, 2.35147)
+billboard = 1
+render_priority = 1
+text = "TOWN HALL LEVEL 5"
+font_size = 64
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+
+[editable path="Interactable"]

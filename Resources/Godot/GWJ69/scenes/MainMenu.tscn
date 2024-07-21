@@ -1,0 +1,342 @@
+[gd_scene load_steps=26 format=3 uid="uid://c3xcgc53ytkha"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/stylized_sky.gdshader" id="1_tvad7"]
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_ujvne"]
+[ext_resource type="Script" path="res://scripts/DirectionalLight3D.gd" id="2_5enua"]
+[ext_resource type="Texture2D" uid="uid://b0feknsc021pe" path="res://assets/Textures/Kenny/star_05.png" id="2_j8ds6"]
+[ext_resource type="Texture2D" uid="uid://cm06fyf2ye0lg" path="res://assets/Textures/shooting_star_sampler.png" id="3_0kmvi"]
+[ext_resource type="PackedScene" uid="uid://rlldm4r6aig6" path="res://scenes/InterfaceSounds.tscn" id="4_phsnb"]
+[ext_resource type="PackedScene" uid="uid://c8isg1fxjj84g" path="res://scenes/Options.tscn" id="6_cpma0"]
+[ext_resource type="Shader" path="res://assets/Shaders/Scrolling.gdshader" id="7_la1cc"]
+[ext_resource type="Texture2D" uid="uid://bgiyqtl0wp0xl" path="res://assets/Textures/DiscordHover.png" id="7_xhh45"]
+[ext_resource type="Texture2D" uid="uid://bapl4tbrwnfdn" path="res://assets/Textures/5Star.png" id="8_qxnmw"]
+[ext_resource type="Theme" uid="uid://c1bsrhgi2i83q" path="res://Theme.tres" id="9_qnumk"]
+[ext_resource type="Texture2D" uid="uid://cuwgujl0v6r78" path="res://assets/Textures/Discord.png" id="9_yq0ad"]
+[ext_resource type="PackedScene" uid="uid://cxnwtrtjc2mbr" path="res://scenes/Fps.tscn" id="12_o12ir"]
+[ext_resource type="Script" path="res://scripts/WorldEnvironment.gd" id="13_6u1vu"]
+[ext_resource type="AudioStream" uid="uid://d0ar70uayfmk1" path="res://assets/Audio/Main_Menu.wav" id="14_6x6t4"]
+[ext_resource type="AudioStream" uid="uid://rxll1d4mpq7b" path="res://assets/Audio/Space_Ambience.wav" id="14_bgbfd"]
+[ext_resource type="AudioStream" uid="uid://btbo03xbe8hte" path="res://assets/Audio/Environment.ogg" id="15_fqlem"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mnnq1"]
+shader = ExtResource("1_tvad7")
+shader_parameter/clouds_samples = 16
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.5
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.035
+shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/high_clouds_density = 0.0
+shader_parameter/top_color = Color(0, 0, 0, 1)
+shader_parameter/bottom_color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/sun_scatter = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/astro_tint = Color(1, 1, 1, 1)
+shader_parameter/astro_scale = 10.0
+shader_parameter/astro_intensity = 3.0
+shader_parameter/astro_sampler = ExtResource("2_j8ds6")
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 10.0
+shader_parameter/shooting_star_tint = null
+shader_parameter/shooting_star_sampler = ExtResource("3_0kmvi")
+
+[sub_resource type="Sky" id="Sky_edfei"]
+sky_material = SubResource("ShaderMaterial_mnnq1")
+
+[sub_resource type="Environment" id="Environment_jgi0c"]
+background_mode = 2
+sky = SubResource("Sky_edfei")
+tonemap_mode = 3
+glow_levels/1 = 1.0
+glow_levels/2 = 1.0
+glow_levels/4 = 1.0
+glow_levels/6 = 1.0
+glow_levels/7 = 1.0
+glow_normalized = true
+glow_blend_mode = 0
+volumetric_fog_albedo = Color(0.192157, 0, 0.278431, 1)
+volumetric_fog_emission = Color(0.4, 0, 0.580392, 1)
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_length = 10.0
+adjustment_enabled = true
+adjustment_brightness = 0.8
+adjustment_saturation = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iijyj"]
+shader = ExtResource("7_la1cc")
+shader_parameter/Top_Color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/Mid_Color = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/Bot_Color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/pattern_color = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/scale = 5.51
+shader_parameter/ratio = 0.755
+shader_parameter/pattern_sampler = ExtResource("8_qxnmw")
+
+[sub_resource type="Animation" id="Animation_51nvt"]
+resource_name = "Main_Menu_Fade_Out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ui/MainMenu:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ui/Options:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o4aej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ui/MainMenu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ui/Options:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ee7x"]
+_data = {
+"Main_Menu_Fade_Out": SubResource("Animation_51nvt"),
+"RESET": SubResource("Animation_o4aej")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_knw66"]
+streams_count = 1
+stream_0/stream = ExtResource("14_6x6t4")
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_ujvne")
+
+[node name="GlobalEnvironment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="GlobalEnvironment"]
+environment = SubResource("Environment_jgi0c")
+script = ExtResource("13_6u1vu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="GlobalEnvironment"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("2_5enua")
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Background/SubViewportContainer"]
+handle_input_locally = false
+scaling_3d_mode = 2
+scaling_3d_scale = 2.0
+fsr_sharpness = 2.0
+size = Vector2i(1152, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Background/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 4.715, 2.29)
+
+[node name="HTML5" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_iijyj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_qnumk")
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="Control" parent="Ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameTitle" type="Button" parent="Ui/MainMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = -261.0
+offset_right = 195.0
+offset_bottom = -192.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Gobb"
+
+[node name="MenuBtn" type="MarginContainer" parent="Ui/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -95.0
+offset_right = 96.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui/MainMenu/MenuBtn"]
+layout_mode = 2
+
+[node name="PlayBtn" type="Button" parent="Ui/MainMenu/MenuBtn/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitBtn")
+theme_override_font_sizes/font_size = 35
+text = "PLAY"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Ui/MainMenu/MenuBtn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="OptionsBtn" type="Button" parent="Ui/MainMenu/MenuBtn/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "OPTIONS"
+
+[node name="MarginContainer" type="MarginContainer" parent="Ui/MainMenu/MenuBtn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="QuitBtn" type="Button" parent="Ui/MainMenu/MenuBtn/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../PlayBtn")
+theme_override_font_sizes/font_size = 26
+text = "QUIT"
+
+[node name="FpsCounter" parent="Ui/MainMenu" instance=ExtResource("12_o12ir")]
+layout_mode = 1
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+
+[node name="TextureBtn" type="Control" parent="Ui/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1104.0
+offset_top = 452.0
+offset_right = -1104.0
+offset_bottom = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Button" parent="Ui/MainMenu/TextureBtn"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = -211.0
+offset_right = 700.0
+offset_bottom = -179.0
+theme_override_font_sizes/font_size = 13
+text = "JOIN THE DISCORD!"
+
+[node name="DiscordBtn" type="TextureButton" parent="Ui/MainMenu/TextureBtn"]
+layout_mode = 0
+offset_left = 736.0
+offset_top = -213.0
+offset_right = 768.0
+offset_bottom = -181.0
+texture_normal = ExtResource("9_yq0ad")
+texture_hover = ExtResource("7_xhh45")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Options" parent="Ui" instance=ExtResource("6_cpma0")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+
+[node name="BackBtn" type="Button" parent="Ui/Options"]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 552.0
+offset_right = 980.0
+offset_bottom = 584.0
+theme_override_font_sizes/font_size = 20
+text = "BACK"
+
+[node name="MenuFadeAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ee7x")
+}
+
+[node name="InterfaceSounds" parent="." instance=ExtResource("4_phsnb")]
+root_path = NodePath("..")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_bgbfd")
+autoplay = true
+bus = &"Music"
+
+[node name="Ambience2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_fqlem")
+autoplay = true
+bus = &"Music"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_knw66")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="Ui/MainMenu/MenuBtn/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="Ui/MainMenu/MenuBtn/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="Ui/MainMenu/MenuBtn/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="Ui/MainMenu/TextureBtn/Label" to="." method="_on_discord_btn_pressed"]
+[connection signal="pressed" from="Ui/MainMenu/TextureBtn/DiscordBtn" to="." method="_on_discord_btn_pressed"]
+[connection signal="pressed" from="Ui/Options/BackBtn" to="." method="_on_back_btn_pressed"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://edcd654liyqv"]
+
+[ext_resource type="Shader" path="res://Caustics.gdshader" id="1_c2hfs"]
+[ext_resource type="AudioStream" uid="uid://fcamxb3sylyj" path="res://455211__deleted_user_4541234__pop2.wav" id="1_fxtjd"]
+
+[sub_resource type="Curve" id="Curve_t11xk"]
+_data = [Vector2(0, 1), 0.0, -0.175458, 0, 0, Vector2(0.99999, 0.0033727), -0.31987, -0.31987, 0, 0, Vector2(1, 0), -0.271415, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t3eom"]
+curve = SubResource("Curve_t11xk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ia683"]
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 90.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_t3eom")
+
+[sub_resource type="Gradient" id="Gradient_2p645"]
+offsets = PackedFloat32Array(0, 0.962025)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mgkxj"]
+gradient = SubResource("Gradient_2p645")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d0nmf"]
+render_priority = 0
+shader = ExtResource("1_c2hfs")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_mgkxj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vscd4"]
+next_pass = SubResource("ShaderMaterial_d0nmf")
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1ri3h"]
+material = SubResource("StandardMaterial3D_vscd4")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7rpa1"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("1_fxtjd")
+
+[node name="Explosion" type="GPUParticles3D"]
+transform = Transform3D(0.268451, 7.45058e-09, -0.963293, 0.927934, 0.268451, 0.258597, 0.258597, -0.963293, 0.0720662, 0, 0, 0)
+emitting = false
+amount = 15
+lifetime = 1.5
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+randomness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ia683")
+draw_pass_1 = SubResource("SphereMesh_1ri3h")
+
+[node name="explosion" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_7rpa1")
+volume_db = -10.0
+autoplay = true
+max_distance = 20.0
+bus = &"Sfx"

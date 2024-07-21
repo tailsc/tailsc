@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://clllbf6am8qdf"]
+
+[node name="SWButton" type="Button"]
+text = "Sample text"

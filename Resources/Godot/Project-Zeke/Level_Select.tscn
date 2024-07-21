@@ -1,0 +1,131 @@
+[gd_scene load_steps=16 format=3 uid="uid://c1w67ibc0lsa1"]
+
+[ext_resource type="PackedScene" uid="uid://dvqb5sm0so880" path="res://[02] Scenes/Player/Player.tscn" id="1_abv5f"]
+[ext_resource type="Script" path="res://Level_Select.gd" id="1_ebprv"]
+[ext_resource type="PackedScene" uid="uid://cj88dokxkfi60" path="res://[02] Scenes/Interactable.tscn" id="2_uw1tg"]
+[ext_resource type="Shader" uid="uid://dlryvqk7yrgws" path="res://[01] Assets/Blender/WaterShader.tres" id="3_0evd1"]
+[ext_resource type="PackedScene" uid="uid://ccwyuxacdbqso" path="res://[01] Assets/Blender/Cliff.blend" id="3_77klb"]
+[ext_resource type="PackedScene" uid="uid://8kftm1p6jvs4" path="res://[01] Assets/Blender/Levels.blend" id="5_r0cpo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sgeqm"]
+sky_top_color = Color(0, 0.137255, 0.160784, 1)
+sky_horizon_color = Color(0, 0.540575, 0.566936, 1)
+ground_bottom_color = Color(0, 0.138733, 0.159885, 1)
+ground_horizon_color = Color(0, 0.541176, 0.568627, 1)
+
+[sub_resource type="Sky" id="Sky_17dqa"]
+sky_material = SubResource("ProceduralSkyMaterial_sgeqm")
+
+[sub_resource type="Environment" id="Environment_h4rj7"]
+background_mode = 2
+sky = SubResource("Sky_17dqa")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lc14n"]
+render_priority = 1
+shader = ExtResource("3_0evd1")
+shader_parameter/ColorParameter = Color(0, 0.486275, 0.937255, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oro4t"]
+material = SubResource("ShaderMaterial_lc14n")
+size = Vector2(100, 100)
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qiw4b"]
+radius = 2.0
+
+[sub_resource type="Animation" id="Animation_ic3oe"]
+resource_name = "Level_Spin"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Levels/Levels:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w4qyb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Levels/Levels:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1ifw"]
+_data = {
+"Level_Spin": SubResource("Animation_ic3oe"),
+"RESET": SubResource("Animation_w4qyb")
+}
+
+[node name="Level_Select" type="Node3D"]
+script = ExtResource("1_ebprv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h4rj7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_abv5f")]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGCombiner3D"]
+mesh = SubResource("PlaneMesh_oro4t")
+
+[node name="Levels" type="Node3D" parent="."]
+
+[node name="Levels" parent="Levels" instance=ExtResource("5_r0cpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.446, 1.84441, -4.58902)
+
+[node name="Interactable" parent="Levels/Levels" instance=ExtResource("2_uw1tg")]
+transform = Transform3D(-2.69606e-08, 0, 0.616787, 0, 0.616787, 0, -0.616787, 0, -2.69606e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Levels/Levels/Interactable" index="0"]
+shape = SubResource("CylinderShape3D_qiw4b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f1ifw")
+}
+
+[node name="Cliff" parent="." instance=ExtResource("3_77klb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.7613, 1.67371, -4.11183)
+
+[node name="Cliff2" parent="." instance=ExtResource("3_77klb")]
+transform = Transform3D(-0.560914, 0, 0.827874, 0, 1, 0, -0.827874, 0, -0.560914, -7.56291, 1.67371, 7.81743)
+
+[node name="Cliff3" parent="." instance=ExtResource("3_77klb")]
+transform = Transform3D(-0.981557, 0, 0.191169, 0, 1, 0, -0.191169, 0, -0.981557, 2.85752, 1.67371, 15.4225)
+
+[node name="Cliff4" parent="." instance=ExtResource("3_77klb")]
+transform = Transform3D(0.802338, 0, 0.596869, 0, 1, 0, -0.596869, 0, 0.802338, -8.03443, 1.67371, -12.4989)
+
+[node name="Cliff5" parent="." instance=ExtResource("3_77klb")]
+transform = Transform3D(0.999896, 0, 0.0144159, 0, 1, 0, -0.0144159, 0, 0.999896, 2.42529, 1.67371, -18.0313)
+
+[node name="Cliff6" parent="." instance=ExtResource("3_77klb")]
+transform = Transform3D(0.882357, 0, -0.470581, 0, 1, 0, 0.470581, 0, 0.882357, 14.1817, 1.67371, -14.4871)
+
+[connection signal="interacted" from="Levels/Levels/Interactable" to="." method="_on_interactable_interacted"]
+
+[editable path="Levels/Levels/Interactable"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbisttrqg1ohu"]
+
+[ext_resource type="PackedScene" uid="uid://dvqb5sm0so880" path="res://player.tscn" id="1_1gnc0"]
+[ext_resource type="Script" path="res://WorldEnvironment.gd" id="1_mp40k"]
+[ext_resource type="Script" path="res://DirectionalLight3D.gd" id="2_bro7p"]
+[ext_resource type="PackedScene" uid="uid://d4gwhmxikwqj8" path="res://Pipe.tscn" id="2_d165q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6y645"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_nsevh"]
+sky_material = SubResource("ProceduralSkyMaterial_6y645")
+
+[sub_resource type="Environment" id="Environment_2cjrc"]
+background_mode = 2
+sky = SubResource("Sky_nsevh")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ms5vi"]
+albedo_color = Color(1, 0.470588, 0.407843, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2cjrc")
+script = ExtResource("1_mp40k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("2_bro7p")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215179, 0, -2.73676)
+size = Vector3(15.8325, 1, 18.3741)
+material = SubResource("StandardMaterial3D_ms5vi")
+
+[node name="player" parent="." instance=ExtResource("1_1gnc0")]
+
+[node name="Node3D" parent="." instance=ExtResource("2_d165q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -3)

@@ -1,0 +1,327 @@
+[gd_scene load_steps=18 format=3 uid="uid://bgb5wed7wec5i"]
+
+[ext_resource type="PackedScene" uid="uid://dvqb5sm0so880" path="res://scenes/player.tscn" id="1_2cc22"]
+[ext_resource type="Shader" path="res://assets/Shaders/stylized_sky.gdshader" id="1_onlei"]
+[ext_resource type="Texture2D" uid="uid://b0feknsc021pe" path="res://assets/Textures/Kenny/star_05.png" id="2_butgu"]
+[ext_resource type="Texture2D" uid="uid://cm06fyf2ye0lg" path="res://assets/Textures/shooting_star_sampler.png" id="3_68us8"]
+[ext_resource type="Script" path="res://scripts/WorldEnvironment.gd" id="4_ispkw"]
+[ext_resource type="Script" path="res://scripts/DirectionalLight3D.gd" id="5_ktm5f"]
+[ext_resource type="PackedScene" uid="uid://bn780a04qkh1" path="res://scenes/Rock.tscn" id="6_xbima"]
+[ext_resource type="PackedScene" uid="uid://cxnwtrtjc2mbr" path="res://scenes/Fps.tscn" id="7_vpcxg"]
+[ext_resource type="AudioStream" uid="uid://btbo03xbe8hte" path="res://assets/Audio/Environment.ogg" id="9_18b3b"]
+[ext_resource type="AudioStream" uid="uid://rxll1d4mpq7b" path="res://assets/Audio/Space_Ambience.wav" id="11_ngbdr"]
+[ext_resource type="AudioStream" uid="uid://d03mx680o1jog" path="res://assets/Audio/Music_Space_Chase.wav" id="12_4onfj"]
+[ext_resource type="PackedScene" uid="uid://dfot1v66qrutq" path="res://scenes/Satellite.tscn" id="13_wkeja"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nhr6g"]
+shader = ExtResource("1_onlei")
+shader_parameter/clouds_samples = 16
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.5
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.035
+shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/high_clouds_density = 0.0
+shader_parameter/top_color = Color(0, 0, 0, 1)
+shader_parameter/bottom_color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/sun_scatter = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/astro_tint = Color(1, 1, 1, 1)
+shader_parameter/astro_scale = 10.0
+shader_parameter/astro_intensity = 3.0
+shader_parameter/astro_sampler = ExtResource("2_butgu")
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 10.0
+shader_parameter/shooting_star_tint = null
+shader_parameter/shooting_star_sampler = ExtResource("3_68us8")
+
+[sub_resource type="Sky" id="Sky_tqdtg"]
+sky_material = SubResource("ShaderMaterial_nhr6g")
+
+[sub_resource type="Environment" id="Environment_22gbc"]
+background_mode = 2
+sky = SubResource("Sky_tqdtg")
+tonemap_mode = 3
+glow_levels/1 = 1.0
+glow_levels/2 = 1.0
+glow_levels/4 = 1.0
+glow_levels/6 = 1.0
+glow_levels/7 = 1.0
+glow_normalized = true
+glow_blend_mode = 0
+volumetric_fog_albedo = Color(0.192157, 0, 0.278431, 1)
+volumetric_fog_emission = Color(0.4, 0, 0.580392, 1)
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_length = 10.0
+adjustment_enabled = true
+adjustment_brightness = 0.8
+adjustment_saturation = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4j3x"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bjxas"]
+streams_count = 1
+stream_0/stream = ExtResource("12_4onfj")
+
+[node name="tutorial" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_22gbc")
+script = ExtResource("4_ispkw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("5_ktm5f")
+
+[node name="player" parent="." instance=ExtResource("1_2cc22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_g4j3x")
+
+[node name="FpsCounter" parent="." instance=ExtResource("7_vpcxg")]
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ngbdr")
+autoplay = true
+bus = &"Music"
+
+[node name="Ambience2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_18b3b")
+autoplay = true
+bus = &"Music"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_bjxas")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
+[node name="Rock4" parent="." instance=ExtResource("6_xbima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="GoldRock" parent="." instance=ExtResource("6_xbima")]
+Gold = true
+
+[node name="Satellite" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, 0)
+
+[node name="Satellite2" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, 8)
+
+[node name="Satellite3" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, 16)
+
+[node name="Satellite4" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, 24)
+
+[node name="Satellite5" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 64)
+
+[node name="Satellite6" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 64)
+
+[node name="Satellite7" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 64)
+
+[node name="Satellite8" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 64)
+
+[node name="Satellite9" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 64)
+
+[node name="Satellite10" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 64)
+
+[node name="Satellite11" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 64)
+
+[node name="Satellite12" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 64)
+
+[node name="Satellite13" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24, 0, 64)
+
+[node name="Satellite14" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 32, 0, 64)
+
+[node name="Satellite15" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 0, 64)
+
+[node name="Satellite16" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 64, 0, 24)
+
+[node name="Satellite17" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 64, 0, 16)
+
+[node name="Satellite18" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 64, 0, 8)
+
+[node name="Satellite19" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 64, 0, 0)
+
+[node name="Satellite20" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 64, 0, -8)
+
+[node name="Satellite21" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64, 0, -16)
+
+[node name="Satellite22" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64, 0, -24)
+
+[node name="Satellite23" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64, 0, -32)
+
+[node name="Satellite24" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64, 0, -40)
+
+[node name="Satellite44" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64, 0, -48)
+
+[node name="Satellite45" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64, 0, -56)
+
+[node name="Satellite25" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 40, 0, -64)
+
+[node name="Satellite26" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32, 0, -64)
+
+[node name="Satellite27" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24, 0, -64)
+
+[node name="Satellite41" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64, 0, -64)
+
+[node name="Satellite42" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 56, 0, -64)
+
+[node name="Satellite43" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 48, 0, -64)
+
+[node name="Satellite46" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -47.6, 0, -64)
+
+[node name="Satellite47" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -55.6, 0, -64)
+
+[node name="Satellite48" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -63.6, 0, -64)
+
+[node name="Satellite49" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -63.6, 0, -56)
+
+[node name="Satellite50" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -63.6, 0, -48)
+
+[node name="Satellite51" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -63.6, 0, 48.6)
+
+[node name="Satellite52" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -63.6, 0, 56.6)
+
+[node name="Satellite56" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -63.6, 0, 32.6)
+
+[node name="Satellite57" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -63.6, 0, 40.6)
+
+[node name="Satellite53" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -63.6, 0, 64.6)
+
+[node name="Satellite54" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -55.6, 0, 64.6)
+
+[node name="Satellite55" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -47.6, 0, 64.6)
+
+[node name="Satellite58" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, -8.9407e-08, -1.74846e-07, 8.9407e-08, -1, 1.06581e-14, -1.74846e-07, 0, 1, 64.2571, -1.53269e-07, 47.6)
+
+[node name="Satellite59" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, -8.9407e-08, -1.74846e-07, 8.9407e-08, -1, 1.06581e-14, -1.74846e-07, 0, 1, 64.2571, -1.53269e-07, 55.6)
+
+[node name="Satellite60" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, -8.9407e-08, -1.74846e-07, 8.9407e-08, -1, 1.06581e-14, -1.74846e-07, 0, 1, 64.2571, -1.53269e-07, 31.6)
+
+[node name="Satellite61" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, -8.9407e-08, -1.74846e-07, 8.9407e-08, -1, 1.06581e-14, -1.74846e-07, 0, 1, 64.2571, -1.53269e-07, 39.6)
+
+[node name="Satellite62" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, -8.9407e-08, -1.74846e-07, 8.9407e-08, -1, 1.06581e-14, -1.74846e-07, 0, 1, 64.2571, -1.53269e-07, 63.6)
+
+[node name="Satellite63" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, -8.9407e-08, -1.74846e-07, 8.9407e-08, -1, 1.06581e-14, -1.74846e-07, 0, 1, 56.2571, 9.19615e-07, 63.6)
+
+[node name="Satellite64" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, -8.9407e-08, -1.74846e-07, 8.9407e-08, -1, 1.06581e-14, -1.74846e-07, 0, 1, 48.2571, 9.19615e-07, 63.6)
+
+[node name="Satellite28" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16, 0, -64)
+
+[node name="Satellite29" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 0, -64)
+
+[node name="Satellite30" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -64)
+
+[node name="Satellite31" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8, 0, -64)
+
+[node name="Satellite32" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -16, 0, -64)
+
+[node name="Satellite33" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24, 0, -64)
+
+[node name="Satellite34" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -32, 0, -64)
+
+[node name="Satellite35" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -40, 0, -64)
+
+[node name="Satellite36" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -64, 0, -40)
+
+[node name="Satellite37" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -64, 0, -32)
+
+[node name="Satellite38" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -64, 0, -24)
+
+[node name="Satellite39" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -64, 0, -16)
+
+[node name="Satellite40" parent="." instance=ExtResource("13_wkeja")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -64, 0, -8)
+
+[node name="spawn_rot" type="Node3D" parent="."]
+
+[node name="spawnpoint" type="Node3D" parent="spawn_rot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.3217)
+
+[node name="Rock" parent="." instance=ExtResource("6_xbima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.74319)
+
+[node name="Rock5" parent="." instance=ExtResource("6_xbima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 7.74319)
+
+[node name="Rock2" parent="." instance=ExtResource("6_xbima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.52854, 0, 8.0144)
+
+[node name="Rock3" parent="." instance=ExtResource("6_xbima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.76822, 0, -0.02459)
+
+[node name="Rock6" parent="." instance=ExtResource("6_xbima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.76822, 0, -8.02459)
+
+[node name="Rock7" parent="." instance=ExtResource("6_xbima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23178, 0, -8.02459)
+
+[node name="Rock8" parent="." instance=ExtResource("6_xbima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23178, 0, -8.02459)

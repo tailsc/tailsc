@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsh33b4p03ayd"]
+
+[ext_resource type="Script" path="res://addons/silent_wolf/Auth/ConfirmEmail.gd" id="1"]
+[ext_resource type="Theme" uid="uid://d2eakbmaefnt6" path="res://addons/silent_wolf/assets/themes/sw_theme.tres" id="1_wyfy3"]
+[ext_resource type="PackedScene" uid="uid://clllbf6am8qdf" path="res://addons/silent_wolf/common/SWButton.tscn" id="2"]
+
+[node name="ConfirmEmail" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+theme = ExtResource("1_wyfy3")
+script = ExtResource("1")
+
+[node name="FormContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 562.0
+offset_top = 221.0
+offset_right = 1096.0
+offset_bottom = 804.0
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="FormContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "Confirm your email address"
+horizontal_alignment = 1
+
+[node name="CodeContainer" type="HBoxContainer" parent="FormContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="FormContainer/CodeContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Code"
+
+[node name="VerifCode" type="LineEdit" parent="FormContainer/CodeContainer"]
+custom_minimum_size = Vector2(220, 80)
+layout_mode = 2
+max_length = 30
+
+[node name="ErrorMessage" type="Label" parent="FormContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92549, 0, 0, 1)
+autowrap_mode = 1
+
+[node name="ConfirmButton" parent="FormContainer" instance=ExtResource("2")]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Submit"
+
+[node name="ResendConfCodeButton" parent="FormContainer" instance=ExtResource("2")]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resend code"
+
+[node name="ProcessingLabel" type="Label" parent="FormContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Processing..."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="FormContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="FormContainer/ResendConfCodeButton" to="." method="_on_ResendConfCodeButton_pressed"]

@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://c4rdv4wkukc5g"]
+
+[ext_resource type="Script" path="res://addons/ridiculous_coding/resources/effects/boom.gd" id="1_125dg"]
+[ext_resource type="Texture2D" uid="uid://dl75e74oom1i3" path="res://addons/ridiculous_coding/images/boom.png" id="2_1f670"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3t5t"]
+atlas = ExtResource("2_1f670")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4skxo"]
+atlas = ExtResource("2_1f670")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccvbr"]
+atlas = ExtResource("2_1f670")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ojec"]
+atlas = ExtResource("2_1f670")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1koxs"]
+atlas = ExtResource("2_1f670")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5t7n"]
+atlas = ExtResource("2_1f670")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27xno"]
+atlas = ExtResource("2_1f670")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ld5tu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3t5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4skxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccvbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ojec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1koxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5t7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27xno")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="Animation" id="Animation_pxf6h"]
+resource_name = "default"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoomSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.45), Vector2(0.55, 0.55)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocb2c"]
+_data = {
+"default": SubResource("Animation_pxf6h")
+}
+
+[node name="RcBoom" type="Node2D"]
+script = ExtResource("1_125dg")
+
+[node name="BoomSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 5
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_ld5tu")
+frame = 6
+frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ocb2c")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

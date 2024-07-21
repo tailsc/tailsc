@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbisttrqg1ohu"]
+
+[ext_resource type="Script" path="res://tutorial.gd" id="1_bnt1a"]
+[ext_resource type="Script" path="res://WorldEnvironment.gd" id="1_mp40k"]
+[ext_resource type="Script" path="res://DirectionalLight3D.gd" id="2_bro7p"]
+[ext_resource type="PackedScene" uid="uid://dvqb5sm0so880" path="res://player.tscn" id="4_41hva"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6y645"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_jsjpe"]
+sky_material = SubResource("ProceduralSkyMaterial_6y645")
+
+[sub_resource type="Environment" id="Environment_2cjrc"]
+background_mode = 2
+sky = SubResource("Sky_jsjpe")
+tonemap_mode = 2
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ms5vi"]
+albedo_color = Color(0, 0.14902, 1, 0)
+
+[node name="tutorial" type="Node3D"]
+script = ExtResource("1_bnt1a")
+
+[node name="Spawner" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2cjrc")
+script = ExtResource("1_mp40k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("2_bro7p")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 485.677)
+size = Vector3(10, 1, 1000)
+material = SubResource("StandardMaterial3D_ms5vi")
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Background/SubViewportContainer"]
+handle_input_locally = false
+scaling_3d_mode = 2
+scaling_3d_scale = 2.0
+fsr_sharpness = 2.0
+size = Vector2i(1152, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="player" parent="Background/SubViewportContainer/SubViewport" instance=ExtResource("4_41hva")]
+
+[connection signal="timeout" from="Spawner" to="." method="_on_spawner_timeout"]

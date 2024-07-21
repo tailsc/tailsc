@@ -1,0 +1,217 @@
+[gd_scene load_steps=13 format=3 uid="uid://bbisttrqg1ohu"]
+
+[ext_resource type="PackedScene" uid="uid://dvqb5sm0so880" path="res://player.tscn" id="1_1gnc0"]
+[ext_resource type="Script" path="res://tutorial.gd" id="1_bnt1a"]
+[ext_resource type="Script" path="res://WorldEnvironment.gd" id="1_mp40k"]
+[ext_resource type="Script" path="res://DirectionalLight3D.gd" id="2_bro7p"]
+[ext_resource type="PackedScene" uid="uid://cxnwtrtjc2mbr" path="res://Fps.tscn" id="5_jonju"]
+[ext_resource type="Texture2D" uid="uid://buik7n4iluown" path="res://Discord.png" id="6_1aivt"]
+[ext_resource type="Texture2D" uid="uid://4ksdlim5j5fu" path="res://DiscordHover.png" id="7_8w5qk"]
+[ext_resource type="PackedScene" uid="uid://c8isg1fxjj84g" path="res://Options.tscn" id="8_6wh5l"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6y645"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_nsevh"]
+sky_material = SubResource("ProceduralSkyMaterial_6y645")
+
+[sub_resource type="Environment" id="Environment_2cjrc"]
+background_mode = 2
+sky = SubResource("Sky_nsevh")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ms5vi"]
+albedo_color = Color(0, 0.14902, 1, 0)
+
+[node name="tutorial" type="Node3D"]
+script = ExtResource("1_bnt1a")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2cjrc")
+script = ExtResource("1_mp40k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("2_bro7p")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215179, 0, -60.5497)
+size = Vector3(15.8325, 1, 134)
+material = SubResource("StandardMaterial3D_ms5vi")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.5, -46)
+size = Vector3(1, 4, 107)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 7)
+size = Vector3(13, 4, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, -46)
+size = Vector3(1, 4, 107)
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Background/SubViewportContainer"]
+handle_input_locally = false
+scaling_3d_mode = 2
+scaling_3d_scale = 2.0
+fsr_sharpness = 2.0
+size = Vector2i(1152, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="player" parent="Background/SubViewportContainer/SubViewport" instance=ExtResource("1_1gnc0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Ui" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="Control" parent="Ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameTitle" type="Button" parent="Ui/MainMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = -261.0
+offset_right = 195.0
+offset_bottom = -192.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "SPEEDJAM"
+
+[node name="MenuBtn" type="MarginContainer" parent="Ui/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -95.0
+offset_right = 96.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui/MainMenu/MenuBtn"]
+layout_mode = 2
+
+[node name="PlayBtn" type="Button" parent="Ui/MainMenu/MenuBtn/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitBtn")
+theme_override_font_sizes/font_size = 35
+text = "PLAY"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Ui/MainMenu/MenuBtn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="OptionsBtn" type="Button" parent="Ui/MainMenu/MenuBtn/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "OPTIONS"
+
+[node name="MarginContainer" type="MarginContainer" parent="Ui/MainMenu/MenuBtn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="QuitBtn" type="Button" parent="Ui/MainMenu/MenuBtn/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../PlayBtn")
+theme_override_font_sizes/font_size = 26
+text = "QUIT"
+
+[node name="FpsCounter" parent="Ui/MainMenu" instance=ExtResource("5_jonju")]
+layout_mode = 1
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+
+[node name="TextureBtn" type="Control" parent="Ui/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1104.0
+offset_top = 452.0
+offset_right = -1104.0
+offset_bottom = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Button" parent="Ui/MainMenu/TextureBtn"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = -211.0
+offset_right = 700.0
+offset_bottom = -179.0
+theme_override_font_sizes/font_size = 13
+text = "JOIN THE DISCORD!"
+
+[node name="DiscordBtn" type="TextureButton" parent="Ui/MainMenu/TextureBtn"]
+layout_mode = 0
+offset_left = 736.0
+offset_top = -213.0
+offset_right = 768.0
+offset_bottom = -181.0
+texture_normal = ExtResource("6_1aivt")
+texture_hover = ExtResource("7_8w5qk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Options" parent="Ui" instance=ExtResource("8_6wh5l")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+
+[node name="BackBtn" type="Button" parent="Ui/Options"]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 552.0
+offset_right = 980.0
+offset_bottom = 584.0
+theme_override_font_sizes/font_size = 20
+text = "BACK"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

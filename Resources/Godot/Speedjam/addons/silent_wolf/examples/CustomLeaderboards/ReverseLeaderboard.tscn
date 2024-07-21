@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://de5nks52pxc80"]
+
+[ext_resource type="Theme" uid="uid://d2eakbmaefnt6" path="res://addons/silent_wolf/assets/themes/sw_theme.tres" id="2_1tgjj"]
+[ext_resource type="PackedScene" uid="uid://clllbf6am8qdf" path="res://addons/silent_wolf/common/SWButton.tscn" id="4"]
+[ext_resource type="Script" path="res://addons/silent_wolf/examples/CustomLeaderboards/ReverseLeaderboard.gd" id="5"]
+
+[sub_resource type="Theme" id="2"]
+
+[node name="ReverseLeaderboard" type="Node2D"]
+script = ExtResource("5")
+
+[node name="Board" type="VBoxContainer" parent="."]
+offset_left = 722.0
+offset_top = 293.0
+offset_right = 1287.0
+offset_bottom = 669.0
+theme = ExtResource("2_1tgjj")
+theme_override_constants/separation = 48
+
+[node name="TitleContainer" type="CenterContainer" parent="Board"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Board/TitleContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "Reverse Leaderboard"
+
+[node name="MessageContainer" type="CenterContainer" parent="Board"]
+visible = false
+layout_mode = 2
+
+[node name="TextMessage" type="Label" parent="Board/MessageContainer"]
+layout_mode = 2
+text = "Loading scores..."
+
+[node name="HighScores" type="CenterContainer" parent="Board"]
+layout_mode = 2
+theme = SubResource("2")
+
+[node name="ScoreItemContainer" type="VBoxContainer" parent="Board/HighScores"]
+layout_mode = 2
+
+[node name="CloseButtonContainer" type="CenterContainer" parent="Board"]
+layout_mode = 2
+
+[node name="CloseButton" parent="Board/CloseButtonContainer" instance=ExtResource("4")]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+text = "Close Leaderboard"
+
+[connection signal="pressed" from="Board/CloseButtonContainer/CloseButton" to="." method="_on_CloseButton_pressed"]

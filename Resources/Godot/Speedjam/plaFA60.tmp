@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvqb5sm0so880"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_bc28k"]
+[ext_resource type="PackedScene" uid="uid://cvb3uocxvde1x" path="res://pause_menu.tscn" id="2_uvcoj"]
+[ext_resource type="PackedScene" uid="uid://cp6kud7bj8fnf" path="res://Fish.blend" id="2_vjnah"]
+[ext_resource type="PackedScene" uid="uid://b2h8ok8yfc7wb" path="res://addons/silent_wolf/Scores/Leaderboard.tscn" id="3_p6ywm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fjtqm"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_afo4s"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ouerh"]
+
+[node name="player" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_bc28k")
+current_speed = null
+walking_speed = null
+sprinting_speed = null
+jump_velocity = null
+lerp_speed = null
+air_lerp_speed = null
+
+[node name="standing_collision_shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_fjtqm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="standing_collision_shape"]
+visible = false
+mesh = SubResource("SphereMesh_afo4s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="standing_collision_shape"]
+transform = Transform3D(0.646123, 0, 0, 0, 0.646123, 0, 0, 0, 0.646123, 0, 0, -0.56691)
+visible = false
+mesh = SubResource("SphereMesh_afo4s")
+
+[node name="Fish" parent="standing_collision_shape" instance=ExtResource("2_vjnah")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.5, 0)
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.43952, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+fov = 70.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 121.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SCORE METER"
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_uvcoj")]
+visible = false
+
+[node name="LineEdit" type="LineEdit" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 407.0
+offset_top = -120.0
+offset_right = 474.063
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 339.0
+offset_top = -29.0
+offset_right = 531.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Leaderboard" parent="." instance=ExtResource("3_p6ywm")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4346e-07, 0, -7.36033)
+mesh = SubResource("SphereMesh_ouerh")
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Leaderboard/Board/CloseButtonContainer/CloseButton" to="Leaderboard" method="_on_close_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Leaderboard"]

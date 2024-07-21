@@ -1,0 +1,810 @@
+[gd_scene load_steps=67 format=4 uid="uid://dvqb5sm0so880"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_bc28k"]
+[ext_resource type="Shader" path="res://addons/GPUTrail-main/shaders/trail.gdshader" id="2_bi1w8"]
+[ext_resource type="Shader" path="res://assets/Shaders/black_hole.gdshader" id="2_cbygx"]
+[ext_resource type="Shader" path="res://addons/GPUTrail-main/shaders/trail_draw_pass.gdshader" id="3_2fve6"]
+[ext_resource type="PackedScene" uid="uid://drasiutfrrc2q" path="res://assets/Blender/Rock.blend" id="3_bd4lm"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrail-main/defaults/texture.tres" id="4_353b0"]
+[ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://addons/GPUTrail-main/defaults/curve.tres" id="5_x6aon"]
+[ext_resource type="Script" path="res://addons/GPUTrail-main/GPUTrail3D.gd" id="6_0nljj"]
+[ext_resource type="Shader" path="res://assets/Shaders/Distortion.gdshader" id="7_81is0"]
+[ext_resource type="PackedScene" uid="uid://cvb3uocxvde1x" path="res://scenes/pause_menu.tscn" id="11_8rpdo"]
+[ext_resource type="AudioStream" uid="uid://chkstwur2b4dc" path="res://assets/Audio/Void_Black_Hole.mp3" id="12_tcwvk"]
+[ext_resource type="Shader" path="res://assets/Shaders/Scrolling.gdshader" id="13_wilgf"]
+[ext_resource type="Texture2D" uid="uid://bapl4tbrwnfdn" path="res://assets/Textures/5Star.png" id="14_tqox4"]
+[ext_resource type="Theme" uid="uid://c1bsrhgi2i83q" path="res://Theme.tres" id="15_p7ril"]
+[ext_resource type="Texture2D" uid="uid://xn7lxbi71u8f" path="res://assets/Textures/Kenny/circle_03.png" id="16_hc5bh"]
+[ext_resource type="Texture2D" uid="uid://dq6nae6osmhvu" path="res://assets/Textures/latest.png" id="17_bvn5l"]
+[ext_resource type="PackedScene" uid="uid://rlldm4r6aig6" path="res://scenes/InterfaceSounds.tscn" id="19_fgcwa"]
+[ext_resource type="AudioStream" uid="uid://dhm2sychc34dr" path="res://assets/Audio/Player.ogg" id="20_l7312"]
+[ext_resource type="AudioStream" uid="uid://b8jdwqcshtbl" path="res://assets/Audio/Crystal_Hit.wav" id="21_prjdd"]
+[ext_resource type="AudioStream" uid="uid://cofm10udw7kjg" path="res://assets/Audio/Collect.mp3" id="22_dp62t"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tbrpk"]
+radius = 0.001
+
+[sub_resource type="Gradient" id="Gradient_t5dra"]
+offsets = PackedFloat32Array(0, 0.19457, 0.81448, 1)
+colors = PackedColorArray(1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e4kvi"]
+gradient = SubResource("Gradient_t5dra")
+
+[sub_resource type="Curve" id="Curve_fao2s"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.70382, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2wcgb"]
+curve = SubResource("Curve_fao2s")
+
+[sub_resource type="Curve" id="Curve_nbr3s"]
+max_value = 0.2
+_data = [Vector2(0.0120482, 0.000505909), 0.0, 1.07074, 0, 0, Vector2(0.497992, 0.2), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.970709, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hwbnh"]
+curve = SubResource("Curve_nbr3s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pwuaf"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -15.0
+radial_accel_max = -10.0
+tangential_accel_min = 10.0
+tangential_accel_max = 10.0
+damping_min = 8.0
+damping_max = 8.0
+scale_curve = SubResource("CurveTexture_hwbnh")
+color = Color(1, 1, 0, 1)
+color_ramp = SubResource("GradientTexture1D_e4kvi")
+emission_curve = SubResource("CurveTexture_2wcgb")
+
+[sub_resource type="Curve" id="Curve_b531i"]
+_data = [Vector2(0, 0), 0.0, 3.0044, 0, 0, Vector2(0.501779, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.35639, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdrtu"]
+render_priority = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+use_particle_trails = true
+proximity_fade_enabled = true
+proximity_fade_distance = 2.0
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_ggiox"]
+material = SubResource("StandardMaterial3D_sdrtu")
+shape = 0
+curve = SubResource("Curve_b531i")
+
+[sub_resource type="Gradient" id="Gradient_bc4xx"]
+offsets = PackedFloat32Array(0.995708, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pjq2b"]
+resource_local_to_scene = true
+noise_type = 2
+frequency = 0.0081
+fractal_gain = 0.41
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c6pn1"]
+resource_local_to_scene = true
+seamless = true
+color_ramp = SubResource("Gradient_bc4xx")
+noise = SubResource("FastNoiseLite_pjq2b")
+
+[sub_resource type="Curve" id="Curve_kbmwf"]
+_data = [Vector2(0, 1), 0.0, -10.9174, 0, 0, Vector2(0.188755, 0.254637), 0.0, 0.0, 0, 0, Vector2(0.654618, 0.199831), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.72934, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_eh3wi"]
+resource_local_to_scene = true
+curve = SubResource("Curve_kbmwf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3tyum"]
+resource_local_to_scene = true
+render_priority = 2
+shader = ExtResource("2_cbygx")
+shader_parameter/energy = 10.0
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/hole_color = Color(0, 0, 0, 1)
+shader_parameter/rim = 0.3
+shader_parameter/proximity_fade = 0.3
+shader_parameter/accretion_radius_inner = 1.0
+shader_parameter/accretion_radius_outer = 7.0
+shader_parameter/lensing_radius = 0.02
+shader_parameter/lensing_falloff = 1.0
+shader_parameter/lensing_strength = 1.0
+shader_parameter/uv_mul = Vector2(1.765, 1)
+shader_parameter/uv_add = Vector2(0.19, 0)
+shader_parameter/accretion_disk = SubResource("NoiseTexture2D_c6pn1")
+shader_parameter/errosion_ramp = SubResource("CurveTexture_eh3wi")
+
+[sub_resource type="BoxMesh" id="BoxMesh_qsxo4"]
+flip_faces = true
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_np1qo"]
+render_priority = 2
+no_depth_test = true
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 2.0
+rim_tint = 0.03
+
+[sub_resource type="SphereMesh" id="SphereMesh_a41k4"]
+material = SubResource("StandardMaterial3D_np1qo")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e16n7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6vqh6"]
+noise = SubResource("FastNoiseLite_e16n7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_npvt2"]
+noise = SubResource("FastNoiseLite_e16n7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qd0kp"]
+noise = SubResource("FastNoiseLite_e16n7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eafho"]
+render_priority = 0
+shader = ExtResource("7_81is0")
+shader_parameter/distortionView = 0.03
+shader_parameter/speedView = 0.4
+shader_parameter/fesnelAmount = 1.1
+shader_parameter/distortionVertex = 0.2
+shader_parameter/speedVertex = 0.1
+shader_parameter/noiseViewX = SubResource("NoiseTexture2D_npvt2")
+shader_parameter/noiseViewY = SubResource("NoiseTexture2D_qd0kp")
+shader_parameter/noiseVertex = SubResource("NoiseTexture2D_6vqh6")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ca6cp"]
+radius = 0.6
+height = 1.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0dndy"]
+shader = ExtResource("2_bi1w8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hoppl"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("3_2fve6")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 46
+shader_parameter/tex = ExtResource("4_353b0")
+shader_parameter/color_ramp = ExtResource("4_353b0")
+shader_parameter/curve = ExtResource("5_x6aon")
+
+[sub_resource type="QuadMesh" id="QuadMesh_05dox"]
+material = SubResource("ShaderMaterial_hoppl")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5moh2"]
+radius = 2.34884
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ruow"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 3.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tcc2t"]
+load_path = "res://.godot/imported/Star2.png-3894cc7346976e399aefc042200e8fb4.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qlsa4"]
+shader = ExtResource("13_wilgf")
+shader_parameter/Top_Color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/Mid_Color = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/Bot_Color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/pattern_color = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/scale = 3.49
+shader_parameter/ratio = 0.285
+shader_parameter/pattern_sampler = SubResource("CompressedTexture2D_tcc2t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ol0g"]
+shader = ExtResource("13_wilgf")
+shader_parameter/Top_Color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/Mid_Color = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/Bot_Color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/pattern_color = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/scale = 3.49
+shader_parameter/ratio = 0.285
+shader_parameter/pattern_sampler = SubResource("CompressedTexture2D_tcc2t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kr2r3"]
+shader = ExtResource("13_wilgf")
+shader_parameter/Top_Color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/Mid_Color = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/Bot_Color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/pattern_color = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/scale = 3.49
+shader_parameter/ratio = 0.285
+shader_parameter/pattern_sampler = SubResource("CompressedTexture2D_tcc2t")
+
+[sub_resource type="Curve" id="Curve_2q817"]
+max_value = 0.25
+_data = [Vector2(0, 0.25), 0.0, 0.0, 0, 0, Vector2(0.740506, 0.25), 0.0, 0.0, 0, 0, Vector2(0.892405, 0), -6.07694, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_c8pc8"]
+offsets = PackedFloat32Array(0, 0.907692, 1)
+colors = PackedColorArray(0.737255, 0.301961, 0.980392, 1, 0.737255, 0.301961, 0.980392, 1, 0.737255, 0.301961, 0.980392, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ey5o"]
+resource_name = "Material.001"
+cull_mode = 2
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yjng5"]
+_surfaces = [{
+"aabb": AABB(-2.9305, -1, -6, 5.861, 2, 7),
+"format": 34359742465,
+"index_count": 276,
+"index_data": PackedByteArray("DgADABAADgABAAMAEwARABcAEwANABEAFQAfABIAFQAjAB8AFgAtACIALQAdACgACQAPAAQALQAJAB0ADwAtABYALQAPAAkACAAcAAoACAAaABwAGAAnABsAGAAkACcAIQAsAB4AIQAuACwAJQAvACkAJQArAC8AAgALAAUAAgAHAAsAAAACAAEAAwAFAAQABgAIAAcACQALAAoADAAOAA0ADwARABAAEgAUABMAFQAXABYAGAAaABkAGwAdABwAHgAgAB8AIQAjACIAJAAmACUAJwApACgAKgAsACsALQAvAC4ABgACAAAABgAHAAIAAQAFAAMAAQACAAUABAALAAkABAAFAAsACgAHAAgACgALAAcAFwASABMAFwAVABIADAATABQADAANABMAFgARAA8AFgAXABEAEAANAA4AEAARAA0AAAAOAAwAAAABAA4ADwADAAQADwAQAAMAGwAaABgAGwAcABoAIwAeAB8AIwAhAB4ACQAcAB0ACQAKABwAGQAIAAYAGQAaAAgAFAAfACAAFAASAB8AIgAVABYAIgAjABUAKQAkACUAKQAnACQAKgAlACYAKgArACUAKAAvAC0AKAApAC8ALgArACwALgAvACsAIQAtAC4AIQAiAC0AJwAdABsAJwAoAB0AJgAYABkAJgAkABgAIAAsACoAIAAeACwABgAmABkAJgAgACoAFAAAAAwAJgAUACAAAAAmAAYAJgAAABQA"),
+"lods": [0.134678, PackedByteArray("DQAFAA8ADQAAAAUAFAAPABYAFAANAA8AFgAgABQAFgAiACAAFgAtACIADwAtABYALQAPAAkACQAPAAUALQAJAB0ALQAdACgAJwAoAB0AKAAvAC0AKAApAC8AJwApACgAGQAnAB0AGQAmACcAKQAnACYAKQAmACUAJQAvACkAJQArAC8ALQAvACsALQArACwAIgAtACwAIgAsACAAKgArACUAKgAsACsAIAAsACoAKgAlACYAJgAgACoAJgAUACAAJgAAABQAFAAAAA0AAAAmAAYABgAmABkABgAdAAkABgAZAB0AAAAJAAUAAAAGAAkA"), 1.6232, PackedByteArray("LQAdACgAHQApACgALQAJAB0ALQAAAAkAKAAvAC0AKAApAC8AKQAdACYAKQAmACUAJQAvACkAJQArAC8ALQAvACsALQArABQAKgAUACsAKgArACUAKgAlACYAJgAUACoAJgAAABQAAAAtABQACQAmAB0AAAAmAAkA"), 1.9335, PackedByteArray("JQAvACkAKAApAC8AJQArAC8AKgArACUAKgAUACsAFAAvACsAKAAvABQAFAApACgAKQAUACUAKgAlABQA")],
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("Z2ZmvwAAgL9nZmY/Z2Zmv2dmZr8AAIA/AACAv2dmZr9nZmY/Z2Zmv2dmZj8AAIA/Z2ZmvwAAgD9nZmY/AACAv2dmZj9nZmY/Z2ZmvwAAgL9mZkbAAACAv2dmZr+amTnAzMyMv2dmZr8AAEDAZ2ZmvwAAgD9mZkbAzMyMv2dmZj8AAEDAAACAv2dmZj+amTnAZ2ZmPwAAgL9nZmY/AACAP2dmZr9nZmY/Z2ZmP2dmZr8AAIA/Z2ZmPwAAgD9nZmY/Z2ZmP2dmZj8AAIA/AACAP2dmZj9nZmY/zMyMP2dmZr8AAEDAAACAP2dmZr+amTnAZ2ZmPwAAgL9mZkbAzMyMP2dmZj8AAEDAZ2ZmPwAAgD9mZkbAAACAP2dmZj+amTnAR407wGdmZr/+mUTAdekwwAAAgL9mZkbAmpk5wGdmZr8AAEDAR407wGdmZj/+mUTAmpk5wGdmZj8AAEDAdekwwAAAgD9mZkbAR407QGdmZr/+mUTAmpk5QGdmZr8AAEDAdekwQAAAgL9mZkbAR407QGdmZj/+mUTAdekwQAAAgD9mZkbAmpk5QGdmZj8AAEDAAJItvmdmZr8Bs73AAAAgs2dmZr8AAMDAQ9trvQAAgL/NzLzA+5EtvmdmZj8Bs73AQttrvQAAgD/NzLzAAAAgs2dmZj8AAMDAONtrPQAAgL/NzLzAAAAAAGdmZr8AAMDA+JEtPmdmZr8Bs73AOdtrPQAAgD/NzLzA/ZEtPmdmZj8Bs73AAAAAAGdmZj8AAMDA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_88jmw"]
+resource_name = "Arrow_Cube_001"
+_surfaces = [{
+"aabb": AABB(-2.9305, -1, -6, 5.861, 2, 7),
+"attribute_data": PackedByteArray("OzJBPchK8D06MkE9IKXzPaN9Oj3YSvA9OjJBPSCl8z07MkE9yErwPaN9Oj3YSvA9OzJBPfBdVD2kfTo9EMdhPQ/JMz2AEls9OzJBPfBdVD0PyTM9gBJbPaN9Oj0gx2E9ZPKcPdhK8D2vTKA92ErwPWTynD0opfM9ZPKcPdhK8D1k8pw9KKXzPa9MoD3YSvA9/KajPYASWz2wTKA9EMdhPWbynD0AXlQ9/KajPYASWz1m8pw9AF5UPa9MoD0Qx2E94CtkPHBAVj2NYYg88F1UPfhZbDyAEls94ytkPFBAVj35WWw8gBJbPY5hiDzgXVQ9DgbhPVBAVj1MAOA9gBJbPSZz2z3gXVQ9DAbhPXBAVj0nc9s98F1UPUwA4D2AEls92i1yPQDatTuMi309AEePOxaveT2A68Q73S1yPQDZtTsVr3k9AOzEO4qLfT0ASI87AbSAPYDrxDuMi309gEePO510hD0A2bU7AbSAPYDrxDucdIQ9ANq1O4mLfT0ASI87ZvKcPQBeVD1m8pw9AF5UPWbynD0AXlQ9ZvKcPQBeVD1m8pw9AF5UPYyLfT0AR487jIt9PQBHjzuMi309AEePOxWveT0A7MQ7Fa95PQDsxDuKi309AEiPO4qLfT0ASI87iot9PQBIjzsBtIA9gOvEOwG0gD2A68Q7jIt9PYBHjzuJi309AEiPO4mLfT0ASI87OzJBPchK8D07MkE9yErwPTsyQT3ISvA9OzJBPchK8D07MkE98F1UPTsyQT3wXVQ9OzJBPfBdVD1m8pw9AF5UPWbynD0AXlQ9ZvKcPQBeVD2OYYg84F1UPY5hiDzgXVQ9jmGIPOBdVD2Mi309AEePOxaveT2A68Q7Fq95PYDrxDsWr3k9gOvEOxaveT2A68Q7Fa95PQDsxDuKi309AEiPO4qLfT0ASI87AbSAPYDrxDuMi309gEePOwG0gD2A68Q7AbSAPYDrxDsBtIA9gOvEO4mLfT0ASI87OzJBPchK8D07MkE9yErwPTsyQT3ISvA9o306PdhK8D2jfTo92ErwPTsyQT3wXVQ9OzJBPfBdVD07MkE98F1UPTsyQT3wXVQ9OzJBPfBdVD2vTKA92ErwPa9MoD3YSvA9ZPKcPdhK8D1k8pw92ErwPWTynD3YSvA9ZvKcPQBeVD1m8pw9AF5UPWbynD0AXlQ9ZvKcPQBeVD2NYYg88F1UPY1hiDzwXVQ9jmGIPOBdVD2OYYg84F1UPY5hiDzgXVQ9JnPbPeBdVD0mc9s94F1UPSZz2z3gXVQ9J3PbPfBdVD0nc9s98F1UPYyLfT0AR487Fq95PYDrxDsWr3k9gOvEO90tcj0A2bU73S1yPQDZtTsVr3k9AOzEO4qLfT0ASI87AbSAPYDrxDuMi309gEePO510hD0A2bU7nXSEPQDZtTsBtIA9gOvEOwG0gD2A68Q7iYt9PQBIjzuJi309AEiPOw=="),
+"format": 34359742487,
+"index_count": 276,
+"index_data": PackedByteArray("DgADABAADgABAAMAEwARABcAEwANABEAFQAfABIAFQAjAB8AFgAtACIALQAdACgACQAPAAQALQAJAB0ADwAtABYALQAPAAkACAAcAAoACAAaABwAGAAnABsAGAAkACcAIQAsAB4AIQAuACwAJQAvACkAJQArAC8AAgALAAUAAgAHAAsAAAACAAEAAwAFAAQABgAIAAcACQALAAoADAAOAA0ADwARABAAEgAUABMAFQAXABYAGAAaABkAGwAdABwAHgAgAB8AIQAjACIAJAAmACUAJwApACgAKgAsACsALQAvAC4ABgACAAAABgAHAAIAAQAFAAMAAQACAAUABAALAAkABAAFAAsACgAHAAgACgALAAcAFwASABMAFwAVABIADAATABQADAANABMAFgARAA8AFgAXABEAEAANAA4AEAARAA0AAAAOAAwAAAABAA4ADwADAAQADwAQAAMAGwAaABgAGwAcABoAIwAeAB8AIwAhAB4ACQAcAB0ACQAKABwAGQAIAAYAGQAaAAgAFAAfACAAFAASAB8AIgAVABYAIgAjABUAKQAkACUAKQAnACQAKgAlACYAKgArACUAKAAvAC0AKAApAC8ALgArACwALgAvACsAIQAtAC4AIQAiAC0AJwAdABsAJwAoAB0AJgAYABkAJgAkABgAIAAsACoAIAAeACwABgAmABkAJgAgACoAFAAAAAwAJgAUACAAAAAmAAYAJgAAABQA"),
+"lods": [0.134678, PackedByteArray("ZwBgAGkAZwBdAGAAbABqAG4AbAANAGoAbwB1AG0AbwB4AHUAFgCFACIAawCFABYAhQBrAAkACQBrAGEAhQAJAHIAhQByAH8AfgB/AHIAfwCIAIUAfwCAAIcAfQCAAH8AcQB9AHQAcQB7AH0AgAB9AHsAgAB7AHoAegCHAIAAegCCAIcAhgCHAIIAhgCCAIMAeQCGAIMAeQCDAHYAgQCCAHoAgQCEAIIAdwCEAIEAgQB6AHwAfAB3AIEAfAAUAHcAfABfABQAFABfAGgAXwB8AAYABgB8ABkAYgBzAGUAYwBwAHMAXgBmAAUAXgBkAGYA"), 1.6232, PackedByteArray("WQBMAFQATABWAFQAWQBGAEwAWQBDAEYAVABcAFkAVABVAFwAVQBNAFAAVQBQAE8ATwBcAFUATwBYAFwAWwBcAFgAWwBYAEoAVwBKAFgAVwBYAE8AVwBPAFEAUQBLAFcAUQBFAEsAQgBaAEkARwBSAE4ARABTAEgA"), 1.9335, PackedByteArray("NQBAADoAOQA6AEAANQA/AEAAPQA/ADUAPQAxAD8AMQBBAD8AOQBBADQAMAA7ADgAPAAyADYAPgA3ADMA")],
+"material": SubResource("StandardMaterial3D_8ey5o"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 137,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yjng5")
+
+[sub_resource type="Animation" id="Animation_qufuw"]
+resource_name = "Collect"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5661),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2:playing")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_s23fr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_my3km"]
+_data = {
+"Collect": SubResource("Animation_qufuw"),
+"RESET": SubResource("Animation_s23fr")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mkuev"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("12_tcwvk")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gbswl"]
+viewport_path = NodePath("HTML5/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lh3v0"]
+shader = ExtResource("13_wilgf")
+shader_parameter/Top_Color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/Mid_Color = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/Bot_Color = Color(0.192157, 0, 0.278431, 1)
+shader_parameter/pattern_color = Color(0.588235, 0.0784314, 0.815686, 1)
+shader_parameter/scale = 2.71
+shader_parameter/ratio = 0.63
+shader_parameter/pattern_sampler = ExtResource("14_tqox4")
+
+[node name="player" type="CharacterBody3D"]
+collision_layer = 0
+script = ExtResource("1_bc28k")
+
+[node name="collision_shape" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tbrpk")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="collision_shape"]
+amount = 20
+lifetime = 2.0
+randomness = 1.0
+local_coords = true
+trail_enabled = true
+trail_lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_pwuaf")
+draw_pass_1 = SubResource("RibbonTrailMesh_ggiox")
+
+[node name="Core" type="MeshInstance3D" parent="collision_shape"]
+transform = Transform3D(0.320289, 0, 0, 0, 0.320289, 0, 0, 0, 0.320289, 0, 0, 0)
+visible = false
+material_override = SubResource("ShaderMaterial_3tyum")
+mesh = SubResource("BoxMesh_qsxo4")
+
+[node name="HTML5 Core" type="MeshInstance3D" parent="collision_shape"]
+mesh = SubResource("SphereMesh_a41k4")
+
+[node name="Distortion" type="MeshInstance3D" parent="collision_shape"]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, 0, 0, 0)
+visible = false
+material_override = SubResource("ShaderMaterial_eafho")
+mesh = SubResource("SphereMesh_ca6cp")
+
+[node name="DistortionSize" type="MeshInstance3D" parent="collision_shape/Distortion"]
+visible = false
+mesh = SubResource("SphereMesh_ca6cp")
+skeleton = NodePath("../..")
+
+[node name="Rock" parent="collision_shape" instance=ExtResource("3_bd4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.615266)
+visible = false
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="collision_shape"]
+amount = 50
+lifetime = 50.0
+explosiveness = 1.0
+fixed_fps = 0
+process_material = SubResource("ShaderMaterial_0dndy")
+draw_pass_1 = SubResource("QuadMesh_05dox")
+script = ExtResource("6_0nljj")
+length = 50
+color_ramp = ExtResource("4_353b0")
+curve = ExtResource("5_x6aon")
+use_red_as_alpha = true
+billboard = true
+_defaults_have_been_set = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 4.715, 2.29)
+current = true
+
+[node name="pull field" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pull field"]
+shape = SubResource("SphereShape3D_5moh2")
+
+[node name="PauseMenu" parent="." instance=ExtResource("11_8rpdo")]
+visible = false
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="UPGRADE" type="Control" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/UPGRADE"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -194.0
+offset_right = 224.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 150
+
+[node name="Control" type="Control" parent="UI/UPGRADE/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="UI/UPGRADE/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -64.0
+offset_right = 192.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ruow")
+
+[node name="Panel2" type="Panel" parent="UI/UPGRADE/VBoxContainer/Control/Panel"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -64.0
+offset_right = 192.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/UPGRADE/VBoxContainer/Control/Panel/Panel2"]
+material = SubResource("ShaderMaterial_qlsa4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("15_p7ril")
+
+[node name="SpeedBtn" type="Button" parent="UI/UPGRADE/VBoxContainer/Control/Panel"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Speed
+Upgrade
+
++ 1"
+
+[node name="Control2" type="Control" parent="UI/UPGRADE/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="UI/UPGRADE/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -64.0
+offset_right = 192.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ruow")
+
+[node name="Panel2" type="Panel" parent="UI/UPGRADE/VBoxContainer/Control2/Panel2"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -64.0
+offset_right = 192.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/UPGRADE/VBoxContainer/Control2/Panel2/Panel2"]
+material = SubResource("ShaderMaterial_7ol0g")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("15_p7ril")
+
+[node name="StrengthBtn" type="Button" parent="UI/UPGRADE/VBoxContainer/Control2/Panel2"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Strength
+Upgrade
+
++ 0"
+
+[node name="Control3" type="Control" parent="UI/UPGRADE/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="UI/UPGRADE/VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -64.0
+offset_right = 192.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ruow")
+
+[node name="Panel2" type="Panel" parent="UI/UPGRADE/VBoxContainer/Control3/Panel3"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -64.0
+offset_right = 192.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/UPGRADE/VBoxContainer/Control3/Panel3/Panel2"]
+material = SubResource("ShaderMaterial_kr2r3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("15_p7ril")
+
+[node name="HealthBtn" type="Button" parent="UI/UPGRADE/VBoxContainer/Control3/Panel3"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Health
+Upgrade
+
++ 0"
+
+[node name="CURRENCY" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="UI/CURRENCY"]
+layout_mode = 0
+offset_left = 984.0
+offset_top = 34.0
+offset_right = 1088.0
+offset_bottom = 66.0
+
+[node name="CurrencyBtn" type="Button" parent="UI/CURRENCY/Panel"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+alignment = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CURRENCY"]
+modulate = Color(0.588235, 0.0784314, 0.815686, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 955.0
+offset_top = -3.0
+offset_right = 1467.0
+offset_bottom = 509.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.13, 0.13)
+max_value = 3.0
+fill_mode = 4
+texture_progress = ExtResource("16_hc5bh")
+
+[node name="Panel2" type="Panel" parent="UI/CURRENCY"]
+layout_mode = 0
+offset_left = 984.0
+offset_top = 26.0
+offset_right = 1032.0
+offset_bottom = 74.0
+
+[node name="Crystal" type="Sprite2D" parent="UI/CURRENCY/Panel2"]
+modulate = Color(0.738948, 0.302203, 0.978794, 1)
+position = Vector2(24, 24)
+scale = Vector2(0.106667, 0.106667)
+texture = ExtResource("17_bvn5l")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+process_mode = 3
+position = Vector2(540, 400)
+emitting = false
+amount = 1
+lifetime = 2.2
+one_shot = true
+speed_scale = 2.2
+explosiveness = 0.5
+randomness = 1.0
+texture = ExtResource("17_bvn5l")
+gravity = Vector2(260, -200)
+scale_amount_curve = SubResource("Curve_2q817")
+color_ramp = SubResource("Gradient_c8pc8")
+
+[node name="spawn" type="Timer" parent="."]
+autostart = true
+
+[node name="rot" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="rot"]
+transform = Transform3D(0.14, 0, 0, 0, 0.14, 0, 0, 0, 0.14, 0, 0, -2.98187)
+mesh = SubResource("ArrayMesh_88jmw")
+
+[node name="InterfaceSounds" parent="." instance=ExtResource("19_fgcwa")]
+root_path = NodePath("..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_my3km")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_mkuev")
+volume_db = 80.0
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("20_l7312")
+autoplay = true
+bus = &"Music"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_prjdd")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_dp62t")
+volume_db = -40.0
+pitch_scale = 0.9
+
+[node name="HTML5" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.31, -3.415)
+texture = SubResource("ViewportTexture_gbswl")
+
+[node name="SubViewport" type="SubViewport" parent="HTML5"]
+size = Vector2i(2900, 1350)
+
+[node name="ColorRect" type="ColorRect" parent="HTML5/SubViewport"]
+material = SubResource("ShaderMaterial_lh3v0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("15_p7ril")
+
+[connection signal="level_up" from="." to="." method="_on_level_up"]
+[connection signal="body_entered" from="pull field" to="." method="_on_pull_field_body_entered"]
+[connection signal="body_exited" from="pull field" to="." method="_on_pull_field_body_exited"]
+[connection signal="pressed" from="UI/UPGRADE/VBoxContainer/Control/Panel/SpeedBtn" to="." method="_on_speed_btn_pressed"]
+[connection signal="pressed" from="UI/UPGRADE/VBoxContainer/Control2/Panel2/StrengthBtn" to="." method="_on_strength_btn_pressed"]
+[connection signal="pressed" from="UI/UPGRADE/VBoxContainer/Control3/Panel3/HealthBtn" to="." method="_on_health_btn_pressed"]
+[connection signal="pressed" from="UI/CURRENCY/Panel/CurrencyBtn" to="." method="_on_currency_btn_pressed"]
+[connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]
