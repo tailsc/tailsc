@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=2 format=3 uid="uid://dhwuqk0f0reva"]
+
+[ext_resource type="Script" path="res://Resources/equipment.gd" id="1_h4yo7"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_h4yo7")
+cost = Array[int]([])
+damage = Array[int]([])
