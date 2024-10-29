@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://1hb17lrg56p2"]
+
+[ext_resource type="Script" path="res://Scripts/example.gd" id="1_wuq5t"]
+[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="2_1lwmm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i612x"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_0au5a"]
+sky_material = SubResource("ProceduralSkyMaterial_i612x")
+
+[sub_resource type="Environment" id="Environment_8uo3i"]
+background_mode = 2
+sky = SubResource("Sky_0au5a")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_wuq5t")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8uo3i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("2_1lwmm")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -11.0
+offset_right = -85.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "75"
+
+[node name="HSlider" type="HSlider" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -8.0
+offset_right = 90.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 60.0
+max_value = 120.0
+value = 75.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
