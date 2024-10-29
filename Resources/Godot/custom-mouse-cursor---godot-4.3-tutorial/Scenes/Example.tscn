@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://c65h1vehtcy0e"]
+
+[ext_resource type="Script" path="res://Scripts/example.gd" id="1_mcyvq"]
+[ext_resource type="Texture2D" uid="uid://ccnyw7sey71mq" path="res://Assets/plant.png" id="2_jfes8"]
+[ext_resource type="Texture2D" uid="uid://cwuibvcxfj6h2" path="res://Assets/enemy.png" id="3_bbjw2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mcyvq")
+
+[node name="PlantTextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -102.0
+offset_right = -296.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+texture = ExtResource("2_jfes8")
+
+[node name="EnemyTextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 151.0
+offset_top = -94.0
+offset_right = 191.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+texture = ExtResource("3_bbjw2")
+
+[connection signal="mouse_entered" from="PlantTextureRect" to="." method="_on_plant_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="PlantTextureRect" to="." method="_on_plant_texture_rect_mouse_exited"]
+[connection signal="mouse_entered" from="EnemyTextureRect" to="." method="_on_enemy_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="EnemyTextureRect" to="." method="_on_enemy_texture_rect_mouse_exited"]
