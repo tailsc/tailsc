@@ -29,7 +29,7 @@
   Support the Project
 </h1>
 <p align="center">
-  If you want to support this repository, buy us a coffee:
+  If you want to support this repository, buy me a coffee:
   <a href="https://ko-fi.com/crowgames">Ko-fi</a>
 </p>
 <p align="center">
