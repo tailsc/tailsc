@@ -1,3 +1,4 @@
+<p align="center"><img align="center" width="128" src="https://github.com/FourGames/FourGames/blob/main/icon.png"/></p>
 <h1 align="center">
   How To Download
 </h1>
