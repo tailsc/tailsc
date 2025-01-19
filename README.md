@@ -15,7 +15,7 @@
 </h1>
 <p align="center">
   <a href="https://discord.com/invite/bQTPTc5Qrt">Discord</a> | 
-  <a href="https://www.youtube.com/@FourGamesDev?sub_confirmation=1">Youtube</a> |
+  <a href="https://www.youtube.com/@FourGamesDev?sub_confirmation=1">YouTube</a> |
   <a href="https://store.steampowered.com/curator/45447831">Steam</a>
 </p>
 
